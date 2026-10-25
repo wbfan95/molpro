@@ -1,0 +1,77 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Relativistic corrections"
+msgstr "相对论校正"
+
+msgid ""
+"There are three ways in Molpro  to take into account scalar relativistic "
+"effects:"
+msgstr "在 Molpro 中，有三种方法可以考虑标量相对论效应："
+
+msgid ""
+"Use the Douglas-Kroll-Hess or eXact-2-Component (X2C) relativistic one-"
+"electron integrals."
+msgstr "使用 Douglas-Kroll-Hess 或精确二分量 (X2C) 相对论单电子积分。"
+
+msgid ""
+"Compute a perturbational correction using the Cowan-Griffin operator (see "
+"section `One-electron operators and expectation values (GEXPEC) "
+"<program_control.html#one-electron-operators-and-expectation-values-"
+"gexpec>`__)."
+msgstr ""
+"使用 Cowan-Griffin 算符计算微扰校正（参见章节 `单电子算符和期望值 (GEXPEC) "
+"<program_control.html#one-electron-operators-and-expectation-values-"
+"gexpec>`__\\ ）。"
+
+msgid "Using the Douglas–Kroll–Hess or eXact-2-Component Hamiltonians"
+msgstr "使用 Douglas–Kroll–Hess 或精确二分量哈密顿量"
+
+msgid "or for X2C by setting"
+msgstr "或对于X2C，通过设置"
+
+msgid ""
+"Alternatively, these values can be given as options on the ``INT`` command:"
+msgstr "或者，这些值也可以作为\\ ``INT``\\ 命令的选项给出："
+
+msgid "or"
+msgstr "或"
+
+msgid "``INT,DKHO=101``"
+msgstr "``INT,DKHO=101``"
+
+msgid ""
+"The value of ``DKHP`` specifies the parametrization for the DKH treatment "
+"(it has no effect for X2C):"
+msgstr "``DKHP`` 的值指定了DKH处理的参数化方式（对X2C无影响）："
+
+msgid "**Example:**"
+msgstr "**示例：**"
+
+msgid "``SET,DKHO=8``"
+msgstr "``SET,DKHO=8``"
+
+msgid "DKH order = 8"
+msgstr "DKH 阶数 = 8"
+
+msgid "``SET,DKHP=2``"
+msgstr "``SET,DKHP=2``"
+
+msgid ""
+"choose exponential parametrization for unitary transformations (recommended)"
+msgstr "选择指数参数化用于酉变换（推荐）"
+
+msgid ""
+"See `here <program_control.html#example-for-computing-relativistic-"
+"corrections>`__ for an example for computing relativistic corrections."
+msgstr ""
+"有关计算相对论校正的示例，请参见 `此处 "
+"<program_control.html#exampleforcomputingrelativisticcorrections>`__\\ 。"

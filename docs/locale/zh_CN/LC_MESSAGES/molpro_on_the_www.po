@@ -1,0 +1,18 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Molpro on the www"
+msgstr "Molpro 在万维网上"
+
+msgid ""
+"The latest information on Molpro, including program updates, can be found "
+"`here <https://www.molpro.net/>`__."
+msgstr "关于 Molpro 的最新信息，包括程序更新，可在 `此处 <https://www.molpro.net/>`__ 找到。"

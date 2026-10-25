@@ -1,0 +1,22 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "License information"
+msgstr "许可证信息"
+
+msgid ""
+"The Molpro source code contains some external code which is listed in this "
+"section. Molpro binaries may, in some instances, contain compiled versions "
+"of this code also."
+msgstr "Molpro 源代码包含一些外部代码，本节列出了这些代码。在某些情况下，Molpro 二进制文件也可能包含这些代码的编译版本。"
+
+msgid "Eigen"
+msgstr "Eigen"

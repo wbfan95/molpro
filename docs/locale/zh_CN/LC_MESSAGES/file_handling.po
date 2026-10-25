@@ -1,0 +1,217 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "File handling"
+msgstr "文件处理"
+
+msgid "FILE"
+msgstr "FILE"
+
+msgid ""
+"*file* is the logical Molpro file number (1-9). *name* is the file name "
+"(will be converted to lower case). *status* can be one of the following:"
+msgstr "*file* 是 Molpro 的逻辑文件编号 (1-9)。\\ *name* 是文件名（将转换为小写）。\\ *status* 可以是以下之一："
+
+msgid ""
+"``UNKNOWN`` A permanent file is opened. If it exists, it is automatically "
+"restarted. This is the default."
+msgstr "``UNKNOWN`` 打开一个永久文件。如果文件存在，则自动重启。这是默认设置。"
+
+msgid ""
+"``OLD`` Same effect as ``UNKNOWN``. No error occurs if the file does not "
+"exist."
+msgstr "``OLD`` 效果与 ``UNKNOWN`` 相同。如果文件不存在，不会报错。"
+
+msgid ""
+"``NEW`` A permanent file is opened. If it already exists, it is erased and "
+"not restarted."
+msgstr "``NEW`` 打开一个永久文件。如果文件已存在，则会被擦除且不重启。"
+
+msgid "``ERASE`` Same effect as ``NEW``."
+msgstr "``ERASE`` 效果与 ``NEW`` 相同。"
+
+msgid ""
+"``SCRATCH`` A temporary file is opened. If it already exists, it is erased "
+"and not restarted. After the job has finished, the file is no longer "
+"existent."
+msgstr "``SCRATCH`` 打开一个临时文件。如果文件已存在，它将被擦除且不重启。作业完成后，该文件将不复存在。"
+
+msgid "``DELETE`` Same effect as ``SCRATCH``."
+msgstr "``DELETE`` 效果与 ``SCRATCH`` 相同。"
+
+msgid ""
+"Note that ``RESTART`` is now the default for all permanent files. All "
+"temporary files are usually allocated automatically where needed. I/O "
+"buffers are allocated at the top of the dynamic memory, and the available "
+"memory decreases by the size of the buffers. The ``MEMORY`` card must "
+"therefore be presented before the first ``FILE`` card!"
+msgstr ""
+"请注意，\\ ``RESTART`` "
+"现在是所有永久文件的默认设置。所有临时文件通常在需要时自动分配。I/O缓冲区分配在动态内存的顶部，可用内存会因缓冲区大小而减少。因此，必须在第一个 "
+"``FILE`` 卡片之前提供 ``MEMORY`` 卡片！"
+
+msgid "Examples:"
+msgstr "示例："
+
+msgid ""
+"``FILE,1,H2O.INT`` allocates permanent file 1 with name ``H2O.INT``. "
+"Previous information on the file is recovered."
+msgstr "``FILE,1,H2O.INT`` 分配永久文件1，名称为 ``H2O.INT``\\ 。恢复文件上先前的信息。"
+
+msgid ""
+"``FILE,2,H2O.WFU,NEW`` allocates permanent file 2 with name ``H2O.WFU``. All"
+" previous information on the file is erased."
+msgstr "``FILE,2,H2O.WFU,NEW`` 分配永久文件2，名称为 ``H2O.WFU``\\ 。擦除文件上所有先前的信息。"
+
+msgid "Note that filenames are converted to lower case on unix machines."
+msgstr "请注意，在Unix机器上，文件名会被转换为小写。"
+
+msgid "DELETE"
+msgstr "DELETE"
+
+msgid ""
+"Deletes the specified files. *file* refers to the logical Molpro file "
+"numbers as specified on the ``FILE`` card."
+msgstr "删除指定的文件。\\ *file* 指的是在 ``FILE`` 卡片中指定的逻辑 Molpro 文件编号。"
+
+msgid "ERASE"
+msgstr "ERASE"
+
+msgid ""
+"Erases the specified files. *file* refers to the logical Molpro file numbers"
+" as specified on the ``FILE`` card."
+msgstr "擦除指定的文件。\\ *file* 指的是在 ``FILE`` 卡片中指定的逻辑 Molpro 文件编号。"
+
+msgid "DATA"
+msgstr "DATA"
+
+msgid "The ``DATA`` command can be used to modify the Molpro binary files."
+msgstr "``DATA`` 命令可用于修改 Molpro 二进制文件。"
+
+msgid ""
+"``TRUNCATE,nen`` used to truncate files after *nen-1* records (alias for "
+"``NEN``)."
+msgstr "``TRUNCATE,nen`` 用于在 *nen-1* 条记录后截断文件（\\ ``NEN`` 的别名）。"
+
+msgid ""
+"``TRUNCATE,rec`` used to truncate before record *rec*. *rec* must be given "
+"in the form *name.ifil*, where *ifil* is the number of a Molpro binary file."
+msgstr ""
+"``TRUNCATE,rec`` 用于在记录 *rec* 之前截断。\\ *rec* 必须以 *name.ifil* 的形式给出，其中 *ifil* 是"
+" Molpro 二进制文件的编号。"
+
+msgid "``COUNT`` Alias for ``NRE`` (presently not used)"
+msgstr "``COUNT`` ``NRE`` 的别名（当前未使用）"
+
+msgid "Assigning punch files (PUNCH)"
+msgstr "分配穿孔文件（PUNCH）"
+
+msgid ""
+"Opens punch file named *filename*. If this file already exists, it is "
+"appended, unless the ``REWIND`` or ``NEW`` option is specified; in that "
+"case, any previous information on the punch file is overwritten. See "
+"``FILE`` for machine dependent interpretation of filename. The punch file "
+"contains all important results (geometries, energies, dipole, transition "
+"moments etc). It can be read by a separate program *READPUN*, which can "
+"produce tables in user supplied format."
+msgstr ""
+"打开名为 *filename* 的 punch 文件。如果该文件已存在，则追加内容，除非指定了 ``REWIND`` 或 ``NEW`` "
+"选项；在这种情况下，punch 文件上任何先前的信息将被覆盖。关于文件名的机器相关解释，请参见 ``FILE``\\ 。punch "
+"文件包含所有重要结果（几何结构、能量、偶极矩、跃迁矩等）。它可以被一个独立的程序 *READPUN* 读取，该程序可以生成用户指定格式的表格。"
+
+msgid "Example:"
+msgstr "示例："
+
+msgid "``PUNCH,H2O.PUN`` allocates punch file ``H2O.PUN``"
+msgstr "``PUNCH,H2O.PUN`` 分配 punch 文件 ``H2O.PUN``"
+
+msgid "Note that the file name is converted to lower case on unix machines."
+msgstr "请注意，在 unix 机器上，文件名会被转换为小写。"
+
+msgid "MOLPRO system parameters (GPARAM)"
+msgstr "MOLPRO 系统参数 (GPARAM)"
+
+msgid ""
+"The ``GPARAM`` card allows to change ``MOLPRO`` system parameters. This "
+"should only be used by experts!"
+msgstr "``GPARAM`` 卡片允许更改 ``MOLPRO`` 系统参数。这应仅由专家使用！"
+
+msgid "The following options can be given in any order."
+msgstr "以下选项可以按任意顺序给出。"
+
+msgid "``NOBUFF`` if present, disable system buffering"
+msgstr "``NOBUFF`` 如果存在，则禁用系统缓冲"
+
+msgid "``LSEG`` disk sector length"
+msgstr "``LSEG`` 磁盘扇区长度"
+
+msgid ""
+"``INTREL`` number of integer words per real word (should never be modified!)"
+msgstr "``INTREL`` 每个实数字的整数字数（永远不应修改！）"
+
+msgid ""
+"``IBANK`` number of memory banks. Default is 2, which should always be o.k."
+msgstr "``IBANK`` 内存库数量。默认值为2，通常总是合适的。"
+
+msgid "``IVECT`` 0=scalar, 1=vector machine"
+msgstr "``IVECT`` 0=标量机，1=向量机"
+
+msgid "``MINVEC`` minimum vector length for call to mxmb"
+msgstr "``MINVEC`` 调用 mxmb 的最小向量长度"
+
+msgid "``LTRACK`` page size in buffer routines (must be multiple of *lseg*)"
+msgstr "``LTRACK`` 缓冲区例程中的页面大小（必须是 *lseg* 的倍数）"
+
+msgid "``LENBUF`` length of integral buffer (file 1)"
+msgstr "``LENBUF`` 积分缓冲区长度（文件1）"
+
+msgid ""
+"``NTR`` length of integral records (must be multiple of :math:`3 \\cdot`\\ "
+"*ltrack*)"
+msgstr "``NTR`` 积分记录长度（必须是 :math:`3 \\cdot`\\ *ltrack* 的倍数）"
+
+msgid "``LTR`` disk sector length assumed in CI (default 1 is reasonable)"
+msgstr "``LTR`` CI 中假定的磁盘扇区长度（默认值 1 是合理的）"
+
+msgid "``NCACHE`` machine cache size in bytes"
+msgstr "``NCACHE`` 机器缓存大小（字节）"
+
+msgid "``IASYN`` if nonzero, use asynchronous I/O on CONVEX"
+msgstr "``IASYN`` 如果非零，在 CONVEX 上使用异步 I/O"
+
+msgid "``MXMBLK`` column/row block size for mxma"
+msgstr "``MXMBLK`` mxma 的列/行块大小"
+
+msgid "``MXMBLN`` link block size for mxma"
+msgstr "``MXMBLN`` mxma 的链接块大小"
+
+msgid "``NCPUS`` maximum number of cpus to be used in multitasking"
+msgstr "``NCPUS`` 多任务处理中要使用的最大 CPU 数量"
+
+msgid "``MINBR1`` min number of floating point ops per processor"
+msgstr "``MINBR1`` 每个处理器的最小浮点运算次数"
+
+msgid ""
+"``MXDMP`` highest file number to be treated as dump file with full "
+"functionality (:math:`1 \\le.` ``MXDMP``\\ :math:`\\le.3`)."
+msgstr ""
+"``MXDMP`` 将被视为具有完整功能的转储文件的最高文件编号 (:math:`1 \\le.` ``MXDMP``\\ "
+":math:`\\le.3`)。"
+
+msgid ""
+"The ``MXDMP`` option is for experts only! This prevents basis and geometry "
+"information from being written to dump files with higher file number than "
+"the given *value*, and can sometimes be useful for counterpoise corrected "
+"geometry optimizations. Note that some functionality is lost by giving this "
+"option, and errors will result unless all input is correct!"
+msgstr ""
+"``MXDMP`` 选项仅供专家使用！此选项可防止基组和几何结构信息被写入文件编号高于给定\\ *值*\\ "
+"的转储文件中，有时可用于反式校正的几何优化。请注意，指定此选项会丢失某些功能，除非所有输入都正确，否则将导致错误！"

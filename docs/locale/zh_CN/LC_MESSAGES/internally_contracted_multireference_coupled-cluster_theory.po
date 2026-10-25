@@ -1,0 +1,112 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Multireference CC computations"
+msgstr "多参考CC计算"
+
+msgid ""
+"Internally contracted multireference internally contracted coupled-cluster "
+"theory"
+msgstr "内收缩多参考内收缩耦合簇理论"
+
+msgid "Bibliography:"
+msgstr "参考文献："
+
+msgid "New ITF-based code in Molpro:"
+msgstr "Molpro中新的基于ITF的代码："
+
+msgid ""
+"All publications resulting from use of the corresponding methods must "
+"acknowledge the above."
+msgstr "所有使用相应方法产生的出版物必须引用上述文献。"
+
+msgid ""
+"The following options may be specified on the command line (all "
+"implementations):"
+msgstr "以下选项可在命令行中指定（所有实现）："
+
+msgid "Command line options for new implementation:"
+msgstr "新实现的命令行选项："
+
+msgid "Command line options for old implementation:"
+msgstr "旧实现的命令行选项："
+
+msgid ""
+"``GECCO`` Required: switch for calling the external GeCCo program (see below"
+" for setup)"
+msgstr "``GECCO`` 必需：调用外部 GeCCo 程序的开关（设置方法见下文）"
+
+msgid "``DUMP`` Do not execute the GeCCo program but dump interface files"
+msgstr "``DUMP`` 不执行 GeCCo 程序，仅转储接口文件"
+
+msgid "``FCIDUMP`` Dump interface files in FCIDUMP format"
+msgstr "``FCIDUMP`` 以 FCIDUMP 格式转储接口文件"
+
+msgid ""
+"Orbital spaces: The usual directives of Molpro for defining the orbital "
+"spaces (``CORE``, ``CLOSED``, ``OCC``)  and the symmetry and spin of the "
+"reference wavefunction (``WF``) can be used. By default the definition from "
+"any previous command applies. Only CAS references are supported."
+msgstr ""
+"轨道空间：可以使用 Molpro 定义轨道空间（\\ ``CORE``\\ 、\\ ``CLOSED``\\ 、\\ ``OCC``\\ "
+"）以及参考波函数的对称性和自旋（\\ ``WF``\\ ）的常用指令。默认情况下，应用先前任何命令中的定义。仅支持 CAS 参考。"
+
+msgid "Introduction"
+msgstr "引言"
+
+msgid "The external GeCCo program"
+msgstr "外部 GeCCo 程序"
+
+msgid "The option ``GECCO`` calls the external GeCCo program:"
+msgstr "选项 ``GECCO`` 调用外部 GeCCo 程序："
+
+msgid ""
+"The ``FILE`` option allows to start arbitrary GeCCo input from Molpro (input"
+" file should be located in starting directory of the Molpro computation. "
+"Apart from multireference coupled-cluster theory, GeCCo also provides a "
+"reasonably fast arbitrary-order single-reference coupled-cluster code "
+"(closed-shell systems only). Explicitly correlated calculations can "
+"currently not be directly started from Molpro."
+msgstr ""
+"``FILE`` 选项允许从 Molpro 启动任意的 GeCCo 输入（输入文件应位于 Molpro "
+"计算的起始目录中）。除了多参考耦合簇理论，GeCCo 还提供了一个速度相当快的任意阶单参考耦合簇代码（仅限闭壳层体系）。显式相关计算目前无法直接从 "
+"Molpro 启动。"
+
+msgid "The new implementation"
+msgstr "新的实现"
+
+msgid ""
+"The new implementation is based on the ITF framework. It is simply envoked "
+"by"
+msgstr "新的实现基于 ITF 框架。只需通过以下方式调用："
+
+msgid ""
+"which runs the code with the default settings. The singular value threshold "
+"is normally not decisive for CAS(2,2) runs. We recommend to keep the "
+"``relax`` option switched on (but it makes only a difference for CAS(2,2) "
+"singlets at present, for triplets there is only one reference CSF)."
+msgstr ""
+"该命令以默认设置运行代码。奇异值阈值通常对 CAS(2,2) 计算不具决定性。我们建议保持 ``relax`` 选项开启（但目前它仅对 CAS(2,2)"
+" 单重态有影响，对于三重态只有一个参考组态态函数）。"
+
+msgid ""
+"In addition, two simplified versions based on CEPA(0) or a hybrid of "
+"MRCC/CEPA(0) are available:"
+msgstr "此外，还提供了两种基于CEPA(0)或MRCC/CEPA(0)混合的简化版本："
+
+msgid "Examples"
+msgstr "示例"
+
+msgid "Singlet and triplet state of methylene (new code)"
+msgstr "亚甲基的单重态与三重态（新代码）"
+
+msgid "Ground state energy of carbon dimer, compare MRCI and MRCC"
+msgstr "碳二聚体的基态能量，比较MRCI与MRCC"

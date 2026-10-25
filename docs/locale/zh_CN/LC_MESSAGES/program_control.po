@@ -1,0 +1,857 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Program control"
+msgstr "程序控制"
+
+msgid "The first card of each input should be:"
+msgstr "每个输入的第一张卡片应为："
+
+msgid ""
+"where *text* is arbitrary. If file 1 is restarted, *text* must always be the"
+" same. The effect of this card is to reset all program counters, etc. If the"
+" ``***`` card is omitted, *text* assumes its default value, which is all "
+"blank."
+msgstr ""
+"其中 *text* 是任意的。如果文件 1 被重启，\\ *text* 必须始终保持相同。此卡片的作用是重置所有程序计数器等。如果省略 ``***`` "
+"卡片，\\ *text* 将采用其默认值，即全部为空白。"
+
+msgid "The end of the input is signaled by either an end of file, or a"
+msgstr "输入的结束由文件结束符或一张"
+
+msgid "card. All input following the ``---`` card is ignored."
+msgstr "卡片发出信号。\\ ``---`` 卡片之后的所有输入都将被忽略。"
+
+msgid ""
+"Alternatively, a job can be stopped at at some place by inserting an "
+"``EXIT`` card. This could also be in the middle of a ``DO`` loop or an "
+"``IF`` block. If in such a case the ``---`` card would be used, an error "
+"would result, since the ``ENDDO`` or ``ENDIF`` cards would not be found."
+msgstr ""
+"或者，可以通过插入一个 ``EXIT`` 卡片在某个位置停止作业。这也可以在 ``DO`` 循环或 ``IF`` 块的中间进行。如果在这种情况下使用 "
+"``---`` 卡片，将会导致错误，因为找不到 ``ENDDO`` 或 ``ENDIF`` 卡片。"
+
+msgid "Restarting a job (RESTART)"
+msgstr "重启作业 (RESTART)"
+
+msgid ""
+"The :math:`r_i` specify which files are restarted. These files must have "
+"been allocated before using ``FILE`` cards. There are two possible formats "
+"for the :math:`r_i`:"
+msgstr ":math:`r_i` 指定要重启哪些文件。这些文件必须事先使用 ``FILE`` 卡片分配。\\ :math:`r_i` 有两种可能的格式："
+
+msgid ""
+"**a) :math:`0 < r_i < 10`:** Restart file :math:`r_i` and restore all "
+"information."
+msgstr "**a) :math:`0 < r_i < 10`:** 重启文件 :math:`r_i` 并恢复所有信息。"
+
+msgid ""
+"**b) :math:`r_i=name.nr`:** Restart file :math:`nr` but truncate before "
+"record *name*."
+msgstr "**b) :math:`r_i=name.nr`:** 重启文件 :math:`nr`\\ ，但在记录 *name* 之前截断。"
+
+msgid ""
+"If all :math:`r_i=0`, then all permanent files are restarted. However, if at"
+" least one :math:`r_i` is not equal to zero, only the specified files are "
+"restarted."
+msgstr "如果所有 :math:`r_i=0`\\ ，则重启所有永久文件。但是，如果至少有一个 :math:`r_i` 不等于零，则仅重启指定的文件。"
+
+msgid "Examples:"
+msgstr "示例："
+
+msgid ""
+"``RESTART;`` will restart all permanent files allocated with ``FILE`` cards "
+"(default)"
+msgstr "``RESTART;`` 将重启所有通过 ``FILE`` 卡片分配的永久文件（默认）"
+
+msgid "``RESTART,1;`` will restart file 1 only"
+msgstr "``RESTART,1;`` 将仅重启文件 1"
+
+msgid "``RESTART,2;`` will restart file 2 only"
+msgstr "``RESTART,2;`` 将仅重启文件 2"
+
+msgid "``RESTART,1,2,3;`` will restart files 1-3"
+msgstr "``RESTART,1,2,3;`` 将重启文件 1-3"
+
+msgid ""
+"``RESTART,2000.1;`` will restart file 1 and truncate before record 2000."
+msgstr "``RESTART,2000.1;`` 将重启文件 1 并在记录 2000 之前截断。"
+
+msgid "Including secondary input files (INCLUDE)"
+msgstr "包含次级输入文件 (INCLUDE)"
+
+msgid ""
+"If the ``ECHO`` option is specified, the included file is echoed to the "
+"output in the normal way, but by default its contents are not printed. The "
+"included file may itself contain ``INCLUDE`` commands up to a maximum "
+"nesting depth of 10."
+msgstr ""
+"如果指定了 ``ECHO`` 选项，包含的文件会以正常方式回显到输出中，但默认情况下其内容不会被打印。包含的文件本身可以包含 ``INCLUDE`` "
+"命令，最大嵌套深度为10。"
+
+msgid ""
+"For the name of the *file* and the characters allowed, similar "
+"recommendations hold as for the Molpro input file, see "
+"https://www.molpro.net/develop/manual/doku.php?id=quickstart#how_to_run_molpro"
+"  . The include file together with a path to it may however be used."
+msgstr ""
+"对于\\ *文件*\\ 的名称和允许使用的字符，其建议与Molpro输入文件类似，请参阅 "
+"https://www.molpro.net/develop/manual/doku.php?id=quickstart#how_to_run_molpro"
+" 。不过，可以同时使用包含文件及其路径。"
+
+msgid "Allocating dynamic memory (MEMORY)"
+msgstr "分配动态内存 (MEMORY)"
+
+msgid ""
+"Sets the limit on dynamic memory to :math:`n` floating point words. For "
+"details, see section `memory allocation "
+"<general_program_structure.html#memory-allocation>`__."
+msgstr ""
+"将动态内存限制设置为 :math:`n` 个浮点字。详情请参阅 `内存分配 "
+"<general_program_structure.html#memory-allocation>`__ 一节。"
+
+msgid "DO loops (DO/ENDDO)"
+msgstr "DO 循环 (DO/ENDDO)"
+
+msgid "``DO`` *variable*\\ ``=``\\ *start, end* [[,]\\ *increment*] [[,]\\ *unit*]"
+msgstr "``DO`` *变量*\\ ``=``\\ *起始值, 终止值* [[,]\\ *增量*] [[,]\\ *单位*]"
+
+msgid ""
+"where *start, end, increment* may be expressions or variables. The default "
+"for *increment* is 1. In contrast to Fortran, these variables can be "
+"modified within the loop (to be used with care!). For instance:"
+msgstr ""
+"其中 *起始值, 终止值, 增量* 可以是表达式或变量。\\ *增量* 的默认值为 1。与 Fortran "
+"不同，这些变量可以在循环内被修改（需谨慎使用！）。例如："
+
+msgid ""
+"performs the loop for the following values of ``R``: ``1.0, 1.2, 1.4, 1.6, "
+"1.8, 2.0, 2.5, 3.0, 4.0, 5.0, 6.0`` Ångstrøm. The same could be achieved as "
+"follows:"
+msgstr ""
+"对 ``R`` 的以下值执行循环：\\ ``1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.5, 3.0, 4.0, 5.0, "
+"6.0`` 埃。也可以通过以下方式实现："
+
+msgid ""
+"Up to 20 ``DO`` loops may be nested. Each ``DO`` must end with its own "
+"``ENDDO``."
+msgstr "最多可以嵌套 20 个 ``DO`` 循环。每个 ``DO`` 必须以自己的 ``ENDDO`` 结束。"
+
+msgid ""
+"Jumps into ``DO`` loops are possible if the ``DO`` variables are known. This"
+" can be useful in restarts, since it allows to continue an interrupted "
+"calculation without changing the input (all variables are recovered in a "
+"restart)."
+msgstr ""
+"如果 ``DO`` 变量已知，则可以跳入 ``DO`` "
+"循环。这在重启时很有用，因为它允许在不更改输入的情况下继续中断的计算（所有变量在重启时都会恢复）。"
+
+msgid ""
+"See `introductory examples <introductory_examples.html#do-loops>`__ for two "
+"examples of using do loops."
+msgstr "有关使用 DO 循环的两个示例，请参阅 `入门示例 <introductory_examples.html#doloops>`__\\ 。"
+
+msgid "Branching (IF/ELSEIF/ENDIF)"
+msgstr "分支（IF/ELSEIF/ENDIF）"
+
+msgid "IF statements"
+msgstr "IF 语句"
+
+msgid "``IF (logical expression) THEN statements ENDIF``"
+msgstr "``IF (logical expression) THEN statements ENDIF``"
+
+msgid "If only one statement is needed, the one-line form"
+msgstr "如果只需要一个语句，可以使用单行形式"
+
+msgid "can be used, except if *statement* is a procedure name."
+msgstr "可以使用，除非 *statement* 是过程名。"
+
+msgid ""
+"The logical expression may involve logical comparisons of algebraic "
+"expressions or of strings. Examples:"
+msgstr "逻辑表达式可以涉及代数表达式或字符串的逻辑比较。例如："
+
+msgid "In the previous example the dollar and the quotes are optional:"
+msgstr "在前面的例子中，美元符号和引号是可选的："
+
+msgid "GOTO commands"
+msgstr "GOTO 命令"
+
+msgid "``GOTO,command,[n],[nrep]``"
+msgstr "``GOTO,command,[n],[nrep]``"
+
+msgid ""
+"Program control skips to the :math:`|n|`\\ ’th occurrence of *command* "
+"(Default: :math:`n=1`). *command* must be a keyword in the first field of an"
+" input line. If *n* is positive, the search is forward starting from the "
+"current position. If *n* is negative, search starts from the top of the "
+"input. The ``GOTO`` command is executed at most *nrep* times. The default "
+"for *nrep* is 1 if :math:`n \\lt 0` and infinity otherwise. We recommend "
+"that ``GOTO`` commands are never used to construct loops."
+msgstr ""
+"程序控制跳转到 *command* 的第 :math:`|n|`\\ 次出现（默认值：\\ :math:`n=1`\\ ）。\\ *command* "
+"必须是输入行第一个字段中的关键字。如果 *n* 为正数，则从当前位置开始向前搜索。如果 *n* 为负数，则从输入顶部开始搜索。\\ ``GOTO`` "
+"命令最多执行 *nrep* 次。\\ *nrep* 的默认值为 1（如果 :math:`n \\lt 0`\\ ），否则为无穷大。我们建议永远不要使用 "
+"``GOTO`` 命令来构造循环。"
+
+msgid "Alternatively, one can jump to labels using"
+msgstr "或者，可以使用以下方式跳转到标签："
+
+msgid "``GOTO,label``"
+msgstr "``GOTO,label``"
+
+msgid ""
+"Since labels must be unique, the search starts always from the top of the "
+"input. It is required that the *label* ends with a colon."
+msgstr "由于标签必须是唯一的，搜索总是从输入顶部开始。要求 *label* 以冒号结尾。"
+
+msgid "Labels (LABEL)"
+msgstr "标签（LABEL）"
+
+msgid "``LABEL``"
+msgstr "``LABEL``"
+
+msgid ""
+"This is a dummy command, sometimes useful in conjunction with ``GOTO``."
+msgstr "这是一个虚拟命令，有时与 ``GOTO`` 结合使用很有用。"
+
+msgid "Procedures (PROC/ENDPROC)"
+msgstr "过程（PROC/ENDPROC）"
+
+msgid ""
+"Procedures can be defined at any place of the input or in ``INCLUDE`` files "
+"as follows:"
+msgstr "过程可以在输入的任何位置或在 ``INCLUDE`` 文件中定义，如下所示："
+
+msgid "Alternatively, one can use the form"
+msgstr "或者，可以使用以下形式"
+
+msgid "``PROC name[=]{statements}``"
+msgstr "``PROC name[=]{statements}``"
+
+msgid ""
+"In the latter case, it is required that the left curly bracket (:math:`\\{`)"
+" appears on the same line as ``PROC``, but *statements* can consist of "
+"several lines. If in the subsequent input *name* is found as a command *in "
+"the first field* of a line, it is substituted by the *statements*. Example:"
+msgstr ""
+"在后一种情况下，要求左花括号 (:math:`\\{`) 与 ``PROC`` 出现在同一行，但 *statements* "
+"可以包含多行。如果在后续输入中，\\ *name* 作为命令在行的\\ *第一个字段*\\ 中被找到，它将被 *statements* 替换。示例："
+
+msgid "Alternatively, this could be written as"
+msgstr "或者，也可以写成"
+
+msgid ""
+"Procedures may be nested up to a depth of 10. In the following example "
+"``runscf`` is a procedure:"
+msgstr "过程可以嵌套，最多可达10层深度。在以下示例中，\\ ``runscf`` 是一个过程："
+
+msgid ""
+"Note: Procedure names are substituted only if found in the first field of an"
+" input line. Therefore, they must not be used on one-line ``IF`` statements;"
+" please use ``IF / ENDIF`` structures instead."
+msgstr ""
+"注意：过程名仅当在输入行的第一个字段中找到时才会被替换。因此，它们不能用于单行 ``IF`` 语句；请改用 ``IF / ENDIF`` 结构。"
+
+msgid ""
+"If as first statement of a procedure ``ECHO`` is specified, the substituted "
+"commands of the present and lower level procedures will be printed. If "
+"``ECHO`` is specified in the main input file, all subsequent procedures are "
+"printed."
+msgstr ""
+"如果在过程的第一个语句中指定了 ``ECHO``\\ ，则当前及更低层级过程的替换命令将被打印出来。如果在主输入文件中指定了 ``ECHO``\\ "
+"，则所有后续过程都会被打印。"
+
+msgid ""
+"Certain important input data can be passed to the program using variables. "
+"For instance, occupancy patterns, symmetries, number of electrons, and "
+"multiplicity can be defined in this way (see section `special variables "
+"<variables.html#special-variables>`__ for more details). This allows a quite"
+" general use of procedures. Procedures can also be used in geometry "
+"optimizations or extrapolations, for example:"
+msgstr ""
+"某些重要的输入数据可以通过变量传递给程序。例如，占据模式、对称性、电子数和多重度可以这种方式定义（详见 `特殊变量 "
+"<variables.html#special-variables>`__ 章节）。这使得过程的使用非常通用。过程也可用于几何优化或外推，例如："
+
+msgid "Default Procedures"
+msgstr "默认过程"
+
+msgid ""
+"Many standard calculations can be used with the ``run`` command, see "
+"`Simplified input <introductory_examples.html#simplified-input>`__. They "
+"allow to write simple inputs in the most compact way."
+msgstr ""
+"许多标准计算可以使用 ``run`` 命令完成，参见 `简化输入 "
+"<introductory_examples.html#simplifiedinput>`__\\ 。它们允许以最紧凑的方式编写简单的输入。"
+
+msgid ""
+"Further predefined procedures are available in ``lib/include/procedures``:"
+msgstr "在 ``lib/include/procedures`` 中提供了更多预定义过程："
+
+msgid "A line"
+msgstr "一行"
+
+msgid ""
+"is necessary to include these procedures. Some procedures use variables "
+"SYMMETRY, SPIN, STATE, NELEC to define state symmetries, spins, and charges,"
+" respectively. For example, the procedure ``runmrci`` can be used for a "
+"calculation of a vertical ionization potential of H\\ :math:`_2`\\ O as "
+"follows:"
+msgstr ""
+"是包含这些过程所必需的。某些过程使用变量 SYMMETRY、SPIN、STATE、NELEC 来分别定义态对称性、自旋和电荷。例如，过程 "
+"``runmrci`` 可用于计算 H\\ :math:`_2`\\ O 的垂直电离势，如下所示："
+
+msgid ""
+"Note: At present, all variables are *global*, i.e., variables are commonly "
+"known to all procedures and all variables defined in procedures will be "
+"subsequently known outside the procedures as well. The reason is that "
+"procedures are included into the internal input deck at the beginning of the"
+" job and not at execution time; for the same reason, variable substitution "
+"of procedure names is not possible, e.g. one cannot use constructs like"
+msgstr ""
+"注意：目前，所有变量都是\\ *全局*\\ "
+"的，即变量对所有过程都是共知的，并且在过程中定义的所有变量随后在过程外部也将被知晓。原因是过程在作业开始时被包含到内部输入卡组中，而不是在执行时；出于同样的原因，过程名的变量替换是不可能的，例如，不能使用像这样的结构"
+
+msgid "Text cards (TEXT)"
+msgstr "文本卡片（TEXT）"
+
+msgid ""
+"will just print *xxxxxx* in the output. If the text contains variables which"
+" are preceded by a dollar ($), these are replaced by their actual values, "
+"e.g."
+msgstr "将仅在输出中打印 *xxxxxx*\\ 。如果文本包含以美元符号（$）为前缀的变量，这些变量将被其实际值替换，例如"
+
+msgid "will print"
+msgstr "将打印"
+
+msgid "``Results for R=2.1``"
+msgstr "``Results for R=2.1``"
+
+msgid "Checking the program status (STATUS)"
+msgstr "检查程序状态（STATUS）"
+
+msgid ""
+"This command checks and prints the status of the specified program steps. "
+"*commands* may be a list of commands for wavefunction calculations "
+"previously executed in the current job. If no *command* or ``LAST`` is "
+"specified, the status of the last step is checked. If ``ALL`` is given, all "
+"program steps are checked."
+msgstr ""
+"此命令检查并打印指定程序步骤的状态。\\ *commands* 可以是当前作业中先前执行的波函数计算命令列表。如果未指定 *command* 或 "
+"``LAST``\\ ，则检查最后一步的状态。如果指定了 ``ALL``\\ ，则检查所有程序步骤。"
+
+msgid ""
+"If ``CRASH`` or ``STOP`` is given, the program will crash or stop, "
+"respectively, if the status was not o.k. (``STOP`` is default). If "
+"``IGNORE`` is given, any bad status is ignored. If ``CLEAR`` is specified, "
+"all status information for the checked program steps is erased, so there "
+"will be no crash at subsequent status checks."
+msgstr ""
+"如果指定了 ``CRASH`` 或 ``STOP``\\ ，程序将在状态不正常时分别崩溃或停止（默认为 ``STOP``\\ ）。如果指定了 "
+"``IGNORE``\\ ，则忽略任何不良状态。如果指定了 ``CLEAR``\\ "
+"，则清除所检查程序步骤的所有状态信息，因此在后续状态检查时不会发生崩溃。"
+
+msgid ""
+"``STATUS,HF,CRASH;`` will check the status of the last ``HF-SCF`` step and "
+"crash if it was not o.k. (i.e. no convergence). ``CRASH`` is useful to avoid"
+" that the next program in a chain is executed."
+msgstr ""
+"``STATUS,HF,CRASH;`` 将检查最后一个 ``HF-SCF`` 步骤的状态，如果状态不正常（即未收敛），则崩溃。\\ ``CRASH``"
+" 有助于避免链中的下一个程序被执行。"
+
+msgid ""
+"``STATUS,MULTI,CI,STOP;`` will check the status of the most previous "
+"``MULTI`` and ``CI`` steps and stop if something did not converge."
+msgstr ""
+"``STATUS,MULTI,CI,STOP;`` 将检查最近一次 ``MULTI`` 和 ``CI`` 步骤的状态，如果某些内容未收敛，则停止。"
+
+msgid "Note that the status variables are not recovered in a restart."
+msgstr "请注意，状态变量在重启时不会恢复。"
+
+msgid "By default, the program automatically does the following checks:"
+msgstr "默认情况下，程序会自动执行以下检查："
+
+msgid ""
+"1.) If an orbital optimization did not converge, and the resulting orbitals "
+"are used in a subsequent correlation calculation, an error will result. This"
+" error exit can be avoided using the ``IGNORE_ERROR`` option on the "
+"``ORBITAL`` directive."
+msgstr ""
+"1.) 如果轨道优化未收敛，并且所得的轨道被用于后续的相关计算中，将会导致错误。可以通过在 ``ORBITAL`` 指令上使用 "
+"``IGNORE_ERROR`` 选项来避免此错误退出。"
+
+msgid ""
+"2.) If a ``CCSD|QCI|BCC|LMPn`` calculation did not converge, further program"
+" steps which depend on the solution (e.g, Triples, CPHF, EOM) will not be "
+"done and an error will result. This can be avoided using the ``NOCHECK`` "
+"option on the command line."
+msgstr ""
+"2.) 如果 ``CCSD|QCI|BCC|LMPn`` "
+"计算未收敛，依赖于该解的后续程序步骤（例如，Triples、CPHF、EOM）将不会执行，并会导致错误。这可以通过在命令行上使用 ``NOCHECK``"
+" 选项来避免。"
+
+msgid ""
+"3.) In geometry optimizations or frequency calculations no convergence will "
+"lead to immediate error exits."
+msgstr "3.) 在几何优化或频率计算中，不收敛将导致立即错误退出。"
+
+msgid "Global Thresholds (GTHRESH)"
+msgstr "全局阈值 (GTHRESH)"
+
+msgid "[command:gthresh]"
+msgstr "[command:gthresh]"
+
+msgid ""
+"A number of global thresholds can be set using the ``GTHRESH`` command "
+"outside the individual programs (the first letter ``G`` is optional, but "
+"should be used to avoid confusion with program specific ``THRESH`` cards). "
+"The syntax is"
+msgstr ""
+"可以使用 ``GTHRESH`` 命令在单个程序之外设置多个全局阈值（第一个字母 ``G`` 是可选的，但建议使用以避免与程序特定的 "
+"``THRESH`` 卡片混淆）。语法为"
+
+msgid "*key* can be one of the following."
+msgstr "*key* 可以是以下之一。"
+
+msgid "``ZERO`` Numerical zero (default 1.d-12)"
+msgstr "``ZERO`` 数值零（默认值 1.d-12）"
+
+msgid ""
+"``ONEINT`` Threshold for one-electron integrals (default 1.d-12, but not "
+"used at present)"
+msgstr "``ONEINT`` 单电子积分阈值（默认值 1.d-12，但当前未使用）"
+
+msgid ""
+"``TWOINT`` Threshold for the neglect of two-electron integrals (default "
+"1.d-12)"
+msgstr "``TWOINT`` 忽略双电子积分的阈值（默认值 1.d-12）"
+
+msgid ""
+"``PREFAC`` Threshold for test of prefactor in ``TWOINT`` (default 1.d-14)"
+msgstr "``PREFAC`` ``TWOINT`` 中前置因子测试的阈值（默认值 1.d-14）"
+
+msgid "``LOCALI`` Threshold for orbital localization (default 1.d-8)"
+msgstr "``LOCALI`` 轨道定域化阈值（默认值 1.d-8）"
+
+msgid ""
+"``EORDER`` Threshold for reordering of orbital after localization (default "
+"1.d-4)"
+msgstr "``EORDER`` 定域化后轨道重新排序的阈值（默认值 1.d-4）"
+
+msgid "``ENERGY`` Convergence threshold for energy (default 1.d-6)"
+msgstr "``ENERGY`` 能量的收敛阈值（默认值 1.d-6）"
+
+msgid ""
+"``GRADIENT`` Convergence threshold for orbital gradient in ``MCSCF`` "
+"(default 1.d-2)"
+msgstr "``GRADIENT`` ``MCSCF`` 中轨道梯度的收敛阈值（默认值 1.d-2）"
+
+msgid ""
+"``STEP`` Convergence threshold for step length in MCSCF orbital optimization"
+" (default 1.d-3)"
+msgstr "``STEP`` MCSCF 轨道优化中步长的收敛阈值（默认值 1.d-3）"
+
+msgid ""
+"``ORBITAL`` Convergence threshold for orbital optimization in the SCF "
+"program (default 1.d-5)."
+msgstr "``ORBITAL`` SCF 程序中轨道优化的收敛阈值（默认值 1.d-5）。"
+
+msgid ""
+"``CIVEC`` Convergence threshold for CI coefficients in ``MCSCF`` and "
+"reference vector in ``CI`` (default 1.-d.5)"
+msgstr "``CIVEC`` ``MCSCF`` 中 CI 系数和 ``CI`` 中参考向量的收敛阈值（默认值 1.-d.5）"
+
+msgid ""
+"``COEFF`` Convergence threshold for coefficients in ``CI`` and ``CCSD`` "
+"(default 1.d-4)"
+msgstr "``COEFF`` ``CI`` 和 ``CCSD`` 中系数的收敛阈值（默认值 1.d-4）"
+
+msgid "``PRINTCI`` Threshold for printing CI coefficients (default 0.05)"
+msgstr "``PRINTCI`` 打印 CI 系数的阈值（默认值 0.05）"
+
+msgid ""
+"``PUNCHCI`` Threshold for punching CI coefficients (default 99 - no punch)"
+msgstr "``PUNCHCI`` 穿孔输出 CI 系数的阈值（默认值 99 - 不输出）"
+
+msgid ""
+"``SYMTOL`` Threshold for finding symmetry equivalent atoms (default 1.d-6)"
+msgstr "``SYMTOL`` 寻找对称性等价原子的阈值（默认值 1.d-6）"
+
+msgid "``GRADTOL`` Threshold for symmetry in gradient (default 1.d-6)."
+msgstr "``GRADTOL`` 梯度中对称性的阈值（默认值 1.d-6）。"
+
+msgid ""
+"``THROVL`` Threshold for smallest allowed eigenvalue of the overlap matrix "
+"(default 1.d-8)"
+msgstr "``THROVL`` 重叠矩阵最小允许特征值的阈值（默认 1.d-8）"
+
+msgid ""
+"``THRDLOV`` Threshold for removing linear dependent basis functions and "
+"orbitals"
+msgstr "``THRDLOV`` 移除线性相关基函数和轨道的阈值"
+
+msgid "``THRORTH`` Threshold for orthonormality check (default 1.d-8)"
+msgstr "``THRORTH`` 正交归一性检查的阈值（默认 1.d-8）"
+
+msgid ""
+"``THRPRINT`` Threshold for printing orbitals (thrprint=-1 : column-wise; "
+"thrprint=0 : row-wise, as in Molpro2015 and earlier versions ; thrprint "
+":math:`>0`: print only coefficients that are larger than the threshold "
+"together with labels (default: thrprint=0.25)"
+msgstr ""
+"``THRPRINT`` 打印轨道的阈值（thrprint=-1：按列；thrprint=0：按行，与 Molpro2015 "
+"及更早版本相同；thrprint :math:`>0`\\ ：仅打印大于该阈值的系数及标签（默认：thrprint=0.25））"
+
+msgid "Global Print Options (GPRINT/NOGPRINT)"
+msgstr "全局打印选项（GPRINT/NOGPRINT）"
+
+msgid "[command:gprint]"
+msgstr "[command:gprint]"
+
+msgid ""
+"Global print options can be set using the ``GPRINT`` command outside the "
+"individual programs (the first letter ``G`` is optional, but should be used "
+"to avoid confusion with program specific ``PRINT`` cards). The syntax is"
+msgstr ""
+"可以使用 ``GPRINT`` 命令在各个程序之外设置全局打印选项（首字母 ``G`` 是可选的，但建议使用以避免与程序特定的 ``PRINT`` "
+"卡片混淆）。语法为"
+
+msgid ""
+"Normally, *value* can be omitted, but values :math:`\\gt 0` may be used for "
+"debugging purposes, giving more information in some cases. The default is no"
+" print for all options, except for ``DISTANCE``, ``ANGLES`` (default=0), and"
+" ``VARIABLE``. ``NOGPRINT``,\\ *key* is equivalent to ``PRINT``,\\ *key*\\ "
+"``=-1``. *key* can be one of the following:"
+msgstr ""
+"通常，\\ *value* 可以省略，但值 :math:`\\gt 0` 可用于调试目的，在某些情况下提供更多信息。默认情况下，除 "
+"``DISTANCE``\\ 、\\ ``ANGLES``\\ （默认=0）和 ``VARIABLE`` 外，所有选项均不打印。\\ "
+"``NOGPRINT``,\\ *key* 等同于 ``PRINT``,\\ *key*\\ ``=-1``\\ 。\\ *key* 可以是以下之一："
+
+msgid "``BASIS`` Print basis information"
+msgstr "``BASIS`` 打印基组信息"
+
+msgid "``DISTANCE`` Print bond distances (default)"
+msgstr "``DISTANCE`` 打印键长（默认）"
+
+msgid ""
+"``ANGLES`` Print bond angle information (default). If :math:`\\gt` 0, "
+"dihedral angles are also printed."
+msgstr "``ANGLES`` 打印键角信息（默认）。如果 :math:`\\gt` 0，则同时打印二面角。"
+
+msgid "``ORBITAL`` Print orbitals in ``SCF`` and ``MCSCF``"
+msgstr "``ORBITAL`` 在 ``SCF`` 和 ``MCSCF`` 中打印轨道"
+
+msgid "``ORBEN`` Print orbital energies in ``SCF``"
+msgstr "``ORBEN`` 在 ``SCF`` 中打印轨道能量"
+
+msgid "``CIVECTOR`` Print ``CI`` vector in ``MCSCF``"
+msgstr "``CIVECTOR`` 在 ``MCSCF`` 中打印 ``CI`` 向量"
+
+msgid "``PAIRS`` Print pair list in ``CI, CCSD``"
+msgstr "``PAIRS`` 在 ``CI, CCSD`` 中打印对列表"
+
+msgid "``CS`` Print information for singles in ``CI, CCSD``"
+msgstr "``CS`` 在 ``CI, CCSD`` 中打印单激发信息"
+
+msgid "``CP`` Print information for pairs in ``CI, CCSD``"
+msgstr "``CP`` 在 ``CI, CCSD`` 中打印对激发信息"
+
+msgid "``REF`` Print reference CSFs and their coefficients in ``CI``"
+msgstr "``REF`` 在 ``CI`` 中打印参考组态态函数及其系数"
+
+msgid "``PSPACE`` Print p-space configurations"
+msgstr "``PSPACE`` 打印 P 空间组态"
+
+msgid "``MICRO`` Print micro-iterations in ``MCSCF`` and ``CI``"
+msgstr "``MICRO`` 在 ``MCSCF`` 和 ``CI`` 中打印微迭代信息"
+
+msgid "``CPU`` Print detailed CPU information"
+msgstr "``CPU`` 打印详细的 CPU 信息"
+
+msgid "``IO`` Print detailed I/O information"
+msgstr "``IO`` 打印详细的 I/O 信息"
+
+msgid ""
+"``VARIABLE`` Print variables each time they are set or changed (default)."
+msgstr "``VARIABLE`` 每次变量被设置或更改时打印变量信息（默认）。"
+
+msgid "One-electron operators and expectation values (GEXPEC)"
+msgstr "单电子算符与期望值 (GEXPEC)"
+
+msgid ""
+"For a number of operators it is possible to use *generic* operator names, "
+"e.g., ``DM`` for dipole moments, which means that all three components "
+"``DMX``, ``DMY``, and ``DMZ`` are computed. Alternatively, individual "
+"components may be requested."
+msgstr ""
+"对于许多算符，可以使用\\ *通用*\\ 算符名称，例如，\\ ``DM`` 表示偶极矩，这意味着将计算所有三个分量 ``DMX``\\ 、\\ "
+"``DMY`` 和 ``DMZ``\\ 。或者，也可以请求单个分量。"
+
+msgid "The general format is as follows:"
+msgstr "通用格式如下："
+
+msgid "where"
+msgstr "其中"
+
+msgid ""
+"Several ``GEXPEC`` cards may follow each other, or several operators may be "
+"specified on one card."
+msgstr "多个 ``GEXPEC`` 卡片可以连续出现，或者可以在一个卡片上指定多个算符。"
+
+msgid "The following table summarizes all available operators:"
+msgstr "下表总结了所有可用的算符："
+
+msgid "One-electron operators and their components"
+msgstr "单电子算符及其分量"
+
+msgid "Generic name"
+msgstr "通用名称"
+
+msgid "Parity"
+msgstr "宇称"
+
+msgid "Components"
+msgstr "分量"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "``OV``"
+msgstr "``OV``"
+
+msgid "Overlap"
+msgstr "重叠"
+
+msgid "``EKIN``"
+msgstr "``EKIN``"
+
+msgid "Kinetic energy"
+msgstr "动能"
+
+msgid "``POT``"
+msgstr "``POT``"
+
+msgid "potential energy"
+msgstr "势能"
+
+msgid "``DELTA``"
+msgstr "``DELTA``"
+
+msgid "delta function"
+msgstr "delta 函数"
+
+msgid "``DEL4``"
+msgstr "``DEL4``"
+
+msgid ":math:`\\Delta^4`"
+msgstr ":math:`\\Delta^4`"
+
+msgid "``DARW``"
+msgstr "``DARW``"
+
+msgid ""
+"one-electron Darwin term, i.e., ``DELTA`` with appropriate factors summed "
+"over atoms."
+msgstr "单电子 Darwin 项，即 ``DELTA`` 乘以适当的因子并对所有原子求和。"
+
+msgid "``MASSV``"
+msgstr "``MASSV``"
+
+msgid "mass-velocity term, i.e., ``DEL4`` with appropriate factor."
+msgstr "质量-速度项，即具有适当因子的 ``DEL4``\\ 。"
+
+msgid "``REL``"
+msgstr "``REL``"
+
+msgid ""
+"total Cowan-Griffin Relativistic correction, i.e., ``DARW``\\ +\\ ``MASSV``."
+msgstr "总 Cowan-Griffin 相对论校正，即 ``DARW``\\ +\\ ``MASSV``\\ 。"
+
+msgid "``DM``"
+msgstr "``DM``"
+
+msgid "``DMX``, ``DMY``, ``DMZ``"
+msgstr "``DMX``, ``DMY``, ``DMZ``"
+
+msgid "dipole moments"
+msgstr "偶极矩"
+
+msgid "``SM``"
+msgstr "``SM``"
+
+msgid "``XX``, ``YY``, ``ZZ``, ``XY``, ``XZ``, ``YZ``"
+msgstr "``XX``, ``YY``, ``ZZ``, ``XY``, ``XZ``, ``YZ``"
+
+msgid "second moments"
+msgstr "二阶矩"
+
+msgid "``TM``"
+msgstr "``TM``"
+
+msgid ""
+"``XXX``, ``XXY``, ``XXZ``, ``XYY``, ``XYZ``, ``XZZ``, ``YYY``, ``YYZ``, "
+"``YZZ``, ``ZZZ``"
+msgstr ""
+"``XXX``, ``XXY``, ``XXZ``, ``XYY``, ``XYZ``, ``XZZ``, ``YYY``, ``YYZ``, "
+"``YZZ``, ``ZZZ``"
+
+msgid "third moments"
+msgstr "三阶矩"
+
+msgid "``MLTP``\\ *n*"
+msgstr "``MLTP``\\ *n*"
+
+msgid "all unique Cartesian products of order :math:`n`"
+msgstr "所有阶数为 :math:`n` 的唯一笛卡尔积"
+
+msgid "multipole moments"
+msgstr "多极矩"
+
+msgid "``QM``"
+msgstr "``QM``"
+
+msgid ""
+"``QMXX``, ``QMYY``, ``QMZZ``, ``QMXY``, ``QMXZ``, ``QMYZ``, ``QMRR``\\ =\\ "
+"``XX + YY + ZZ``, ``QMXX``\\ =(3 ``XX`` - ``RR``)/2, ``QMXY``\\ =3 *XY* / 2 "
+"etc."
+msgstr ""
+"``QMXX``, ``QMYY``, ``QMZZ``, ``QMXY``, ``QMXZ``, ``QMYZ``, ``QMRR``\\ =\\ "
+"``XX + YY + ZZ``, ``QMXX``\\ =(3 ``XX`` - ``RR``)/2, ``QMXY``\\ =3 *XY* / 2 "
+"等。"
+
+msgid "quadrupole moments and :math:`R^2`"
+msgstr "四极矩和 :math:`R^2`"
+
+msgid "``EF``"
+msgstr "``EF``"
+
+msgid "``EFX``, ``EFY``, ``EFZ``"
+msgstr "``EFX``, ``EFY``, ``EFZ``"
+
+msgid "electric field"
+msgstr "电场"
+
+msgid "``FG``"
+msgstr "``FG``"
+
+msgid "``FGXX``, ``FGYY``, ``FGZZ``, ``FGXY``, ``FGXZ``, ``FGYZ``"
+msgstr "``FGXX``, ``FGYY``, ``FGZZ``, ``FGXY``, ``FGXZ``, ``FGYZ``"
+
+msgid "electric field gradients"
+msgstr "电场梯度"
+
+msgid "``DMS``"
+msgstr "``DMS``"
+
+msgid ""
+"``DMSXX``, ``DMSYX``, ``DMSZX``, ``DMSXY``, ``DMSYY``, ``DMSZY``, ``DMSXZ``,"
+" ``DMSYZ``, ``DMSZZ``"
+msgstr ""
+"``DMSXX``, ``DMSYX``, ``DMSZX``, ``DMSXY``, ``DMSYY``, ``DMSZY``, ``DMSXZ``,"
+" ``DMSYZ``, ``DMSZZ``"
+
+msgid "diamagnetic shielding tensor"
+msgstr "抗磁屏蔽张量"
+
+msgid "``LOP``"
+msgstr "``LOP``"
+
+msgid "``LX``, ``LY``, ``LZ``"
+msgstr "``LX``, ``LY``, ``LZ``"
+
+msgid ""
+"Angular momentum operators :math:`\\hat L_x`, :math:`\\hat L_y`, "
+":math:`\\hat L_z`"
+msgstr "角动量算符 :math:`\\hat L_x`, :math:`\\hat L_y`, :math:`\\hat L_z`"
+
+msgid "``LOP2``"
+msgstr "``LOP2``"
+
+msgid "``LXLX, LYLY, LZLZ``, ``LXLY, LXLZ, LYLZ``"
+msgstr "``LXLX, LYLY, LZLZ``, ``LXLY, LXLZ, LYLZ``"
+
+msgid ""
+"one electron parts of products of angular momentum operators. The symmetric "
+"combinations :math:`\\frac{1}{2} (\\hat L_x \\hat L_y+\\hat L_y \\hat L_x)` "
+"etc. are computed."
+msgstr ""
+"角动量算符乘积的单电子部分。计算对称组合 :math:`\\frac{1}{2} (\\hat L_x \\hat L_y+\\hat L_y "
+"\\hat L_x)` 等。"
+
+msgid "``VELO``"
+msgstr "``VELO``"
+
+msgid "``D/DX``, ``D/DY``, ``D/DZ``"
+msgstr "``D/DX``, ``D/DY``, ``D/DZ``"
+
+msgid "velocity"
+msgstr "速度"
+
+msgid "``LS``"
+msgstr "``LS``"
+
+msgid "``LSX``, ``LSY``, ``LSZ``"
+msgstr "``LSX``, ``LSY``, ``LSZ``"
+
+msgid "spin-orbit operators"
+msgstr "自旋轨道算符"
+
+msgid "``ECPLS``"
+msgstr "``ECPLS``"
+
+msgid "``ECPLSX``, ``ECPLSY``, ``ECPLSZ``"
+msgstr "``ECPLSX``, ``ECPLSY``, ``ECPLSZ``"
+
+msgid "ECP spin-orbit operators"
+msgstr "ECP 自旋-轨道算符"
+
+msgid ""
+"Expectation values are only nonzero for symmetric operators (parity=1). "
+"Other operators can be used to compute transition quantities (spin-orbit "
+"operators need a special treatment)."
+msgstr "期望值仅对对称算符（宇称=1）非零。其他算符可用于计算跃迁量（自旋-轨道算符需要特殊处理）。"
+
+msgid "Example for computing expectation values"
+msgstr "计算期望值的示例"
+
+msgid ""
+"The following job computes dipole and quadrupole moments for H\\ "
+":math:`_2`\\ O."
+msgstr "以下作业计算 H\\ :math:`_2`\\ O 的偶极矩和四极矩。"
+
+msgid "This Job produces the following tables"
+msgstr "此作业生成以下表格"
+
+msgid "Example for computing relativistic corrections"
+msgstr "计算相对论校正的示例"
+
+msgid "This jobs shows at the end the following variables:"
+msgstr "此作业在最后显示以下变量："
+
+msgid "XML dump options (XML)"
+msgstr "XML 转储选项 (XML)"
+
+msgid ""
+"This command allows to modify the default behaviour of the XML output. The "
+"general format is as follows:"
+msgstr "此命令允许修改 XML 输出的默认行为。通用格式如下："
+
+msgid "where *key* can be one of the following:"
+msgstr "其中 *key* 可以是以下之一："
+
+msgid ""
+"``SKIPVIRT`` Omit virtual orbitals in the XML orbital dumps (default 1)."
+msgstr "``SKIPVIRT`` 在 XML 轨道转储中省略虚轨道（默认为 1）。"
+
+msgid ""
+"``PRINT`` Print record information to output file, showing from which "
+"records the orbitals etc are read (default 0)."
+msgstr "``PRINT`` 将记录信息打印到输出文件，显示轨道等是从哪些记录读取的（默认为 0）。"

@@ -1,0 +1,142 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Introductory examples"
+msgstr "入门示例"
+
+msgid ""
+"This section explains some very simple calculations in order to help the new"
+" user to understand how easy things can be."
+msgstr "本节通过一些非常简单的计算示例，帮助新用户理解操作可以多么容易。"
+
+msgid "Using the molpro command"
+msgstr "使用 molpro 命令"
+
+msgid ""
+"Perform a simple SCF calculation for molecular hydrogen. The input is typed "
+"in directly and the output is sent to the terminal:"
+msgstr "对氢分子执行一个简单的 SCF 计算。输入直接键入，输出发送到终端："
+
+msgid ""
+"The same calculation, with the data taken from the file ``h2.inp``. The "
+"output is sent to h2.out. On completion, the file ``h2.pun`` is returned to "
+"the current directory and the file ``h2.wf`` to the directory ``$HOME/wfu`` "
+"(this is the default):"
+msgstr ""
+"同样的计算，数据取自文件 ``h2.inp``\\ 。输出发送到 h2.out。完成后，文件 ``h2.pun`` 返回到当前目录，文件 "
+"``h2.wf`` 返回到目录 ``$HOME/wfu``\\ （这是默认设置）："
+
+msgid "h2.inp contains:"
+msgstr "h2.inp 包含："
+
+msgid ""
+"As before, but the file ``h2.wf`` is sent to the directory ``/tmp/wfu``:"
+msgstr "如前所述，但文件 ``h2.wf`` 被发送到目录 ``/tmp/wfu``\\ ："
+
+msgid "Simple SCF calculations"
+msgstr "简单的 SCF 计算"
+
+msgid ""
+"The first example does an SCF calculation for H\\ :math:`_2`\\ O, using all "
+"possible defaults."
+msgstr "第一个示例对 H\\ :math:`_2`\\ O 进行 SCF 计算，使用了所有可能的默认设置。"
+
+msgid "Geometry optimizations"
+msgstr "几何优化"
+
+msgid ""
+"Now we can also do a geometry optimization, simply by adding the card "
+"``OPTG``."
+msgstr "现在，我们也可以通过简单地添加卡片 ``OPTG`` 来进行几何优化。"
+
+msgid "CCSD(T)"
+msgstr "CCSD(T)"
+
+msgid ""
+"The following job does a CCSD(T) calculation using a larger (``VTZ``) basis "
+"(this includes an :math:`f` function on oxygen and a :math:`d` function on "
+"the hydrogens)."
+msgstr ""
+"以下作业使用更大的（\\ ``VTZ``\\ ）基组进行 CCSD(T) 计算（这包括氧上的 :math:`f` 函数和氢上的 :math:`d` "
+"函数）。"
+
+msgid "Alternatively, the input could be written as"
+msgstr "或者，输入也可以写成"
+
+msgid "or, even shorter:"
+msgstr "或者，更简短地："
+
+msgid "CASSCF and MRCI"
+msgstr "CASSCF 和 MRCI"
+
+msgid ""
+"Perhaps you want to do a CASSCF and subsequent MRCI for comparison. The "
+"following uses the full valence active space in the CASSCF and MRCI "
+"reference function."
+msgstr "或许您想进行CASSCF及随后的MRCI计算以作比较。以下示例在CASSCF和MRCI参考函数中使用了全价层活性空间。"
+
+msgid "Simplified input"
+msgstr "简化输入"
+
+msgid "Tables"
+msgstr "表格"
+
+msgid ""
+"You may now want to print a summary of all results in a table. To do so, you"
+" must store the computed energies in variables:"
+msgstr "现在您可能希望将所有结果汇总打印在表格中。为此，您必须将计算出的能量存储在变量中："
+
+msgid "This job produces the following table:"
+msgstr "此作业生成以下表格："
+
+msgid "Procedures"
+msgstr "过程"
+
+msgid "The job produces the same table as before."
+msgstr "该任务产生与之前相同的表格。"
+
+msgid ""
+"For more details about procedures and further examples see `Procedures "
+"section of Program control <program_control.html#procedures-proc-"
+"endproc>`__."
+msgstr ""
+"有关过程的更多细节和进一步示例，请参阅 `程序控制中的过程部分 "
+"<program_control.html#proceduresprocendproc>`__\\ 。"
+
+msgid "Do loops"
+msgstr "DO 循环"
+
+msgid ""
+"Now you have the idea that one geometry is not enough. Why not compute the "
+"whole surface? ``DO`` loops make it easy. Here is an example, which computes"
+" a whole potential energy surface for :math:`\\rm H_2O`."
+msgstr ""
+"现在您应该明白，单一几何结构是不够的。何不计算整个势能面呢？\\ ``DO`` 循环让这变得简单。以下是一个计算 :math:`\\rm H_2O` "
+"完整势能面的示例。"
+
+msgid "This produces the following table."
+msgstr "这将产生以下表格。"
+
+msgid ""
+"You can use also use ``DO`` loops to repeat your input for different "
+"methods."
+msgstr "您也可以使用 ``DO`` 循环来为不同的方法重复您的输入。"
+
+msgid "This calculation produces the following table."
+msgstr "该计算产生以下表格。"
+
+msgid ""
+"One can do even more fancy things, like, for instance, using macros, stored "
+"as string variables, see `Macro definitions using string variables "
+"<variables.html#macro-definitions-using-string-variables>`__."
+msgstr ""
+"还可以实现更复杂的操作，例如，使用存储为字符串变量的宏，请参阅 `使用字符串变量的宏定义 "
+"<variables.html#macrodefinitionsusingstringvariables>`__\\ 。"

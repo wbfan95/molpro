@@ -1,0 +1,489 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Definition of Molpro input language"
+msgstr "Molpro 输入语言定义"
+
+msgid "Input format"
+msgstr "输入格式"
+
+msgid ""
+"Molpro’s execution is controlled by an input file. In general, each input "
+"record begins with a keyword, which may be followed by data or other "
+"keywords. Molpro input contains commands, directives, options and data. The "
+"commands and directives are sequentially executed in the order they are "
+"encountered. Furthermore, procedures can be defined anywhere in the input, "
+"which can include any number of commands and directives. They are only "
+"executed when called (which may be before or after the definition in the "
+"input file)."
+msgstr ""
+"Molpro 的执行由一个输入文件控制。通常，每个输入记录以一个关键词开始，后面可以跟随数据或其他关键词。Molpro "
+"输入包含命令、指令、选项和数据。命令和指令按照它们出现的顺序依次执行。此外，可以在输入的任何位置定义过程，这些过程可以包含任意数量的命令和指令。它们仅在调用时执行（调用可能发生在输入文件中定义之前或之后）。"
+
+msgid ""
+"The input file can be written in free format. The following conversions take"
+" place:"
+msgstr "输入文件可以采用自由格式编写。会发生以下转换："
+
+msgid "**, (comma)** move to next tab stop, i.e. this delimits input fields"
+msgstr "**, (逗号)** 移动到下一个制表位，即分隔输入字段"
+
+msgid "**; (semicolon)** end of record, i.e. a new record is started"
+msgstr "**; (分号)** 记录结束，即开始一个新记录"
+
+msgid ""
+"**! (exclamation mark)** ignore rest of input line (useful for comments)"
+msgstr "**! (感叹号)** 忽略输入行的其余部分（用于注释）"
+
+msgid ""
+"Input may be given upper or lower case. The input processor converts all "
+"characters to upper case. All integers are appended with “.” (only floating "
+"point numbers are read by the program)."
+msgstr "输入可以是大写或小写。输入处理器将所有字符转换为大写。所有整数都会附加“.”（程序只读取浮点数）。"
+
+msgid ""
+"Several logical input records can actually be typed on one line and "
+"separated by semicolons, i.e., a given input line may contain many actual "
+"commands (separated by semicolons), or just one, as you prefer. These basic "
+"command units (records) delimited by semicolons are also frequently referred"
+" to as *cards* throughout this manual."
+msgstr ""
+"实际上，多个逻辑输入记录可以输入在一行中，并用分号分隔，也就是说，一个给定的输入行可以包含许多实际命令（用分号分隔），或者只有一个，这取决于您的偏好。这些由分号分隔的基本命令单元（记录）在本手册中也常被称为\\"
+" *卡片*\\ 。"
+
+msgid "Exception to these general rules are:"
+msgstr "这些通用规则的例外情况是："
+
+msgid "``***`` first data line always (can be omitted)"
+msgstr "``***`` 始终为第一行数据（可以省略）"
+
+msgid "``INCLUDE`` include other input file"
+msgstr "``INCLUDE`` 包含其他输入文件"
+
+msgid "``FILE`` definition of named files"
+msgstr "``FILE`` 定义命名文件"
+
+msgid "``TEXT`` prints text"
+msgstr "``TEXT`` 打印文本"
+
+msgid "``TITLE`` defines a title for the run or a table"
+msgstr "``TITLE`` 为运行或表格定义标题"
+
+msgid "``CON`` specifies orbital configurations"
+msgstr "``CON`` 指定轨道组态"
+
+msgid "``---`` last line of input"
+msgstr "``---`` 输入的最后一行"
+
+msgid ""
+"These commands always occupy a whole line. Using ``INCLUDE`` it is possible "
+"to open secondary input files. If an ``INCLUDE`` command is encountered, the"
+" new input file is opened and read until its end. Input is then continued "
+"after the include card in the first file. ``INCLUDE``\\ ’s may be nested."
+msgstr ""
+"这些命令总是占据一整行。使用 ``INCLUDE`` 可以打开辅助输入文件。如果遇到 ``INCLUDE`` "
+"命令，新的输入文件将被打开并读取至文件末尾。然后，输入将在第一个文件的包含卡片之后继续。\\ ``INCLUDE`` 可以嵌套。"
+
+msgid ""
+"A Molpro input record (card) contains a number of input *fields*. Input "
+"fields may be up to 256 characters wide and contain either expressions or "
+"strings. The fields can be separated by commas or blanks. We recommend the "
+"general use of commas in order to avoid unexpected results."
+msgstr ""
+"一个 Molpro 输入记录（卡片）包含若干输入\\ *字段*\\ 。输入字段最多可包含 256 "
+"个字符，内容可以是表达式或字符串。字段之间可以用逗号或空格分隔。我们建议通常使用逗号，以避免意外结果。"
+
+msgid ""
+"Each line may start with a label. A label is separated from the body of the "
+"line by a colon (:). The colon is part of the label. The length of the label"
+" must not exceed 6 characters (including the colon) and the labels must be "
+"unique. Labels may be useful with ``GOTO`` commands. Example:"
+msgstr ""
+"每行可以以一个标签开头。标签通过冒号 (:) 与行的主体部分分隔。冒号是标签的一部分。标签长度不得超过 6 个字符（包括冒号），且标签必须唯一。标签在与"
+" ``GOTO`` 命令配合使用时可能有用。例如："
+
+msgid "Here ``START:`` is a label, and ``CCSD(T)`` is a command."
+msgstr "这里 ``START:`` 是一个标签，而 ``CCSD(T)`` 是一个命令。"
+
+msgid ""
+"Input lines may be concatenated using :math:`\\backslash` at the end of the "
+"line(s) to be continued. Any number of lines may be concatenated up to a "
+"total length of 1024 characters (only 500 characters are possible on older "
+"IBM systems)."
+msgstr ""
+"输入行可以通过在需要续行的行末使用 :math:`\\backslash` "
+"进行连接。最多可以连接任意数量的行，总长度可达1024个字符（在较旧的IBM系统上仅支持500个字符）。"
+
+msgid ""
+"Filenames may be up to 31 characters long, provided that long filenames are "
+"supported by the Unix system used. An exception are older CRAY systems, "
+"which allow only 8 characters for the names of binary Molpro files."
+msgstr ""
+"文件名最多可包含31个字符，前提是所使用的Unix系统支持长文件名。例外情况是较旧的CRAY系统，其二进制Molpro文件的名称仅允许8个字符。"
+
+msgid "Commands"
+msgstr "命令"
+
+msgid "The general format is either"
+msgstr "通用格式为"
+
+msgid "``COMMAND, options``"
+msgstr "``COMMAND,options``"
+
+msgid "or"
+msgstr "或"
+
+msgid ""
+"Examples for commands are ``HF, MP2, CCSD(T), MCSCF, MRCI``. Examples for "
+"directives are ``OCC, CLOSED, WF, PRINT``. Directives can be in any order, "
+"unless otherwise noted. Data can follow certain directives. For the format "
+"of options, directives and data see subsections `directives "
+"<definition_of_molpro_input_language.html#directives>`__, `options "
+"<definition_of_molpro_input_language.html#options>`__, and `data "
+"<definition_of_molpro_input_language.html#data>`__, respectively."
+msgstr ""
+"命令的示例包括 ``HF, MP2, CCSD(T), MCSCF, MRCI``\\ 。指令的示例包括 ``OCC, CLOSED, WF, "
+"PRINT``\\ 。除非另有说明，指令可以按任意顺序排列。数据可以跟在某些指令之后。关于选项、指令和数据的格式，请分别参见子章节 "
+"`directives <definition_of_molpro_input_language.html#directives>`__\\ 、\\ "
+"`options <definition_of_molpro_input_language.html#options>`__ 和 `data "
+"<definition_of_molpro_input_language.html#data>`__\\ 。"
+
+msgid ""
+"In the following, such a sequence of input will be denoted a *command "
+"block*. Special command blocks are the geometry and basis blocks."
+msgstr "在下文中，这样的输入序列将被称为\\ *命令块*\\ 。特殊的命令块是几何结构和基组块。"
+
+msgid ""
+"The options given on the command line may include any options relevant to "
+"the current program. For instance, in DF-LMP2-R12 this could be options for "
+"density fitting, local, explicit, and/or thresholds. Alternatively, options "
+"can be specified on individual directives like"
+msgstr ""
+"命令行上给出的选项可以包括与当前程序相关的任何选项。例如，在 DF-LMP2-R12 "
+"中，这可能是用于密度拟合、局域化、显式相关和/或阈值的选项。或者，选项可以在单独的指令上指定，例如"
+
+msgid ""
+"In these cases, only the options belong to the corresponding directive are "
+"valid; thus, if an option for ``EXPLICIT`` would be specified, e.g., on the "
+"``DFIT`` directive, an error would result. This error would be detected "
+"already in the input prechecking stage."
+msgstr ""
+"在这些情况下，只有属于相应指令的选项才是有效的；因此，如果指定了\\ ``EXPLICIT``\\ 的选项，例如在\\ ``DFIT``\\ "
+"指令上，将会导致错误。此错误在输入预检查阶段就会被检测到。"
+
+msgid ""
+"As already mentioned, the use of curly brackets is normally compulsory if "
+"more than one input line is needed. In the case of one-line commands, curly "
+"brackets are needed as well if the next command or procedure has the same "
+"name as a directive valid for the current command."
+msgstr "如前所述，如果需要多行输入，通常必须使用花括号。对于单行命令，如果下一个命令或过程与当前命令的有效指令同名，也需要使用花括号。"
+
+msgid ""
+"Note: ``DIRECT`` and associated options cannot be specified on command lines"
+" any more."
+msgstr "注意：\\ ``DIRECT``\\ 及其关联选项不能再在命令行中指定。"
+
+msgid "Directives"
+msgstr "指令"
+
+msgid ""
+"Directives serve to specify input data and special options for programs. "
+"They start with a keyword, followed by data and/or options. The general "
+"format is"
+msgstr "指令用于为程序指定输入数据和特殊选项。它们以一个关键字开始，后跟数据和/或选项。通用格式为"
+
+msgid ""
+"The format of data and options is specified in the subsequent sections. Data"
+" must always be given before any options."
+msgstr "数据和选项的格式在后续章节中指定。数据必须始终在任何选项之前给出。"
+
+msgid "Examples for directives are"
+msgstr "指令的示例包括"
+
+msgid "Global directives"
+msgstr "全局指令"
+
+msgid ""
+"Certain directives can be given anywhere in the input, i.e. either inside or"
+" outside command blocks. If they are given inside of command blocks, the "
+"specified options are valid only locally for the current program. However, "
+"if they are given outside a command block, they act globally, and are used "
+"for all programs executed after the input has been encountered. Local "
+"options have preference over global options."
+msgstr ""
+"某些指令可以在输入中的任何位置给出，即可以在命令块内部或外部。如果它们在命令块内部给出，指定的选项仅对当前程序局部有效。然而，如果在命令块外部给出，它们将全局生效，并用于在遇到该输入后执行的所有程序。局部选项优先于全局选项。"
+
+msgid "The following directives can be either local or global:"
+msgstr "以下指令可以是局部的或全局的："
+
+msgid ""
+"If such options are given outside a command block, a context can be "
+"specified"
+msgstr "如果此类选项在命令块外部给出，则可以指定一个上下文"
+
+msgid "e.g.,"
+msgstr "例如，"
+
+msgid ""
+"If no context is given, the default is ``HF``. The default occupations for "
+"single reference methods (e.g., MP2, CCSD) are the ones used in ``HF``, the "
+"defaults for multireference methods (e.g. RS2, MRCI) correspond to those "
+"used in ``MCSCF``."
+msgstr ""
+"如果未指定上下文，则默认为 ``HF``\\ 。单参考方法（例如，MP2、CCSD）的默认占据数使用 ``HF`` "
+"中的设置，多参考方法（例如，RS2、MRCI）的默认占据数则对应于 ``MCSCF`` 中使用的设置。"
+
+msgid "Options"
+msgstr "选项"
+
+msgid "Options have the general form ``NAME``\\ [=\\ *value*]"
+msgstr "选项的一般形式为 ``NAME``\\ [=\\ *value*]"
+
+msgid ""
+"where value can be a number, and expression, or a string. Several options "
+"are separated by comma or blank. ``NAME`` must begin with a character [A-Z]."
+" If options are given on a ``COMMAND`` line or on directives within a "
+"command block, they are valid only for the corresponding program (see Sec. "
+"`directives <definition_of_molpro_input_language.html#directives>`__). If "
+"options are given in a procedure, they are valid only in the procedure and "
+"procedures called from the current procedure; whenever a procedure is "
+"terminated, the options of the previous level are restored."
+msgstr ""
+"其中值可以是数字、表达式或字符串。多个选项用逗号或空格分隔。\\ ``NAME`` 必须以字符 [A-Z] 开头。如果选项在 ``COMMAND`` "
+"行上或命令块内的指令中给出，则它们仅对相应的程序有效（参见章节 `directives "
+"<definition_of_molpro_input_language.html#directives>`__\\ "
+"）。如果选项在过程中给出，则它们仅在该过程以及从当前过程调用的过程中有效；每当一个过程终止时，将恢复上一级的选项。"
+
+msgid ""
+"Options can also be single keywords, like ``SYM`` or ``NOSYM``. In this "
+"case, the option is switched on or off, depending whether or not the key "
+"begins with ``NO``. Alternatively, such logical options can also be set or "
+"unset using ``NAME=ON`` or ``NAME=OFF``. For instance, ``SYM=OFF`` is "
+"equivalent to ``NOSYM``. Furthermore, ``YES`` and ``NO`` are aliases for "
+"``ON`` and ``OFF``, respectively."
+msgstr ""
+"选项也可以是单个关键字，例如 ``SYM`` 或 ``NOSYM``\\ 。在这种情况下，选项会根据关键字是否以 ``NO`` "
+"开头而打开或关闭。或者，也可以使用 ``NAME=ON`` 或 ``NAME=OFF`` 来设置或取消设置此类逻辑选项。例如，\\ "
+"``SYM=OFF`` 等同于 ``NOSYM``\\ 。此外，\\ ``YES`` 和 ``NO`` 分别是 ``ON`` 和 ``OFF`` "
+"的别名。"
+
+msgid "Data"
+msgstr "数据"
+
+msgid ""
+"Data are defined as a sequence of numbers, expressions, or strings, "
+"separated by commas or blanks. Generally, the order of data is essential. "
+"Empty fields are interpreted as zeros. Strings and variables must begin with"
+" a character [A-Z]. If :math:`+` or :math:`-` follows blank and directly "
+"precedes a number or variable it is interpreted as sign and not a binary "
+"operator. If there are no blanks before and after such operators, or blanks "
+"follow them, they are interpreted as binary operators. Examples:"
+msgstr ""
+"数据被定义为一串由逗号或空格分隔的数字、表达式或字符串。通常，数据的顺序至关重要。空字段被解释为零。字符串和变量必须以字符 [A-Z] 开头。如果 "
+":math:`+` 或 :math:`-` "
+"紧跟在空格之后并直接位于数字或变量之前，它将被解释为符号而非二元运算符。如果此类运算符前后没有空格，或者空格跟在它们后面，它们将被解释为二元运算符。示例："
+
+msgid "yields [-1,4]"
+msgstr "得到 [-1,4]"
+
+msgid "yields [3,-4,4]"
+msgstr "得到 [3,-4,4]"
+
+msgid "Expressions (including numbers) may contain variables."
+msgstr "表达式（包括数字）可以包含变量。"
+
+msgid ""
+"Examples for the use of data: geometry and basis input, ``LATTICE``, "
+"``OCC``, ``CLOSED``, ``CORE``, ``WF`` directives."
+msgstr ""
+"数据使用的示例：几何和基组输入，\\ ``LATTICE``\\ 、\\ ``OCC``\\ 、\\ ``CLOSED``\\ 、\\ "
+"``CORE``\\ 、\\ ``WF`` 指令。"
+
+msgid ""
+"In some cases several lines of data are needed for a certain command or "
+"directive; in such cases the data must follow directly the corresponding "
+"command\\ :math:`|`\\ directive, and must be enclosed in square brackets:"
+msgstr "在某些情况下，某个命令或指令需要多行数据；在这种情况下，数据必须紧跟在相应的命令\\ :math:`|`\\ 指令之后，并且必须用方括号括起来："
+
+msgid ""
+"Normally, the input format of data is ``MOLPRO`` style, i.e., numbers are "
+"separated by commas, and variables as well as expressions can be used."
+msgstr "通常，数据的输入格式为 ``MOLPRO`` 风格，即数字用逗号分隔，并且可以使用变量和表达式。"
+
+msgid ""
+"If data are included using external files, the input format of *data* is "
+"free format: no commas are needed, but no variables and expressions can be "
+"used."
+msgstr "如果数据通过外部文件包含，则 *data* 的输入格式为自由格式：不需要逗号，但不能使用变量和表达式。"
+
+msgid "Expressions"
+msgstr "表达式"
+
+msgid "[sec:expressions]"
+msgstr "[sec:expressions]"
+
+msgid "The following standard operations can be performed :"
+msgstr "可以执行以下标准操作："
+
+msgid "Intrinsic functions"
+msgstr "内置函数"
+
+msgid "Expressions may contain the following intrinsic functions:"
+msgstr "表达式可包含以下内置函数："
+
+msgid "``ABS(expr)`` Absolute value"
+msgstr "``ABS(expr)`` 绝对值"
+
+msgid ""
+"``MAX(expr,expr, ...)`` Largest value of arbitrary number of numbers or "
+"expressions"
+msgstr "``MAX(expr,expr, ...)`` 任意数量数值或表达式中的最大值"
+
+msgid ""
+"``MIN(expr,expr, ...)`` Smallest value of arbitrary number of numbers of "
+"expressions"
+msgstr "``MIN(expr,expr, ...)`` 任意数量数值或表达式中的最小值"
+
+msgid "``EXP(expr)`` Exponential"
+msgstr "``EXP(expr)`` 指数函数"
+
+msgid "``LOG(expr)`` Natural Logarithm"
+msgstr "``LOG(expr)`` 自然对数"
+
+msgid "``LOG10(expr)`` Common Logarithm"
+msgstr "``LOG10(expr)`` 常用对数"
+
+msgid "``SQRT(expr)`` Square Root"
+msgstr "``SQRT(expr)`` 平方根"
+
+msgid "``NINT(expr)`` Next nearest integer"
+msgstr "``NINT(expr)`` 最近整数"
+
+msgid "``INT(expr)`` Truncate to integer"
+msgstr "``INT(expr)`` 截断为整数"
+
+msgid "``SIN(expr)`` Sine"
+msgstr "``SIN(expr)`` 正弦"
+
+msgid "``COS(expr)`` Cosine"
+msgstr "``COS(expr)`` 余弦"
+
+msgid "``TAN(expr)`` Tangent"
+msgstr "``TAN(expr)`` 正切"
+
+msgid "``ASIN(expr)`` Arcsine"
+msgstr "``ASIN(expr)`` 反正弦"
+
+msgid "``ACOS(expr)`` Arccosine"
+msgstr "``ACOS(expr)`` 反余弦"
+
+msgid "``ATAN(expr)`` Arctangent"
+msgstr "``ATAN(expr)`` 反正切"
+
+msgid "``COSH(expr)`` Hyperbolic cosine"
+msgstr "``COSH(expr)`` 双曲余弦"
+
+msgid "``SINH(expr)`` Hyperbolic sine"
+msgstr "``SINH(expr)`` 双曲正弦"
+
+msgid "``TANH(expr)`` Hyperbolic tangent"
+msgstr "``TANH(expr)`` 双曲正切"
+
+msgid "``MOD(expr1 , expr2 )`` Remainder: ``expr1-INT(expr1/expr2)*expr2``"
+msgstr "``MOD(expr1 , expr2 )`` 余数：\\ ``expr1-INT(expr1/expr2)*expr2``"
+
+msgid "Note: all trigonometric functions use or produce angles in degrees."
+msgstr "注意：所有三角函数使用或产生的角度均以度为单位。"
+
+msgid "Variables"
+msgstr "变量"
+
+msgid "[sec:variables1]"
+msgstr "[sec:variables1]"
+
+msgid "Setting variables"
+msgstr "设置变量"
+
+msgid ""
+"Data and results can be stored in Molpro variables. Variables can be of type"
+" string, floating, or logical and may be used anywhere in the input."
+msgstr "数据和结果可以存储在 Molpro 变量中。变量可以是字符串、浮点数或逻辑类型，并且可以在输入中的任何地方使用。"
+
+msgid "The syntax for setting variables is"
+msgstr "设置变量的语法是"
+
+msgid "where unit is optional. If a variable is undefined, zero is assumed."
+msgstr "其中单位是可选的。如果变量未定义，则假定为零。"
+
+msgid "String variables"
+msgstr "字符串变量"
+
+msgid ""
+"Special care is necessary when using strings. In order to avoid unexpected "
+"results, either a $ has to be prefixed whenever a string variable is set, or"
+" the string has to be given in quotes. Possible forms are"
+msgstr "使用字符串时需要特别注意。为了避免意外结果，在设置字符串变量时，要么必须在前面加上$符号，要么必须将字符串放在引号中。可能的形式有"
+
+msgid "yields"
+msgstr "产生"
+
+msgid ""
+"For more information concerning strings and string variables, see section "
+"`string variables <variables.html#string-variables>`__"
+msgstr ""
+"有关字符串和字符串变量的更多信息，请参阅章节 `string variables <variables.html#string-"
+"variables>`__"
+
+msgid "Procedures"
+msgstr "过程"
+
+msgid "Procedure definition"
+msgstr "过程定义"
+
+msgid ""
+"Procedures are sequences of commands and/or options. They can be defined "
+"anywhere in the input as"
+msgstr "过程是命令和/或选项的序列。它们可以在输入中的任何位置定义为"
+
+msgid ""
+"In order to avoid unexpected results, *procname* must differ from all known "
+"command names. Procedures must not contain geometry blocks."
+msgstr "为避免意外结果，\\ *procname* 必须与所有已知命令名称不同。过程不得包含几何块。"
+
+msgid ""
+"Note that procedures are not executed when encountered in the input, but "
+"only when called. Procedure definitions must not be nested. Procedures can "
+"contain procedure calls up to a nesting level of 10."
+msgstr "请注意，过程在输入中遇到时不会执行，仅在调用时执行。过程定义不得嵌套。过程可以包含过程调用，嵌套级别最多为10。"
+
+msgid "Procedure calls"
+msgstr "过程调用"
+
+msgid ""
+"Procedures can be called anywhere in the input. The syntax is the same as "
+"for commands (cf. section `commands "
+"<definition_of_molpro_input_language.html#commands>`__), except that the "
+"procedure name replaces the command name."
+msgstr ""
+"过程可以在输入中的任何位置调用。其语法与命令相同（参见 `commands "
+"<definition_of_molpro_input_language.html#commands>`__ 节），只是用过程名称替换命令名称。"
+
+msgid "``PROCEDURE``"
+msgstr "``PROCEDURE``"
+
+msgid ""
+"No options are allowed on procedure calls. However, specific options may be "
+"set using directives within the procedure, and these are then valid for all "
+"programs within the procedure which follow the directive. When execution of "
+"the procedure is finished, the previous global options are restored. The "
+"hierarchy in which options are processed is as follows:"
+msgstr ""
+"过程调用不允许使用选项。但是，可以在过程内部使用指令设置特定选项，这些选项随后对指令之后过程内的所有程序有效。当过程执行完毕后，会恢复之前的全局选项。处理选项的层次结构如下："

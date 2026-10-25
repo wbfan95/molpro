@@ -1,0 +1,1141 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Variables"
+msgstr "变量"
+
+msgid ""
+"Molpro automatically stores various results and data in system variables "
+"(see section `variables set by the program <variables.html#variables-set-by-"
+"the-program>`__), which can be used for further processing. A new feature of"
+" Molpro2002 is that most system variables are write protected and cannot be "
+"overwritten by the user. The input is automatically checked before the job "
+"starts, and should a system variable be set in the input the job will stop "
+"immediately with an error message. Only in some exceptions (see section "
+"`system variables <variables.html#system-variables>`__), system variables "
+"can be modified using the ``SET`` command (but not with the simple "
+"``NAME``\\ =\\ *value* syntax). Note that due to the changed usage and "
+"syntax of the ``SET`` command, compatibility with Molpro92 input syntax is "
+"no longer maintained."
+msgstr ""
+"Molpro会自动将各种结果和数据存储在系统变量中（参见\\ `variables set by the program "
+"<variables.html#variables-set-by-the-program>`__\\ "
+"一节），这些变量可用于进一步处理。Molpro2002的一个新特性是，大多数系统变量是写保护的，用户无法覆盖。输入在作业开始前会自动检查，如果输入中设置了系统变量，作业将立即停止并显示错误消息。只有在某些例外情况下（参见\\"
+" `system variables <variables.html#system-variables>`__\\ 一节），系统变量可以使用\\ "
+"``SET``\\ 命令修改（但不能使用简单的\\ ``NAME``\\ =\\ *value*\\ 语法）。请注意，由于\\ ``SET``\\ "
+"命令的用法和语法发生了变化，不再保持与Molpro92输入语法的兼容性。"
+
+msgid "Setting variables"
+msgstr "设置变量"
+
+msgid "A variable can be defined using"
+msgstr "可以使用以下方式定义变量"
+
+msgid ""
+"A variable definition is recognized by the equals sign in the *first* field "
+"of the input card. For example,"
+msgstr "变量定义通过输入卡\\ *第一个*\\ 字段中的等号来识别。例如，"
+
+msgid "``THRESH,ENERGY=1.d-8,GRADIENT=1.d-5``"
+msgstr "``THRESH,ENERGY=1.d-8,GRADIENT=1.d-5``"
+
+msgid ""
+"does *not* define variables; here ``ENERGY`` and ``GRADIENT`` are options "
+"for the ``THRESH`` directive."
+msgstr "并\\ *不*\\ 定义变量；这里的 ``ENERGY`` 和 ``GRADIENT`` 是 ``THRESH`` 指令的选项。"
+
+msgid "Variables can have different types:"
+msgstr "变量可以有不同的类型："
+
+msgid ""
+"**Logicals:** The value can be ``.TRUE.`` or ``.FALSE.`` (``.T.`` and .F. "
+"also work), or a logical expression. Internally, ``.TRUE.`` is stored as 1 "
+"and ``.FALSE.`` as zero."
+msgstr ""
+"**逻辑值：** 值可以是 ``.TRUE.`` 或 ``.FALSE.``\\ （\\ ``.T.`` 和 .F. "
+"也有效），或一个逻辑表达式。在内部，\\ ``.TRUE.`` 存储为 1，\\ ``.FALSE.`` 存储为零。"
+
+msgid ""
+"**Strings:** The value can either be a string enclosed in quotes or a string"
+" variable. See section `string variables <variables.html#string-"
+"variables>`__ for more details."
+msgstr ""
+"**字符串：** 值可以是用引号括起来的字符串或一个字符串变量。更多细节请参阅 `string variables "
+"<variables.html#string-variables>`__ 一节。"
+
+msgid "Indexed variables"
+msgstr "索引变量"
+
+msgid ""
+"Variables can be indexed, but only one-dimensional indexing is available. "
+"Indexed variables can be defined either individually, e.g."
+msgstr "变量可以被索引，但仅支持一维索引。索引变量可以单独定义，例如，"
+
+msgid "or as a vector of values enclosed by square brackets:"
+msgstr "或作为用方括号括起来的值向量："
+
+msgid "``R=[1.0,1.1,1.2] ANG``"
+msgstr "``R=[1.0,1.1,1.2] ANG``"
+
+msgid "Subranges can also be defined, e.g."
+msgstr "也可以定义子范围，例如，"
+
+msgid "leads to the same result as the above two forms."
+msgstr "会得到与上述两种形式相同的结果。"
+
+msgid ""
+"The type of each element depends on the type of the assigned value, and it "
+"is possible to mix types in one variable. Example:"
+msgstr "每个元素的类型取决于所赋值类型，并且可以在一个变量中混合类型。示例："
+
+msgid "yields:"
+msgstr "得到："
+
+msgid ""
+"In this example the variables ``PROGRAM``, ``ENERGY``, and ``STATUS`` are "
+"system variables, which are set by the program (see section `system "
+"variables <variables.html#system-variables>`__)."
+msgstr ""
+"在此示例中，变量 ``PROGRAM``\\ 、\\ ``ENERGY`` 和 ``STATUS`` 是系统变量，由程序设置（参见 `system "
+"variables <variables.html#system-variables>`__ 章节）。"
+
+msgid "String variables"
+msgstr "字符串变量"
+
+msgid ""
+"As explained already in section `setting variables <variables.html#setting-"
+"variables>`__, string variables can be set as other variables in the form"
+msgstr ""
+"如 `setting variables <variables.html#setting-variables>`__ "
+"章节中已解释的，字符串变量可以像其他变量一样以以下形式设置"
+
+msgid ""
+"Strings must be enclosed by quotes. Otherwise the string is assumed to be a "
+"variable, and if this is undefined it is assumed to be zero."
+msgstr "字符串必须用引号括起来。否则该字符串将被视为变量，如果该变量未定义，则假定为零。"
+
+msgid ""
+"Alternatively, if the name of the variable is preceded by a dollar ($), all "
+"values are assumed to be a string. This can be a string variable, a quoted "
+"string, or an unquoted string. Note that unquoted strings are converted to "
+"upper case. Also note that quotes are compulsory if the string contains "
+"blanks."
+msgstr ""
+"或者，如果变量名前带有美元符号（$），则所有值都被假定为字符串。这可以是字符串变量、带引号的字符串或不带引号的字符串。请注意，不带引号的字符串会被转换为大写。另请注意，如果字符串包含空格，则引号是必需的。"
+
+msgid "Example:"
+msgstr "示例："
+
+msgid "``$str=[a,b+4,’This is an example for strings’]``"
+msgstr "``$str=[a,b+4,’This is an example for strings’]``"
+
+msgid "yields"
+msgstr "得到"
+
+msgid ""
+"As a general rule, string variables are replaced by their value only if they"
+" are preceded by a dollar ($) (exceptions: in variable definitions, on "
+"``SHOW`` cards, and in logical expressions on ``IF`` cards, the dollar is "
+"optional). This is a precaution to avoid commands which have the same name "
+"as a variable being interpreted as variables. Variables may also appear on "
+"``TEXT`` or ``TITLE`` cards or in strings, but must be preceded by $ in "
+"these cases. Example:"
+msgstr ""
+"作为一般规则，字符串变量仅在其前面带有美元符号（$）时才会被其值替换（例外情况：在变量定义中、在 ``SHOW`` 卡片上以及在 ``IF`` "
+"卡片的逻辑表达式中，美元符号是可选的）。这是一种预防措施，以避免与变量同名的命令被解释为变量。变量也可能出现在 ``TEXT`` 或 ``TITLE``"
+" 卡片上或字符串中，但在这些情况下前面必须带有 $。示例："
+
+msgid "prints"
+msgstr "打印"
+
+msgid "``MCSCF results for R=1.5 Bohr``"
+msgstr "``MCSCF results for R=1.5 Bohr``"
+
+msgid ""
+"String variables can be concatenated with strings or other string variables "
+"in the following way. Assume that variable ``PROGRAM`` has the value "
+"``MRCI``. Setting"
+msgstr "字符串变量可以通过以下方式与字符串或其他字符串变量连接。假设变量 ``PROGRAM`` 的值为 ``MRCI``\\ 。设置"
+
+msgid "``METHOD=’$PROGRAM+Q’``"
+msgstr "``METHOD=’$PROGRAM+Q’``"
+
+msgid ""
+"sets ``METHOD`` to ``MRCI+Q``. Alternatively, if we would also have a "
+"variable ``VERSION`` with value ``Q``, we could write"
+msgstr ""
+"将 ``METHOD`` 设置为 ``MRCI+Q``\\ 。或者，如果我们还有一个值为 ``Q`` 的变量 ``VERSION``\\ ，我们可以写成"
+
+msgid "``METHOD=’$PROGRAM+$VERSION’``"
+msgstr "``METHOD=’$PROGRAM+$VERSION’``"
+
+msgid ""
+"Again, the value of ``METHOD`` would be ``MRCI+Q``. Note that the quotes are"
+" necessary in these cases."
+msgstr "同样，\\ ``METHOD`` 的值将是 ``MRCI+Q``\\ 。请注意，在这些情况下引号是必需的。"
+
+msgid "Substring operations are not implemented."
+msgstr "未实现子字符串操作。"
+
+msgid "System variables"
+msgstr "系统变量"
+
+msgid ""
+"As mentioned above, most system variables cannot be written by the user. In "
+"some exceptions, it is possible to redefine them using the ``SET`` command:"
+msgstr "如上所述，大多数系统变量不能被用户写入。在某些例外情况下，可以使用 ``SET`` 命令重新定义它们："
+
+msgid "This holds for the following variables:"
+msgstr "这适用于以下变量："
+
+msgid "``CHARGE`` Total charge of the molecule"
+msgstr "``CHARGE`` 分子的总电荷"
+
+msgid "``NELEC`` Number of electrons"
+msgstr "``NELEC`` 电子数"
+
+msgid "``SPIN`` Spin quantum number, given as :math:`2\\cdot M\\_S` (integer)"
+msgstr "``SPIN`` 自旋量子数，以 :math:`2\\cdot M\\_S`\\ （整数）给出"
+
+msgid "``SCFSPIN`` Same as ``SPIN``, but only for HF"
+msgstr "``SCFSPIN`` 与 ``SPIN`` 相同，但仅适用于 HF"
+
+msgid "``MCSPIN`` Same as ``SPIN``, but only for MCSCF"
+msgstr "``MCSPIN`` 与 ``SPIN`` 相同，但仅用于 MCSCF"
+
+msgid "``CISPIN`` Same as ``SPIN``, but only for MRCI"
+msgstr "``CISPIN`` 与 ``SPIN`` 相同，但仅用于 MRCI"
+
+msgid "``STATE`` State to be optimized"
+msgstr "``STATE`` 待优化的态"
+
+msgid "``MCSTATE`` Same as ``STATE`` but only for MCSCF"
+msgstr "``MCSTATE`` 与 ``STATE`` 相同，但仅用于 MCSCF"
+
+msgid "``CISTATE`` Same as ``STATE`` but only for MRCI"
+msgstr "``CISTATE`` 与 ``STATE`` 相同，但仅用于 MRCI"
+
+msgid "``SYMMETRY`` State symmetry"
+msgstr "``SYMMETRY`` 态对称性"
+
+msgid "``SCFSYM[METRY]`` Same as ``SYMMETRY`` but only for HF"
+msgstr "``SCFSYM[METRY]`` 与 ``SYMMETRY`` 相同，但仅用于 HF"
+
+msgid "``MCSYM[METRY]`` Same as ``SYMMETRY`` but only for MCSCF"
+msgstr "``MCSYM[METRY]`` 与 ``SYMMETRY`` 相同，但仅用于 MCSCF"
+
+msgid "``CISYM[METRY]`` Same as ``SYMMETRY`` but only for MRCI"
+msgstr "``CISYM[METRY]`` 与 ``SYMMETRY`` 相同，但仅用于 MRCI"
+
+msgid "``LQUANT`` Lambda quantum number for linear molecules"
+msgstr "``LQUANT`` 线性分子的 Lambda 量子数"
+
+msgid "``OPTCONV`` Geometry optimization convergence criterion"
+msgstr "``OPTCONV`` 几何优化收敛判据"
+
+msgid "``PROGRAM`` Last program name"
+msgstr "``PROGRAM`` 上一个程序名称"
+
+msgid "``CPUSTEP`` CPU-time of last program step"
+msgstr "``CPUSTEP`` 上一个程序步骤的 CPU 时间"
+
+msgid "``SYSSTEP`` System-time of last program step"
+msgstr "``SYSSTEP`` 上一个程序步骤的系统时间"
+
+msgid "``WALLSTEP`` Elapsed-time of last program step"
+msgstr "``WALLSTEP`` 上一个程序步骤的流逝时间"
+
+msgid "``FOCKDONE`` Indicates if closed-shell fock operator is available."
+msgstr "``FOCKDONE`` 指示闭壳层 Fock 算符是否可用。"
+
+msgid ""
+"``MAXBASIS`` Max number of basis sets stored on dump files. If the maximum "
+"is reached, the last one is overwritten when a new one is made, and all "
+"information (including dump records etc) of the previous basis is lost. The "
+"default is the maximum possible number of basis sets (30), which cannot be "
+"exceeded."
+msgstr ""
+"``MAXBASIS`` "
+"转储文件上存储的最大基组数量。如果达到最大值，当创建新基组时，最后一个会被覆盖，并且前一个基组的所有信息（包括转储记录等）都会丢失。默认值是最大可能的基组数量（30），此值不可超过。"
+
+msgid "Macro definitions using string variables"
+msgstr "使用字符串变量的宏定义"
+
+msgid "``* This is string a+b which evaluates to 7``"
+msgstr "``* This is string a+b which evaluates to 7``"
+
+msgid ""
+"This can be used to define simple macros, which can be used at various "
+"places in the subsequent input. For instance,"
+msgstr "这可用于定义简单的宏，这些宏可以在后续输入中的不同位置使用。例如，"
+
+msgid "Here is an example of advanced use of macros and string variables:"
+msgstr "以下是一个宏和字符串变量高级用法的示例："
+
+msgid "Indexed Variables (Vectors)"
+msgstr "索引变量（向量）"
+
+msgid ""
+"Variables may be indexed, but only one-dimensional arrays (vectors) are "
+"supported. The index may itself be a variable. For instance"
+msgstr "变量可以被索引，但仅支持一维数组（向量）。索引本身也可以是一个变量。例如"
+
+msgid ""
+"are valid variable definitions, provided ``I``, ``PROGRAM``, and ``ENERGY`` "
+"are also defined variables. Indices may be nested to any depth."
+msgstr "是有效的变量定义，前提是 ``I``\\ 、\\ ``PROGRAM`` 和 ``ENERGY`` 也是已定义的变量。索引可以嵌套到任意深度。"
+
+msgid ""
+"Different elements of an array can be of different type (either *real* or "
+"*logical*). However, only one *unit* can be assigned to an array. String "
+"variables have no associated value and cannot be mixed with the other "
+"variable types. Therefore, a given variable name can only be used either for"
+" a *string* variable or a *real* (*logical*) variable."
+msgstr ""
+"数组的不同元素可以是不同类型（\\ *实数* 或 *逻辑* 型）。但是，一个数组只能分配一个\\ *单位*\\ "
+"。字符串变量没有关联值，不能与其他变量类型混合使用。因此，给定的变量名只能用于\\ *字符串*\\ 变量或\\ *实数*\\ （\\ *逻辑*\\ "
+"）变量。"
+
+msgid "Vectors (arrays) can be conveniently defined using square brackets:"
+msgstr "向量（数组）可以使用方括号方便地定义："
+
+msgid "``R=[1.0,1.2,1.3] ANG``"
+msgstr "``R=[1.0,1.2,1.3] ANG``"
+
+msgid ""
+"This defines an array with three elements, which can be accessed using "
+"indices; for instance, ``R(2)`` has the value ``1.2 ANG``. A repeat "
+"specifier can be given in front of the left bracket: ``5[0]`` is equivalent "
+"to ``[0,0,0,0,0]``. Brackets can even be nested: for instance, "
+"``2[1,2,2[2.1,3.1]]`` is equivalent to "
+"``[1,2,2.1,3.1,2.1,3.1,1,2,2.1,3.1,2.1,3.1]``."
+msgstr ""
+"这定义了一个包含三个元素的数组，可以通过索引访问；例如，\\ ``R(2)`` 的值为 ``1.2 ANG``\\ 。可以在左括号前指定重复说明符：\\"
+" ``5[0]`` 等价于 ``[0,0,0,0,0]``\\ 。括号甚至可以嵌套：例如，\\ ``2[1,2,2[2.1,3.1]]`` 等价于 "
+"``[1,2,2.1,3.1,2.1,3.1,1,2,2.1,3.1,2.1,3.1]``\\ 。"
+
+msgid ""
+"Arrays can be appended from a given position just by entering additional "
+"elements; for instance,"
+msgstr "数组可以从给定位置通过输入额外元素来追加；例如，"
+
+msgid "``R(4)=[1.4,1.5] ANG``"
+msgstr "``R(4)=[1.4,1.5] ANG``"
+
+msgid "or"
+msgstr "或"
+
+msgid "``R(4:)=[1.4,1.5] ANG``"
+msgstr "``R(4:)=[1.4,1.5] ANG``"
+
+msgid ""
+"extends the above array to length 5. Previously defined values can be "
+"overwritten. For instance"
+msgstr "将上述数组扩展至长度为 5。先前定义的值可以被覆盖。例如"
+
+msgid "``R(2)=[1.25,1.35,1.45]``"
+msgstr "``R(2)=[1.25,1.35,1.45]``"
+
+msgid "modifies the above vector to (1.0, 1.25, 1.35, 1.45, 1.5)."
+msgstr "将上述向量修改为 (1.0, 1.25, 1.35, 1.45, 1.5)。"
+
+msgid ""
+"If no index is given on the left hand side of the equal sign, an existing "
+"variable of the same name is replaced by the new values, and all old values "
+"are lost. For instance"
+msgstr "如果等号左侧未指定索引，则同名的现有变量将被新值替换，所有旧值都将丢失。例如"
+
+msgid "``THETA=[100,110,120,130]`` set four values"
+msgstr "``THETA=[100,110,120,130]`` 设置四个值"
+
+msgid ""
+"``THETA(1)=104`` replace ``THETA(1)`` by a new value; ``THETA(2:4)`` are "
+"unchanged"
+msgstr "``THETA(1)=104`` 将 ``THETA(1)`` 替换为新值；\\ ``THETA(2:4)`` 保持不变"
+
+msgid ""
+"``THETA=[140,150]`` old variable ``THETA`` is replaced; ``THETA(3:4)`` are "
+"deleted"
+msgstr "``THETA=[140,150]`` 旧变量 ``THETA`` 被替换；\\ ``THETA(3:4)`` 被删除"
+
+msgid "Square brackets can also be used to define an array of strings, e.g.,"
+msgstr "方括号也可用于定义字符串数组，例如，"
+
+msgid "``METHOD=[INT,HF,CASSCF,MRCI]``"
+msgstr "``METHOD=[INT,HF,CASSCF,MRCI]``"
+
+msgid "These could be used as follows:"
+msgstr "这些可以如下使用："
+
+msgid "The above input would be equivalent to"
+msgstr "上述输入等价于"
+
+msgid ""
+"The current length of an array can be accessed by preceding ``#`` to the "
+"variable name. For instance, in the above examples ``#R`` and ``#METHOD`` "
+"have the values 5 and 4, respectively. If a variable is not defined, zero is"
+" returned but no error occurs. This can be used to test for the existence of"
+" a variable, for example:"
+msgstr ""
+"数组的当前长度可以通过在变量名前加上 ``#`` 来访问。例如，在上述示例中，\\ ``#R`` 和 ``#METHOD`` 的值分别为 5 和 "
+"4。如果变量未定义，则返回零但不会发生错误。这可用于测试变量是否存在，例如："
+
+msgid "``IF(#SPIN.EQ.0.AND.#NELEC.EQ.1) SET,SPIN=MOD(NELEC,2)``"
+msgstr "``IF(#SPIN.EQ.0.AND.#NELEC.EQ.1) SET,SPIN=MOD(NELEC,2)``"
+
+msgid ""
+"This defines variable ``SPIN`` if it is unknown and if ``NELEC`` is a scalar"
+" (one dimensional) variable."
+msgstr "如果变量 ``SPIN`` 未知且 ``NELEC`` 是标量（一维）变量，则此语句定义变量 ``SPIN``\\ 。"
+
+msgid "Vector operations"
+msgstr "向量运算"
+
+msgid "The following simple vector operations are possible:"
+msgstr "以下简单的向量运算是可行的："
+
+msgid ""
+"Copying or appending a vector to another vector. For instance ``S=R`` copies"
+" a vector ``R`` to a vector ``S``. ``S(3)=R`` copies ``R`` to ``S(3), S(4), "
+"…``. ``S(#S+1)=R`` appends vector ``R`` to vector ``S``. It is also possible"
+" to access a range of subsequent elements in a vector: ``S=R(2:4)`` copies "
+"elements 2 to 4 of ``R`` to ``S(1), S(2), S(3)``. Note that ``R(2:)`` "
+"denotes elements ``R(2)`` to ``R(#R)``, but ``R(2)`` denotes a single "
+"element of ``R``."
+msgstr ""
+"复制向量或将向量附加到另一个向量。例如，\\ ``S=R`` 将向量 ``R`` 复制到向量 ``S``\\ 。\\ ``S(3)=R`` 将 "
+"``R`` 复制到 ``S(3), S(4), …``\\ 。\\ ``S(#S+1)=R`` 将向量 ``R`` 附加到向量 ``S``\\ "
+"。也可以访问向量中连续的元素范围：\\ ``S=R(2:4)`` 将 ``R`` 的第 2 到第 4 个元素复制到 ``S(1), S(2), "
+"S(3)``\\ 。请注意，\\ ``R(2:)`` 表示元素 ``R(2)`` 到 ``R(#R)``\\ ，但 ``R(2)`` 表示 ``R`` "
+"的单个元素。"
+
+msgid ""
+"Vector-scalar operations: ``R=R*2`` multiplies each element of ``R`` by 2. "
+"Instead of the number 2, also scalar (one dimensional) variables or "
+"expressions can be used, e.g., ``R=R*ANG`` converts all elements of ``R`` "
+"from Ångstrøm to bohr, or ``Z=R*COS(THETA)`` creates a vector ``Z`` with "
+"elements ``Z(i) = R(i)*COS(THETA)``. All other algebraic operators can be "
+"used instead of “\\*”. Note that the scalar must come last since the first "
+"variable in the expression determines the vector length."
+msgstr ""
+"向量-标量运算：\\ ``R=R*2`` 将 ``R`` 的每个元素乘以 2。除了数字 2，也可以使用标量（一维）变量或表达式，例如，\\ "
+"``R=R*ANG`` 将 ``R`` 的所有元素从 Ångstrøm 转换为 bohr，或者 ``Z=R*COS(THETA)`` 创建一个向量 "
+"``Z``\\ ，其元素为 ``Z(i) = R(i)*COS(THETA)``\\ "
+"。所有其他代数运算符都可以用来代替“\\*”。请注意，标量必须放在最后，因为表达式中的第一个变量决定了向量长度。"
+
+msgid ""
+"Vector-vector operations: If ``A`` and ``B`` are vectors of the same length,"
+" then ``A \\times B`` is also a vector of this length. Here :math:`\\times` "
+"stands for any algebraic operator, and the operation is done for each pair "
+"of corresponding elements. For instance, ``A + B`` adds the vectors ``A`` "
+"and ``B``, and ``A * B`` multiplies their elements. Note that the latter "
+"case is not a scalar product. If an attempt is made to connect two vectors "
+"of different lengths by an algebraic operator, an error occurs."
+msgstr ""
+"向量-向量运算：如果 ``A`` 和 ``B`` 是长度相同的向量，那么 ``A \\times B`` 也是一个相同长度的向量。这里 "
+":math:`\\times` 代表任何代数运算符，运算针对每一对对应元素进行。例如，\\ ``A + B`` 将向量 ``A`` 和 ``B`` "
+"相加，\\ ``A * B`` 将它们的元素相乘。请注意，后一种情况不是标量积。如果尝试用代数运算符连接两个长度不同的向量，则会发生错误。"
+
+msgid ""
+"Intrinsic functions: Assume ``THETA=[100,110,120,-130]`` to be a vector of "
+"angles (in degrees). In this case ``X=2*COS(THETA)`` is also a vector "
+"containing the cosines of each element of ``THETA`` multiplied by two, i.e.,"
+" ``X(i) = 2*COS(THETA(i))``. ``MAX(THETA)`` or ``MIN(THETA)`` return the "
+"maximum and minimum values, respectively, in array ``THETA``. Vector "
+"operations can also be nested, e.g., ``MAX(ABS(THETA))`` returns the maximum"
+" value in array ``ABS(THETA)``."
+msgstr ""
+"内置函数：假设 ``THETA=[100,110,120,-130]`` 是一个角度向量（以度为单位）。在这种情况下，\\ "
+"``X=2*COS(THETA)`` 也是一个向量，包含 ``THETA`` 每个元素的余弦值乘以二，即 ``X(i) = "
+"2*COS(THETA(i))``\\ 。\\ ``MAX(THETA)`` 或 ``MIN(THETA)`` 分别返回数组 ``THETA`` "
+"中的最大值和最小值。向量运算也可以嵌套，例如，\\ ``MAX(ABS(THETA))`` 返回数组 ``ABS(THETA)`` 中的最大值。"
+
+msgid ""
+"At present, vector operations are not supported with ``string`` variables."
+msgstr "目前，向量运算不支持 ``string`` 类型的变量。"
+
+msgid "Special variables"
+msgstr "特殊变量"
+
+msgid ""
+"A number of variables are predefined by the program. The following variables"
+" can be used to convert between atomic units and other units:"
+msgstr "程序预定义了许多变量。以下变量可用于在原子单位和其他单位之间进行转换："
+
+msgid "Further variables which are set during execution of the program:"
+msgstr "程序执行期间设置的更多变量："
+
+msgid ""
+"``INTYP`` defines integral program to be used. Either ``INTS`` (Seward) or "
+"``INTP`` (Argos)."
+msgstr "``INTYP`` 定义要使用的积分程序。可以是 ``INTS`` (Seward) 或 ``INTP`` (Argos)。"
+
+msgid ""
+"``INTDONE`` has the value ``.true.`` if the integrals are done for the "
+"current geometry."
+msgstr "如果当前几何结构的积分已完成，\\ ``INTDONE`` 的值为 ``.true.``\\ 。"
+
+msgid "``CARTESIAN`` Set to one if Cartesian basis functions are used."
+msgstr "``CARTESIAN`` 如果使用笛卡尔基函数，则设置为 1。"
+
+msgid ""
+"``SCFDONE`` has the value ``.true.`` if an SCF calculation has been done for"
+" the current geometry."
+msgstr "如果已对当前几何结构完成 SCF 计算，\\ ``SCFDONE`` 的值为 ``.true.``\\ 。"
+
+msgid "``NUMVAR`` number of variables presently defined"
+msgstr "``NUMVAR`` 当前定义的变量数量"
+
+msgid ""
+"``STATUS`` status of last step (1=no error, -1=error or no convergence)"
+msgstr "``STATUS`` 最后一步的状态 (1=无错误, -1=错误或未收敛)"
+
+msgid "``NELEC`` number of electrons in last wavefunction"
+msgstr "``NELEC`` 最后一个波函数中的电子数"
+
+msgid "``SPIN`` spin multiplicity minus one of last wavefunction"
+msgstr "``SPIN`` 最后一个波函数的自旋多重度减一"
+
+msgid ""
+"``ORBITAL`` record of last optimized orbitals (set but never used in the "
+"program)"
+msgstr "``ORBITAL`` 最后一次优化轨道的记录（已设置但程序中从未使用）"
+
+msgid ""
+"``LASTORB`` Type of last optimized orbitals (``RHF``, ``UHF``, ``UHFNAT``, "
+"or ``MCSCF``)."
+msgstr ""
+"``LASTORB`` 最后一次优化轨道的类型（\\ ``RHF``\\ 、\\ ``UHF``\\ 、\\ ``UHFNAT`` 或 "
+"``MCSCF``\\ ）。"
+
+msgid "``LASTSYM`` Symmetry of wavefunction for last optimized orbitals."
+msgstr "``LASTSYM`` 最后一次优化轨道对应的波函数的对称性。"
+
+msgid ""
+"``LASTSPIN`` :math:`2*M_S` for wavefunctions for last optimized orbitals."
+msgstr "``LASTSPIN`` 最后一次优化轨道对应的波函数的 :math:`2*M_S`\\ 。"
+
+msgid ""
+"``LASTNELEC`` Number of electrons in wavefunction for last optimized "
+"orbitals."
+msgstr "``LASTNELEC`` 上次优化轨道对应的波函数中的电子数。"
+
+msgid ""
+"``ENERGR(istate)`` Reference energy for state *istate* in MRCI and CCSD."
+msgstr "``ENERGR(istate)`` MRCI 和 CCSD 中状态 *istate* 的参考能量。"
+
+msgid ""
+"``ENERGY(istate)`` last computed total energy for state *istate* for the "
+"method specified in the input (e.g., ``HF``, ``MULTI``, ``CCSD(T)``, or "
+"``CCSD[T]``."
+msgstr ""
+"``ENERGY(istate)`` 根据输入中指定的方法（例如 ``HF``\\ 、\\ ``MULTI``\\ 、\\ ``CCSD(T)`` 或 "
+"``CCSD[T]``\\ ）最后计算得到的状态 *istate* 的总能量。"
+
+msgid "``ENERGY_AVRG`` State-averaged energy of the MCSCF program multi."
+msgstr "``ENERGY_AVRG`` MCSCF 程序 multi 的态平均能量。"
+
+msgid ""
+"``ENERGY_METHOD`` String variable holding name of the method used for "
+"calculating ``ENERGY``"
+msgstr "``ENERGY_METHOD`` 字符串变量，保存用于计算 ``ENERGY`` 的方法名称。"
+
+msgid ""
+"``ENERGY_BASIS`` String variable holding name of the orbital basis-set used "
+"for calculating ``ENERGY``"
+msgstr "``ENERGY_BASIS`` 字符串变量，保存用于计算 ``ENERGY`` 的轨道基组名称。"
+
+msgid ""
+"``GEOMETRY_METHOD`` Equal to the value of ``ENERGY_METHOD`` for the most "
+"recent geometry optimisation"
+msgstr "``GEOMETRY_METHOD`` 等于最近一次几何优化时 ``ENERGY_METHOD`` 的值。"
+
+msgid ""
+"``GEOMETRY_BASIS`` Equal to the value of ``ENERGY_BASIS`` for the most "
+"recent geometry optimisation"
+msgstr "``GEOMETRY_BASIS`` 等于最近一次几何优化时 ``ENERGY_BASIS`` 的值。"
+
+msgid ""
+"``ENERGD(istate)`` Total energy for state *istate* including Davidson "
+"correction (set only in ``CI``)."
+msgstr "``ENERGD(istate)`` 包含 Davidson 校正的态 *istate* 的总能量（仅在 ``CI`` 中设置）。"
+
+msgid ""
+"``ENERGP(istate)`` Total energy for state *istate* including Pople "
+"correction (set only in ``CI``)."
+msgstr "``ENERGP(istate)`` 包含 Pople 校正的态 *istate* 的总能量（仅在 ``CI`` 中设置）。"
+
+msgid ""
+"``ENERGT(1)`` Total energy including perturbative triples ``(T)`` correction"
+" (set only in ``CCSD(T), QCI(T)``)."
+msgstr "``ENERGT(1)`` 包含微扰三重激发 ``(T)`` 校正的总能量（仅在 ``CCSD(T), QCI(T)`` 中设置）。"
+
+msgid ""
+"``ENERGT(2)`` Total energy including perturbative triples ``[T]`` correction"
+" (set only in ``CCSD(T), QCI(T)``)."
+msgstr "``ENERGT(2)`` 包含微扰三重激发 ``[T]`` 校正的总能量（仅在 ``CCSD(T), QCI(T)`` 中设置）。"
+
+msgid ""
+"``ENERGT(3)`` Total energy including perturbative triples ``-t`` correction "
+"(set only in ``CCSD(T), QCI(T)``)."
+msgstr "``ENERGT(3)`` 包含微扰三重激发 ``-t`` 校正的总能量（仅在 ``CCSD(T), QCI(T)`` 中设置）。"
+
+msgid ""
+"``EMP2`` holds MP2 energy in MPn, CCSD, BCCD, or QCISD calculations, and RS2"
+" energy in MRPT2 (CASPT2) calculations."
+msgstr ""
+"``EMP2`` 在 MPn、CCSD、BCCD 或 QCISD 计算中保存 MP2 能量，在 MRPT2 (CASPT2) 计算中保存 RS2 能量。"
+
+msgid ""
+"``EMP3`` holds MP3 energy in MP3 and MP4 calculations, and RS3 energy in "
+"MRPR3 (CASPT3) calculations."
+msgstr "``EMP3`` 在 MP3 和 MP4 计算中保存 MP3 能量，在 MRPR3 (CASPT3) 计算中保存 RS3 能量。"
+
+msgid ""
+"``EMP4`` holds MP4(SDQ) energy in MP4 calculations. The MP4(SDTQ) energy is "
+"stored in variable ``ENERGY``."
+msgstr "``EMP4`` 在 MP4 计算中保存 MP4(SDQ) 能量。MP4(SDTQ) 能量存储在变量 ``ENERGY`` 中。"
+
+msgid ""
+"``METHODC`` String variable holding name of the methods used for ``ENERGC``,"
+" e.g., ``CCSD, BCCD, QCI``."
+msgstr "``METHODC`` 字符串变量，保存用于 ``ENERGC`` 的方法名称，例如 ``CCSD, BCCD, QCI``\\ 。"
+
+msgid ""
+"``METHODT(1)`` String variable holding name of the methods used for "
+"``ENERGT(1)``, e.g., ``CCSD(T), BCCD(T), QCI(T)``."
+msgstr ""
+"``METHODT(1)`` 字符串变量，保存用于 ``ENERGT(1)`` 的方法名称，例如 ``CCSD(T), BCCD(T), "
+"QCI(T)``\\ 。"
+
+msgid ""
+"``METHODT(2)`` String variable holding name of the methods used for "
+"``ENERGT(2)``, e.g., ``CCSD[T], BCCD[T], QCI[T]``."
+msgstr ""
+"``METHODT(2)`` 字符串变量，保存用于 ``ENERGT(2)`` 的方法名称，例如 ``CCSD[T], BCCD[T], "
+"QCI[T]``\\ 。"
+
+msgid ""
+"``METHODT(3)`` String variable holding name of the methods used for "
+"``ENERGT(3)``, e.g., ``CCSD-T, BCCD-T, QCI-T``."
+msgstr ""
+"``METHODT(3)`` 字符串变量，保存用于 ``ENERGT(3)`` 的方法名称，例如 ``CCSD-T, BCCD-T, QCI-T``\\"
+" 。"
+
+msgid ""
+"``ENERGC`` Total energy excluding perturbative triples correction (set only "
+"in ``QCI`` or ``CCSD`` with triples correction enabled)."
+msgstr "``ENERGC`` 不包含微扰三重激发校正的总能量（仅在启用三重激发校正的 ``QCI`` 或 ``CCSD`` 计算中设置）。"
+
+msgid "``DFTFUN`` total value of density functional in ``DFT`` or ``KS``."
+msgstr "``DFTFUN`` ``DFT`` 或 ``KS`` 中密度泛函的总值。"
+
+msgid ""
+"``DFTFUNS(ifun)`` value of ``ifun``\\ ’th component of density functional in"
+" ``DFT`` or ``KS``."
+msgstr "``DFTFUNS(ifun)`` ``DFT`` 或 ``KS`` 中密度泛函第 ``ifun``\\ 个分量的值。"
+
+msgid ""
+"``DFTNAME(ifun)`` name of ``ifun``\\ ’th component of density functional in "
+"``DFT`` or ``KS``."
+msgstr "``DFTNAME(ifun)`` ``DFT`` 或 ``KS`` 中密度泛函第 ``ifun``\\ 个分量的名称。"
+
+msgid ""
+"``DFTFAC(ifun)`` factor multiplying ``ifun``\\ ’th component of density "
+"functional in ``DFT`` or ``KS``."
+msgstr "``DFTFAC(ifun)`` 在 ``DFT`` 或 ``KS`` 中乘以第 ``ifun`` 个密度泛函分量的因子。"
+
+msgid "``DFTEXFAC`` factor multiplying exact exchange in ``KS``."
+msgstr "``DFTEXFAC`` 在 ``KS`` 中乘以精确交换的因子。"
+
+msgid ""
+"``PROP(istate)`` computed property for state *istate*. See below for the "
+"names ``PROP`` of various properties."
+msgstr "``PROP(istate)`` 为状态 *istate* 计算的性质。各种性质的名称 ``PROP`` 见下文。"
+
+msgid ""
+"``PROGRAM`` last program called, as specified in the input (e.g., ``HF``, "
+"``CCSD(T)``, etc.)"
+msgstr "``PROGRAM`` 最后调用的程序，如输入中所指定（例如 ``HF``\\ 、\\ ``CCSD(T)`` 等）。"
+
+msgid ""
+"``ITERATIONS`` Number of iterations used. Set negative if no convergence or "
+"max number of iterations reached."
+msgstr "``ITERATIONS`` 使用的迭代次数。如果未收敛或达到最大迭代次数，则设置为负值。"
+
+msgid "``CPUSTEP`` User-CPU time in seconds for last program called."
+msgstr "``CPUSTEP`` 最后调用程序的用户CPU时间（秒）。"
+
+msgid "``SYSSTEP`` System-CPU time in seconds for last program called."
+msgstr "``SYSSTEP`` 最后调用程序的系统CPU时间（秒）。"
+
+msgid "``WALLSTEP`` Elapsed time in seconds for last program called."
+msgstr "``WALLSTEP`` 最后调用程序的经过时间（秒）。"
+
+msgid ""
+"The variable names for properties are the same as used on the ``EXPEC`` "
+"input cards."
+msgstr "属性的变量名与 ``EXPEC`` 输入卡片中使用的名称相同。"
+
+msgid "``OV`` Overlap"
+msgstr "``OV`` 重叠"
+
+msgid "``EKIN`` Kinetic energy"
+msgstr "``EKIN`` 动能"
+
+msgid "``POT`` Potential"
+msgstr "``POT`` 势能"
+
+msgid "``DELTA`` Delta function"
+msgstr "``DELTA`` Delta 函数"
+
+msgid "``DEL4`` :math:`\\nabla^4`"
+msgstr "``DEL4`` :math:`\\nabla^4`"
+
+msgid "``DARWIN`` Darwin term of relativistic correction"
+msgstr "``DARWIN`` 相对论校正的达尔文项"
+
+msgid "``MASSV`` Mass-velocity term of relativistic correction"
+msgstr "``MASSV`` 相对论校正的质量-速度项"
+
+msgid "``EREL`` Total relativistic correction"
+msgstr "``EREL`` 总相对论校正"
+
+msgid "``XX, YY, ZZ, XY, XZ, XY`` Second moments"
+msgstr "``XX, YY, ZZ, XY, XZ, XY`` 二阶矩"
+
+msgid "``XXX, XXY, XXZ, XYY, XYZ, XZZ, YYY, YYZ, YZZ, ZZZ`` Third moments"
+msgstr "``XXX, XXY, XXZ, XYY, XYZ, XZZ, YYY, YYZ, YZZ, ZZZ`` 三阶矩"
+
+msgid "``QMXX, QMYY, QMZZ, QMXY, QMXZ, QMXY`` Quadrupole moments"
+msgstr "``QMXX, QMYY, QMZZ, QMXY, QMXZ, QMXY`` 四极矩"
+
+msgid "``EFX, EFY, EFZ`` Electric field"
+msgstr "``EFX, EFY, EFZ`` 电场"
+
+msgid "``FGXX, FGYY, FGZZ, FGXY, FGXZ, FGXY`` Electric field gradients"
+msgstr "``FGXX, FGYY, FGZZ, FGXY, FGXZ, FGXY`` 电场梯度"
+
+msgid "``D/DX, D/DY, D/DZ`` Velocity"
+msgstr "``D/DX, D/DY, D/DZ`` 速度"
+
+msgid "``LSX, LSY, LSZ`` One-electron spin-orbit"
+msgstr "``LSX, LSY, LSZ`` 单电子自旋轨道"
+
+msgid "``LL`` Total angular momentum squared :math:`L^2`"
+msgstr "``LL`` 总角动量平方 :math:`L^2`"
+
+msgid "``LX, LY, LZ`` Electronic angular momentum"
+msgstr "``LX, LY, LZ`` 电子角动量"
+
+msgid "``LXLX, LYLY, LZLZ, LXLY, LXLZ, LYLZ`` Two-electron angular momentum"
+msgstr "``LXLX, LYLY, LZLZ, LXLY, LXLZ, LYLZ`` 双电子角动量"
+
+msgid ""
+"By default, only the dipole moments are computed and defined. The values of "
+"other properties are only stored in variables if they are requested by "
+"``EXPEC`` cards. If more than one state is computed (e.g., in state-averaged"
+" MCSCF, corresponding arrays ``PROP(istate)`` are returned. If properties "
+"are computed for more than one center, the center number is appended to the "
+"name, e.g. ``EFX1``, ``EFX2`` etc."
+msgstr ""
+"默认情况下，仅计算并定义偶极矩。其他属性的值仅在通过 ``EXPEC`` 卡片请求时才存储到变量中。如果计算了多个态（例如，在态平均 MCSCF "
+"中），则返回相应的数组 ``PROP(istate)``\\ 。如果为多个中心计算了属性，则中心编号会附加到名称后，例如 ``EFX1``\\ 、\\ "
+"``EFX2`` 等。"
+
+msgid ""
+"If transition properties are computed, their values are stored in "
+"corresponding variables with prefix ``TR``, e.g., ``TRDMX, TRDMY, TRDMZ`` "
+"for transition dipole moments. If more than two states are computed, the "
+"index is :math:`(i-1)*(i-2)/2+j`, where :math:`i \\gt j \\ge 1` are state "
+"numbers. In a state-averaged calculation, states are counted sequentially "
+"for all state symmetries."
+msgstr ""
+"如果计算了跃迁属性，它们的值将存储在带有前缀 ``TR`` 的相应变量中，例如，跃迁偶极矩的 ``TRDMX, TRDMY, TRDMZ``\\ "
+"。如果计算了两个以上的态，则索引为 :math:`(i-1)*(i-2)/2+j`\\ ，其中 :math:`i \\gt j \\ge 1` "
+"是态编号。在态平均计算中，态按所有态对称性顺序计数。"
+
+msgid "For instance, in the following state-averaged MCSCF"
+msgstr "例如，在以下态平均 MCSCF 中"
+
+msgid "``MULTI;WF,14,1,0;STATE,3;WF,14,2,0;STATE,2;WF,14,3,0``"
+msgstr "``MULTI;WF,14,1,0;STATE,3;WF,14,2,0;STATE,2;WF,14,3,0``"
+
+msgid "the states are counted as"
+msgstr "态按以下方式计数"
+
+msgid ":math:`i`"
+msgstr ":math:`i`"
+
+msgid "Symmetry"
+msgstr "对称性"
+
+msgid "Root in Sym."
+msgstr "对称性中的根"
+
+msgid "Variables recognized by the program"
+msgstr "程序识别的变量"
+
+msgid ""
+"All variables described below are checked by the program, but not set "
+"(except ``NELEC`` and ``SPIN``). If these are not defined by the user, the "
+"program uses its internal defaults. The variables are only recognized and "
+"used if defined using the ``SET`` command, e.g."
+msgstr ""
+"下文描述的所有变量均由程序检查，但不设置（\\ ``NELEC`` 和 ``SPIN`` "
+"除外）。如果用户未定义这些变量，程序将使用其内部默认值。变量仅在通过 ``SET`` 命令定义时被识别和使用，例如，"
+
+msgid "etc."
+msgstr "等等。"
+
+msgid "Variables recognized by the SCF program:"
+msgstr "SCF 程序识别的变量："
+
+msgid ""
+"``CHARGE`` Total charge of the molecule (can be given instead of nelec)"
+msgstr "``CHARGE`` 分子的总电荷（可替代 nelec 给出）"
+
+msgid "``NELEC`` number of electrons"
+msgstr "``NELEC`` 电子数"
+
+msgid "``SPIN`` spin multiplicity minus one"
+msgstr "``SPIN`` 自旋多重度减一"
+
+msgid "``SCFSYM[METRY]`` wavefunction symmetry"
+msgstr "``SCFSYM[METRY]`` 波函数对称性"
+
+msgid "``SCFOC[C]`` number of occupied orbitals in each symmetry for ``SCF``"
+msgstr "``SCFOC[C]`` 每个对称性中用于\\ ``SCF``\\ 的占据轨道数量"
+
+msgid ""
+"``SCFCL[OSED]`` number of closed-shell orbitals in each symmetry for ``SCF``"
+msgstr "``SCFCL[OSED]`` ``SCF`` 中每个对称性下的闭壳层轨道数"
+
+msgid "``SCFORB`` record of saved orbitals in ``SCF``"
+msgstr "``SCFORB`` ``SCF`` 中保存的轨道记录"
+
+msgid "``SCFSTART`` record of starting orbitals used in ``SCF``"
+msgstr "``SCFSTART`` ``SCF`` 中使用的起始轨道记录"
+
+msgid "Variables recognized by the MCSCF program:"
+msgstr "MCSCF 程序识别的变量："
+
+msgid ""
+"``MCSYM[METRY]`` wavefunction symmetry. This can be an array for state-"
+"averaged calculations."
+msgstr "``MCSYM[METRY]`` 波函数对称性。对于态平均计算，可以是一个数组。"
+
+msgid "``SYMMETRY`` as ``MCSYMM``; only used if ``MCSYMM`` is not present."
+msgstr "``SYMMETRY`` 作为 ``MCSYMM``\\ ；仅在 ``MCSYMM`` 不存在时使用。"
+
+msgid ""
+"``MCSPIN`` spin multiplicity minus one. This can be an array for state-"
+"averaged calculations, but different spin multiplicities can only be used in"
+" determinant CASSCF. If only one value is specified, this is used for all "
+"states"
+msgstr ""
+"``MCSPIN`` 自旋多重度减一。对于态平均计算，可以是一个数组，但不同的自旋多重度只能在行列式 CASSCF "
+"中使用。如果只指定一个值，则该值用于所有态。"
+
+msgid "``SPIN`` as ``MCSPIN``; only used if ``MCSPIN`` is not present."
+msgstr "``SPIN`` 作为 ``MCSPIN``\\ ；仅在 ``MCSPIN`` 不存在时使用。"
+
+msgid "``MCSTATE`` number of states for each symmetry in ``MCSCF``"
+msgstr "``MCSTATE`` 在 ``MCSCF`` 中每个对称性的状态数"
+
+msgid "``STATE`` as ``MCSTATE``; only used if ``MCSTATE`` is not present."
+msgstr "``STATE`` 同 ``MCSTATE``\\ ；仅在 ``MCSTATE`` 不存在时使用。"
+
+msgid ""
+"``WEIGHT`` weight factors for all states defined by ``SYMMETRY`` and "
+"``STATE``"
+msgstr "``WEIGHT`` 由 ``SYMMETRY`` 和 ``STATE`` 定义的所有状态的权重因子"
+
+msgid ""
+"``LQUANT`` Eigenvalues of :math:`L_z^2` for linear molecules for each state "
+"defined by ``SYMMETRY`` and ``STATE``."
+msgstr ""
+"``LQUANT`` 对于由 ``SYMMETRY`` 和 ``STATE`` 定义的每个状态，线性分子的 :math:`L_z^2` 的本征值。"
+
+msgid ""
+"``MCSELECT`` records from which configurations can be selected and selection"
+" threshold"
+msgstr "``MCSELECT`` 记录可以从哪些构型中选择以及选择阈值"
+
+msgid "``SELECT`` as ``MCSELECT``; only used if ``MCSELECT`` is not present."
+msgstr "``SELECT`` 同 ``MCSELECT``\\ ；仅在 ``MCSELECT`` 不存在时使用。"
+
+msgid "``MCRESTRICT`` can be used to define occupancy restrictions"
+msgstr "``MCRESTRICT`` 可用于定义占据限制"
+
+msgid ""
+"``RESTRICT`` as ``MCRESTRCT``; only used if ``MCRESTRICT`` is not present:"
+msgstr "``RESTRICT`` 同 ``MCRESTRCT``\\ ；仅在 ``MCRESTRICT`` 不存在时使用："
+
+msgid "``CONFIG`` if set to .true. or to one triggers use of CSFs"
+msgstr "``CONFIG`` 若设置为 .true. 或 1 则触发使用 CSFs"
+
+msgid "``MCOC[C]`` number of occupied orbitals in each symmetry"
+msgstr "``MCOC[C]`` 每个对称性中的占据轨道数"
+
+msgid "``OCC`` as ``MCOCC``; only used if ``MCOCC`` is not present."
+msgstr "``OCC`` 作为 ``MCOCC``\\ ；仅在 ``MCOCC`` 不存在时使用。"
+
+msgid ""
+"``MCCL[OSED]`` number of optimized closed-shell orbitals in each symmetry"
+msgstr "``MCCL[OSED]`` 每个对称性中优化的闭壳层轨道数"
+
+msgid "``CLOSED`` as ``MCCLOSED``; only used if ``MCCLOSED`` is not present."
+msgstr "``CLOSED`` 作为 ``MCCLOSED``\\ ；仅在 ``MCCLOSED`` 不存在时使用。"
+
+msgid "``MCFROZEN`` number of frozen core orbitals in each symmetry"
+msgstr "``MCFROZEN`` 每个对称性中的冻结芯轨道数"
+
+msgid "``FROZEN`` as ``MCFROZEN``; only used if ``MCFROZEN`` is not present."
+msgstr "``FROZEN`` 作为 ``MCFROZEN``\\ ；仅在 ``MCFROZEN`` 不存在时使用。"
+
+msgid "``MCSTART`` record of starting orbitals"
+msgstr "``MCSTART`` 起始轨道记录"
+
+msgid "``COREORB`` record of frozen core orbitals"
+msgstr "``COREORB`` 冻结芯轨道记录"
+
+msgid "``MCORB`` record for saving optimized orbitals"
+msgstr "``MCORB`` 保存优化轨道的记录"
+
+msgid ""
+"``MCSAVE`` records for saving CI wavefunction (like ``SAVE`` card in MCSCF)"
+msgstr "``MCSAVE`` 保存 CI 波函数的记录（类似于 MCSCF 中的 ``SAVE`` 卡片）"
+
+msgid "Variables recognized by the CI/CCSD program:"
+msgstr "CI/CCSD 程序识别的变量："
+
+msgid ""
+"``CISYM[METRY]`` wavefunction symmetry. If this is an array, only "
+"SYMMETRY(1) is used."
+msgstr "``CISYM[METRY]`` 波函数对称性。如果这是一个数组，则仅使用 SYMMETRY(1)。"
+
+msgid "``SYMMETRY`` as ``CISYMM``; only used if ``CISYMM`` is not present."
+msgstr "``SYMMETRY`` 作为 ``CISYMM``\\ ；仅在 ``CISYMM`` 不存在时使用。"
+
+msgid "``CISTATE`` number of states in CI"
+msgstr "``CISTATE`` CI 中的态数"
+
+msgid "``STATE`` as ``CISTATE``, only used if ``CISTATE`` is not present."
+msgstr "``STATE`` 作为 ``CISTATE``\\ ，仅在 ``CISTATE`` 不存在时使用。"
+
+msgid "``CISELECT`` records from which configurations can be selected"
+msgstr "``CISELECT`` 记录可从哪些构型中进行选择"
+
+msgid "``SELECT`` as ``CISELECT``; only used if ``CISELCT`` is not present."
+msgstr "``SELECT`` 同 ``CISELECT``\\ ；仅在 ``CISELCT`` 不存在时使用。"
+
+msgid "``CIRESTRICT`` defines occupancy restrictions"
+msgstr "``CIRESTRICT`` 定义占据数限制"
+
+msgid ""
+"``RESTRICT`` as ``RESTRICT``; only used if ``CIRESTRICT`` is not present."
+msgstr "``RESTRICT`` 同 ``RESTRICT``\\ ；仅在 ``CIRESTRICT`` 不存在时使用。"
+
+msgid "``CIOC[C]`` number of occupied orbitals in each symmetry"
+msgstr "``CIOC[C]`` 每个对称性中的占据轨道数量"
+
+msgid "``OCC`` ``as CIOCC``; only used if ``CIOCC`` is not present."
+msgstr "``OCC`` ``as CIOCC``\\ ；仅在 ``CIOCC`` 不存在时使用。"
+
+msgid "``CICL[OSED]`` number of closed-shell orbitals in each symmetry"
+msgstr "``CICL[OSED]`` 每个对称性中的闭壳层轨道数量"
+
+msgid "``CLOSED`` ``as CICLOSED``; only used if ``CICLOSED`` is not present."
+msgstr "``CLOSED`` ``as CICLOSED``\\ ；仅在 ``CICLOSED`` 不存在时使用。"
+
+msgid "``CICO[RE]`` number of core orbitals in each symmetry"
+msgstr "``CICO[RE]`` 每个对称性中的芯轨道数量"
+
+msgid "``CORE`` ``as CICORE``; only used if ``CICORE`` is not present."
+msgstr "``CORE`` ``as CICORE``\\ ；仅在 ``CICORE`` 不存在时使用。"
+
+msgid "``CIORB`` record of orbitals used in CI"
+msgstr "``CIORB`` CI中使用的轨道记录"
+
+msgid ""
+"``CISAVE`` records for saving CI wavefunction (like ``SAVE`` card in CI)"
+msgstr "``CISAVE`` 用于保存CI波函数的记录（类似CI中的\\ ``SAVE``\\ 卡片）"
+
+msgid ""
+"``CISTART`` records for restarting with previous CI wavefunction (like "
+"``START`` card in CI)"
+msgstr "``CISTART`` 用于从先前的 CI 波函数重新启动的记录（类似于 CI 中的 ``START`` 卡片）"
+
+msgid "Variables recognized by the DFT/KS program:"
+msgstr "DFT/KS 程序识别的变量："
+
+msgid ""
+"``DFTFAC(ifun)`` factor multiplying ``ifun``\\ ’th component of density "
+"functional."
+msgstr "``DFTFAC(ifun)`` 乘以密度泛函第 ``ifun`` 个组分的因子。"
+
+msgid ""
+"Example for the use of these variables for a state-averaged MCSCF (note that"
+" system variables can only be modified using the SET command, see section "
+"`system variables <variables.html#system-variables>`__):"
+msgstr ""
+"这些变量用于态平均 MCSCF 的示例（注意系统变量只能使用 SET 命令修改，参见 `system variables "
+"<variables.html#system-variables>`__ 章节）："
+
+msgid "``SET,NELEC=9`` defines number of electrons"
+msgstr "``SET,NELEC=9`` 定义电子数"
+
+msgid "``SET,SPIN=1`` defines wavefunction to be a doublet"
+msgstr "``SET,SPIN=1`` 定义波函数为双重态"
+
+msgid ""
+"``SET,SYMMETRY=[1,2,3]`` defines wavefunction symmetries for state averaged "
+"calculation"
+msgstr "``SET,SYMMETRY=[1,2,3]`` 定义态平均计算中波函数的对称性"
+
+msgid ""
+"``SET,STATE=[2,1,1]`` defines number of states to be averaged in each "
+"symmetry"
+msgstr "``SET,STATE=[2,1,1]`` 定义每个对称性中要平均的态的数量"
+
+msgid "``WEIGHT=[2,2,1,1]`` defines weights for the above four states"
+msgstr "``WEIGHT=[2,2,1,1]`` 定义上述四个态的权重"
+
+msgid "``OCC=[5,2,2]`` number of occupied orbitals in each symmetry"
+msgstr "``OCC=[5,2,2]`` 每个对称性中占据轨道的数量"
+
+msgid "``CLOSED=2`` number of closed-shell orbitals in symmetry 1"
+msgstr "``CLOSED=2`` 对称性 1 中闭壳层轨道的数量"
+
+msgid "``MCORB=3100.2`` record for optimized orbitals"
+msgstr "``MCORB=3100.2`` 优化轨道的记录"
+
+msgid "``MULTI`` do mcscf with above parameters"
+msgstr "``MULTI`` 使用上述参数进行MCSCF计算"
+
+msgid "Displaying variables"
+msgstr "显示变量"
+
+msgid ""
+"Variables or the results of expressions can be displayed in the output using"
+" ``SHOW`` and ``TABLE``."
+msgstr "可以使用 ``SHOW`` 和 ``TABLE`` 在输出中显示变量或表达式的结果。"
+
+msgid "The SHOW command"
+msgstr "SHOW命令"
+
+msgid "The general form of the ``SHOW`` command is as follows:"
+msgstr "``SHOW`` 命令的一般形式如下："
+
+msgid "``SHOW[ncol,format],expression``"
+msgstr "``SHOW[ncol,format],expression``"
+
+msgid ""
+"where *expression* can be an expression or variable, *ncol* is the number of"
+" values printed per line (default 6), and *format* is a format (default "
+"6F15.8). This can be used to print vectors in matrix form. The specification"
+" of *ncol* and *format* is optional. Assume that ``E`` is a vector:"
+msgstr ""
+"其中 *expression* 可以是表达式或变量，\\ *ncol* 是每行打印的数值个数（默认为6），\\ *format* 是格式（默认为 "
+"6F15.8）。这可用于以矩阵形式打印向量。\\ *ncol* 和 *format* 的指定是可选的。假设 ``E`` 是一个向量："
+
+msgid "``SHOW,E`` prints ``E`` using defaults."
+msgstr "``SHOW,E`` 使用默认设置打印 ``E``\\ 。"
+
+msgid ""
+"``SHOW[n],E`` prints ``E`` with ``n`` elements per line; (if ``n>6``, more "
+"than one line is needed, but in any case a new line is started after ``n`` "
+"elements)."
+msgstr ""
+"``SHOW[n],E`` 每行打印 ``E`` 的 ``n`` 个元素；（如果 ``n>6``\\ ，则需要多行，但无论如何在 ``n`` "
+"个元素后都会开始新的一行）。"
+
+msgid ""
+"``SHOW[n,10f10.4],E`` prints ``E`` in the format given, with newline forced "
+"after ``n`` elements."
+msgstr "``SHOW[n,10f10.4],E`` 以给定格式打印 ``E``\\ ，并在 ``n`` 个元素后强制换行。"
+
+msgid ""
+"Note that the total length of the format should not exceed 100 characters (a"
+" left margin of 30 characters is always needed)."
+msgstr "请注意，格式的总长度不应超过 100 个字符（始终需要 30 个字符的左边距）。"
+
+msgid ""
+"A *wild card* format can be used to show several variables more easily:"
+msgstr "*通配符* 格式可用于更轻松地显示多个变量："
+
+msgid "``SHOW,qm*,dm*``"
+msgstr "``SHOW,qm*,dm*``"
+
+msgid ""
+"shows all variables whose names begin with ``QM`` and ``DM``. Note that no "
+"letters must appear after the ``*``, i.e., the wild card format is less "
+"general than in ``UNIX`` commands."
+msgstr ""
+"显示所有名称以 ``QM`` 和 ``DM`` 开头的变量。请注意，\\ ``*`` 后面不能出现任何字母，即通配符格式不如 ``UNIX`` "
+"命令中的通用。"
+
+msgid "See the ``TABLE`` command for another possibility to tabulate results."
+msgstr "有关以表格形式呈现结果的另一种可能性，请参阅 ``TABLE`` 命令。"
+
+msgid "Clearing variables"
+msgstr "清除变量"
+
+msgid "Variables can be deleted using"
+msgstr "可以使用以下命令删除变量"
+
+msgid "Wild cards can be used as in ``SHOW``, e.g.,"
+msgstr "通配符可以像在 ``SHOW`` 命令中一样使用，例如，"
+
+msgid "``CLEAR,ENERG*``"
+msgstr "``CLEAR,ENERG*``"
+
+msgid ""
+"clears all variables whose names begin with ``ENERG``. All variables can be "
+"cleared using"
+msgstr "清除所有名称以 ``ENERG`` 开头的变量。可以使用以下命令清除所有变量"
+
+msgid "``CLEARALL``"
+msgstr "``CLEARALL``"
+
+msgid ""
+"The length of vectors can be truncated simply by redefining the length "
+"specifier: ``#R=2`` truncates the array ``R`` to length 2. Higher elements "
+"are no longer available (but could be redefined). Setting ``#R=0`` is "
+"equivalent to the command ``CLEAR,R``."
+msgstr ""
+"向量的长度可以通过重新定义长度说明符来截断：\\ ``#R=2`` 将数组 ``R`` 截断为长度 2。更高的元素将不再可用（但可以重新定义）。设置 "
+"``#R=0`` 等同于命令 ``CLEAR,R``\\ 。"
+
+msgid "Reading variables from an external file"
+msgstr "从外部文件读取变量"
+
+msgid "Variables can be read from an external file using"
+msgstr "可以使用以下命令从外部文件读取变量"
+
+msgid ""
+"Such files can be saved, for instance by the geometry optimization program, "
+"and reused later to recover a certain optimized geometry. The format of the "
+"input in *filename* is the same as for ordinary input."
+msgstr ""
+"此类文件可以被保存，例如由几何优化程序保存，并在以后重新使用以恢复某个优化后的几何结构。\\ *filename* 中的输入格式与普通输入相同。"
+
+msgid ""
+"If *option*\\ =\\ ``NOINDEX|IGNOREINDEX`` is given then variable indices are"
+" ignored and only the last value saved is read (without index). This can be "
+"useful if for example a file saved with ``SAVEACT`` in a geometry "
+"optimization is read, and it is intended to continue with the variables that"
+" were saved last."
+msgstr ""
+"如果指定了 *option*\\ =\\ ``NOINDEX|IGNOREINDEX``\\ "
+"，则忽略变量索引，仅读取最后保存的值（无索引）。例如，当读取在几何优化中使用 ``SAVEACT`` "
+"保存的文件，并且打算继续使用最后保存的变量时，这可能很有用。"

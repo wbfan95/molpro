@@ -1,0 +1,1228 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "The MRCI program"
+msgstr "MRCI 程序"
+
+msgid ""
+"Multiconfiguration reference internally contracted configuration interaction"
+msgstr "多参考态内收缩组态相互作用"
+
+msgid "Bibliography:"
+msgstr "参考文献："
+
+msgid "For excited state calculations:"
+msgstr "对于激发态计算："
+
+msgid "Knowles and H.-J. Werner, Theor. Chim. Acta **84**, 95 (1992)."
+msgstr "Knowles and H.-J. Werner, Theor. Chim. Acta **84**, 95 (1992)."
+
+msgid "For explicitly correlated MRCI (MRCI-F12):"
+msgstr "对于显式相关 MRCI (MRCI-F12)："
+
+msgid ""
+"All publications resulting from use of the corresponding methods must "
+"acknowledge the above."
+msgstr "所有使用相应方法发表的出版物必须引用上述文献。"
+
+msgid "The first internally correlated MRCI program was described in:"
+msgstr "首个内部相关MRCI程序描述于："
+
+msgid "The following options may be specified on the command line:"
+msgstr "以下选项可以在命令行中指定："
+
+msgid "``NOCHECK`` Do not stop if no convergence."
+msgstr "``NOCHECK`` 如果不收敛，不停止。"
+
+msgid "``DIRECT`` Do calculation integral direct."
+msgstr "``DIRECT`` 以直接积分方式进行计算。"
+
+msgid "``NOSING`` Do not include singly external configurations."
+msgstr "``NOSING`` 不包含单外部组态。"
+
+msgid ""
+"``NOPAIR`` Do not include doubly external configurations (not valid for "
+"single reference methods)."
+msgstr "``NOPAIR`` 不包含双外禀组态（对单参考方法无效）。"
+
+msgid ""
+"``SWAP|NOSWAP`` If ``SWAP`` is given, the MRCI wavefunctions are reordered "
+"according to maximum overlap with the reference functions (this only applies"
+" in multi-state calculations). The default is ``NOSWAP``, i.e. the states "
+"are ordered according to increasing MRCI energy."
+msgstr ""
+"``SWAP|NOSWAP`` 如果指定了 ``SWAP``\\ ，MRCI 波函数将根据与参考函数的最大重叠重新排序（这仅适用于多态计算）。默认值为 "
+"``NOSWAP``\\ ，即态按 MRCI 能量递增的顺序排列。"
+
+msgid "Introduction"
+msgstr "引言"
+
+msgid ""
+"The internally contracted MRCI program is called by the CI command. This "
+"includes as special cases single reference CI, CEPA, ACPF, MR-ACPF and MR-"
+"AQCC. For closed-shell reference functions, a special faster code exists, "
+"which can be called using the CISD, QCI, or CCSD commands. This also allows "
+"to calculate Brueckner orbitals for all three cases (QCI and CCSD are "
+"identical in this case)."
+msgstr ""
+"内收缩 MRCI 程序通过 CI 命令调用。这包括作为特例的单参考 CI、CEPA、ACPF、MR-ACPF 和 MR-"
+"AQCC。对于闭壳层参考函数，存在一个更快的特殊代码，可以通过 CISD、QCI 或 CCSD 命令调用。这也允许为所有三种情况计算 Brueckner"
+" 轨道（QCI 和 CCSD 在此情况下相同）。"
+
+msgid ""
+"The explicitly correlated variant is called by the command ``MRCI-F12``, see"
+" section `explicitly correlated MRCI-F12 <the_mrci_program.html#explicitly-"
+"correlated-mrci-f12>`__."
+msgstr ""
+"显式相关变体通过命令 ``MRCI-F12`` 调用，参见 `显式相关 MRCI-F12 "
+"<the_mrci_program.html#explicitly-correlated-mrci-f12>`__ 节。"
+
+msgid ""
+"With no further input cards, the wavefunction definition (core, closed, and "
+"active orbital spaces, symmetry) corresponds to the one used in the most "
+"recently done SCF or MCSCF calculation. By default, a CASSCF reference space"
+" is generated. Other choices can be made using the ``OCC``, ``CORE``, "
+"``CLOSED``, ``WF``, ``SELECT``, ``CON``, and ``RESTRICT`` cards. The "
+"orbitals are taken from the corresponding SCF or MCSCF calculation unless an"
+" ``ORBITAL`` directive is given. The wavefunction may be saved using the "
+"``SAVE`` directive, and restarted using ``START``. The ``EXPEC`` directive "
+"allows to compute expectation values over one-electron operators, and the "
+"``TRAN`` directive can be used to compute transition matrix elements for "
+"one-electron properties. Natural orbitals can be printed and saved using the"
+" ``NATORB`` directive."
+msgstr ""
+"在没有进一步输入卡的情况下，波函数定义（芯层、闭壳层和活性轨道空间，对称性）对应于最近一次完成的 SCF 或 MCSCF "
+"计算中使用的定义。默认情况下，会生成一个 CASSCF 参考空间。可以使用 ``OCC``\\ 、\\ ``CORE``\\ 、\\ "
+"``CLOSED``\\ 、\\ ``WF``\\ 、\\ ``SELECT``\\ 、\\ ``CON`` 和 ``RESTRICT`` "
+"卡进行其他选择。除非给出了 ``ORBITAL`` 指令，否则轨道取自相应的 SCF 或 MCSCF 计算。波函数可以使用 ``SAVE`` "
+"指令保存，并使用 ``START`` 重新启动。\\ ``EXPEC`` 指令允许计算单电子算符的期望值，\\ ``TRAN`` "
+"指令可用于计算单电子性质的跃迁矩阵元。可以使用 ``NATORB`` 指令打印和保存自然轨道。"
+
+msgid ""
+"For excited state calculations see ``STATE``, ``REFSTATE``, and ``PROJECT``."
+msgstr "对于激发态计算，请参见 ``STATE``\\ 、\\ ``REFSTATE`` 和 ``PROJECT``\\ 。"
+
+msgid "Specifying the wavefunction"
+msgstr "指定波函数"
+
+msgid ""
+"Note: All occupations must be given before ``WF``, ``PAIRSS``, ``DOMAIN``, "
+"``REGION`` or other directives that need the occupations."
+msgstr ""
+"注意：所有占据数必须在需要占据数的 ``WF``\\ 、\\ ``PAIRSS``\\ 、\\ ``DOMAIN``\\ 、\\ ``REGION`` "
+"或其他指令之前给出。"
+
+msgid "Occupied orbitals"
+msgstr "占据轨道"
+
+msgid ""
+":math:`n_i` specifies numbers of occupied orbitals (including ``CORE`` and "
+"``CLOSED``) in irreducible representation number :math:`i`. If not given, "
+"the information defaults to that from the most recent SCF, MCSCF or CI "
+"calculation."
+msgstr ""
+":math:`n_i` 指定了不可约表示编号 :math:`i` 中的占据轨道数（包括 ``CORE`` 和 ``CLOSED``\\ "
+"）。如果未给出，则信息默认为来自最近的 SCF、MCSCF 或 CI 计算。"
+
+msgid "Frozen-core orbitals"
+msgstr "冻结芯轨道"
+
+msgid ""
+":math:`n_i` is the number of frozen-core orbitals in irrep number :math:`i`."
+" These orbitals are doubly occupied in all configurations, i.e., not "
+"correlated. If no ``CORE`` card is given, the program uses the same core "
+"orbitals as the last CI calculation; if there was none, then the atomic "
+"inner shells are taken as core. To avoid this behaviour and correlate all "
+"electrons, specify"
+msgstr ""
+":math:`n_i` 是第 :math:`i` 个不可约表示中的冻结芯轨道数。这些轨道在所有组态中都是双占据的，即不参与相关。如果未给出 "
+"``CORE`` 卡片，程序将使用与上一次 CI 计算相同的芯轨道；如果没有先前的 CI "
+"计算，则将原子内壳层视为芯轨道。为避免此行为并使所有电子参与相关，请指定"
+
+msgid "``CORE``"
+msgstr "``CORE``"
+
+msgid "Closed-shell orbitals"
+msgstr "闭壳层轨道"
+
+msgid ""
+":math:`n_i` is the number of closed-shell orbitals in irrep number "
+":math:`i`, inclusive of any core orbitals. These orbitals do not form part "
+"of the active space, i.e., they are doubly occupied in all reference CSFs; "
+"however, in contrast to the core orbitals (see ``CORE``), these orbitals are"
+" correlated through single and double excitations. If not given, the "
+"information defaults to that from the most recent SCF, MCSCF or CI "
+"calculation. For calculations with closed-shell reference function "
+"(closed=occ), see ``CISD``, ``QCI``, and ``CCSD``."
+msgstr ""
+":math:`n_i` 是第 :math:`i` "
+"个不可约表示中闭壳层轨道的数量，包括任何芯轨道。这些轨道不构成活性空间的一部分，即在所有参考组态态函数中它们都是双占据的；然而，与芯轨道（参见 "
+"``CORE``\\ ）不同，这些轨道通过单双激发进行关联。如果未指定，信息将默认取自最近的 SCF、MCSCF 或 CI "
+"计算。对于具有闭壳层参考函数（closed=occ）的计算，请参见 ``CISD``\\ 、\\ ``QCI`` 和 ``CCSD``\\ 。"
+
+msgid "Defining the orbitals"
+msgstr "定义轨道"
+
+msgid ""
+"*name.file* specifies the record from which orbitals are read. Optionally, "
+"various *specifications* can be given to select specific orbitals if "
+"*name.file* contains more than one orbital set. For details see section "
+"`selecting orbitals and density matrices (ORBITAL, DENSITY) "
+"<general_program_structure.html#selecting-orbitals-and-density-matrices-"
+"orbital-density>`__. Note that the ``IGNORE_ERROR`` option can be used to "
+"force MPn or triples calculations with non-canonical orbitals."
+msgstr ""
+"*name.file* 指定从中读取轨道的记录。可选地，如果 *name.file* 包含多个轨道集，可以给出各种 *specifications* "
+"来选择特定的轨道。详细信息请参见章节 `selecting orbitals and density matrices (ORBITAL, "
+"DENSITY) <general_program_structure.html#selecting-orbitals-and-density-"
+"matrices-orbital-density>`__\\ 。注意，\\ ``IGNORE_ERROR`` 选项可用于强制使用非正则轨道进行 MPn "
+"或三重激发计算。"
+
+msgid ""
+"The default is the set of orbitals from the last SCF, MCSCF or CI "
+"calculation."
+msgstr "默认是来自最后一次 SCF、MCSCF 或 CI 计算的轨道集。"
+
+msgid "Defining the state symmetry"
+msgstr "定义态对称性"
+
+msgid ""
+"The number of electrons and the total symmetry of the wavefunction are "
+"specified on the ``WF`` card:"
+msgstr "电子数和波函数的总对称性在 ``WF`` 卡片上指定："
+
+msgid "where"
+msgstr "其中"
+
+msgid ""
+"The WF card must be placed after any cards defining the orbital spaces "
+"``OCC``, ``CORE``, ``CLOSED``."
+msgstr "``WF`` 卡片必须放在任何定义轨道空间 ``OCC``\\ 、\\ ``CORE``\\ 、\\ ``CLOSED`` 的卡片之后。"
+
+msgid ""
+"The ``REF`` card can be used to define further reference symmetries used for"
+" generating the configuration space, see ``REF``."
+msgstr "``REF`` 卡片可用于定义用于生成组态空间的额外参考对称性，参见 ``REF``\\ 。"
+
+msgid "Additional reference symmetries"
+msgstr "额外参考对称性"
+
+msgid ""
+"This card, which must come after the ``WF`` directive, defines an additional"
+" reference symmetry used for generating the uncontracted internal and singly"
+" external configuration spaces. This is sometimes useful in order to obtain "
+"the same configuration spaces when different point group symmetries are "
+"used. For instance, if a calculation is done in :math:`C_s` symmetry, it may"
+" happen that the two components of a :math:`\\Pi` state, one of which "
+"appears in :math:`A'` and the other in :math:`A''`, come out not exactly "
+"degenerate. This problem can be avoided as in the following example:"
+msgstr ""
+"此卡片必须位于 ``WF`` "
+"指令之后，它定义了一个额外的参考对称性，用于生成未收缩的内部和单外部组态空间。这有时很有用，以便在使用不同点群对称性时获得相同的组态空间。例如，如果在 "
+":math:`C_s` 对称性下进行计算，可能会出现 :math:`\\Pi` 态的两个分量（一个出现在 :math:`A'`\\ ，另一个出现在 "
+":math:`A''`\\ ）不完全简并的情况。可以按照以下示例避免此问题："
+
+msgid "for a doublet :math:`A'` state:"
+msgstr "对于一个双重态 :math:`A'` 态："
+
+msgid "and for the doublet A” state:"
+msgstr "以及对于双重态 A” 态："
+
+msgid ""
+"For linear geometries the same results can be obtained more cheaply using "
+":math:`C_{2v}` symmetry,"
+msgstr "对于线性几何结构，使用 :math:`C_{2v}` 对称性可以更经济地获得相同的结果，"
+
+msgid "or"
+msgstr "或"
+
+msgid ""
+"Each ``REF`` card may be followed by ``RESTRICT``, ``SELECT``, and ``CON`` "
+"cards, in the given order."
+msgstr "每个 ``REF`` 卡片之后可以按给定顺序跟随 ``RESTRICT``\\ 、\\ ``SELECT`` 和 ``CON`` 卡片。"
+
+msgid "Selecting configurations"
+msgstr "选择组态"
+
+msgid ""
+"This card is used to specify a reference configuration set other than a CAS,"
+" which is the default. Configurations can be defined using ``CON`` cards, "
+"which must appear after the *SELECT* card. Alternatively, if *ref1* is an "
+"existing Molpro record name, the configurations are read in from that record"
+" and may be selected according to a given threshold."
+msgstr ""
+"此卡片用于指定一个非 CAS（默认值）的参考组态集。组态可以使用 ``CON`` 卡片定义，这些卡片必须出现在 *SELECT* 卡片之后。或者，如果 "
+"*ref1* 是一个现有的 Molpro 记录名称，则从该记录中读取组态，并可根据给定的阈值进行选择。"
+
+msgid ""
+"The select card must be placed directly after the *WF* or *REF* card(s), or,"
+" if present, the ``RESTRICT`` cards. The general order of these cards is"
+msgstr ""
+"选择卡片必须直接放置在 *WF* 或 *REF* 卡片之后，或者，如果存在，则放置在 ``RESTRICT`` 卡片之后。这些卡片的一般顺序是"
+
+msgid "Occupation restrictions"
+msgstr "占据限制"
+
+msgid ""
+"This card can be used to restrict the occupation patterns in the reference "
+"configurations. Only configurations containing between *nmin* and *nmax* "
+"electrons in the specified orbitals *orb*\\ :math:`_1`, *orb*\\ :math:`_2`, "
+":math:`\\ldots`, *orb*\\ :math:`_n` are included in the reference function. "
+"If *nmin* and *nmax* are negative, configurations with exactly abs(*nmin*) "
+"and abs(*nmax*) electrons in the specified orbitals are deleted. This can be"
+" used, for instance, to omit singly excited configurations. The orbitals are"
+" specified in the form *number.sym*, where *number* is the number of the "
+"orbital in irrep *sym*. Several ``RESTRICT`` cards may follow each other."
+msgstr ""
+"此卡片可用于限制参考组态中的占据模式。只有那些在指定轨道 *orb*\\ :math:`_1`, *orb*\\ :math:`_2`, "
+":math:`\\ldots`, *orb*\\ :math:`_n` 中包含 *nmin* 到 *nmax* 个电子的组态才会被包含在参考函数中。如果"
+" *nmin* 和 *nmax* 为负数，则删除在指定轨道中恰好有 abs(*nmin*) 和 abs(*nmax*) "
+"个电子的组态。例如，这可用于省略单激发组态。轨道以 *number.sym* 的形式指定，其中 *number* 是轨道在不可约表示 *sym* "
+"中的编号。多个 ``RESTRICT`` 卡片可以连续出现。"
+
+msgid ""
+"The ``RESTRICT`` cards must follow the ``WF`` or ``REF`` cards to which they"
+" apply. The general order of these cards is"
+msgstr "``RESTRICT`` 卡片必须跟在它们所应用的 ``WF`` 或 ``REF`` 卡片之后。这些卡片的一般顺序是"
+
+msgid ""
+"If a ``RESTRICT`` cards precedes the ``WF`` card, it applies to all "
+"reference symmetries. Note that ``RESTRICT`` also affects the spaces "
+"generated by ``SELECT`` and/or ``CON`` cards."
+msgstr ""
+"如果 ``RESTRICT`` 卡片出现在 ``WF`` 卡片之前，则它适用于所有参考对称性。请注意，\\ ``RESTRICT`` 也会影响由 "
+"``SELECT`` 和/或 ``CON`` 卡片生成的空间。"
+
+msgid "Explicitly specifying reference configurations"
+msgstr "显式指定参考组态"
+
+msgid ""
+"Specifies an orbital configuration to be included in the reference function."
+" :math:`n_1`, :math:`n_2` etc. are the occupation numbers of the active "
+"orbitals (0,1,or 2). Any number of ``CON`` cards may follow each other, but "
+"they must all appear directly after a ``SELECT`` card."
+msgstr ""
+"指定一个要包含在参考函数中的轨道组态。\\ :math:`n_1`, :math:`n_2` 等是活性轨道的占据数（0、1 或 2）。任意数量的 "
+"``CON`` 卡片可以连续出现，但它们都必须紧跟在 ``SELECT`` 卡片之后。"
+
+msgid "Defining state numbers"
+msgstr "定义态编号"
+
+msgid ""
+"*nstate* is the number of states treated simultaneously; *nroot(i)* are the "
+"root numbers to be calculated. These apply to the order of the states in the"
+" initial internal CI. If not specified, *nroot(i)*\\ =\\ :math:`i`. Note "
+"that it is possible to leave out states, i.e.,"
+msgstr ""
+"*nstate* 是同时处理的态的数量；\\ *nroot(i)* 是要计算的根编号。这些编号对应于初始内部 CI 中态的顺序。若未指定，则 "
+"*nroot(i)* = :math:`i`\\ 。注意可以省略某些态，即，"
+
+msgid ""
+"All states specified must be reasonably described by the internal "
+"configuration space. It is possible to have different convergence thresholds"
+" for each state (see ``ACCU`` card). It is also possible not to converge "
+"some lower roots which are included in the list *nroot(i)* (see ``REFSTATE``"
+" card). For examples, see ``REFSTATE`` card."
+msgstr ""
+"所有指定的态必须能被内部组态空间合理地描述。可以为每个态设置不同的收敛阈值（参见 ``ACCU`` 卡片）。也可以不收敛包含在列表 *nroot(i)*"
+" 中的某些较低能级的根（参见 ``REFSTATE`` 卡片）。示例请见 ``REFSTATE`` 卡片。"
+
+msgid "Defining reference state numbers"
+msgstr "定义参考态编号"
+
+msgid ""
+"*nstatr* is the number of reference states for generating contracted pairs. "
+"This may be larger or smaller than *nstate*. If this card is not present, "
+"*nstatr*\\ =\\ *nstate* and *nrootr(i)*\\ =\\ *nroot(i)*. Roots for which no"
+" reference states are specified but which are specified on the ``STATE`` "
+"card (or included by default if the *nroot(i)* are not specified explicitly "
+"on the ``STATE`` card) will not be converged, since the result will be bad "
+"anyway. However, it is often useful to include these states in the list "
+"*nroot(i)*, since it helps to avoid root flipping problems. Examples:"
+msgstr ""
+"*nstatr* 是用于生成收缩对的参考态的数量。它可以大于或小于 *nstate*\\ 。如果未提供此卡片，则 *nstatr* = *nstate*"
+" 且 *nrootr(i)* = *nroot(i)*\\ 。对于那些未指定参考态，但在 ``STATE`` 卡片上指定了（或者如果 "
+"*nroot(i)* 未在 ``STATE`` 卡片上显式指定，则默认包含）的根，将不会被收敛，因为其结果无论如何都会很差。然而，将这些态包含在列表 "
+"*nroot(i)* 中通常是有用的，因为它有助于避免根翻转问题。示例："
+
+msgid "will calculate two states with two reference states."
+msgstr "将计算两个态，使用两个参考态。"
+
+msgid ""
+"will optimize second state with one reference state. One external expansion "
+"vector will be generated for the ground state in order to avoid root "
+"flipping. The results printed for state 1 are bad and should not be used "
+"(unless the pair space is complete, which might happen in very small "
+"calculations)."
+msgstr ""
+"将使用一个参考态优化第二个态。将为基态生成一个外部展开向量以避免根翻转。为态 1 "
+"打印的结果很差，不应使用（除非对空间是完备的，这在非常小的计算中可能发生）。"
+
+msgid ""
+"As the second example, but no external expansion vectors will be generated "
+"for the ground state. This should give exactly the same energy for state 2 "
+"as before if there is no root flipping (which, however, frequently occurs)."
+msgstr "与第二个示例相同，但不会为基态生成外部展开向量。如果没有根翻转（然而，这种情况经常发生），这应该会为态2提供与之前完全相同的能量。"
+
+msgid ""
+"Will calculate second state with two reference states. The ground state will"
+" not be converged (only one iteration is done for state 1) This should give "
+"exactly the same energy for state 2 as the first example."
+msgstr "将使用两个参考态计算第二个态。基态将不会收敛（仅对态1进行一次迭代）。这应该会为态2提供与第一个示例完全相同的能量。"
+
+msgid "Specifying correlation of orbital pairs"
+msgstr "指定轨道对的相关性"
+
+msgid "is a request to correlate a given orbital pair."
+msgstr "是请求对给定轨道对进行相关。"
+
+msgid ""
+"Default is to correlate all electron pairs in active and closed orbitals. "
+"See also ``PAIRS`` card."
+msgstr "默认关联活性和闭壳轨道中的所有电子对。另请参见 ``PAIRS`` 卡片。"
+
+msgid ""
+"Correlate all pairs which can be formed from orbitals *iorb1.isy1* through "
+"*iorb2.isy2*. Core orbitals are excluded. Either *iorb2* must be larger than"
+" *iorb1* or *isy2* larger than *isy1*. If *iorb1.isy1*\\ =\\ *iorb2.isy2* "
+"the ``PAIRS`` card has the same effect as a ``PAIR`` card. ``PAIR`` and "
+"``PAIRS`` cards may be combined."
+msgstr ""
+"关联所有可由轨道 *iorb1.isy1* 到 *iorb2.isy2* 形成的电子对。芯轨道被排除在外。\\ *iorb2* 必须大于 "
+"*iorb1*\\ ，或者 *isy2* 大于 *isy1*\\ 。如果 *iorb1.isy1*\\ =\\ *iorb2.isy2*\\ ，则 "
+"``PAIRS`` 卡片与 ``PAIR`` 卡片具有相同效果。\\ ``PAIR`` 和 ``PAIRS`` 卡片可以组合使用。"
+
+msgid ""
+"If no ``PAIR`` and no ``PAIRS`` card is specified, all valence orbitals are "
+"correlated. The created pair list restricts not only the doubly external "
+"configurations, but also the all internal and semi internals."
+msgstr ""
+"如果未指定 ``PAIR`` 和 ``PAIRS`` 卡片，则关联所有价层轨道。生成的电子对列表不仅限制双外禀组态，也限制所有内禀和半内禀组态。"
+
+msgid "Restriction of classes of excitations"
+msgstr "激发类别的限制"
+
+msgid "``NOPAIR;``"
+msgstr "``NOPAIR;``"
+
+msgid "No doubly external configurations are included."
+msgstr "不包含双外禀组态。"
+
+msgid "``NOSINGLE;``"
+msgstr "``NOSINGLE;``"
+
+msgid "No singly external configurations are included."
+msgstr "不包含单外部组态。"
+
+msgid "``NOEXC;``"
+msgstr "``NOEXC;``"
+
+msgid "Perform CI with the reference configurations only."
+msgstr "仅使用参考组态进行CI计算。"
+
+msgid "Coupled Electron Pair Approximation"
+msgstr "耦合电子对近似"
+
+msgid ""
+"(:math:`0 \\le ncepa \\le 3`). Instead of diagonalizing the hamiltonian, "
+"perform CEPA calculation, CEPA type *ncepa*. This is currently available "
+"only for single configuration reference functions."
+msgstr ""
+"(:math:`0 \\le ncepa \\le 3`)。不进行哈密顿量对角化，而是执行CEPA计算，CEPA类型为 *ncepa*\\ "
+"。目前仅适用于单组态参考函数。"
+
+msgid "Coupled Pair Functional (ACPF, AQCC)"
+msgstr "耦合对泛函 (ACPF, AQCC)"
+
+msgid "where options can be"
+msgstr "其中选项可以是"
+
+msgid ""
+"The ACPF and related methods are currently not robustly working for excited "
+"states. Even though it sometimes works, we do not currently recommend and "
+"support these methods for excited state calculations."
+msgstr "ACPF及相关方法目前在激发态计算中尚未稳定工作。尽管有时有效，但我们目前不推荐也不支持将这些方法用于激发态计算。"
+
+msgid "Projected excited state calculations"
+msgstr "投影激发态计算"
+
+msgid ""
+"Initiate or continue a projected excited state calculation, with information"
+" stored on *record*. If *nprojc*\\ :math:`>0`, the internal CI vectors of "
+"*nprojc* previous calculations are used to make a projection operator. If "
+"*nprojc*\\ :math:`=-1`, this calculation is forced to be the first, i.e. "
+"ground state, with no projection. If *nprojc*\\ :math:`=0`, then if *record*"
+" does not exist, the effect is the same as *nprojc*\\ :math:`=-1`; otherwise"
+" *nprojc* is recovered from the dump in *record*. Thus for the start up "
+"calculation, it is best to use ``project``,\\ *record*,-1; for the following"
+" excited calculations, use ``project``,\\ *record*; At the end of the "
+"calculation, the wavefunction is saved, and the information in the dump "
+"*record* updated. The project card also sets the ``tranh`` option, so by "
+"default, transition hamiltonian matrices are calculated."
+msgstr ""
+"启动或继续一个投影激发态计算，相关信息存储在 *record* 中。如果 *nprojc* :math:`>0`\\ ，则使用 *nprojc* "
+"个先前计算的内部 CI 向量来构建投影算符。如果 *nprojc* :math:`=-1`\\ ，则强制此计算为第一个（即基态）计算，不进行投影。如果 "
+"*nprojc* :math:`=0`\\ ，那么若 *record* 不存在，效果等同于 *nprojc* :math:`=-1`\\ ；否则从 "
+"*record* 中的转储信息恢复 *nprojc*\\ 。因此，对于启动计算，最好使用 ``project``,\\ "
+"*record*,-1；对于后续的激发态计算，使用 ``project``,\\ *record*\\ ；计算结束时，波函数会被保存，并且转储 "
+"*record* 中的信息会被更新。project 卡片还会设置 ``tranh`` 选项，因此默认会计算跃迁哈密顿矩阵。"
+
+msgid "For example, to do successive calculations for three states, use"
+msgstr "例如，要对三个态进行连续计算，请使用"
+
+msgid ""
+"At the end of each calculation, Hamiltonian is diagonalized over the whole "
+"set of projected functions, and the diagonal and transition properties are "
+"transformed accordingly. The untransformed properties, if required, can be "
+"retrieved from the output."
+msgstr "在每个计算结束时，哈密顿量会在整个投影函数集上对角化，对角性质和跃迁性质也相应地进行变换。如果需要，未变换的性质可以从输出中获取。"
+
+msgid "Transition matrix element options"
+msgstr "跃迁矩阵元选项"
+
+msgid ""
+"If *option*\\ :math:`>-1`, this forces calculation of transition hamiltonian"
+" matrix elements in a ``TRANS`` or ``PROJECT`` calculation. If *option*\\ "
+":math:`<1`, this forces calculation of one electron transition properties."
+msgstr ""
+"如果 *option* :math:`>-1`\\ ，这会在 ``TRANS`` 或 ``PROJECT`` 计算中强制计算跃迁哈密顿矩阵元。如果 "
+"*option* :math:`<1`\\ ，这会强制计算单电子跃迁性质。"
+
+msgid "Convergence thresholds"
+msgstr "收敛阈值"
+
+msgid "Denominator shifts for pairs, singles, and internals, respectively."
+msgstr "分别用于对、单激发和内部 CI 的分母位移。"
+
+msgid "Maximum number of iterations"
+msgstr "最大迭代次数"
+
+msgid "Restricting numbers of expansion vectors"
+msgstr "限制展开向量的数量"
+
+msgid "Selecting the primary configuration set"
+msgstr "选择主组态集"
+
+msgid "Canonicalizing external orbitals"
+msgstr "外部轨道正则化"
+
+msgid ""
+"External orbitals are obtained as eigenfunctions of a Fock operator with the"
+" specified occupation numbers :math:`n_i`. Occupation numbers must be "
+"provided for all valence orbitals."
+msgstr "外部轨道作为具有指定占据数 :math:`n_i` 的 Fock 算符的本征函数获得。必须为所有价层轨道提供占据数。"
+
+msgid "Saving the wavefunction"
+msgstr "保存波函数"
+
+msgid ""
+"``SPINDEN`` In the second form, if specified, spin-density is evaluated and "
+"stored. It is not done by default, due to additional required memory and CPU"
+" time."
+msgstr "``SPINDEN`` 在第二种形式中，如果指定，则计算并存储自旋密度。由于需要额外的内存和 CPU 时间，默认情况下不执行此操作。"
+
+msgid "Starting wavefunction"
+msgstr "起始波函数"
+
+msgid "One electron properties"
+msgstr "单电子性质"
+
+msgid "Transition moment calculations"
+msgstr "跃迁矩计算"
+
+msgid ""
+"Instead of performing an energy calculation, only calculate transition "
+"matrix elements between wavefunctions saved on records *readc1* and "
+"*readc2*. See section `One-electron operators and expectation values "
+"(GEXPEC) <program_control.html#one-electron-operators-and-expectation-"
+"values-gexpec>`__ for a list of available operators and their corresponding "
+"keywords. If no operator names are specified, the dipole transition moments "
+"are calculated."
+msgstr ""
+"不执行能量计算，仅计算保存在记录 *readc1* 和 *readc2* 上的波函数之间的跃迁矩阵元。可用算符列表及其对应关键词请参见章节 "
+"`单电子算符与期望值 (GEXPEC) <program_control.html#one-electron-operators-and-"
+"expectation-values-gexpec>`__\\ 。如果未指定算符名称，则计算偶极跃迁矩。"
+
+msgid ""
+"If option ``BIORTH`` is given, the two wavefunctions may use different "
+"orbitals. However, the number of active and inactive orbitals must be the "
+"same in each case. Note that ``BIORTH`` is not working for spin-orbit matrix"
+" elements. Under certain conditions it may happen that biorthogonalization "
+"is not possible, and then an error message will be printed. For transition "
+"properties which have nonzero nuclear contribution, the corresponding "
+"geometry is then that of the ket state (*readc2*). The same is valid when "
+"origin of operator is explicitly specified as a center number, i.e. its "
+"coordinates will be those for the ket state."
+msgstr ""
+"如果给出选项 ``BIORTH``\\ ，则两个波函数可以使用不同的轨道。但是，每种情况下的活性轨道和非活性轨道数量必须相同。请注意，\\ "
+"``BIORTH`` 不适用于自旋-"
+"轨道矩阵元。在某些条件下，双正交化可能无法实现，届时将打印错误信息。对于具有非零核贡献的跃迁性质，相应的几何结构将是右矢态 (*readc2*) "
+"的几何结构。当算符原点被明确指定为中心编号时，同样适用，即其坐标将是右矢态的坐标。"
+
+msgid "Saving the density matrix"
+msgstr "保存密度矩阵"
+
+msgid ""
+"The first order density matrices for all computed states are stored in "
+"record *record* on file *ifil*. If *idip* is not zero, the dipole moments "
+"are printed starting at iteration *idip*. See also ``NATORB``. In case of "
+"transition moment calculation, the transition densities are also stored, "
+"provided both states involved have the same symmetry."
+msgstr ""
+"所有计算态的一阶密度矩阵存储在文件 *ifil* 的记录 *record* 中。如果 *idip* 不为零，则从迭代 *idip* "
+"开始打印偶极矩。另请参见 ``NATORB``\\ 。在进行跃迁矩计算时，如果所涉及的两个态具有相同的对称性，跃迁密度也会被存储。"
+
+msgid "Natural orbitals"
+msgstr "自然轨道"
+
+msgid ""
+"Calculate natural orbitals. The number of printed external orbitals in any "
+"given symmetry is *nprint*) (default 2). *nprint=-1* suppressed the "
+"printing. If *record* is nonzero, the natural orbitals and density matrices "
+"for all states are saved in a dump record *record* on file *ifil*. If "
+"*record.ifil* is specified on a ``DM`` card (see above), this record is "
+"used. If different records are specified on the ``DM`` and ``NATORB`` cards,"
+" an error will result. The record can also be given on the ``SAVE`` card. If"
+" ``CORE`` is specified, core orbitals are not printed."
+msgstr ""
+"计算自然轨道。在任何给定对称性中打印的外部轨道数量为 *nprint*\\ （默认值为 2）。\\ *nprint=-1* 将抑制打印。如果 "
+"*record* 不为零，则所有态的自然轨道和密度矩阵将保存在文件 *ifil* 的转储记录 *record* 中。如果在 ``DM`` 卡片上指定了 "
+"*record.ifil*\\ （见上文），则使用该记录。如果在 ``DM`` 和 ``NATORB`` "
+"卡片上指定了不同的记录，将导致错误。该记录也可以在 ``SAVE`` 卡片上指定。如果指定了 ``CORE``\\ ，则不打印芯轨道。"
+
+msgid ""
+"Note: The dump record must not be the same as *savecp* or *saveco* on the "
+"``SAVE`` card, or the record given on the ``PROJECT``."
+msgstr ""
+"注意：转储记录不得与 ``SAVE`` 卡片上的 *savecp* 或 *saveco* 相同，也不得与 ``PROJECT`` 上给定的记录相同。"
+
+msgid "Miscellaneous options"
+msgstr "杂项选项"
+
+msgid ""
+"Can be used to specify program parameters and options. If no codes and "
+"values are specified, active values are displayed. The equal signs may be "
+"omitted. The following codes are allowed (max 7 per card):"
+msgstr "可用于指定程序参数和选项。如果未指定代码和值，则显示当前活动值。等号可以省略。允许使用以下代码（每张卡片最多 7 个）："
+
+msgid "``NSTATE:`` see ``state`` card"
+msgstr "``NSTATE:`` 参见 ``state`` 卡片"
+
+msgid "``NSTATI:`` number of states calculated in internal CI"
+msgstr "``NSTATI:`` 内部 CI 中计算的状态数"
+
+msgid "``NSTATR:`` see ``refstat`` card"
+msgstr "``NSTATR:`` 参见 ``refstat`` 卡片"
+
+msgid "``NCEPA:`` see ``CEPA`` card"
+msgstr "``NCEPA:`` 参见 ``CEPA`` 卡片"
+
+msgid "``NOKOP:`` if nonzero, skip integral transformation"
+msgstr "``NOKOP:`` 若非零，则跳过积分变换"
+
+msgid "``ITRDM:`` if .ge. 0 transition moments are calculated"
+msgstr "``ITRDM:`` 若 .ge. 0，则计算跃迁矩"
+
+msgid ""
+"``ITRANS:`` if nonzero, perform full integral transformation (not yet "
+"implemented)"
+msgstr "``ITRANS:`` 若非零，则执行完整的积分变换（尚未实现）"
+
+msgid "``IDIP:`` Print dipole moments from iteration number *value*"
+msgstr "``IDIP:`` 从迭代次数 *value* 开始打印偶极矩"
+
+msgid ""
+"``REFOPT:`` if nonzero, optimize reference coefficients; otherwise extract "
+"reference coefficients from internal CI"
+msgstr "``REFOPT:`` 若非零，则优化参考系数；否则从内部 CI 提取参考系数"
+
+msgid ""
+"``IAVDEN:`` average HII and HSS denominators over spin couplings if nonzero"
+msgstr "``IAVDEN:`` 若非零，则对自旋耦合平均 HII 和 HSS 分母"
+
+msgid "``IDELCG:`` if.ne.0 then destroy files icfil,igfil at end"
+msgstr "``IDELCG:`` 若 .ne.0 则在结束时销毁文件 icfil, igfil"
+
+msgid "``IREST:`` if nonzero, restart"
+msgstr "``IREST:`` 若非零，则重新启动"
+
+msgid ""
+"``NATORB:`` if nonzero, natural orbitals are calculated and printed. The "
+"number of printed external orbitals per symmetry is min(*natorb*,2)"
+msgstr "``NATORB:`` 若非零，则计算并打印自然轨道。每个对称性打印的外部轨道数为 min(*natorb*,2)"
+
+msgid "``WFNAT:`` if nonzero, natural orbitals are saved to this record"
+msgstr "``WFNAT:`` 若非零，则将自然轨道保存到此记录"
+
+msgid "``IPUNRF:`` if nonzero, punch coefficients of reference configurations"
+msgstr "``IPUNRF:`` 若非零，则穿孔参考组态的系数"
+
+msgid ""
+"``NPUPD:`` if nonzero, update pairs in nonorthogonal basis, otherwise in "
+"orthogonal basis."
+msgstr "``NPUPD:`` 若非零，则在非正交基中更新对，否则在正交基中更新。"
+
+msgid "``MAXIT:`` see ``maxiter`` card"
+msgstr "``MAXIT:`` 参见 ``maxiter`` 卡片"
+
+msgid "``MAXITI:`` see ``maxiter`` card"
+msgstr "``MAXITI:`` 参见 ``maxiter`` 卡片"
+
+msgid "``MAXDAV:`` see ``maxdav`` card"
+msgstr "``MAXDAV:`` 参见 ``maxdav`` 卡片"
+
+msgid "``MAXVI:`` see ``maxdav`` card"
+msgstr "``MAXVI:`` 参见 ``maxdav`` 卡片"
+
+msgid "``NOSING:`` see ``nosing`` card"
+msgstr "``NOSING:`` 参见 ``nosing`` 卡片"
+
+msgid "``NOPAIR:`` see ``nopair`` card"
+msgstr "``NOPAIR:`` 参见 ``nopair`` 卡片"
+
+msgid "``MXSHRF:`` see ``select`` card"
+msgstr "``MXSHRF:`` 参见 ``select`` 卡片"
+
+msgid ""
+"``IKCPS=0:`` In CIKEXT, only K(CP) is calculated; this option taken when and"
+" only when no singles."
+msgstr "``IKCPS=0:`` 在 CIKEXT 中，仅计算 K(CP)；此选项仅在无单激发时采用。"
+
+msgid ""
+"``IKCPS=1:`` only K(CP’) is calculated. Implies that modified coupling "
+"coefficients are used."
+msgstr "``IKCPS=1:`` 仅计算 K(CP')。这意味着使用修改后的耦合系数。"
+
+msgid ""
+"``IKCPS=2:`` K(CP) and K(CP’) are calculated. Default is IKCPS=2 except when"
+" single reference configuration, when IKCPS=1."
+msgstr "``IKCPS=2:`` 计算 K(CP) 和 K(CP')。默认值为 IKCPS=2，除非是单参考组态，此时 IKCPS=1。"
+
+msgid "``IOPTGM:`` Option for density matrix routines."
+msgstr "``IOPTGM:`` 密度矩阵例程的选项。"
+
+msgid ""
+"``IOPTGM=0:`` all quantities in density matrix routines are recalculated for"
+" each intermediate symmetry (max. CPU, min. core)."
+msgstr "``IOPTGM=0:`` 密度矩阵例程中的所有量针对每个中间对称性重新计算（CPU 使用最大，内存使用最小）。"
+
+msgid ""
+"``IOPTGM=1:`` quantities precalculated and stored on disk (max. I/O, min. "
+"core)."
+msgstr "``IOPTGM=1:`` 量被预先计算并存储在磁盘上（I/O 最大，内存使用最小）。"
+
+msgid ""
+"``IOPTGM=2:`` quantities precalculated and kept in core (min. CPU, max. "
+"core)."
+msgstr "``IOPTGM=2:`` 量被预先计算并保存在内存中（CPU 使用最小，内存使用最大）。"
+
+msgid ""
+"``IOPTOR:`` If nonzero, calculate intermediate orbitals for each pair. Might"
+" improve convergence in some cases, in particular if localized orbitals are "
+"used."
+msgstr "``IOPTOR:`` 如果非零，为每对计算中间轨道。在某些情况下可能改善收敛性，特别是当使用定域轨道时。"
+
+msgid "Miscellaneous parameters"
+msgstr "杂项参数"
+
+msgid ""
+"Redefine system parameters. If no codes are specified, the default values "
+"are displayed. The following codes are allowed:"
+msgstr "重新定义系统参数。如果未指定代码，则显示默认值。允许使用以下代码："
+
+msgid "``LSEG:`` disc sector length"
+msgstr "``LSEG:`` 磁盘扇区长度"
+
+msgid "``IVECT=0:`` scalar machine"
+msgstr "``IVECT=0:`` 标量机器"
+
+msgid "``IVECT=1:`` vector machine"
+msgstr "``IVECT=1:`` 向量机器"
+
+msgid ""
+"``MINVEC:`` call MXMB in coupling coefficient routines if vector length "
+"larger than this value."
+msgstr "``MINVEC:`` 如果向量长度大于此值，则在耦合系数例程中调用 MXMB。"
+
+msgid ""
+"``LTR:`` determines how matrices are stored on disc. If LTR=LSEG, all "
+"matrices start at sector boundaries (which optimizes I/O), but unused space "
+"is between matrices (both on disc and in core). With LTR=1 all matrices are "
+"stored dense. This might increase I/O if much paging is necessary, but "
+"reduce I/O if everything fits in core."
+msgstr ""
+"``LTR:`` 决定矩阵如何存储在磁盘上。如果 LTR=LSEG，所有矩阵从扇区边界开始（这优化了 "
+"I/O），但矩阵之间存在未使用的空间（在磁盘和内存中都是）。如果 LTR=1，所有矩阵都密集存储。如果需要进行大量分页，这可能会增加 "
+"I/O，但如果所有内容都适合内存，则会减少 I/O。"
+
+msgid "``NCPUS:`` Maximum number of CPUs to be used in multitasking."
+msgstr "``NCPUS:`` 多任务处理中使用的最大 CPU 数量。"
+
+msgid "Miscellaneous thresholds"
+msgstr "杂项阈值"
+
+msgid "``ZERO:`` numerical zero"
+msgstr "``ZERO:`` 数值零"
+
+msgid ""
+"``THRDLP:`` delete pairs if eigenvalue of overlap matrix is smaller than "
+"this threshold."
+msgstr "``THRDLP:`` 如果重叠矩阵的特征值小于此阈值，则删除对。"
+
+msgid ""
+"``PNORM:`` delete pair if its norm is smaller than this threshold (all pairs"
+" are normalized to one for a closed shell case)."
+msgstr "``PNORM:`` 若对范数小于此阈值则删除该对（对于闭壳层情况，所有对均归一化为一）。"
+
+msgid "``PRINTCI:`` print CI coefficients which are larger than this value."
+msgstr "``PRINTCI:`` 打印大于此值的 CI 系数。"
+
+msgid ""
+"``INTEG:`` omit two-electron integrals which are smaller than this value."
+msgstr "``INTEG:`` 忽略小于此值的双电子积分。"
+
+msgid "``ENERGY:`` convergence threshold for energy; see also: ``ACCU`` card."
+msgstr "``ENERGY:`` 能量的收敛阈值；另见：\\ ``ACCU`` 卡片。"
+
+msgid ""
+"``COEFF:`` convergence threshold for coefficients; see also: ``ACCU`` card."
+msgstr "``COEFF:`` 系数的收敛阈值；另见：\\ ``ACCU`` 卡片。"
+
+msgid ""
+"``SPARSE:`` omit coefficient changes which are smaller than this value."
+msgstr "``SPARSE:`` 忽略小于此值的系数变化。"
+
+msgid ""
+"``EQUAL:`` set values in the internal vector and the diagonal elements equal"
+" if they differ by less than this value. Useful for keeping track of "
+"symmetry."
+msgstr "``EQUAL:`` 若内部向量中的值与对角元之差小于此值，则将它们设为相等。有助于跟踪对称性。"
+
+msgid "Print options"
+msgstr "打印选项"
+
+msgid ""
+"Print options. Generally, the value determines how much intermediate "
+"information is printed. *value*\\ =-1 means no print (default for all "
+"codes). In some of the cases listed below the specification of higher values"
+" will generate even more output than described. The equal signs and zeros "
+"may be omitted. All codes may be truncated to three characters. The "
+"following codes are allowed (max 7 per card):"
+msgstr ""
+"打印选项。通常，该值决定了打印多少中间信息。\\ *value*\\ =-1 "
+"表示不打印（所有代码的默认值）。在下面列出的一些情况下，指定更高的值将产生比描述的更多的输出。等号和零可以省略。所有代码可以截断为三个字符。允许以下代码（每张卡片最多"
+" 7 个）："
+
+msgid "``ORBITALS:`` print orbitals"
+msgstr "``ORBITALS:`` 打印轨道"
+
+msgid "``JOP=0:`` print operator list"
+msgstr "``JOP=0:`` 打印算符列表"
+
+msgid "``JOP=1:`` print coulomb operators in MO basis"
+msgstr "``JOP=1:`` 打印 MO 基中的 Coulomb 算符"
+
+msgid "``JOP=2:`` print coulomb operators in AO and MO basis"
+msgstr "``JOP=2:`` 打印 AO 和 MO 基中的 Coulomb 算符"
+
+msgid "``KOP:`` as ``JOP`` for internal exchange operators"
+msgstr "``KOP:`` 与 ``JOP`` 类似，但用于内部交换算符"
+
+msgid "``KCP=0:`` print paging information for CIKEXT"
+msgstr "``KCP=0:`` 打印 CIKEXT 的分页信息"
+
+msgid "``KCP=1:`` print external exchange operators in MO basis"
+msgstr "``KCP=1:`` 在 MO 基中打印外部交换算符"
+
+msgid "``KCP=2:`` print operators in AO and MO basis"
+msgstr "``KCP=2:`` 在 AO 和 MO 基中打印算符"
+
+msgid "``DM=0:`` print paging information for CIDIMA"
+msgstr "``DM=0:`` 打印 CIDIMA 的分页信息"
+
+msgid "``DM=1:`` print density matrix in MO basis"
+msgstr "``DM=1:`` 在 MO 基中打印密度矩阵"
+
+msgid "``DM=2:`` print density matrix in AO and MO basis"
+msgstr "``DM=2:`` 在 AO 和 MO 基中打印密度矩阵"
+
+msgid "``FPP=0:`` print energy denominators for pairs"
+msgstr "``FPP=0:`` 打印对（pairs）的能量分母"
+
+msgid ""
+"``FPP=1:`` in addition, print diagonal coupling coefficients in orthogonal "
+"basis."
+msgstr "``FPP=1:`` 此外，在正交基中打印对角耦合系数。"
+
+msgid "``FPP=2:`` print operators FPP"
+msgstr "``FPP=2:`` 打印算符 FPP"
+
+msgid "``CP=0:`` print update information for pairs in each iteration"
+msgstr "``CP=0:`` 在每次迭代中打印对组的更新信息"
+
+msgid "``CP=1:`` print pair matrix updates (MO basis)"
+msgstr "``CP=1:`` 打印对矩阵更新（MO 基）"
+
+msgid "``CP=2:`` in addition print pair matrices (MO basis)"
+msgstr "``CP=2:`` 额外打印对矩阵（MO 基）"
+
+msgid "``CP=3:`` print CP in AO basis (in CIKEXT)"
+msgstr "``CP=3:`` 在原子轨道基组中打印 CP（在 CIKEXT 中）"
+
+msgid "``CI=0:`` print convergence information for internal CI"
+msgstr "``CI=0:`` 打印内部 CI 的收敛信息"
+
+msgid ""
+"``CI=1:`` print internal CI coefficients and external expansion coefficients"
+msgstr "``CI=1:`` 打印内部 CI 系数和外部展开系数"
+
+msgid "``CS:`` as CP for singles"
+msgstr "``CS:`` 与 CP 类似，但针对单激发"
+
+msgid "``CPS=0:`` print paging information for CICPS"
+msgstr "``CPS=0:`` 打印 CICPS 的分页信息"
+
+msgid "``CPS=1:`` print matrices CPS in MO basis"
+msgstr "``CPS=1:`` 在 MO 基中打印 CPS 矩阵"
+
+msgid "``GPP=0:`` print paging information for CIGPQ"
+msgstr "``GPP=0:`` 打印 CIGPQ 的分页信息"
+
+msgid "``GPP=1:`` print matrices GP at exit of CIGPQ"
+msgstr "``GPP=1:`` 在 CIGPQ 退出时打印 GP 矩阵"
+
+msgid "``GPS=0:`` print paging information for CIGPS"
+msgstr "``GPS=0:`` 打印 CIGPS 的分页信息"
+
+msgid "``GPS=1:`` print vectors GS at exit CIGPS"
+msgstr "``GPS=1:`` 在 CIGPS 退出时打印 GS 向量"
+
+msgid "``GSP=1:`` print matrices GP at exit CIGPS"
+msgstr "``GSP=1:`` 在 CIGPS 退出时打印 GP 矩阵"
+
+msgid "``GPI=0:`` print paging information for CIGPI"
+msgstr "``GPI=0:`` 打印 CIGPI 的分页信息"
+
+msgid "``GPI=1:`` print total GP in orthogonal basis"
+msgstr "``GPI=1:`` 在正交基中打印总 GP"
+
+msgid "``GPI=2:`` print matrices GP and TP"
+msgstr "``GPI=2:`` 打印矩阵 GP 和 TP"
+
+msgid "``GIP=0:`` print paging information for CIGIP"
+msgstr "``GIP=0:`` 打印 CIGIP 的分页信息"
+
+msgid "``GIP=1:`` print GI at exit CIGIP"
+msgstr "``GIP=1:`` 打印退出 CIGIP 时的 GI"
+
+msgid "``GSS=0:`` print paging information for CIGSS"
+msgstr "``GSS=0:`` 打印 CIGSS 的分页信息"
+
+msgid "``GSS=1:`` print vectors GS at exit CIGSS"
+msgstr "``GSS=1:`` 打印退出 CIGSS 时的向量 GS"
+
+msgid "``GSI=0:`` print paging information for CIGSI"
+msgstr "``GSI=0:`` 打印 CIGSI 的分页信息"
+
+msgid "``GSI=1:`` print GS at exit CIGSI"
+msgstr "``GSI=1:`` 打印退出 CIGSI 时的 GS"
+
+msgid "``GIS=0:`` print paging information for CIGIS"
+msgstr "``GIS=0:`` 打印 CIGIS 的分页信息"
+
+msgid "``GIS=1:`` print GI at exit CIGIS"
+msgstr "``GIS=1:`` 在退出 CIGIS 时打印 GI"
+
+msgid "``GII:`` print intermediate information in internal CI"
+msgstr "``GII:`` 打印内部 CI 的中间信息"
+
+msgid "``DPQ:`` print coupling coefficients :math:`\\alpha(P,Q)`"
+msgstr "``DPQ:`` 打印耦合系数 :math:`\\alpha(P,Q)`"
+
+msgid "``EPQ:`` print coupling coefficients :math:`\\beta(P,Q)`"
+msgstr "``EPQ:`` 打印耦合系数 :math:`\\beta(P,Q)`"
+
+msgid "``HPQ:`` print coupling coefficients :math:`\\gamma(P,Q)`"
+msgstr "``HPQ:`` 打印耦合系数 :math:`\\gamma(P,Q)`"
+
+msgid "``DPI:`` print coupling coefficients for pair-internal interactions"
+msgstr "``DPI:`` 打印对-内部相互作用的耦合系数"
+
+msgid "``DSS:`` not yet used"
+msgstr "``DSS:`` 尚未使用"
+
+msgid "``DSI:`` not yet used"
+msgstr "``DSI:`` 尚未使用"
+
+msgid ""
+"``LOG:`` At end of each iteration, write summary to log file. Delete at end "
+"of job if ``LOG=0``"
+msgstr "``LOG:`` 每次迭代结束时，将摘要写入日志文件。如果 ``LOG=0``\\ ，则在作业结束时删除"
+
+msgid "``CC=0:`` print address lists for coupling coefficients"
+msgstr "``CC=0:`` 打印耦合系数的地址列表"
+
+msgid "``CC=1:`` print coupling coefficients"
+msgstr "``CC=1:`` 打印耦合系数"
+
+msgid "``DEN=1:`` print internal first order density"
+msgstr "``DEN=1:`` 打印内部一阶密度"
+
+msgid "``DEN=2:`` print internal second order density"
+msgstr "``DEN=2:`` 打印内部二阶密度"
+
+msgid "``DEN=3:`` print internal third order density"
+msgstr "``DEN=3:`` 打印内部三阶密度"
+
+msgid "``DEN=4:`` print first, second and third order densities"
+msgstr "``DEN=4:`` 打印一阶、二阶和三阶密度"
+
+msgid "``GAM=1:`` print first order transition densities"
+msgstr "``GAM=1:`` 打印一阶跃迁密度"
+
+msgid "``GAM=2:`` print second order transition densities"
+msgstr "``GAM=2:`` 打印二阶跃迁密度"
+
+msgid "``GAM=3:`` print first and second order transition densities"
+msgstr "``GAM=3:`` 打印一阶和二阶跃迁密度"
+
+msgid "``PAIRS=0:`` print list of non redundant pairs"
+msgstr "``PAIRS=0:`` 打印非冗余对列表"
+
+msgid "``PAIRS=1:`` print list of all pairs"
+msgstr "``PAIRS=1:`` 打印所有对列表"
+
+msgid ""
+"``CORE=0:`` print summary of internal configurations (:math:`N, N-1` and "
+":math:`N-2` electron)"
+msgstr "``CORE=0:`` 打印内部组态摘要 (:math:`N, N-1` 和 :math:`N-2` 电子)"
+
+msgid "``CORE=1:`` print internal configurations (:math:`N, N-1, N-2`)"
+msgstr "``CORE=1:`` 打印内部组态 (:math:`N, N-1, N-2`)"
+
+msgid "``REF=0:`` print summary of reference configurations"
+msgstr "``REF=0:`` 打印参考组态摘要"
+
+msgid "``REF=1:`` print reference configurations and their coefficients"
+msgstr "``REF=1:`` 打印参考组态及其系数"
+
+msgid "``PSPACE:`` print p-space configurations"
+msgstr "``PSPACE:`` 打印 P 空间组态"
+
+msgid "``HII:`` print diagonal elements for internals"
+msgstr "``HII:`` 打印内部态的对角元"
+
+msgid "``HSS:`` print diagonal elements for singles"
+msgstr "``HSS:`` 打印单激发态的对角元"
+
+msgid ""
+"``SPQ:`` various levels of intermediate information in pair "
+"orthogonalization routine."
+msgstr "``SPQ:`` 在配对正交化例程中打印不同级别的中间信息。"
+
+msgid "``TEST=0:`` print information at each subroutine call"
+msgstr "``TEST=0:`` 在每个子程序调用时打印信息"
+
+msgid "``TEST=1:`` print in addition information about I/O in LESW, SREIBW"
+msgstr "``TEST=1:`` 额外打印 LESW、SREIBW 中的 I/O 信息"
+
+msgid "``TEST=2:`` print also information about I/O in FREAD, FWRITE"
+msgstr "``TEST=2:`` 还打印 FREAD、FWRITE 中的 I/O 信息"
+
+msgid "``CPU:`` print analysis of CPU and I/O times"
+msgstr "``CPU:`` 打印 CPU 和 I/O 时间分析"
+
+msgid "``ALL:`` print everything at given level (be careful!)"
+msgstr "``ALL:`` 打印给定级别的所有信息（请谨慎使用！）"
+
+msgid "Examples"
+msgstr "示例"
+
+msgid "Cluster corrections for multi-state MRCI"
+msgstr "多态MRCI的簇修正"
+
+msgid "In the following, we assume that"
+msgstr "在下文中，我们假设"
+
+msgid ""
+"\\begin{align}\n"
+"\\Psi_{\\rm ref}^{(n)} &=& \\sum_R C_{Rn}^{(0)} \\Phi_R \\\\\n"
+"\\Psi_{\\rm mrci}^{(n)} &=& \\sum_R C_{Rn} \\Phi_R + \\Psi_c\\end{align}"
+msgstr ""
+"\\begin{align}\n"
+"\\Psi_{\\rm ref}^{(n)} &=& \\sum_R C_{Rn}^{(0)} \\Phi_R \\\\\n"
+"\\Psi_{\\rm mrci}^{(n)} &=& \\sum_R C_{Rn} \\Phi_R + \\Psi_c\\end{align}"
+
+msgid ""
+"are the normalized reference and MRCI wave functions for state :math:`n`, "
+"respectively. :math:`C_R^{(0)}` are the coefficients of the reference "
+"configurations in the initial reference functions and :math:`C_{Rn}` are the"
+" relaxed coefficients of these configurations in the final MRCI wave "
+"function. :math:`\\Psi_c` is the remainder of the MRCI wave function, which "
+"is orthogonal to all reference configurations :math:`\\Phi_R`."
+msgstr ""
+"\\ 分别是状态 :math:`n` 的归一化参考波函数和MRCI波函数。\\ :math:`C_R^{(0)}` 是初始参考函数中参考组态的系数，\\"
+" :math:`C_{Rn}` 是这些组态在最终MRCI波函数中的松弛系数。\\ :math:`\\Psi_c` "
+"是MRCI波函数的剩余部分，它与所有参考组态 :math:`\\Phi_R` 正交。"
+
+msgid "The corresponding energies are defined as"
+msgstr "相应的能量定义为"
+
+msgid ""
+"\\begin{align}\n"
+"E_{\\rm ref}^{(n)} &=& \\langle \\Psi_{\\rm ref}^{(n)} | \\hat H | \\Psi_{\\rm ref}^{(n)}\\rangle,\\\\\n"
+"E_{\\rm mrci}^{(n)}&=& \\langle \\Psi_{\\rm mrci}^{(n)} | \\hat H | \\Psi_{\\rm mrci}^{(n)}\\rangle.\\end{align}"
+msgstr ""
+"\\begin{align}\n"
+"E_{\\rm ref}^{(n)} &=& \\langle \\Psi_{\\rm ref}^{(n)} | \\hat H | \\Psi_{\\rm ref}^{(n)}\\rangle,\\\\\n"
+"E_{\\rm mrci}^{(n)}&=& \\langle \\Psi_{\\rm mrci}^{(n)} | \\hat H | \\Psi_{\\rm mrci}^{(n)}\\rangle.\\end{align}"
+
+msgid ""
+"\\begin{align}\n"
+"\\Psi_{\\rm rlx}^{(n)} &=& \\frac{\\sum_R C_{Rn} \\Phi_R}{\\sqrt{\\sum_R C_{Rn}^2}},\\end{align}"
+msgstr ""
+"\\begin{align}\n"
+"\\Psi_{\\rm rlx}^{(n)} &=& \\frac{\\sum_R C_{Rn} \\Phi_R}{\\sqrt{\\sum_R C_{Rn}^2}},\\end{align}"
+
+msgid ""
+"\\begin{align}\n"
+"     \\Psi_{\\rm prj}^{(n)} &=& \\sum_m |\\Psi_{\\rm ref}^{(m)}\\rangle\\langle \\Psi_{\\rm ref}^{(m)} |\\Psi_{\\rm mrci}^{(n)} \\rangle\n"
+"      =  \\sum_m |\\Psi_{\\rm ref}^{(m)}\\rangle d_{mn}\\end{align}"
+msgstr ""
+"\\begin{align}\n"
+"     \\Psi_{\\rm prj}^{(n)} &=& \\sum_m |\\Psi_{\\rm ref}^{(m)}\\rangle\\langle \\Psi_{\\rm ref}^{(m)} |\\Psi_{\\rm mrci}^{(n)} \\rangle\n"
+"      =  \\sum_m |\\Psi_{\\rm ref}^{(m)}\\rangle d_{mn}\\end{align}"
+
+msgid "with"
+msgstr "\\ 其中"
+
+msgid ""
+"\\begin{align}\n"
+"      d_{mn} &=&  \\langle \\Psi_{\\rm ref}^{(m)}|\\Psi_{\\rm mrci}^{(n)} \\rangle = \\sum_R C_{Rm}^{(0)} C_{Rn}.\\end{align}"
+msgstr ""
+"\\begin{align}\n"
+"      d_{mn} &=&  \\langle \\Psi_{\\rm ref}^{(m)}|\\Psi_{\\rm mrci}^{(n)} \\rangle = \\sum_R C_{Rm}^{(0)} C_{Rn}.\\end{align}"
+
+msgid "These projected functions are not orthonormal. The overlap is"
+msgstr "这些投影函数不是正交归一的。其重叠积分为"
+
+msgid ""
+"\\begin{align}\n"
+"  \\langle  \\Psi_{\\rm prj}^{(m)} |  \\Psi_{\\rm prj}^{(n)} \\rangle &=& ({\\bf d}^{\\dagger} {\\bf d})_{mn}.\\end{align}"
+msgstr ""
+"\\begin{align}\n"
+"  \\langle  \\Psi_{\\rm prj}^{(m)} |  \\Psi_{\\rm prj}^{(n)} \\rangle &=& ({\\bf d}^{\\dagger} {\\bf d})_{mn}.\\end{align}"
+
+msgid ""
+"Symmetrical orthonormalization, which changes the functions as little as "
+"possible, yields"
+msgstr "对称正交归一化（它使函数的改变尽可能小）得到"
+
+msgid ""
+"\\begin{align}\n"
+"     \\Psi_{\\rm rot}^{(n)} &=& \\sum_m |\\Psi_{\\rm ref}^{(m)}\\rangle u_{mn}, \\\\\n"
+"      {\\bf u} &=& {\\bf d} ({\\bf d}^{\\dagger} {\\bf d})^{-1/2}.\\end{align}"
+msgstr ""
+"\\begin{align}\n"
+"     \\Psi_{\\rm rot}^{(n)} &=& \\sum_m |\\Psi_{\\rm ref}^{(m)}\\rangle u_{mn}, \\\\\n"
+"      {\\bf u} &=& {\\bf d} ({\\bf d}^{\\dagger} {\\bf d})^{-1/2}.\\end{align}"
+
+msgid "The overlap of these functions with the MRCI wave functions is"
+msgstr "这些函数与 MRCI 波函数之间的重叠积分为"
+
+msgid ""
+"\\begin{align}\n"
+"   \\langle  \\Psi_{\\rm rot}^{(m)} | \\Psi_{\\rm mrci}^{(n)} \\rangle &=&  [({\\bf d}^{\\dagger} {\\bf d}) ({\\bf d}^{\\dagger} {\\bf d})^{-1/2}]_{mn}\n"
+"   = [({\\bf d}^{\\dagger} {\\bf d})^{1/2}]_{mn}.\\end{align}"
+msgstr ""
+"\\begin{align}\n"
+"   \\langle  \\Psi_{\\rm rot}^{(m)} | \\Psi_{\\rm mrci}^{(n)} \\rangle &=&  [({\\bf d}^{\\dagger} {\\bf d}) ({\\bf d}^{\\dagger} {\\bf d})^{-1/2}]_{mn}\n"
+"   = [({\\bf d}^{\\dagger} {\\bf d})^{1/2}]_{mn}.\\end{align}"
+
+msgid ""
+"By default, the different cluster corrections listed in the following table "
+"are computed in multi-state MRCI calculations. and stored in variables."
+msgstr "默认情况下，在多态MRCI计算中会计算并存储在下表中列出的不同簇修正到变量中。"
+
+msgid "Cluster corrections computed in multi-state MRCI calculations"
+msgstr "在多态MRCI计算中计算的簇修正"
+
+msgid "Name"
+msgstr "名称"
+
+msgid ":math:`c_n` (Eq.)"
+msgstr ":math:`c_n` (Eq.)"
+
+msgid "Variable"
+msgstr "变量"
+
+msgid "*Using standard reference energies:*"
+msgstr "*使用标准参考能量:*"
+
+msgid "Fixed"
+msgstr "固定"
+
+msgid "``ENERGD1(n)``"
+msgstr "``ENERGD1(n)``"
+
+msgid "Relaxed"
+msgstr "松弛"
+
+msgid "``ENERGD0(n)``"
+msgstr "``ENERGD0(n)``"
+
+msgid "Rotated"
+msgstr "旋转"
+
+msgid "``ENERGD2(n)``"
+msgstr "``ENERGD2(n)``"
+
+msgid "*Using rotated reference energies:*"
+msgstr "*使用旋转参考能量：*"
+
+msgid "``ENERGD3(n)``"
+msgstr "``ENERGD3(n)``"
+
+msgid "``ENERGD4(n)``"
+msgstr "``ENERGD4(n)``"
+
+msgid ""
+"By default, the energies are in increasing order of the MRCI total energy. "
+"In single-state calculations only the fixed and relaxed values are "
+"available."
+msgstr "默认情况下，能量按MRCI总能量的递增顺序排列。在单态计算中，仅固定值和松弛值可用。"
+
+msgid ""
+"By default, ``ENERGD(n)=ENERGD0(n)``. This can be changed by setting "
+"``OPTION,CLUSTER=``\\ *x*; then ``ENERGD(n)=ENERGDx(n)`` (default "
+":math:`x=0`). The behaviour of Molpro 2009.1 and older can be retrieved "
+"using"
+msgstr ""
+"默认情况下，\\ ``ENERGD(n)=ENERGD0(n)``\\ 。这可以通过设置\\ ``OPTION,CLUSTER=``\\ *x*\\ "
+"来更改；然后\\ ``ENERGD(n)=ENERGDx(n)``\\ （默认\\ :math:`x=0`\\ ）。Molpro "
+"2009.1及更早版本的行为可以通过以下方式恢复"
+
+msgid "Explicitly correlated MRCI-F12"
+msgstr "显式相关 MRCI-F12"
+
+msgid ""
+"The following options (to be given on the ``MRCI-F12`` command line) are "
+"specific to MRCI-F12:"
+msgstr "以下选项（需在 ``MRCI-F12`` 命令行中给出）是 MRCI-F12 特有的："
+
+msgid ""
+"For a description of the various singles corrections see `Mol. Phys. "
+"<https://dx.doi.org/10.1080/00268976.2013.779393>`__ **111**, 607 (2013). "
+"[sec:rs23]"
+msgstr ""
+"关于各种单激发修正的描述，请参见 `Mol. Phys. "
+"<https://dx.doi.org/10.1080/00268976.2013.779393>`__ **111**, 607 "
+"(2013)。[sec:rs23]"

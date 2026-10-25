@@ -1,0 +1,128 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "The full CI program"
+msgstr "全组态相互作用程序"
+
+msgid "This module is the determinant full CI program, as described in"
+msgstr "本模块为行列式全组态相互作用程序，如以下文献所述："
+
+msgid ""
+"Published work resulting from the use of this program should cite these "
+"references."
+msgstr "使用本程序发表的成果应引用这些参考文献。"
+
+msgid ""
+"The program in normal use finds the lowest eigenvector of the complete CI "
+"hamiltonian matrix; more sophisticated use is possible, but not documented "
+"here. The program is interfaced to free standing versions such as supplied "
+"in the CPC program library by use of the ``DUMP`` option."
+msgstr ""
+"该程序在正常使用中寻找完整CI哈密顿矩阵的最低本征向量；更高级的用法是可能的，但此处未作说明。该程序通过使用 ``DUMP`` "
+"选项与独立版本（例如CPC程序库中提供的版本）进行接口。"
+
+msgid "The program is called with the command ``FCI``."
+msgstr "该程序通过命令 ``FCI`` 调用。"
+
+msgid "Defining the orbitals"
+msgstr "定义轨道"
+
+msgid ""
+"*name.file* specifies the record from which orbitals are read. The default "
+"is the set of orbitals from the last SCF, MCSCF or CI calculation."
+msgstr "*name.file* 指定从中读取轨道的记录。默认是从上一次 SCF、MCSCF 或 CI 计算得到的轨道集。"
+
+msgid "Occupied orbitals"
+msgstr "占据轨道"
+
+msgid ""
+":math:`n_i` specifies numbers of occupied orbitals (including ``CORE``) in "
+"irreducible representation number :math:`i`. If not given, the default is "
+"the complete basis set."
+msgstr ""
+":math:`n_i` 指定不可约表示编号 :math:`i` 中的占据轨道数（包括 ``CORE``\\ ）。如果未指定，默认使用完整的基组。"
+
+msgid "Frozen-core orbitals"
+msgstr "冻结芯轨道"
+
+msgid "``CORE``"
+msgstr "``CORE``"
+
+msgid "Defining the state symmetry"
+msgstr "定义态对称性"
+
+msgid ""
+"The number of electrons and the total symmetry of the wavefunction are "
+"specified on the ``WF`` card:"
+msgstr "电子数和波函数的总对称性在 ``WF`` 卡片上指定："
+
+msgid "where"
+msgstr "其中"
+
+msgid "Density matrix"
+msgstr "密度矩阵"
+
+msgid "The 1-electron density matrix can be computed with"
+msgstr "单电子密度矩阵可通过以下方式计算"
+
+msgid ""
+"and then subsequently used to calculate one-electron properties using the "
+"``PROP`` program."
+msgstr "随后可使用 ``PROP`` 程序计算单电子性质。"
+
+msgid "Excited states"
+msgstr "激发态"
+
+msgid "Specifies the number of states to be sought (default 1)."
+msgstr "指定要寻找的态的数量（默认为1）。"
+
+msgid "Convergence threshold"
+msgstr "收敛阈值"
+
+msgid ""
+"Convergence threshold (default :math:`10^{-5}`). If changes in the "
+"normalised wavefunction become less than this value, then the iterative "
+"eigenvector solver terminates."
+msgstr "收敛阈值（默认值 :math:`10^{-5}`\\ ）。如果归一化波函数的变化小于此值，则迭代特征向量求解器终止。"
+
+msgid "Printing options"
+msgstr "打印选项"
+
+msgid ""
+"Print options. Generally, the value determines how much intermediate "
+"information is printed. *value*\\ =-1 means no print (default for all "
+"codes). if *value* is omitted, it is taken as zero, which is usually "
+"appropriate. Specification of higher values will generate more output. The "
+"following codes are allowed:"
+msgstr ""
+"打印选项。通常，该值决定打印多少中间信息。\\ *值*\\ =-1 表示不打印（所有代码的默认值）。如果省略 *值*\\ "
+"，则取为零，这通常是合适的。指定更高的值将生成更多输出。允许使用以下代码："
+
+msgid "``ORBITAL`` Print molecular orbitals"
+msgstr "``ORBITAL`` 打印分子轨道"
+
+msgid "``INTEGRAL`` Print integrals"
+msgstr "``INTEGRAL`` 打印积分"
+
+msgid "``TIMING`` Print extra timing information"
+msgstr "``TIMING`` 打印额外计时信息"
+
+msgid "``DIAGONAL`` Print diagonal elements of Hamiltonian"
+msgstr "``DIAGONAL`` 打印哈密顿量的对角元"
+
+msgid "``HAMILTONIAN`` Print much intermediate information"
+msgstr "``HAMILTONIAN`` 打印大量中间信息"
+
+msgid "Interface to other programs"
+msgstr "与其他程序的接口"
+
+msgid "Example"
+msgstr "示例"

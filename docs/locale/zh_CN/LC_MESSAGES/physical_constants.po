@@ -1,0 +1,25 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Physical constants"
+msgstr "物理常数"
+
+msgid ""
+"The values of fundamental physical constants are revised periodically by "
+"CODATA. Molpro uses the values from the latest revision. Some previous "
+"values are available, see the ``lib/include/codata/`` directory. To use "
+"these system include files, simply add for instance:"
+msgstr ""
+"基本物理常数的数值由CODATA定期修订。Molpro使用最新修订版中的数值。一些历史数值也可用，请参阅\\ "
+"``lib/include/codata/``\\ 目录。要使用这些系统包含文件，只需添加例如："
+
+msgid "to use the values from Molpro 2006."
+msgstr "以使用Molpro 2006中的数值。"

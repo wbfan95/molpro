@@ -1,0 +1,96 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Core polarization potentials"
+msgstr "核极化势"
+
+msgid "Input options"
+msgstr "输入选项"
+
+msgid ""
+"The calculation of core-polarization matrix elements is invoked by the CPP "
+"card, which can be called at an arbitrary position in the MOLPRO input, "
+"provided the usual AO integrals have been calculated before. The CPP card "
+"can have the following formats:"
+msgstr ""
+"核极化矩阵元的计算由 CPP 卡片调用，该卡片可以在 MOLPRO 输入中的任意位置调用，前提是通常的 AO 积分在此之前已经计算完成。CPP "
+"卡片可以具有以下格式："
+
+msgid "CPP,INIT,\\ *ncentres*;"
+msgstr "CPP,INIT,\\ *ncentres*;"
+
+msgid "CPP,ADD[,\\ *factor*];"
+msgstr "CPP,ADD[,\\ *factor*];"
+
+msgid "CPP,AE[,\\ *record.file*];"
+msgstr "CPP,AE[,\\ *record.file*];"
+
+msgid "CPP,SET[,\\ *fcpp*];"
+msgstr "CPP,SET[,\\ *fcpp*];"
+
+msgid "CPP,INIT,\\ :math:`<ncentres>`;"
+msgstr "CPP,INIT,\\ :math:`<ncentres>`;"
+
+msgid ""
+"abs(:math:`<ncentres>`) further cards will be read in the following format:"
+msgstr "将读取 abs(:math:`<ncentres>`) 张后续卡片，格式如下："
+
+msgid ""
+":math:`<atomtype>,<ntype>,<\\alpha_d>,<\\alpha_q>,<\\beta_d>,<cutoff>,<q_{eff}`;"
+msgstr ""
+":math:`<atomtype>,<ntype>,<\\alpha_d>,<\\alpha_q>,<\\beta_d>,<cutoff>,<q_{eff}`;"
+
+msgid "CPP,ADD,\\ :math:`<factor>`;"
+msgstr "CPP,ADD,\\ :math:`<factor>`;"
+
+msgid ""
+"With this variant, previously calculated matrix elements of the polarization"
+" matrix can be added with the variable factor :math:`<factor>` (default: "
+":math:`<factor>` = 1) to the :math:`h_0`-matrix as well as to the two-"
+"electron integrals. In particular, CPP,ADD,-1.; can be used to retrieve the "
+"integrals without the polarization contribution."
+msgstr ""
+"使用此变体，可以将先前计算的极化矩阵的矩阵元以可变因子 :math:`<factor>`\\ （默认值：\\ :math:`<factor>` = "
+"1）添加到 :math:`h_0` 矩阵以及双电子积分中。特别是，CPP,ADD,-1.; 可用于获取不含极化贡献的积分。"
+
+msgid "CPP,AE,\\ :math:`<record.file>`;"
+msgstr "CPP,AE,\\ :math:`<record.file>`;"
+
+msgid ""
+"This is equivalent to the CPP,ADD command (with factor 1), but additionally "
+"sets a flag that CPP integrals projected with respect to core orbitals "
+"should be used. The projection is necessary whenever explicitly treated "
+"polarizable cores are present. The core orbitals are taken from "
+"*record.file*, and the CPP,AE command should be followed by a *core* card "
+"specifying the numbers of these orbitals in the various irreducible "
+"representations. Currently, the code assumes that the polarizable cores are "
+"spherically symmetric."
+msgstr ""
+"这等同于 CPP,ADD 命令（因子为 1），但额外设置一个标志，表示应使用相对于芯轨道投影的 CPP "
+"积分。当存在显式处理的极化芯时，投影是必要的。芯轨道取自 *record.file*\\ ，并且 CPP,AE 命令后应跟随一个 *core* "
+"卡片，指定这些轨道在各个不可约表示中的数量。目前，代码假定极化芯是球对称的。"
+
+msgid "CPP,SET,\\ :math:`<fcpp>`;"
+msgstr "CPP,SET,\\ :math:`<fcpp>`;"
+
+msgid ""
+"normally not necessary but may be used to tell MOLPRO after a restart, with "
+"what factor the polarization integrals are effective at the moment. "
+"Currently the CPP integrals are restricted to basis functions up to and "
+"including angular momentum 4, i.e. g functions."
+msgstr ""
+"通常不需要，但可用于在重启后告知 MOLPRO 当前极化积分以何种因子生效。目前 CPP 积分仅限于角动量 4 及以下的基函数，即 g 函数。"
+
+msgid "Example for ECP/CPP"
+msgstr "ECP/CPP 示例"
+
+msgid "Example for use of CPP in all-electron calculations"
+msgstr "全电子计算中使用 CPP 的示例"

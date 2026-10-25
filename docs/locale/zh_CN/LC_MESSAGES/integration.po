@@ -1,0 +1,819 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Integration"
+msgstr "积分"
+
+msgid ""
+"Before starting any energy calculations, the geometry and basis set must be "
+"defined in ``GEOMETRY`` and ``BASIS`` blocks, respectively. By default, two "
+"electron integrals are evaluated once and stored on disk. This behaviour may"
+" be overridden by using the input command ``gdirect`` (see section "
+"`INTEGRAL-DIRECT CALCULATIONS (GDIRECT) <integration.html#integral-direct-"
+"calculations-gdirect>`__) to force evaluation of integrals on the fly. "
+"Molpro checks if the one-and two-electron integrals are available for the "
+"current basis set and geometry, automatically computing them if necessary. "
+"The program also recognizes automatically if only the nuclear charges have "
+"been changed, as is the case in counterpoise calculations. In this case, the"
+" two-electron integrals are not recomputed."
+msgstr ""
+"在开始任何能量计算之前，必须分别在 ``GEOMETRY`` 和 ``BASIS`` "
+"块中定义几何结构和基组。默认情况下，双电子积分会被计算一次并存储在磁盘上。此行为可以通过使用输入命令 ``gdirect``\\ （参见章节 "
+"`INTEGRAL-DIRECT CALCULATIONS (GDIRECT) <integration.html#integral-direct-"
+"calculations-gdirect>`__\\ ）来覆盖，以强制即时计算积分。Molpro "
+"会检查当前基组和几何结构下的一电子和双电子积分是否可用，并在必要时自动计算它们。程序还会自动识别是否仅更改了核电荷，例如在均衡校正计算中。在这种情况下，双电子积分不会被重新计算。"
+
+msgid ""
+"By default a point charge nuclear model is used for all atoms. "
+"Alternatively, a Gaussian nuclear model can be used by setting"
+msgstr "默认情况下，所有原子使用点电荷核模型。或者，可以通过设置"
+
+msgid "``INT,FNUC=1``"
+msgstr "``INT,FNUC=1``"
+
+msgid "Sorted integrals"
+msgstr "排序后的积分"
+
+msgid ""
+"If the integrals are stored on disk, immediately after evaluation they are "
+"sorted into complete symmetry-packed matrices, so that later program modules"
+" that use them can do so as efficiently as possible. As discussed above, it "
+"is normally not necessary to call the integral and sorting programs "
+"explicitly, but sometimes additional options are desired, and can be "
+"specified using the ``INT`` command, which should appear after geometry and "
+"basis specifications, and before any commands to evaluate an energy."
+msgstr ""
+"如果积分存储在磁盘上，则在计算后立即将它们排序成完整的对称性压缩矩阵，以便后续使用它们的程序模块能够尽可能高效地操作。如上所述，通常不需要显式调用积分和排序程序，但有时需要额外的选项，并且可以使用"
+" ``INT`` 命令来指定，该命令应出现在几何和基组规范之后，以及任何评估能量的命令之前。"
+
+msgid ""
+"The detailed options for the integral sort can be specified using the "
+"``AOINT`` parameter set, using the input form"
+msgstr "积分排序的详细选项可以使用 ``AOINT`` 参数集来指定，输入格式为"
+
+msgid ""
+"The following summarizes the possible keys, together with their meaning, and"
+" default values."
+msgstr "以下总结了可能的键及其含义和默认值。"
+
+msgid ""
+"**c_final** Integer specifying the compression algorithm to be used for the "
+"final sorted integrals. Possible values are 0 (no compression), 1 "
+"(compression using 1, 2, 4 or 8-byte values), 2 (2, 4 or 8 bytes), 4 (4, 8 "
+"bytes) and 8. Default: 0"
+msgstr ""
+"**c_final** 整数，指定用于最终排序后积分的压缩算法。可能的值为 0（无压缩）、1（使用 1、2、4 或 8 字节值压缩）、2（2、4 或 8"
+" 字节）、4（4、8 字节）和 8。默认值：0"
+
+msgid ""
+"**c_sort1** Integer specifying the compression algorithm for the "
+"intermediate file during the sort. Default: 0"
+msgstr "**c_sort1** 整数，指定排序过程中中间文件的压缩算法。默认值：0"
+
+msgid ""
+"**c_seward** Integer specifying the format of label tagging and compression "
+"written by the integral program and read by the sort program. Default: 0"
+msgstr "**c_seward** 整数，指定由积分程序写入并由排序程序读取的标签标记和压缩格式。默认值：0"
+
+msgid ""
+"**compress** Overall compression; c_final, c_seward and c_sort1 are forced "
+"internally to be not less than this parameter. Default: 1"
+msgstr "**compress** 总体压缩；c_final、c_seward 和 c_sort1 在内部被强制设定为不小于此参数。默认值：1"
+
+msgid ""
+"**thresh** Real giving the truncation threshold for compression. Default: "
+":math:`0.0`, which means use the integral evaluation threshold "
+"(``GTHRESH,TWOINT``)"
+msgstr ""
+"**thresh** 实数，给出压缩的截断阈值。默认值：\\ :math:`0.0`\\ ，表示使用积分求值阈值（\\ "
+"``GTHRESH,TWOINT``\\ ）"
+
+msgid ""
+"**io** String specifying how the sorted integrals are written. Possible "
+"values are ``molpro`` (standard ``Molpro`` record on file 1) and ``eaf`` "
+"(Exclusive-access file). ``eaf`` is permissible only if the program has been"
+" configured for MPP usage, and at present ``molpro`` is implemented only for"
+" serial execution. ``molpro`` is required if the integrals are to be used in"
+" a restart job. For maximum efficiency on a parallel machine, ``eaf`` should"
+" be used, since in that case the integrals are distributed on separate "
+"processor-local files."
+msgstr ""
+"**io** 字符串，指定排序后的积分如何写入。可能的值为 ``molpro``\\ （文件1上的标准 ``Molpro`` 记录）和 "
+"``eaf``\\ （独占访问文件）。仅当程序已配置为 MPP 使用时才允许使用 ``eaf``\\ ，并且目前 ``molpro`` "
+"仅针对串行执行实现。如果积分要在重启作业中使用，则需要 ``molpro``\\ 。为了在并行机器上获得最高效率，应使用 ``eaf``\\ "
+"，因为在这种情况下积分分布在单独的处理器本地文件上。"
+
+msgid ""
+"For backward-compatibility purposes, two convenience commands are also "
+"defined: ``COMPRESS`` is equivalent to ``AOINT,COMPRESS=1``, and "
+"``NOCOMPRESS`` is equivalent to ``AOINT,COMPRESS=0``."
+msgstr ""
+"为了向后兼容，还定义了两个便捷命令：\\ ``COMPRESS`` 等同于 ``AOINT,COMPRESS=1``\\ ，\\ "
+"``NOCOMPRESS`` 等同于 ``AOINT,COMPRESS=0``\\ 。"
+
+msgid "Imported hamiltonian"
+msgstr "导入的哈密顿量"
+
+msgid ""
+"It is possible to import the second-quantised hamiltonian completely from "
+"outside ``Molpro``. In order to do so, it is necessary to set up a job that "
+"simulates the desired calculation by having a basis set of exactly the same "
+"dimensions as the one to be imported. One can then import the hamiltonian "
+"using the command"
+msgstr ""
+"可以从 ``Molpro`` "
+"外部完全导入二次量子化的哈密顿量。为此，需要设置一个作业，通过使用与要导入的基组维度完全相同的基组来模拟所需的计算。然后可以使用以下命令导入哈密顿量"
+
+msgid ""
+"*filename* is the name of a file that contains the hamiltonian in `FCIDUMP "
+"<https://github.com/molpro/fcidump>`__ format, which can be produced using "
+"Molpro’s ``{FCI,DUMP=}`` facility, or by another method."
+msgstr ""
+"*文件名* 是一个包含 `FCIDUMP <https://bitbucket.org/pjknowles/fcidump>`__ "
+"格式哈密顿量的文件名称，该文件可以使用 Molpro 的 ``{FCI,DUMP=}`` 功能或其他方法生成。"
+
+msgid ""
+"Note that this facility is fragile, and is limited to energy-only "
+"calculations. Attempts to calculate gradients or other properties will "
+"inevitably fail. At present, the implementation does not support the use of "
+"point-group symmetry."
+msgstr "请注意，此功能较为脆弱，且仅限于能量计算。尝试计算梯度或其他性质将不可避免地失败。目前，该实现不支持点群对称性的使用。"
+
+msgid "INTEGRAL-DIRECT CALCULATIONS (GDIRECT)"
+msgstr "积分直接计算 (GDIRECT)"
+
+msgid "References:"
+msgstr "参考文献："
+
+msgid ""
+"Most methods implemented in ``MOLPRO`` can be performed integral-direct, "
+"i.e., the methods are integral driven with the two-electron integrals in the"
+" AO basis being recomputed whenever needed, avoiding the bottleneck of "
+"storing these quantities on disk. Exceptions are currently full CI (FCI), "
+"perturbative triple excitations (T), ``UMP2``, ``RMP2``, ``CPP``, "
+"``MRCI-F12``, and ``RS2-F12``. For small molecules, this requires "
+"significantly more CPU time, but reduces the disk space requirements when "
+"using large basis sets. However, due to efficient prescreening techniques, "
+"the scaling of the computational cost with molecular size is lower in "
+"integral-direct mode than in conventional mode, and therefore integral-"
+"direct calculations for extended molecules may even be less expensive than "
+"conventional ones. The break-even point depends strongly on the size of the "
+"molecule, the hardware, and the basis set. Depending on the available disk "
+"space, calculations with more than 150–200 basis functions in one symmetry "
+"should normally be done in integral-direct mode."
+msgstr ""
+"``MOLPRO`` "
+"中实现的大多数方法都可以以积分直接模式执行，即这些方法是积分驱动的，原子轨道基组中的双电子积分在需要时重新计算，避免了将这些量存储在磁盘上的瓶颈。目前的例外包括全组态相互作用"
+" (FCI)、微扰三重激发 (T)、\\ ``UMP2``\\ 、\\ ``RMP2``\\ 、\\ ``CPP``\\ 、\\ "
+"``MRCI-F12`` 和 ``RS2-F12``\\ 。对于小分子，这需要显著更多的 CPU "
+"时间，但在使用大基组时减少了磁盘空间需求。然而，由于高效的预筛选技术，计算成本随分子大小的标度在积分直接模式下比在传统模式下更低，因此对于扩展分子的积分直接计算甚至可能比传统计算成本更低。盈亏平衡点强烈依赖于分子大小、硬件和基组。根据可用的磁盘空间，在一个对称性中具有超过"
+" 150–200 个基函数的计算通常应在积分直接模式下进行。"
+
+msgid ""
+"The integral-direct implementation in ``MOLPRO`` involves three different "
+"procedures: (i) Fock matrix evaluation (``DFOCK``), (ii) integral "
+"transformation (``DTRAF``), and (iii) external exchange operators "
+"(``DKEXT``). Specific options and thresholds exist for all three programs, "
+"but it is also possible to specify the most important thresholds by general "
+"parameters, which are used as defaults for all programs."
+msgstr ""
+"``MOLPRO`` 中的积分直接实现涉及三种不同的程序：(i) Fock 矩阵计算 (``DFOCK``)，(ii) 积分变换 "
+"(``DTRAF``)，以及 (iii) 外部交换算符 "
+"(``DKEXT``)。所有三个程序都有特定的选项和阈值，但也可以通过通用参数指定最重要的阈值，这些参数将用作所有程序的默认值。"
+
+msgid ""
+"Normally, appropriate default values are automatically used by the program, "
+"and in most cases no parameters need to be specified on the ``DIRECT`` "
+"directive. However, in order to guarantee sufficient accuracy, the default "
+"thresholds are quite strict, and in calculations for extended systems larger"
+" values might be useful to reduce the CPU time."
+msgstr ""
+"通常，程序会自动使用适当的默认值，在大多数情况下无需在\\ ``DIRECT``\\ "
+"指令上指定参数。然而，为了保证足够的精度，默认阈值相当严格，对于扩展体系的计算，使用更大的值可能有助于减少CPU时间。"
+
+msgid "The format of the ``DIRECT`` directive is"
+msgstr "``DIRECT``\\ 指令的格式为"
+
+msgid ""
+"The following table summarizes the possible keys and their meaning. The "
+"default values are given in the subsequent table. In various cases there is "
+"a hierarchy of default values. For instance, if ``THREST_D2EXT`` is not "
+"given, one of the following is used: [``THR_D2EXT``, ``THREST_DTRAF``, "
+"``THR_DTRAF``, ``THREST``, *default*]. The list in brackets is checked from "
+"left to right, and the first one found in the input is used. *default* is a "
+"default value which depends on the energy threshold and the basis set (the "
+"threshold is reduced if the overlap matrix contains very small eigenvalues)."
+msgstr ""
+"下表总结了可能的键及其含义。默认值在后续表格中给出。在许多情况下，默认值存在层级关系。例如，如果未指定 ``THREST_D2EXT``\\ "
+"，则使用以下值之一：[``THR_D2EXT``, ``THREST_DTRAF``, ``THR_DTRAF``, ``THREST``, "
+"*default*]。括号内的列表从左到右检查，并使用输入中找到的第一个值。\\ *default* "
+"是一个取决于能量阈值和基组的默认值（如果重叠矩阵包含非常小的特征值，则阈值会降低）。"
+
+msgid ""
+"``MAXRED`` Maximum number of iterations after which thresholds are reduced "
+"to their final values in ``CI`` and ``CCSD`` calculations. If ``MAXRED``\\ "
+"=0, the final thresholds will be used in ``CI`` and ``CCSD`` from the "
+"beginning (same as ``THRMAX``\\ =0, but ``MAXRED`` has no effect on "
+"``DSCF``. In the latter case a fixed value of 10 is used."
+msgstr ""
+"``MAXRED`` 在 ``CI`` 和 ``CCSD`` 计算中，阈值被降低至其最终值之前允许的最大迭代次数。如果 ``MAXRED``\\ "
+"=0，则在 ``CI`` 和 ``CCSD`` 中从一开始就使用最终阈值（与 ``THRMAX``\\ =0 效果相同），但 ``MAXRED`` 对 "
+"``DSCF`` 没有影响。在后一种情况下，使用固定值 10。"
+
+msgid ""
+"``VARRED`` Thresholds are reduced to their final values if the sum of "
+"squared amplitude changes is smaller than this value."
+msgstr "``VARRED`` 如果振幅变化的平方和小于此值，则阈值将降低至其最终值。"
+
+msgid ""
+"``THREST_DSCF`` Final prescreening threshold in direct SCF. If given, it "
+"replaces the value of ``THREST``."
+msgstr "``THREST_DSCF`` 直接自洽场中的最终预筛选阈值。若指定，将替换 ``THREST`` 的值。"
+
+msgid ""
+"``THRMAX_DSCF`` Initial prescreening threshold in direct SCF. This is used "
+"for the first 7-10 iterations. Once a certain accuracy is reached, the "
+"threshold is reduced to ``THREST_DSCF``"
+msgstr ""
+"``THRMAX_DSCF`` 直接自洽场中的初始预筛选阈值。用于前 7-10 次迭代。达到一定精度后，阈值降至 ``THREST_DSCF``\\ 。"
+
+msgid ""
+"``SCREEN_DTRAF`` If given, replaces value of :math:`{\\tt SCREEN}` for "
+"``DTRAF``."
+msgstr "``SCREEN_DTRAF`` 若指定，则替换 ``DTRAF`` 中 :math:`{\\tt SCREEN}` 的值。"
+
+msgid ""
+"``MAXSHLQ1_DTRAF`` Maximum size of merged shells in the first quarter "
+"transformation step (0: not used)."
+msgstr "``MAXSHLQ1_DTRAF`` 第一个四分之一变换步骤中合并壳层的最大尺寸（0：不使用）。"
+
+msgid ""
+"``MINSHLQ1_DTRAF`` Shells are only merged if their size is smaller than this"
+" value (0: not used)."
+msgstr "``MINSHLQ1_DTRAF`` 仅当壳层尺寸小于此值时才会被合并（0：不使用）。"
+
+msgid ""
+"``MAXSHLQ2_DTRAF`` Maximum size of merged shells in the second quarter "
+"transformation step (0: not used)."
+msgstr "``MAXSHLQ2_DTRAF`` 第二季度变换步骤中合并壳层的最大尺寸（0：未使用）。"
+
+msgid ""
+"``MINSHLQ2_DTRAF`` Shells are only merged if their size is smaller than this"
+" value (0: not used)."
+msgstr "``MINSHLQ2_DTRAF`` 仅当壳层尺寸小于此值时才会被合并（0：未使用）。"
+
+msgid ""
+"``MAXCEN_DTRAF`` Maximum number of centres in merged shells (0: no limit)."
+msgstr "``MAXCEN_DTRAF`` 合并壳层中的最大中心数（0：无限制）。"
+
+msgid "``PRINT_DTRAF`` Print parameter for ``DTRAF``."
+msgstr "``PRINT_DTRAF`` ``DTRAF`` 的打印参数。"
+
+msgid ""
+"``THR_DTRAF`` General threshold for ``DTRAF``. If given, this is taken as "
+"default value for all thresholds described below."
+msgstr "``THR_DTRAF`` ``DTRAF`` 的通用阈值。如果指定，则作为下述所有阈值的默认值。"
+
+msgid ""
+"``THR_D2EXT`` General threshold for generation of 2-external integrals. If "
+"given, this is used as a default for all ``D2EXT`` thresholds described "
+"below."
+msgstr "``THR_D2EXT`` 生成 2-外部积分的通用阈值。如果指定，将用作下面描述的所有 ``D2EXT`` 阈值的默认值。"
+
+msgid ""
+"``THR_D3EXT`` General threshold for generation of 3-external integrals. If "
+"given, this is used as a default for all ``D3EXT`` thresholds described "
+"below."
+msgstr "``THR_D3EXT`` 生成 3-外部积分的通用阈值。如果指定，将用作下面描述的所有 ``D3EXT`` 阈值的默认值。"
+
+msgid ""
+"``THR_D4EXT`` General threshold for generation of 4-external integrals. If "
+"given, this is used as a default for all ``D4EXT`` thresholds described "
+"below."
+msgstr "``THR_D4EXT`` 用于生成4-外部积分的通用阈值。如果指定，将用作下述所有 ``D4EXT`` 阈值的默认值。"
+
+msgid ""
+"``THR_DCCSD`` General threshold for generalized transformation needed in "
+"each CCSD iteration. If given, this is used as a default for "
+"``THREST_DCCSD``, ``THRINT_DCCSD``, and ``THRPROD_DCCSD`` described below."
+msgstr ""
+"``THR_DCCSD`` 用于每次CCSD迭代中所需广义变换的通用阈值。如果指定，将用作下述 ``THREST_DCCSD``\\ 、\\ "
+"``THRINT_DCCSD`` 和 ``THRPROD_DCCSD`` 的默认值。"
+
+msgid ""
+"``THR_DMP2`` General threshold for generation of 2-external integrals in "
+"DMP2. If given, this is used as a default for all ``DMP2`` thresholds "
+"described below."
+msgstr "``THR_DMP2`` DMP2 中生成 2-外部积分的通用阈值。如果指定，则用作下述所有 ``DMP2`` 阈值的默认值。"
+
+msgid ""
+"``THR_LMP2`` General threshold for generation of 2-external integrals in "
+"linear scaling LMP2. If given, this is used as a default for all ``LMP2`` "
+"thresholds described below."
+msgstr ""
+"``THR_LMP2`` 用于线性标度 LMP2 中生成 2-外部积分的通用阈值。如果指定，则用作下面描述的所有 ``LMP2`` 阈值的默认值。"
+
+msgid ""
+"``SCREEN_DKEXT`` if given, replaces value of :math:`{\\tt SCREEN}` for "
+"``DKEXT``."
+msgstr "``SCREEN_DKEXT`` 如果指定，则替换 ``DKEXT`` 的 :math:`{\\tt SCREEN}` 值。"
+
+msgid ""
+"``MAXSIZE_DKEXT`` Largest size of merged shells in ``DKEXT`` (0: not used)."
+msgstr "``MAXSIZE_DKEXT`` ``DKEXT`` 中合并壳层的最大尺寸（0：不使用）。"
+
+msgid ""
+"``MINSIZE_DKEXT`` Shells are only merged if their size is smaller than this "
+"value. (0: not used)."
+msgstr "``MINSIZE_DKEXT`` 仅当壳层尺寸小于此值时才会合并（0：不使用）。"
+
+msgid ""
+"``THR_DKEXT`` General threshold for ``DKEXT``. If given, this is used as a "
+"default for all ``DKEXT`` thresholds described below."
+msgstr "``THR_DKEXT`` ``DKEXT`` 的通用阈值。如果指定，将用作下面描述的所有 ``DKEXT`` 阈值的默认值。"
+
+msgid ""
+"``THRMAX_DKEXT`` Initial value for ``THREST_DKEXT`` in ``CI``, and ``CCSD`` "
+"calculations. If nonzero. it will also be used for ``DKEXT`` in ``MP3`` and "
+"``MP4(SDQ)`` calculations. The threshold will be reduced to ``THREST_DKEXT``"
+" once a certain accuracy has been reached (see ``VARRED``), or latest after "
+"``MAXRED`` iterations. The initial thresholds ``THRINT_DKEXT`` and "
+"``THRPROD_DKEXT`` are obtained by multiplying their input (or default) "
+"values by ``THRMAX_DKEXT``/``THREST_DKEXT``, with the restriction that the "
+"initial values cannot be smaller than the final ones."
+msgstr ""
+"``THRMAX_DKEXT`` ``CI`` 和 ``CCSD`` 计算中 ``THREST_DKEXT`` 的初始值。如果非零，它也将用于 "
+"``MP3`` 和 ``MP4(SDQ)`` 计算中的 ``DKEXT``\\ 。一旦达到特定精度（参见 ``VARRED``\\ ），或最迟在 "
+"``MAXRED`` 次迭代后，该阈值将降至 ``THREST_DKEXT``\\ 。初始阈值 ``THRINT_DKEXT`` 和 "
+"``THRPROD_DKEXT`` 是通过将其输入（或默认）值乘以 ``THRMAX_DKEXT``/``THREST_DKEXT`` "
+"得到的，但限制条件是初始值不能小于最终值。"
+
+msgid ""
+"For historical reasons, many options have alias names. The following tables "
+"summarize the default values for all options and thresholds and also gives "
+"possible alias names."
+msgstr "由于历史原因，许多选项具有别名。以下表格总结了所有选项和阈值的默认值，并给出了可能的别名。"
+
+msgid "Default values and alias names for ``direct`` options."
+msgstr "``direct`` 选项的默认值和别名。"
+
+msgid "Parameter"
+msgstr "参数"
+
+msgid "Alias"
+msgstr "别名"
+
+msgid "Default value"
+msgstr "默认值"
+
+msgid "``SCREEN``"
+msgstr "``SCREEN``"
+
+msgid ":math:`1`"
+msgstr ":math:`1`"
+
+msgid "``MAXRED``"
+msgstr "``MAXRED``"
+
+msgid ":math:`7`"
+msgstr ":math:`7`"
+
+msgid "``VARRED``"
+msgstr "``VARRED``"
+
+msgid "1.d-7"
+msgstr "1.d-7"
+
+msgid "``SWAP``"
+msgstr "``SWAP``"
+
+msgid "``SWAP_DFOCK``"
+msgstr "``SWAP_DFOCK``"
+
+msgid "``DMP2``"
+msgstr "``DMP2``"
+
+msgid "``DTRAF``"
+msgstr "``DTRAF``"
+
+msgid ":math:`-1`"
+msgstr ":math:`-1`"
+
+msgid "``PAGE_DTRAF``"
+msgstr "``PAGE_DTRAF``"
+
+msgid "``PAGE``"
+msgstr "``PAGE``"
+
+msgid "``SCREEN_DTRAF``"
+msgstr "``SCREEN_DTRAF``"
+
+msgid "``MAXSHLQ1_DTRAF``"
+msgstr "``MAXSHLQ1_DTRAF``"
+
+msgid "``NSHLQ1``"
+msgstr "``NSHLQ1``"
+
+msgid ":math:`32`"
+msgstr ":math:`32`"
+
+msgid "``MINSHLQ1_DTRAF``"
+msgstr "``MINSHLQ1_DTRAF``"
+
+msgid ":math:`0`"
+msgstr ":math:`0`"
+
+msgid "``MAXSHLQ2_DTRAF``"
+msgstr "``MAXSHLQ2_DTRAF``"
+
+msgid "``NSHLQ2``"
+msgstr "``NSHLQ2``"
+
+msgid ":math:`16`"
+msgstr ":math:`16`"
+
+msgid "``MINSHLQ2_DTRAF``"
+msgstr "``MINSHLQ2_DTRAF``"
+
+msgid "``MAXCEN_DTRAF``"
+msgstr "``MAXCEN_DTRAF``"
+
+msgid "``PRINT_DTRAF``"
+msgstr "``PRINT_DTRAF``"
+
+msgid "``SWAP_DTRAF``"
+msgstr "``SWAP_DTRAF``"
+
+msgid "``DKEXT``"
+msgstr "``DKEXT``"
+
+msgid "``DRVKEXT``"
+msgstr "``DRVKEXT``"
+
+msgid ":math:`3`"
+msgstr ":math:`3`"
+
+msgid "``SCREEN_DKEXT``"
+msgstr "``SCREEN_DKEXT``"
+
+msgid "``MAXSIZE_DKEXT``"
+msgstr "``MAXSIZE_DKEXT``"
+
+msgid "``MINSIZE_DKEXT``"
+msgstr "``MINSIZE_DKEXT``"
+
+msgid ":math:`5`"
+msgstr ":math:`5`"
+
+msgid "``MAXCEN_DKEXT``"
+msgstr "``MAXCEN_DKEXT``"
+
+msgid "``PRINT_DKEXT``"
+msgstr "``PRINT_DKEXT``"
+
+msgid "``SWAP_DKEXT``"
+msgstr "``SWAP_DKEXT``"
+
+msgid "``MXMBLK_DKEXT``"
+msgstr "``MXMBLK_DKEXT``"
+
+msgid "depends on hardware (-B parameter on ``molpro`` command)"
+msgstr "取决于硬件（\\ ``molpro`` 命令的 -B 参数）"
+
+msgid "Default thresholds and alias names for ``direct`` calculations"
+msgstr "``direct`` 计算的默认阈值和别名"
+
+msgid "``THREST``"
+msgstr "``THREST``"
+
+msgid "``THRAO``"
+msgstr "``THRAO``"
+
+msgid ":math:`\\min(\\Delta E \\cdot 1.d-2,1.d-9)^{a,b}`"
+msgstr ":math:`\\min(\\Delta E \\cdot 1.d-2,1.d-9)^{a,b}`"
+
+msgid "``THRINT``"
+msgstr "``THRINT``"
+
+msgid "``THRSO``"
+msgstr "``THRSO``"
+
+msgid "``THRPROD``"
+msgstr "``THRPROD``"
+
+msgid "``THRP``"
+msgstr "``THRP``"
+
+msgid ":math:`\\min(\\Delta E \\cdot 1.d-3,1.d-10)^{a,b}`"
+msgstr ":math:`\\min(\\Delta E \\cdot 1.d-3,1.d-10)^{a,b}`"
+
+msgid "``THRMAX``"
+msgstr "``THRMAX``"
+
+msgid "1.d-8\\ :math:`^b`"
+msgstr "1.d-8\\ :math:`^b`"
+
+msgid "``THREST_DSCF``"
+msgstr "``THREST_DSCF``"
+
+msgid "``THRDSCF``"
+msgstr "``THRDSCF``"
+
+msgid ":math:`\\le` 1.d-10 (depending on accuracy and basis set)"
+msgstr ":math:`\\le` 1.d-10（取决于精度和基组）"
+
+msgid "``THRMAX_DSCF``"
+msgstr "``THRMAX_DSCF``"
+
+msgid "``THRDSCF_MAX``"
+msgstr "``THRDSCF_MAX``"
+
+msgid "``THR_DTRAF``"
+msgstr "``THR_DTRAF``"
+
+msgid "``THRDTRAF``"
+msgstr "``THRDTRAF``"
+
+msgid "``THREST_DTRAF``"
+msgstr "``THREST_DTRAF``"
+
+msgid "``THRAO_DTRAF``"
+msgstr "``THRAO_DTRAF``"
+
+msgid "[``THR_DTRAF``, ``THREST``]"
+msgstr "[``THR_DTRAF``, ``THREST``]"
+
+msgid "``THRINT_DTRAF``"
+msgstr "``THRINT_DTRAF``"
+
+msgid "[``THR_DTRAF``, ``THRINT``]"
+msgstr "[``THR_DTRAF``, ``THRINT``]"
+
+msgid "``THRPROD_DTRAF``"
+msgstr "``THRPROD_DTRAF``"
+
+msgid "``THRP_DTRAF``"
+msgstr "``THRP_DTRAF``"
+
+msgid "[``THR_DTRAF``, ``THRPROD``]"
+msgstr "[``THR_DTRAF``, ``THRPROD``]"
+
+msgid "``THR_D2EXT``"
+msgstr "``THR_D2EXT``"
+
+msgid "``THR2EXT``"
+msgstr "``THR2EXT``"
+
+msgid "``THREST_D2EXT``"
+msgstr "``THREST_D2EXT``"
+
+msgid "``THRAO_D2EXT``"
+msgstr "``THRAO_D2EXT``"
+
+msgid "[``THR_D2EXT``, ``THREST_DTRAF``]"
+msgstr "[``THR_D2EXT``, ``THREST_DTRAF``]"
+
+msgid "``THRINT_D2EXT``"
+msgstr "``THRINT_D2EXT``"
+
+msgid "``THRSO_D2EXT``"
+msgstr "``THRSO_D2EXT``"
+
+msgid "[``THR_D2EXT``, ``THRINT_DTRAF``]"
+msgstr "[``THR_D2EXT``, ``THRINT_DTRAF``]"
+
+msgid "``THRPROD_D2EXT``"
+msgstr "``THRPROD_D2EXT``"
+
+msgid "``THRP_D2EXT``"
+msgstr "``THRP_D2EXT``"
+
+msgid "[``THR_D2EXT``, ``THRPROD_DTRAF``]"
+msgstr "[``THR_D2EXT``, ``THRPROD_DTRAF``]"
+
+msgid "``THR_D3EXT``"
+msgstr "``THR_D3EXT``"
+
+msgid "``THR3EXT``"
+msgstr "``THR3EXT``"
+
+msgid "``THREST_D3EXT``"
+msgstr "``THREST_D3EXT``"
+
+msgid "``THRAO_D3EXT``"
+msgstr "``THRAO_D3EXT``"
+
+msgid "[``THR_D3EXT``, ``THREST_DTRAF``]"
+msgstr "[``THR_D3EXT``, ``THREST_DTRAF``]"
+
+msgid "``THRINT_D3EXT``"
+msgstr "``THRINT_D3EXT``"
+
+msgid "``THRSO_D3EXT``"
+msgstr "``THRSO_D3EXT``"
+
+msgid "[``THR_D3EXT``, ``THRINT_DTRAF``]"
+msgstr "[``THR_D3EXT``, ``THRINT_DTRAF``]"
+
+msgid "``THRPROD_D3EXT``"
+msgstr "``THRPROD_D3EXT``"
+
+msgid "``THRP_D3EXT``"
+msgstr "``THRP_D3EXT``"
+
+msgid "[``THR_D3EXT``, ``THRPROD_DTRAF``]"
+msgstr "[``THR_D3EXT``, ``THRPROD_DTRAF``]"
+
+msgid "``THR_D4EXT``"
+msgstr "``THR_D4EXT``"
+
+msgid "``THR4EXT``"
+msgstr "``THR4EXT``"
+
+msgid "``THREST_D4EXT``"
+msgstr "``THREST_D4EXT``"
+
+msgid "``THRAO_D4EXT``"
+msgstr "``THRAO_D4EXT``"
+
+msgid "[``THR_D4EXT``, ``THREST_DTRAF``]"
+msgstr "[``THR_D4EXT``, ``THREST_DTRAF``]"
+
+msgid "``THRINT_D4EXT``"
+msgstr "``THRINT_D4EXT``"
+
+msgid "``THRSO_D4EXT``"
+msgstr "``THRSO_D4EXT``"
+
+msgid "[``THR_D4EXT``, ``THRINT_DTRAF``]"
+msgstr "[``THR_D4EXT``, ``THRINT_DTRAF``]"
+
+msgid "``THRPROD_D4EXT``"
+msgstr "``THRPROD_D4EXT``"
+
+msgid "``THRP_D4EXT``"
+msgstr "``THRP_D4EXT``"
+
+msgid "[``THR_D4EXT``, ``THRPROD_DTRAF``]"
+msgstr "[``THR_D4EXT``, ``THRPROD_DTRAF``]"
+
+msgid "``THR_DCCSD``"
+msgstr "``THR_DCCSD``"
+
+msgid "``THRCCSD``"
+msgstr "``THRCCSD``"
+
+msgid "``THREST_DCCSD``"
+msgstr "``THREST_DCCSD``"
+
+msgid "``THRAO_DCCSD``"
+msgstr "``THRAO_DCCSD``"
+
+msgid "[``THR_DCCSD``, ``THREST_DTRAF``]"
+msgstr "[``THR_DCCSD``, ``THREST_DTRAF``]"
+
+msgid "``THRINT_DCCSD``"
+msgstr "``THRINT_DCCSD``"
+
+msgid "``THRSO_DCCSD``"
+msgstr "``THRSO_DCCSD``"
+
+msgid "[``THR_DCCSD``, ``THRINT_DTRAF``]"
+msgstr "[``THR_DCCSD``, ``THRINT_DTRAF``]"
+
+msgid "``THRPROD_DCCSD``"
+msgstr "``THRPROD_DCCSD``"
+
+msgid "``THRP_DCCSD``"
+msgstr "``THRP_DCCSD``"
+
+msgid "[``THR_DCCSD``, ``THRPROD_DTRAF``]"
+msgstr "[``THR_DCCSD``, ``THRPROD_DTRAF``]"
+
+msgid "``THRMAX_DCCSD``"
+msgstr "``THRMAX_DCCSD``"
+
+msgid "``THRMAX_DTRAF``"
+msgstr "``THRMAX_DTRAF``"
+
+msgid "``THR_DMP2``"
+msgstr "``THR_DMP2``"
+
+msgid "``THRDMP2``"
+msgstr "``THRDMP2``"
+
+msgid "``THREST_DMP2``"
+msgstr "``THREST_DMP2``"
+
+msgid "``THRAO_DMP2``"
+msgstr "``THRAO_DMP2``"
+
+msgid "[``THR_DMP2``, ``THREST_DTRAF``, *default*\\ :math:`^c`]"
+msgstr "[``THR_DMP2``, ``THREST_DTRAF``, *default*\\ :math:`^c`]"
+
+msgid "``THRINT_DMP2``"
+msgstr "``THRINT_DMP2``"
+
+msgid "``THRSO_DMP2``"
+msgstr "``THRSO_DMP2``"
+
+msgid "[``THR_DMP2``, ``THRINT_DTRAF``, *default*\\ :math:`^c`]"
+msgstr "[``THR_DMP2``, ``THRINT_DTRAF``, *default*\\ :math:`^c`]"
+
+msgid "``THRPROD_DMP2``"
+msgstr "``THRPROD_DMP2``"
+
+msgid "``THRP_DMP2``"
+msgstr "``THRP_DMP2``"
+
+msgid "[``THR_DMP2``, ``THRPROD_DTRAF``, *default*\\ :math:`^c`]"
+msgstr "[``THR_DMP2``, ``THRPROD_DTRAF``, *default*\\ :math:`^c`]"
+
+msgid "``THR_LMP2``"
+msgstr "``THR_LMP2``"
+
+msgid "``THRLMP2``"
+msgstr "``THRLMP2``"
+
+msgid "``THREST_LMP2``"
+msgstr "``THREST_LMP2``"
+
+msgid "``THRAO_LMP2``"
+msgstr "``THRAO_LMP2``"
+
+msgid "[``THR_LMP2``, ``THREST_DTRAF``, *default*\\ :math:`^c`]"
+msgstr "[``THR_LMP2``, ``THREST_DTRAF``, *默认值*\\ :math:`^c`]"
+
+msgid "``THRQ1_LMP2``"
+msgstr "``THRQ1_LMP2``"
+
+msgid "``THRQ1``"
+msgstr "``THRQ1``"
+
+msgid "[``THR_LMP2``, ``THRPROD_DTRAF``, *default*\\ :math:`^c`]"
+msgstr "[``THR_LMP2``, ``THRPROD_DTRAF``, *默认值*\\ :math:`^c`]"
+
+msgid "``THRQ2_LMP2``"
+msgstr "``THRQ2_LMP2``"
+
+msgid "``THRQ2``"
+msgstr "``THRQ2``"
+
+msgid "[``THR_LMP2``, ``THRINT_DTRAF``, *default*\\ :math:`^c`]"
+msgstr "[``THR_LMP2``, ``THRINT_DTRAF``, *默认*\\ :math:`^c`]"
+
+msgid "``THRAO_ATTEN``"
+msgstr "``THRAO_ATTEN``"
+
+msgid "``THRATTEN``"
+msgstr "``THRATTEN``"
+
+msgid "``THR_DKEXT``"
+msgstr "``THR_DKEXT``"
+
+msgid "``THRKEXT``"
+msgstr "``THRKEXT``"
+
+msgid "``THREST_DKEXT``"
+msgstr "``THREST_DKEXT``"
+
+msgid "``THRAO_DKEXT``"
+msgstr "``THRAO_DKEXT``"
+
+msgid "[``THR_DKEXT``, ``THREST``]"
+msgstr "[``THR_DKEXT``, ``THREST``]"
+
+msgid "``THRINT_DKEXT``"
+msgstr "``THRINT_DKEXT``"
+
+msgid "``THRSO_DKEXT``"
+msgstr "``THRSO_DKEXT``"
+
+msgid "[``THR_DKEXT``, ``THRINT``]"
+msgstr "[``THR_DKEXT``, ``THRINT``]"
+
+msgid "``THRPROD_DKEXT``"
+msgstr "``THRPROD_DKEXT``"
+
+msgid "``THRP_DKEXT``"
+msgstr "``THRP_DKEXT``"
+
+msgid "[``THR_DKEXT``, ``THRPROD``]"
+msgstr "[``THR_DKEXT``, ``THRPROD``]"
+
+msgid "``THRMAX_DKEXT``"
+msgstr "``THRMAX_DKEXT``"
+
+msgid "Example for integral-direct calculations"
+msgstr "积分直接计算的示例"
+
+msgid "This job produces the following table:"
+msgstr "此作业生成以下表格："

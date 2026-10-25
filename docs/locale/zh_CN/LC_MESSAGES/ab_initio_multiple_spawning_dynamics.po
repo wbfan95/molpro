@@ -1,0 +1,1001 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Ab initio multiple spawning dynamics (AIMS)"
+msgstr "从头算多重生成动力学 (AIMS)"
+
+msgid "Bibliography:"
+msgstr "参考文献："
+
+msgid ""
+"All publications resulting from use of this program must acknowledge the "
+"above. See also:"
+msgstr "所有使用本程序产生的出版物必须引用上述文献。另请参阅："
+
+msgid ""
+"The AIMS module implements the Ab Initio Multiple Spawning method to perform"
+" dynamics calculations on multiple electronic states. Although the program "
+"was designed for non-adiabatic dynamics with CASSCF wavefunctions, it can be"
+" used quite generally for first principles molecular dynamics, provided that"
+" nuclear gradients are available."
+msgstr ""
+"AIMS 模块实现了从头算多重生成方法，用于在多个电子态上进行动力学计算。虽然该程序最初设计用于结合 CASSCF "
+"波函数的非绝热动力学，但只要核梯度可用，它通常也可用于第一性原理分子动力学。"
+
+msgid ""
+"AIMS provides a description of a time-evolving molecular wavepacket with a "
+"multi-configurational, product gaussian function basis. To allow the size of"
+" the basis set to remain small while describing the wavepacket dynamics, the"
+" centers of the full-dimensional gaussian functions follow classical "
+"trajectories while their widths are kept fixed (the frozen Gaussian "
+"approximation). When these classical trajectories encounter regions of large"
+" non-adiabatic coupling to another electronic state, new basis functions are"
+" *spawned* on the coupled state and the Time Dependent Schrödinger Equation "
+"is solved in order to describe population transfer between the electronic "
+"states. In this way, the description of the wavepacket can be systematically"
+" improved by increasing the number of initial trajectory basis functions, "
+"while reducing the coupling threshold at which trajectories spawned. "
+"Alternatively, spawning can be disabled, and the method will reduce to "
+"traditional first-principles classical molecular dynamics when a single "
+"trajectory basis function is used."
+msgstr ""
+"AIMS "
+"使用多组态、乘积高斯函数基组来描述随时间演化的分子波包。为了使基组尺寸在描述波包动力学时保持较小，全维度高斯函数的中心遵循经典轨迹，而其宽度保持固定（冻结高斯近似）。当这些经典轨迹遇到与另一个电子态存在较大非绝热耦合的区域时，新的基函数会在耦合态上\\"
+" *生成*\\ "
+"，并求解含时薛定谔方程以描述电子态之间的布居转移。通过这种方式，可以通过增加初始轨迹基函数的数量，同时降低轨迹生成的耦合阈值，来系统地改进波包的描述。或者，可以禁用生成功能，当使用单个轨迹基函数时，该方法将简化为传统的第一性原理经典分子动力学。"
+
+msgid "Compilation"
+msgstr "编译"
+
+msgid ""
+"AIMS is compiled as a component of Molpro; however, it requires a fortran "
+"2003 compiler and is disabled unless the preprocessor variable MOLPRO_f2003 "
+"is defined, which depends on the version of your compiler."
+msgstr ""
+"AIMS 作为 Molpro 的一个组件进行编译；但是，它需要一个 Fortran 2003 编译器，并且除非定义了预处理器变量 "
+"MOLPRO_f2003，否则将被禁用，这取决于您编译器的版本。"
+
+msgid "Structure of the input"
+msgstr "输入结构"
+
+msgid ""
+"The AIMS program is controlled by the Molpro input deck and a number of "
+"external text files:"
+msgstr "AIMS 程序由 Molpro 输入卡和若干外部文本文件控制："
+
+msgid "Molpro input deck"
+msgstr "Molpro 输入卡"
+
+msgid ""
+"The AIMS program is invoked by the command AIMS. The details of the "
+"electronic structure are defined in specifically named procedures. At a "
+"minimum, for first principles dynamics, AIMS requires the following "
+"structure to the input deck:"
+msgstr ""
+"AIMS 程序通过命令 AIMS 调用。电子结构的细节在特定命名的过程中定义。至少，对于第一性原理动力学，AIMS 要求输入文件具有以下结构："
+
+msgid "``MPINIT={ Electronic structure routines for initial wavefunction }``"
+msgstr "``MPINIT={ Electronic structure routines for initial wavefunction }``"
+
+msgid ""
+"``MPCALC={ Electronic structure routines for dynamics calculations. At a "
+"minimum, must include: ener(1)=energy(1) ener(2)=energy(2)etc force }``"
+msgstr ""
+"``MPCALC={ Electronic structure routines for dynamics calculations. At a "
+"minimum, must include: ener(1)=energy(1) ener(2)=energy(2)etc force }``"
+
+msgid "where"
+msgstr "其中"
+
+msgid ""
+"``dir`` (string) Relative directory to AIMS input files. (Default is working"
+" directory)."
+msgstr "``dir`` (字符串) 指向 AIMS 输入文件的相对目录。（默认为工作目录）。"
+
+msgid ""
+"Note: the above is appropriate only for first-principles dynamics (without "
+"spawning). CASSCF spawning calculations require additional procedures and a "
+"specific structure to the MPINIT and MPCALC procedures. See the examples in "
+"section `examples <ab_initio_multiple_spawning_dynamics.html#examples>`__."
+msgstr ""
+"注意：以上仅适用于第一性原理动力学（无生成过程）。CASSCF 生成计算需要额外的步骤以及 MPINIT 和 MPCALC 过程的特定结构。请参阅 "
+"`示例 <ab_initio_multiple_spawning_dynamics.html#examples>`__ 一节中的例子。"
+
+msgid "Control.dat"
+msgstr "Control.dat"
+
+msgid ""
+"Control.dat is a fortran NAMELIST file storing the main parameters (in au) "
+"of an AIMS simulation. At the end of the file, one can optionally specify "
+"user-defined atom types (see below). Also time steps are in au, 1 au = "
+"0.0241888 femtoseconds."
+msgstr ""
+"Control.dat 是一个 Fortran NAMELIST 文件，用于存储 AIMS "
+"模拟的主要参数（以原子单位计）。在文件末尾，可以选择性地指定用户定义的原子类型（见下文）。时间步长也以原子单位计，1 原子单位 = 0.0241888 "
+"飞秒。"
+
+msgid "Initialization"
+msgstr "初始化"
+
+msgid "Parameter"
+msgstr "参数"
+
+msgid "Options (Default)"
+msgstr "选项（默认值）"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "Required parameters:"
+msgstr "必需参数："
+
+msgid "``NumStates``"
+msgstr "``NumStates``"
+
+msgid "``Integer``"
+msgstr "``Integer``"
+
+msgid "Number of electronic states."
+msgstr "电子态数量。"
+
+msgid "``InitState``"
+msgstr "``InitState``"
+
+msgid "Initial electronic state."
+msgstr "初始电子态。"
+
+msgid "``NumParticles``"
+msgstr "``NumParticles``"
+
+msgid "Number of atoms."
+msgstr "原子数。"
+
+msgid "Common parameters:"
+msgstr "通用参数："
+
+msgid "``IMethod``"
+msgstr "``IMethod``"
+
+msgid "First principles dynamics (No NACV)."
+msgstr "第一性原理动力学（无NACV）。"
+
+msgid "CASSCF dynamics, with NACV."
+msgstr "CASSCF动力学，包含NACV。"
+
+msgid "``IRestart``"
+msgstr "``IRestart``"
+
+msgid "Restart the calculation when set to 1."
+msgstr "设置为1时重新开始计算。"
+
+msgid "``RestartTime``"
+msgstr "``RestartTime``"
+
+msgid "``Real (-100.0)``"
+msgstr "``Real (-100.0)``"
+
+msgid ""
+"Time from which to restart in Checkpoint.txt. If disabled, use "
+"Last_Bundle.txt."
+msgstr "从 Checkpoint.txt 中的哪个时间点重启。如果禁用，则使用 Last_Bundle.txt。"
+
+msgid "``IRndSeed``"
+msgstr "``IRndSeed``"
+
+msgid "``Integer (0)``"
+msgstr "``Integer (0)``"
+
+msgid "Initial condition random number seed."
+msgstr "初始条件随机数种子。"
+
+msgid "``InitialCond``"
+msgstr "``InitialCond``"
+
+msgid "``('NoSample')``"
+msgstr "``('NoSample')``"
+
+msgid "Read initial conditions from Geometry.dat."
+msgstr "从 Geometry.dat 读取初始条件。"
+
+msgid "``'Wigner'``"
+msgstr "``'Wigner'``"
+
+msgid ""
+"Sample from the Wigner distribution of harmonic normal modes in "
+"Frequencies.dat."
+msgstr "从 Frequencies.dat 中的谐波简正模式的 Wigner 分布中采样。"
+
+msgid "``'Quasiclassical'``"
+msgstr "``'Quasiclassical'``"
+
+msgid "As above, for the Quasiclassical distribution."
+msgstr "同上，针对 Quasiclassical 分布。"
+
+msgid "``'Boltzmann'``"
+msgstr "``'Boltzmann'``"
+
+msgid "As above, for the Boltzmann distribution."
+msgstr "同上，针对 Boltzmann 分布。"
+
+msgid "``Temperature``"
+msgstr "``Temperature``"
+
+msgid "``Real (0.0)``"
+msgstr "``Real (0.0)``"
+
+msgid "Temperature (Kelvin) of the initial conditions."
+msgstr "初始条件的温度（开尔文）。"
+
+msgid "Expert parameters:"
+msgstr "专家参数："
+
+msgid "``InitBright``"
+msgstr "``InitBright``"
+
+msgid "``Logical (.false.)``"
+msgstr "``Logical (.false.)``"
+
+msgid ""
+"Select optically brightest of ``InitState`` and ``IDark`` as initial state."
+msgstr "选择 ``InitState`` 和 ``IDark`` 中光学最亮的态作为初始态。"
+
+msgid "``InitDark``"
+msgstr "``InitDark``"
+
+msgid "As above, but for darkest state."
+msgstr "同上，但针对最暗的态。"
+
+msgid "``IDark``"
+msgstr "``IDark``"
+
+msgid "``Integer (-1)``"
+msgstr "``Integer (-1)``"
+
+msgid "See above."
+msgstr "参见上文。"
+
+msgid "``InitGap``"
+msgstr "``InitGap``"
+
+msgid ""
+"Select initial ground-excited energy gap to within :math:`\\pm 0.5\\times`\\"
+" ``InitGapWidth``."
+msgstr "选择初始基态-激发态能隙在 :math:`\\pm 0.5\\times`\\ ``InitGapWidth`` 范围内。"
+
+msgid "``InitGapWidth``"
+msgstr "``InitGapWidth``"
+
+msgid "``IRestartTraj``"
+msgstr "``IRestartTraj``"
+
+msgid "``Integer array (0)``"
+msgstr "``Integer array (0)``"
+
+msgid ""
+"Subset of trajectories to restart from. Can restart a single dead "
+"trajectory."
+msgstr "要重启的轨迹子集。可以重启单个已终止的轨迹。"
+
+msgid "``NumInitBasis``"
+msgstr "``NumInitBasis``"
+
+msgid "``Integer (1)``"
+msgstr "``Integer (1)``"
+
+msgid "Number of initial coupled basis functions."
+msgstr "初始耦合基函数的数量。"
+
+msgid "``FirstGauss``"
+msgstr "``FirstGauss``"
+
+msgid ""
+"Place the first basis function at the molecular origin (that of "
+"Geometry.dat), with zero momentum."
+msgstr "将第一个基函数置于分子原点（Geometry.dat 中的原点），动量为零。"
+
+msgid "``MirrorBasis``"
+msgstr "``MirrorBasis``"
+
+msgid "Mirror the initial basis on another electronic state, ``MirrorState``."
+msgstr "将初始基镜像到另一个电子态 ``MirrorState`` 上。"
+
+msgid "``MirrorState``"
+msgstr "``MirrorState``"
+
+msgid "``EnergyAdjust``"
+msgstr "``EnergyAdjust``"
+
+msgid ""
+"Adjust momenta of mirrored basis (along NACV) to match original basis "
+"energy."
+msgstr "调整镜像基函数（沿NACV方向）的动量以匹配原始基函数能量。"
+
+msgid "``SharpEnergy``"
+msgstr "``SharpEnergy``"
+
+msgid ""
+"Adjust momenta of all initial basis functions to match first basis function "
+"energy."
+msgstr "调整所有初始基函数的动量以匹配第一个基函数的能量。"
+
+msgid "Integration and numerics"
+msgstr "积分与数值方法"
+
+msgid "``TimeStep``"
+msgstr "``TimeStep``"
+
+msgid "``Real``"
+msgstr "``Real``"
+
+msgid "Simulation timestep."
+msgstr "模拟时间步长。"
+
+msgid "``SimulationTime``"
+msgstr "``SimulationTime``"
+
+msgid "Simulation length."
+msgstr "模拟时长。"
+
+msgid "``ExShift``"
+msgstr "``ExShift``"
+
+msgid ""
+"Apply a shift of ``+ExShift`` to diagonals of Hamiltonian to improve "
+"amplitude/phase propagation. Good choice is average potential energy of "
+"ground and excited states."
+msgstr "对哈密顿量的对角元施加 ``+ExShift`` 的偏移，以改善振幅/相位传播。良好的选择是基态和激发态的平均势能。"
+
+msgid "``CoupTimeStep``"
+msgstr "``CoupTimeStep``"
+
+msgid "``Real (TimeStep/4)``"
+msgstr "``Real (TimeStep/4)``"
+
+msgid "Timestep to use in regions of large nonadiabatic coupling."
+msgstr "在非绝热耦合较大的区域中使用的时间步长。"
+
+msgid "``TimeStepRejection``"
+msgstr "``TimeStepRejection``"
+
+msgid "``Logical (.true.)``"
+msgstr "``Logical (.true.)``"
+
+msgid "Enables adaptive time-stepping when encountering integration problems."
+msgstr "在遇到积分问题时启用自适应时间步长。"
+
+msgid "``MinTimeStep``"
+msgstr "``MinTimeStep``"
+
+msgid "``Real (CoupTimeStep/4)``"
+msgstr "``Real (CoupTimeStep/4)``"
+
+msgid "Minimum timestep to use when adaptive time-stepping."
+msgstr "使用自适应时间步长时的最小时间步长。"
+
+msgid "``DieOnMinStep``"
+msgstr "``DieOnMinStep``"
+
+msgid "Stop calculation if minimum timestep is reached."
+msgstr "如果达到最小时间步长，则停止计算。"
+
+msgid "``EnergyStepCons``"
+msgstr "``EnergyStepCons``"
+
+msgid "``Real (0.005)``"
+msgstr "``Real (0.005)``"
+
+msgid ""
+"Allowed violation of classical energy conservation before timestep is "
+"rejected."
+msgstr "在时间步被拒绝前，允许违反经典能量守恒的程度。"
+
+msgid "``NormCons``"
+msgstr "``NormCons``"
+
+msgid "``Real (0.25)``"
+msgstr "``Real (0.25)``"
+
+msgid "Permitted deviation in Norm from beginning of simulation."
+msgstr "允许的范数相对于模拟开始时的偏差。"
+
+msgid "``RejectAllStateFlip``"
+msgstr "``RejectAllStateFlip``"
+
+msgid ""
+"Reject a timestep if any two electronic states flip. If ``.false.`` then "
+"only reject if state is coupled to occupied state."
+msgstr "如果任意两个电子态发生翻转，则拒绝该时间步。如果为 ``.false.``\\ ，则仅当态与占据态耦合时才拒绝。"
+
+msgid "``OlapThresh``"
+msgstr "``OlapThresh``"
+
+msgid "``Real (0.001)``"
+msgstr "``Real (0.001)``"
+
+msgid ""
+"Threshold overlap between two trajectories below which matrix elements not "
+"calculated."
+msgstr "两条轨迹之间的重叠阈值，低于此值则不计算矩阵元。"
+
+msgid "``RegThresh``"
+msgstr "``RegThresh``"
+
+msgid "``Real (0.0001)``"
+msgstr "``Real (0.0001)``"
+
+msgid "Threshold to regularize the overlap matrix before inversion."
+msgstr "在求逆之前用于正则化重叠矩阵的阈值。"
+
+msgid "``Constrain``"
+msgstr "``Constrain``"
+
+msgid "Apply geometric constraints? If yes, supply Constraints.dat"
+msgstr "应用几何约束？如果是，请提供 Constraints.dat 文件"
+
+msgid "Spawning"
+msgstr "生成"
+
+msgid "``CSThresh``"
+msgstr "``CSThresh``"
+
+msgid "``Real (0.1)``"
+msgstr "``Real (0.1)``"
+
+msgid "Threshold Coupling, above which to spawn."
+msgstr "阈值耦合，高于此值将生成新轨迹。"
+
+msgid "``PopToSpawn``"
+msgstr "``PopToSpawn``"
+
+msgid "Minimum population a trajectory must have before it can spawn."
+msgstr "轨迹在能够生成新轨迹前必须具有的最小布居数。"
+
+msgid "``OMax``"
+msgstr "``OMax``"
+
+msgid "``Real (0.8)``"
+msgstr "``Real (0.8)``"
+
+msgid ""
+"Prevent spawning if overlap of spawned trajectory with existing basis "
+"greater than ``Omax``."
+msgstr "若生成的轨迹与现有基组的重叠度大于 ``Omax``\\ ，则阻止生成。"
+
+msgid "``MaxTraj``"
+msgstr "``MaxTraj``"
+
+msgid "``Real (100)``"
+msgstr "``Real (100)``"
+
+msgid ""
+"Maximum number of allowed trajectories. Above which, spawning is disabled."
+msgstr "允许的最大轨迹数。超过此数量时，生成功能将被禁用。"
+
+msgid "``IgnoreState``"
+msgstr "``IgnoreState``"
+
+msgid ""
+"Stop dynamics of trajectories on ``IgnoreState``. if not coupled for at "
+"least ``DecoherenceTime``. Choose 1 if only interested in excited states."
+msgstr ""
+"停止在 ``IgnoreState`` 上的轨迹动力学，如果至少 ``DecoherenceTime`` 时间内未发生耦合。若仅对激发态感兴趣，请选择 "
+"1。"
+
+msgid "``MaxEDiff``"
+msgstr "``MaxEDiff``"
+
+msgid "``Real (0.03)``"
+msgstr "``Real (0.03)``"
+
+msgid ""
+"Energy gap threshold for calculating nonadiabatic couplings, above which, "
+"coupling taken to be zero."
+msgstr "计算非绝热耦合的能隙阈值，高于此值时，耦合取为零。"
+
+msgid "``DecoherenceTime``"
+msgstr "``DecoherenceTime``"
+
+msgid "``Real (200.0)``"
+msgstr "``Real (200.0)``"
+
+msgid "``SpawnCoupV``"
+msgstr "``SpawnCoupV``"
+
+msgid ""
+"Use Coup.velocity as criterion for spawning rather than Coupling magnitude "
+"alone."
+msgstr "使用耦合速度而非仅耦合大小作为生成轨迹的判据。"
+
+msgid "``EShellOnly``"
+msgstr "``EShellOnly``"
+
+msgid ""
+"Require spawned trajectories to have same classical energy as parent by "
+"adjusting momentum along NACV."
+msgstr "要求生成的轨迹通过沿NACV调整动量，使其与母轨迹具有相同的经典能量。"
+
+msgid "Output"
+msgstr "输出"
+
+msgid "``zAllText``"
+msgstr "``zAllText``"
+
+msgid "Write all output files?"
+msgstr "写入所有输出文件？"
+
+msgid "``zEDatFile``"
+msgstr "``zEDatFile``"
+
+msgid "Write Energy file?"
+msgstr "写入能量文件？"
+
+msgid "``zNDatFile``"
+msgstr "``zNDatFile``"
+
+msgid "Write Population file?"
+msgstr "写入布居文件？"
+
+msgid "``zTrajFile``"
+msgstr "``zTrajFile``"
+
+msgid "Write Trajectory files?"
+msgstr "写入轨迹文件？"
+
+msgid "``zAmpFile``"
+msgstr "``zAmpFile``"
+
+msgid "Write Amplitude files?"
+msgstr "写入振幅文件？"
+
+msgid "``zPotEnFile``"
+msgstr "``zPotEnFile``"
+
+msgid "Write Potential Energy files?"
+msgstr "写入势能文件？"
+
+msgid "``zXYZ``"
+msgstr "``zXYZ``"
+
+msgid "Write XYZ Geometry files?"
+msgstr "写入XYZ几何结构文件？"
+
+msgid "``zCoupFile``"
+msgstr "``zCoupFile``"
+
+msgid "Write Coupling files?"
+msgstr "写入耦合文件？"
+
+msgid "``zChargeFile``"
+msgstr "``zChargeFile``"
+
+msgid "Write Charge files?"
+msgstr "写入电荷文件？"
+
+msgid "``zDipoleFile``"
+msgstr "``zDipoleFile``"
+
+msgid "Write Dipole files?"
+msgstr "写入偶极矩文件？"
+
+msgid "``zTDipoleFile``"
+msgstr "``zTDipoleFile``"
+
+msgid "Write Transition Dipole files?"
+msgstr "写入跃迁偶极矩文件？"
+
+msgid "``zQMRRFile``"
+msgstr "``zQMRRFile``"
+
+msgid "Write :math:`\\langle r^2 \\rangle` quadrupole moment files?"
+msgstr "写入 :math:`\\langle r^2 \\rangle` 四极矩文件？"
+
+msgid "``zCIVecFile``"
+msgstr "``zCIVecFile``"
+
+msgid "Write CI Vector files? (Not recommended for large CI)"
+msgstr "写入 CI 向量文件？（不推荐用于大型 CI）"
+
+msgid "``zCorrfile``"
+msgstr "``zCorrfile``"
+
+msgid "Write Correlation function file?"
+msgstr "写入相关函数文件？"
+
+msgid "``zBundMatFile``"
+msgstr "``zBundMatFile``"
+
+msgid "Write Matrices (H, S, etc)?"
+msgstr "写入矩阵（H、S 等）？"
+
+msgid "``WriteMolden``"
+msgstr "``WriteMolden``"
+
+msgid "Write Molden files?"
+msgstr "写入 Molden 文件？"
+
+msgid "``MoldenStep``"
+msgstr "``MoldenStep``"
+
+msgid "``Integer (200)``"
+msgstr "``Integer (200)``"
+
+msgid "How often (every number of timesteps) Molden files are written."
+msgstr "Molden文件写入的频率（每隔多少个时间步长）。"
+
+msgid "``RestartStep``"
+msgstr "``RestartStep``"
+
+msgid "``Integer (4)``"
+msgstr "``Integer (4)``"
+
+msgid "How often (every number of timesteps) Restart files are written."
+msgstr "重启文件写入的频率（每隔多少个时间步长）。"
+
+msgid "``NStepToPrint``"
+msgstr "``NStepToPrint``"
+
+msgid "How often (every number of timesteps) output files are written."
+msgstr "输出文件写入的频率（每隔多少个时间步长）。"
+
+msgid "``WriteEveryStep``"
+msgstr "``WriteEveryStep``"
+
+msgid ""
+"Write output every timestep, including subtimesteps of adaptive propagation."
+" Overrides ``NStepToPrint``."
+msgstr "每个时间步都写入输出，包括自适应传播的子时间步。覆盖 ``NStepToPrint``\\ 。"
+
+msgid "``NBonds``"
+msgstr "``NBonds``"
+
+msgid "Number of bond lengths to print. Define IBond below."
+msgstr "要打印的键长数量。在下方定义 IBond。"
+
+msgid "``IBond(2,NBonds)``"
+msgstr "``IBond(2,NBonds)``"
+
+msgid "List of atom indices that are bonded. See NBonds above."
+msgstr "成键的原子指标列表。参见上方的 NBonds。"
+
+msgid "``NAngles``"
+msgstr "``NAngles``"
+
+msgid "Number of bond angles to print. Define IAngle below."
+msgstr "要打印的键角数量。在下方定义 IAngle。"
+
+msgid "``IAngle(3,NAngles)``"
+msgstr "``IAngle(3,NAngles)``"
+
+msgid "List of atom indices that define bond angles."
+msgstr "定义键角的原子指标列表。"
+
+msgid "``NDihedrals``"
+msgstr "``NDihedrals``"
+
+msgid "Number of dihedral angles to print. Define IDihedral below."
+msgstr "要打印的二面角数量。在下方定义 IDihedral。"
+
+msgid "``IDihedral(4,NDihedrals)``"
+msgstr "``IDihedral(4,NDihedrals)``"
+
+msgid "List of atom indices that define dihedral angles."
+msgstr "定义二面角的原子指标列表。"
+
+msgid "``NPyrams``"
+msgstr "``NPyrams``"
+
+msgid "Number of pyramidalization angles to print. Define IPyram below."
+msgstr "要打印的锥化角数量。在下方定义 IPyram。"
+
+msgid "``IPyram(4,NPyrams)``"
+msgstr "``IPyram(4,NPyrams)``"
+
+msgid "List of atom indices that define pyramidalization angles."
+msgstr "定义金字塔化角度的原子指标列表。"
+
+msgid "**User-defined atom types**"
+msgstr "**用户自定义原子类型**"
+
+msgid ""
+"AIMS recognizes the atoms H, C, N, O, S, F, Cl and assigns appropriate "
+"masses and gaussian width parameters for these atoms. If you wish to modify "
+"these defaults, or if your system contains other atoms, you can define "
+"custom atom types at the end of Control.dat. The format is (in atomic "
+"units):"
+msgstr ""
+"AIMS 识别原子 H、C、N、O、S、F、Cl，并为这些原子分配适当的质量和高斯宽度参数。如果您希望修改这些默认值，或者您的系统包含其他原子，可以在 "
+"Control.dat 文件的末尾定义自定义原子类型。格式如下（以原子单位表示）："
+
+msgid "Geometry.dat"
+msgstr "Geometry.dat"
+
+msgid "FrequenciesMP.dat"
+msgstr "FrequenciesMP.dat"
+
+msgid ""
+"FrequenciesMP.dat contains the normal-mode frequencies and displacements of "
+"the molecule in its initial geometry and electronic state (usually the "
+"ground state). This information is used in the generation of initial "
+"conditions. If ``InitialCond``\\ :math:`\\neq`\\ ``'NoSample'`` then either "
+"this file, Hessian.dat or Frequencies.dat (Sections `Hessian.dat "
+"<ab_initio_multiple_spawning_dynamics.html#hessian-dat>`__ and "
+"`Frequencies.dat <ab_initio_multiple_spawning_dynamics.html#frequencies-"
+"dat>`__ respectively) must be present. The format of FrequenciesMP.dat "
+"follows the Molpro output of a Frequencies calculation (note: in the first "
+"line, the number of normal modes has to be given; the rest is as in the "
+"Molpro output):"
+msgstr ""
+"FrequenciesMP.dat 文件包含分子在其初始几何结构和电子态（通常是基态）下的简正模式频率和位移。这些信息用于生成初始条件。如果 "
+"``InitialCond``\\ :math:`\\neq`\\ ``'NoSample'``\\ ，则必须存在此文件、Hessian.dat 或 "
+"Frequencies.dat 文件（分别对应章节 `Hessian.dat "
+"<ab_initio_multiple_spawning_dynamics.html#hessian-dat>`__ 和 "
+"`Frequencies.dat <ab_initio_multiple_spawning_dynamics.html#frequencies-"
+"dat>`__\\ ）。FrequenciesMP.dat 的格式遵循 Molpro 频率计算输出（注意：第一行必须给出简正模式的数量；其余部分与 "
+"Molpro 输出一致）："
+
+msgid "Hessian.dat"
+msgstr "Hessian.dat"
+
+msgid ""
+"As an alternative to FrequenciesMP.dat, AIMS can generate the normal mode "
+"frequencies after reading in the Hessian from Hessian.dat. The format of "
+"this file is:"
+msgstr ""
+"作为 FrequenciesMP.dat 的替代方案，AIMS 可以在从 Hessian.dat 读取 Hessian "
+"矩阵后生成简正模式频率。该文件的格式为："
+
+msgid ""
+"Note: the Hessian should not be mass weighted. It is permissible to have "
+"carriage returns in the list of Hessian components."
+msgstr "注意：Hessian 矩阵不应进行质量加权。在 Hessian 分量列表中允许存在回车符。"
+
+msgid "Frequencies.dat"
+msgstr "Frequencies.dat"
+
+msgid ""
+"As an alternative to FrequenciesMP.dat and Hessian.dat, AIMS can read in "
+"normal-mode frequencies and vectors in AIMS format in Frequencies.dat. The "
+"format of this file is:"
+msgstr ""
+"作为 FrequenciesMP.dat 和 Hessian.dat 的替代方案，AIMS 可以从 Frequencies.dat 文件中读取 AIMS"
+" 格式的简正模式频率和向量。该文件的格式为："
+
+msgid ""
+"Note: Frequencies must be in cm\\ :math:`^{-1}`, but normal mode vectors can"
+" be mass scaled or not- AIMS will detect. Also, it is permissible to have "
+"carriage returns in the list of frequencies and mode vectors. This file is "
+"generated by AIMS if either FrequenciesMP.dat or Hessian.dat is used "
+"initially."
+msgstr ""
+"注意：频率必须以 cm\\ :math:`^{-1}` 为单位，但简正模式向量可以经过质量缩放或未经缩放——AIMS "
+"会自动检测。此外，在频率和模式向量列表中允许存在回车符。如果最初使用了 FrequenciesMP.dat 或 Hessian.dat，AIMS "
+"会生成此文件。"
+
+msgid "Constraints.dat"
+msgstr "Constraints.dat"
+
+msgid ""
+"If ``Constraint=.true.`` then Constraints.dat must be supplied. This is a "
+"fortran NAMELIST file that defines the geometric constraints in the system. "
+"These constraints are enforced with the RATTLE algorithm. The parameters "
+"contained in this file are:"
+msgstr ""
+"如果 ``Constraint=.true.``\\ ，则必须提供 Constraints.dat 文件。这是一个 Fortran NAMELIST "
+"文件，用于定义系统中的几何约束。这些约束通过 RATTLE 算法强制执行。该文件包含的参数有："
+
+msgid "Constraint parameters"
+msgstr "约束参数"
+
+msgid "``NumBonds``"
+msgstr "``NumBonds``"
+
+msgid "Number of bond lengths to constrain. Define IBondPtcles below."
+msgstr "要约束的键长数量。请在下方定义 IBondPtcles。"
+
+msgid "``IBondPtcles(2,NumBonds)``"
+msgstr "``IBondPtcles(2,NumBonds)``"
+
+msgid "List of atom indices that are bonded. See NumBonds above."
+msgstr "成键的原子指标列表。请参见上方的 NumBonds。"
+
+msgid "``NumAngles``"
+msgstr "``NumAngles``"
+
+msgid "Number of bond angles to constrain. Define IAnglePtcles below."
+msgstr "要约束的键角数量。请在下方定义 IAnglePtcles。"
+
+msgid "``IAnglePtcles(3,NumAngles)``"
+msgstr "``IAnglePtcles(3,NumAngles)``"
+
+msgid "``NComAtoms``"
+msgstr "``NComAtoms``"
+
+msgid ""
+"Number of atoms that define the center-of-mass constraint. Define ICOMPtcles"
+" below."
+msgstr "定义质心约束的原子数量。在下方定义 ICOMPtcles。"
+
+msgid "``ICOMPtcles(NComAtoms)``"
+msgstr "``ICOMPtcles(NComAtoms)``"
+
+msgid "List of atom indices that define the center of mass."
+msgstr "定义质心的原子指标列表。"
+
+msgid "``Toler``"
+msgstr "``Toler``"
+
+msgid "``Real (1E-4)``"
+msgstr "``Real (1E-4)``"
+
+msgid "Rattle tolerance"
+msgstr "Rattle 容差"
+
+msgid "``MaxIts``"
+msgstr "``MaxIts``"
+
+msgid "``Integer (10000)``"
+msgstr "``Integer (10000)``"
+
+msgid "Maximum number of Rattle iterations"
+msgstr "Rattle 迭代的最大次数"
+
+msgid "Note, a maximum of 1000 constraints is allowed."
+msgstr "注意，最多允许 1000 个约束。"
+
+msgid "Running a CASSCF spawning calculation"
+msgstr "运行 CASSCF 生成计算"
+
+msgid ""
+"This section gives an overview of how to set up and run a CASSCF ab initio "
+"multiple spawning calculation."
+msgstr "本节概述如何设置和运行 CASSCF 从头算多重生成计算。"
+
+msgid ""
+"Beyond the regular molpro output, which contains the electronic structure "
+"output, AIMS writes to a number of text files, depending on the output "
+"parameters in Control.dat (section `Control.dat "
+"<ab_initio_multiple_spawning_dynamics.html#control-dat>`__). All values are "
+"given in atomic units unless otherwise specified. Electronic properties of a"
+" trajectory are evaluated at the center geometry of the trajectory basis "
+"function."
+msgstr ""
+"除了包含电子结构输出的常规 molpro 输出外，AIMS 还会根据 Control.dat 中的输出参数（章节 `Control.dat "
+"<ab_initio_multiple_spawning_dynamics.html#control-dat>`__\\ "
+"）写入多个文本文件。除非另有说明，所有值均以原子单位给出。轨迹的电子属性在轨迹基函数的中心几何处进行评估。"
+
+msgid ""
+"**FMS.out** Current progress of simulation and any warning/error messages."
+msgstr "**FMS.out** 模拟的当前进度以及任何警告/错误消息。"
+
+msgid ""
+"**E.dat** Wavepacket energies. QM energies are expectation values of the "
+"quantum operators, including coherences between the trajectory basis "
+"functions. CL energies are averages of the trajectories’ classical energies,"
+" weighted by the amplitude norm of each trajectory."
+msgstr ""
+"**E.dat** 波包能量。QM 能量是量子算符的期望值，包括轨迹基函数之间的相干性。CL 能量是轨迹经典能量的平均值，按每个轨迹的振幅范数加权。"
+
+msgid ""
+"**N.dat** Electronic populations, the sum of which should be conserved."
+msgstr "**N.dat** 电子布居数，其总和应守恒。"
+
+msgid "**TrajDump.i** Dynamic variables for trajectory i."
+msgstr "**TrajDump.i** 轨迹 i 的动态变量。"
+
+msgid ""
+"**Amp.i** Amplitudes of trajectory i. Note: since the product Gaussian basis"
+" is non-orthogonal, the amplitude norms do not necessarily sum to 1."
+msgstr "**Amp.i** 轨迹 i 的振幅。注意：由于乘积高斯基是非正交的，振幅范数之和不一定等于 1。"
+
+msgid ""
+"**PotEn.i** Electronic energies for trajectory i. The last column displays "
+"the total classical energy of the trajectory, which should be conserved."
+msgstr "**PotEn.i** 轨迹 i 的电子能量。最后一列显示轨迹的总经典能量，该值应守恒。"
+
+msgid ""
+"**positions.i.xyz** Snapshots of trajectory i’s center geometry in XYZ "
+"format (Angstrom)."
+msgstr "**positions.i.xyz** 轨迹 i 中心几何结构的 XYZ 格式快照（埃）。"
+
+msgid ""
+"**Coup.i** Nonadiabatic couplings of each state to the occupied state for "
+"trajectory i. The first nstate columns contain the magnitude of coupling "
+"vectors and the last nstate columns contain the projection of the coupling "
+"onto the velocity vector."
+msgstr ""
+"**Coup.i** 轨迹 i 中每个态与占据态的非绝热耦合。前 nstate 列包含耦合向量的大小，后 nstate 列包含耦合在速度向量上的投影。"
+
+msgid ""
+"**Charge.i** Partial atomic charges corresponding to the occupied electronic"
+" state of trajectory i. The molpro input deck must contain a Mulliken "
+"population analysis directive in the ``MPCALC`` procedure."
+msgstr ""
+"**Charge.i** 对应于轨迹 i 占据电子态的部分原子电荷。Molpro 输入卡必须在 ``MPCALC`` 过程中包含 Mulliken "
+"布居分析指令。"
+
+msgid "**Dipole.i** Dipole moments of each electronic state for trajectory i."
+msgstr "**Dipole.i** 轨迹 i 中每个电子态的偶极矩。"
+
+msgid ""
+"**TDip.i** Transition dipoles from ground to excited states for trajectory "
+"i."
+msgstr "**TDip.i** 轨迹 i 中从基态到激发态的跃迁偶极矩。"
+
+msgid ""
+"**QMRR.i** Isotropic quadrupole moment :math:`\\langle r^2 \\rangle` of each"
+" electronic state for trajectory i. The molpro input deck must contain "
+"``EXPEC,QMRR``."
+msgstr ""
+"**QMRR.i** 轨迹 i 中每个电子态的各向同性四极矩 :math:`\\langle r^2 \\rangle`\\ 。Molpro "
+"输入卡必须包含 ``EXPEC,QMRR``\\ 。"
+
+msgid "**CIVec.i** CI Vectors for each state of trajectory i."
+msgstr "**CIVec.i** 轨迹 i 中每个态的 CI 向量。"
+
+msgid ""
+"**CFxn.dat** The overlap correlation function :math:`\\langle \\Psi(t) | "
+"\\Psi(0) \\rangle`."
+msgstr "**CFxn.dat** 重叠相关函数 :math:`\\langle \\Psi(t) | \\Psi(0) \\rangle`\\ 。"
+
+msgid "**H.dat** Hamiltonian matrix."
+msgstr "**H.dat** 哈密顿矩阵。"
+
+msgid ""
+"**S.dat** Overlap matrix. Note: the overlap between trajectories on "
+"different states is zero, but is displayed here as if they were on the same "
+"state."
+msgstr "**S.dat** 重叠矩阵。注意：不同态上的轨迹之间的重叠为零，但此处显示为如同它们处于同一态上。"
+
+msgid "**SDot.dat** The time derivative of the Overlap matrix."
+msgstr "**SDot.dat** 重叠矩阵的时间导数。"
+
+msgid "**i.j.molf** Molden file for trajectory i at time j."
+msgstr "**i.j.molf** 轨迹 i 在时间 j 的 Molden 文件。"
+
+msgid "**Checkpoint.txt** Restart file with history."
+msgstr "**Checkpoint.txt** 包含历史的重启文件。"
+
+msgid "**Last_Bundle.txt** Restart file for the last written timestep."
+msgstr "**Last_Bundle.txt** 最后写入时间步的重启文件。"
+
+msgid "**Spawn.log** Details of successful spawns."
+msgstr "**Spawn.log** 成功生成事件的详细信息。"
+
+msgid "**FailSpawn.log** Details of unsuccessful spawns."
+msgstr "**FailSpawn.log** 未成功生成事件的详细信息。"
+
+msgid "**Spawn.i** XYZ file of geometry where trajectory i was spawned."
+msgstr "**Spawn.i** 轨迹 i 产生处的几何结构 XYZ 文件。"
+
+msgid "Examples"
+msgstr "示例"
+
+msgid ""
+"The following two examples show how AIMS can be run in either single-state "
+"first-principle molecular dynamics mode, or multi-state spawning mode. The "
+"parameters found in these input files were chosen for illustrative purposes "
+"and are not necessarily appropriate for your system of interest. It is "
+"recommended the literature be consulted before performing AIMS simulations."
+msgstr ""
+"以下两个示例展示了如何以单态第一性原理分子动力学模式或多态产生模式运行 "
+"AIMS。这些输入文件中的参数是为说明目的而选择的，不一定适用于您所研究的体系。建议在进行 AIMS 模拟前查阅相关文献。"
+
+msgid "Ethylene Hartree-Fock First-Principles Molecular Dynamics"
+msgstr "乙烯 Hartree-Fock 第一性原理分子动力学"
+
+msgid "See examples/aims_ethyl_HF"
+msgstr "参见 examples/aims_ethyl_HF"
+
+msgid "Ethylene CASSCF Spawning Dynamics"
+msgstr "乙烯 CASSCF 产生动力学"
+
+msgid "See examples/aims_ethyl_CASSCF"
+msgstr "参见 examples/aims_ethyl_CASSCF"

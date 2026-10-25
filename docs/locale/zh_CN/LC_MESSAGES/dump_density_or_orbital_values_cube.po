@@ -1,0 +1,162 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Dump density or orbital values (CUBE)"
+msgstr "输出密度或轨道值（CUBE）"
+
+msgid ""
+"calls a module which dumps the values of various properties on a spatial "
+"parallelopipedal grid to an external file. The purpose is to allow plotting "
+"of orbitals, densities and other quantities by external programs. The format"
+" of the file is intended to be the same as that produced by other programs."
+msgstr ""
+"调用一个模块，将空间平行六面体网格上各种属性的值输出到外部文件。目的是允许外部程序绘制轨道、密度和其他量。文件格式旨在与其他程序生成的格式相同。"
+
+msgid ""
+"**:math:`n_1`,\\ :math:`n_2`,\\ :math:`n_3`** specify the number of grid "
+"points in each of three dimensions. If not specified, sensible defaults are "
+"chosen."
+msgstr ""
+"**:math:`n_1`,\\ :math:`n_2`,\\ :math:`n_3`** "
+"指定三个维度中每个维度的网格点数量。如果未指定，则会选择合理的默认值。"
+
+msgid ""
+"By default, the last density computed is evaluated on the grid, and written "
+"to *filename*. This behaviour can be modified by one or more of the "
+"following subcommands."
+msgstr "默认情况下，在网格上评估最后计算的密度，并写入 *filename*\\ 。此行为可以通过以下一个或多个子命令进行修改。"
+
+msgid "STEP — setting the point spacing"
+msgstr "STEP — 设置点间距"
+
+msgid "DENSITY — source of density"
+msgstr "DENSITY — 密度来源"
+
+msgid "Example:"
+msgstr "示例："
+
+msgid "POTENTIAL, FIELD — compute electrostatic potential or field"
+msgstr "POTENTIAL, FIELD — 计算静电势或电场"
+
+msgid "ORBITAL — source of orbitals"
+msgstr "ORBITAL — 轨道来源"
+
+msgid ""
+"Note that the CUBE file format precludes simultaneous orbital and density "
+"dumps."
+msgstr "请注意，CUBE 文件格式不允许同时进行轨道和密度转储。"
+
+msgid "AXIS — direction of grid axes"
+msgstr "AXIS — 网格轴的方向"
+
+msgid ""
+"*x,y,z* specify the unnormalised direction cosines of one of the three axes "
+"defining the grid. Up to three ``AXIS`` commands can be given, but none is "
+"required. Axes need not be orthogonal. By default, the first axis is the "
+"cartesian :math:`x`, the second is orthogonal to the first and to the "
+"cartesian :math:`z`, and the third is orthogonal to the first two."
+msgstr ""
+"*x,y,z* 指定定义网格的三个轴中一个轴的未归一化方向余弦。最多可以给出三个 ``AXIS`` "
+"命令，但并非必需。轴不必正交。默认情况下，第一个轴是笛卡尔 :math:`x` 轴，第二个轴与第一个轴和笛卡尔 :math:`z` "
+"轴正交，第三个轴与前两个轴正交。"
+
+msgid "BRAGG — spatial extent of grid"
+msgstr "BRAGG — 网格的空间范围"
+
+msgid ""
+"Based on the direction of the coordinate axes, a parallelopiped (in the "
+"usual case of orthogonal axes, a cuboid) is constructed to contain the "
+"molecule completely. The atoms are assumed to be spherical, with an extent "
+"proportional to their Bragg radii, and the constant of proportionality can "
+"be changed from the default value using"
+msgstr ""
+"基于坐标轴的方向，构建一个平行六面体（在正交轴的通常情况下为长方体）以完全包含分子。原子被假定为球形，其范围与其布拉格半径成正比，比例常数可以使用以下命令从默认值更改"
+
+msgid ""
+"After the parallelopiped has been constructed, the grid is laid out with "
+"equal spacing to cover it using the number of points specified on the "
+"``CUBE`` command."
+msgstr "平行六面体构建完成后，使用 ``CUBE`` 命令指定的点数以等间距方式布置网格以覆盖它。"
+
+msgid "ORIGIN — centroid of grid"
+msgstr "ORIGIN — 网格的质心"
+
+msgid ""
+"*x,y,z* specify the centroid of the grid. It is usually not necessary to use"
+" this option, since the default should suffice for most purposes."
+msgstr "*x,y,z* 指定网格的质心。通常无需使用此选项，因为默认值足以满足大多数用途。"
+
+msgid "TITLE — user defined title"
+msgstr "TITLE — 用户定义的标题"
+
+msgid "Set a user defined title in the cube file."
+msgstr "在 cube 文件中设置用户定义的标题。"
+
+msgid "DESCRIPTION — user defined description"
+msgstr "DESCRIPTION — 用户定义的描述"
+
+msgid "Set a user defined description in the cube file."
+msgstr "在 cube 文件中设置用户定义的描述。"
+
+msgid "Format of cube file"
+msgstr "立方体文件格式"
+
+msgid "The formatted cube file contains the following records"
+msgstr "格式化的立方体文件包含以下记录"
+
+msgid "``(A)`` job title."
+msgstr "``(A)`` 作业标题。"
+
+msgid "``(A)`` brief description of the file contents."
+msgstr "``(A)`` 文件内容的简要描述。"
+
+msgid "``(I5,3F12.6)`` number of atoms, coordinates of grid origin (bohr)."
+msgstr "``(I5,3F12.6)`` 原子数，网格原点的坐标（玻尔）。"
+
+msgid ""
+"``(I5,3F12.6)`` number of grid points :math:`n_1`, step vector for first "
+"grid dimension."
+msgstr "``(I5,3F12.6)`` 网格点数量 :math:`n_1`\\ ，第一个网格维度的步长向量。"
+
+msgid ""
+"``(I5,3F12.6)`` number of grid points :math:`n_2`, step vector for second "
+"grid dimension."
+msgstr "``(I5,3F12.6)`` 网格点数量 :math:`n_2`\\ ，第二个网格维度的步长向量。"
+
+msgid ""
+"``(I5,3F12.6)`` number of grid points :math:`n_3`, step vector for third "
+"grid dimension."
+msgstr "``(I5,3F12.6)`` 网格点数量 :math:`n_3`\\ ，第三个网格维度的步长向量。"
+
+msgid ""
+"``(I5,4F12.6)`` atomic number, charge and coordinates; one such record for "
+"each atom."
+msgstr "``(I5,4F12.6)`` 原子序数、电荷和坐标；每个原子对应一条这样的记录。"
+
+msgid ""
+"In the case of the density gradient, the cube file will contain a record "
+"with a length of :math:`3n_3`, with the three cartesian components "
+"contiguous. In the latter case the density data will be written as well to a"
+" separate cube file. The file names for the different density data are "
+"marked with the extensions <name>_density.cube, <name>_gradient.cube and "
+"<name>_laplacian.cube."
+msgstr ""
+"对于密度梯度的情况，立方体文件将包含一条长度为 :math:`3n_3` "
+"的记录，其中三个笛卡尔分量是连续的。在后一种情况下，密度数据也将被写入一个单独的立方体文件。不同密度数据的文件名通过扩展名标记为 "
+"<name>_density.cube、<name>_gradient.cube 和 <name>_laplacian.cube。"
+
+msgid "Example"
+msgstr "示例"
+
+msgid ""
+"The following example shows how cube density and orbital data can be written"
+" using the RHF density source for the water molecule:"
+msgstr "以下示例展示了如何使用 RHF 密度源为水分子写入立方体密度和轨道数据："

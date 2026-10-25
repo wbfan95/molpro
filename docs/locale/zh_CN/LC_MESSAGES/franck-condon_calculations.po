@@ -1,0 +1,89 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Franck-Condon calculations"
+msgstr "弗兰克-康登计算"
+
+msgid "FRANCK-CONDON FACTORS (FCON)"
+msgstr "弗兰克-康登因子 (FCON)"
+
+msgid "Options"
+msgstr "选项"
+
+msgid "The following *options* are available:"
+msgstr "以下\\ *选项*\\ 可用："
+
+msgid ""
+"Some of the keywords as described for the ``VCI`` program are also valid for"
+" the ``FCON`` program, i.e. ``CITYPE, LEVEX, CIMAX, NDIM, NBAS, BASIS`` and "
+"``INFO``."
+msgstr ""
+"``VCI`` 程序中描述的一些关键字对 ``FCON`` 程序也有效，即 ``CITYPE, LEVEX, CIMAX, NDIM, NBAS, "
+"BASIS`` 和 ``INFO``\\ 。"
+
+msgid "Information Handling"
+msgstr "信息处理"
+
+msgid "Example 1"
+msgstr "示例 1"
+
+msgid ""
+"The following example shows the input for a calculation of Franck-Condon "
+"factors at the VCI level. The selection of important Franck-Condon factors "
+"will be done at the VSCF level without Duschinsky rotation."
+msgstr "以下示例展示了在VCI级别计算弗兰克-康登因子的输入。重要的弗兰克-康登因子选择将在VSCF级别完成，且不包含杜辛斯基旋转。"
+
+msgid "Example 2"
+msgstr "示例 2"
+
+msgid ""
+"This alternative example shows the use of the ``AUTO`` cards, which may be "
+"used to control the correct order of the records. It avoids the explicit use"
+" of record numbers."
+msgstr "这个替代示例展示了 ``AUTO`` 卡片的使用，它可用于控制记录的正确顺序，从而避免显式使用记录编号。"
+
+msgid "ELECTRONIC-VIBRATIONAL SPECTRA (EVSPEC)"
+msgstr "电子-振动光谱 (EVSPEC)"
+
+msgid "The keyword ``INFO`` has the same meaning as in the other programs."
+msgstr "关键字 ``INFO`` 的含义与其他程序中的相同。"
+
+msgid "Handling of Initial States"
+msgstr "初始态的处理"
+
+msgid "RWF calculations"
+msgstr "RWF计算"
+
+msgid "CIKS calculations"
+msgstr "CIKS 计算"
+
+msgid "Vibrational configuration basis"
+msgstr "振动组态基"
+
+msgid ""
+"The keywords ``CITYPE``, ``LEVEX``, and ``CIMAX`` restrict the VCI basis to "
+"certain excitation patterns, and have the same meaning as in the other "
+"modules:"
+msgstr "关键词 ``CITYPE``\\ 、\\ ``LEVEX`` 和 ``CIMAX`` 将VCI基限制在特定的激发模式，其含义与其他模块中的相同："
+
+msgid "Vibrational interaction matrix"
+msgstr "振动相互作用矩阵"
+
+msgid "Interface to Gnuplot"
+msgstr "Gnuplot 接口"
+
+msgid "Example"
+msgstr "示例"
+
+msgid ""
+"The following example shows a general program flow involving the ``EVSPEC`` "
+"calculations."
+msgstr "以下示例展示了涉及 ``EVSPEC`` 计算的一般程序流程。"

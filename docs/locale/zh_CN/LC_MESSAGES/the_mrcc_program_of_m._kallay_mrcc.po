@@ -1,0 +1,384 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "The MRCC program of M. Kallay (MRCC)"
+msgstr "M. Kallay 的 MRCC 程序 (MRCC)"
+
+msgid "Installing MRCC"
+msgstr "安装 MRCC"
+
+msgid ""
+"Please refer to the MRCC documentation on how to install the MRCC program. "
+"The MRCC executables must be found in PATH in order for Molpro to use them."
+msgstr "请参阅 MRCC 文档了解如何安装 MRCC 程序。MRCC 可执行文件必须位于 PATH 环境变量中，以便 Molpro 使用它们。"
+
+msgid "Running MRCC"
+msgstr "运行MRCC"
+
+msgid "The ``MRCC`` program is invoked by the command"
+msgstr "``MRCC``\\ 程序通过以下命令调用"
+
+msgid ""
+"The available options summarized in `#options for MRCC "
+"<the_mrcc_program_of_m._kallay_mrcc.html#options-for-mrcc>`__. For a "
+"detailed description please refer to the MRCC manual of M. Kallay (file "
+"”manual” the mrcc directory)."
+msgstr ""
+"可用选项总结于 `#options for MRCC <.html#options-for-mrcc>`__\\ 。详细描述请参阅 M. Kallay "
+"的 MRCC 手册（位于 mrcc 目录中的文件“manual”）"
+
+msgid ""
+"In Molpro the method to be used can be given as a string (option "
+"``METHOD``\\ =\\ *string*). The available methods and the corresponding "
+"``MRCC`` input parameters (see MRCC manual) as specified in `#methods "
+"available in the MRCC program "
+"<the_mrcc_program_of_m._kallay_mrcc.html#methods-available-in-the-mrcc-"
+"program>`__."
+msgstr ""
+"在 Molpro 中，要使用的方法可以指定为一个字符串（选项 ``METHOD``\\ =\\ *string*\\ ）。可用方法及对应的 "
+"``MRCC`` 输入参数（参见 MRCC 手册）如 `#methods available in the MRCC program "
+"<.html#methods-available-in-the-mrcc-program>`__ 中所指定。"
+
+msgid ""
+"Directives are usually not necessary, but the ``CORE``, ``OCC``, "
+"``ORBITAL``, ``MAXIT``, directives work as in the Molpro CCSD program. In "
+"addition, the number of states can be given on a ``STATE`` directive and "
+"this has the same meaning as the ``EOM_NSTATES`` option."
+msgstr ""
+"通常不需要指令，但 ``CORE``\\ 、\\ ``OCC``\\ 、\\ ``ORBITAL``\\ 、\\ ``MAXIT`` 指令的工作方式与 "
+"Molpro CCSD 程序中的相同。此外，状态数可以在 ``STATE`` 指令上指定，其含义与 ``EOM_NSTATES`` 选项相同。"
+
+msgid "Options for MRCC"
+msgstr "MRCC 的选项"
+
+msgid "Option"
+msgstr "选项"
+
+msgid "Alias"
+msgstr "别名"
+
+msgid "Meaning"
+msgstr "含义"
+
+msgid "``METHOD``"
+msgstr "``METHOD``"
+
+msgid "``CALC``"
+msgstr "``CALC``"
+
+msgid "``CC(n)``"
+msgstr "``CC(n)``"
+
+msgid ""
+"Computational method. See `this section "
+"<the_mrcc_program_of_m._kallay_mrcc.html#methods-available-in-the-mrcc-"
+"program>`__."
+msgstr "计算方法。请参阅 `此章节 <.html#methodsavailableinthemrccprogram>`__\\ 。"
+
+msgid "``EXCITATION``"
+msgstr "``EXCITATION``"
+
+msgid "``LEVEL``"
+msgstr "``LEVEL``"
+
+msgid "Excitation level in cluster operator"
+msgstr "簇算符中的激发能级"
+
+msgid "``RESTART_CC``"
+msgstr "``RESTART_CC``"
+
+msgid "``RESTART``"
+msgstr "``RESTART``"
+
+msgid "Restart option. If 1, restart with previous amplitudes."
+msgstr "重启选项。若为1，则使用先前的振幅重新开始。"
+
+msgid "``DIRECTORY``"
+msgstr "``DIRECTORY``"
+
+msgid "``DIR``"
+msgstr "``DIR``"
+
+msgid "Subdirectory in which MRCC runs"
+msgstr "MRCC 运行所在的子目录"
+
+msgid "(necessary for restart jobs)"
+msgstr "（重启作业所必需）"
+
+msgid "``EOM_NSING``"
+msgstr "``EOM_NSING``"
+
+msgid "``NSING``"
+msgstr "``NSING``"
+
+msgid "Number of excited singlet states in closed-shell case"
+msgstr "闭壳层情况下激发的单重态数量"
+
+msgid "``EOM_NTRIP``"
+msgstr "``EOM_NTRIP``"
+
+msgid "``NTRIP``"
+msgstr "``NTRIP``"
+
+msgid "Number of excited triplet states in closed-shell case"
+msgstr "闭壳层情况下激发的三重态数量"
+
+msgid "``EOM_NSTATES``"
+msgstr "``EOM_NSTATES``"
+
+msgid "Number of states in open shell case."
+msgstr "开壳层情况下的态数量。"
+
+msgid "``SYMM``"
+msgstr "``SYMM``"
+
+msgid "``SYMMETRY``"
+msgstr "``SYMMETRY``"
+
+msgid "Symmetry of excited states"
+msgstr "激发态的对称性"
+
+msgid "``DENSITY``"
+msgstr "``DENSITY``"
+
+msgid "``IDENS``"
+msgstr "``IDENS``"
+
+msgid "Parameter for density calculation"
+msgstr "密度计算参数"
+
+msgid "``HF``"
+msgstr "``HF``"
+
+msgid "1 for canonical Hartree-Fock orbitals, 0 otherwise"
+msgstr "1 表示使用正则 Hartree-Fock 轨道，0 表示其他情况"
+
+msgid "``SPATIAL``"
+msgstr "``SPATIAL``"
+
+msgid "0 for spin-restricted orbitals, 1 for spin-unrestricted orbitals"
+msgstr "0 表示自旋限制轨道，1 表示自旋非限制轨道"
+
+msgid "``NACTO``"
+msgstr "``NACTO``"
+
+msgid "Number of active occupied orbitals"
+msgstr "活跃占据轨道数"
+
+msgid "``NACTV``"
+msgstr "``NACTV``"
+
+msgid "Number of active virtual orbitals"
+msgstr "活跃虚轨道数"
+
+msgid "``SACC``"
+msgstr "``SACC``"
+
+msgid "Spin-adapted coupled cluster"
+msgstr "自旋适应耦合簇"
+
+msgid "``DBOC``"
+msgstr "``DBOC``"
+
+msgid "``MEMORY``"
+msgstr "``MEMORY``"
+
+msgid "Memory"
+msgstr "内存"
+
+msgid "``TOL``"
+msgstr "``TOL``"
+
+msgid "``ENERGY``"
+msgstr "``ENERGY``"
+
+msgid "Energy convergence threshold"
+msgstr "能量收敛阈值"
+
+msgid "``FREQ``"
+msgstr "``FREQ``"
+
+msgid "Frequency for dynamic polarizabilities"
+msgstr "动态极化率频率"
+
+msgid "``FILE``"
+msgstr "``FILE``"
+
+msgid "``fort``"
+msgstr "``fort``"
+
+msgid "Name for MRCC fortran files"
+msgstr "MRCC Fortran 文件的名称"
+
+msgid "``CONVER``"
+msgstr "``CONVER``"
+
+msgid "``ICONV``"
+msgstr "``ICONV``"
+
+msgid "See mrcc manual"
+msgstr "参见 mrcc 手册"
+
+msgid "``CS``"
+msgstr "``CS``"
+
+msgid "``DIAG``"
+msgstr "``DIAG``"
+
+msgid "``MAXEX``"
+msgstr "``MAXEX``"
+
+msgid "Methods available in the MRCC program"
+msgstr "MRCC程序中可用的方法"
+
+msgid "Key"
+msgstr "键"
+
+msgid "MRCC parameters"
+msgstr "MRCC参数"
+
+msgid "Notes"
+msgstr "注释"
+
+msgid "*CI(n) configuration interaction methods*"
+msgstr "*CI(n) 组态相互作用方法*"
+
+msgid "``CISD``"
+msgstr "``CISD``"
+
+msgid "``CISDT``"
+msgstr "``CISDT``"
+
+msgid "``CISDTQ``"
+msgstr "``CISDTQ``"
+
+msgid "``CI(N)``"
+msgstr "``CI(N)``"
+
+msgid "N"
+msgstr "N"
+
+msgid "Specify excitation level N using ``LEVEL``"
+msgstr "使用 ``LEVEL`` 指定激发能级 N"
+
+msgid "*CC(N) coupled cluster methods*"
+msgstr "*CC(N) 耦合簇方法*"
+
+msgid "``CCSD``"
+msgstr "``CCSD``"
+
+msgid "``CCSDT``"
+msgstr "``CCSDT``"
+
+msgid "``CCSDTQ``"
+msgstr "``CCSDTQ``"
+
+msgid "``CC(N)``"
+msgstr "``CC(N)``"
+
+msgid "*CC(N-1)[N] coupled cluster methods*"
+msgstr "*CC(N-1)[N] 耦合簇方法*"
+
+msgid "``CCSD[T]``"
+msgstr "``CCSD[T]``"
+
+msgid "``CCSDT[Q]``"
+msgstr "``CCSDT[Q]``"
+
+msgid "``CC(N-1)[N]``"
+msgstr "``CC(N-1)[N]``"
+
+msgid "*CC(N-1)(N) coupled cluster methods. Also computes [n] corrections*"
+msgstr "*CC(N-1)(N) 耦合簇方法。同时计算 [n] 修正*"
+
+msgid "``CCSD(T)``"
+msgstr "``CCSD(T)``"
+
+msgid "``CCSDT(Q)``"
+msgstr "``CCSDT(Q)``"
+
+msgid "``CC(N-1)(N)``"
+msgstr "``CC(N-1)(N)``"
+
+msgid "*CC(n-1)(n)_L methods (also computes (n) and [n] corrections)*"
+msgstr "*CC(n-1)(n)_L 方法（同时计算 (n) 和 [n] 校正）*"
+
+msgid "``CCSD(T)_L``"
+msgstr "``CCSD(T)_L``"
+
+msgid "``CCSDT(Q)_L``"
+msgstr "``CCSDT(Q)_L``"
+
+msgid "``CC(N-1)(N)_L``"
+msgstr "``CC(N-1)(N)_L``"
+
+msgid "*CC(n)-1a  methods*"
+msgstr "*CC(n)-1a 方法*"
+
+msgid "``CCSDT-1A``"
+msgstr "``CCSDT-1A``"
+
+msgid "``CCSDTQ-1A``"
+msgstr "``CCSDTQ-1A``"
+
+msgid "``CC(N)-1A``"
+msgstr "``CC(N)-1A``"
+
+msgid "*CC(n)-1b  methods*"
+msgstr "*CC(n)-1b 方法*"
+
+msgid "``CCSDT-1B``"
+msgstr "``CCSDT-1B``"
+
+msgid "``CCSDTQ-1B``"
+msgstr "``CCSDTQ-1B``"
+
+msgid "``CC(N)-1B``"
+msgstr "``CC(N)-1B``"
+
+msgid "*CCn methods (only for ground states)*"
+msgstr "*CCn 方法（仅适用于基态）*"
+
+msgid "``CC3``"
+msgstr "``CC3``"
+
+msgid "``CC4``"
+msgstr "``CC4``"
+
+msgid "``CCN``"
+msgstr "``CCN``"
+
+msgid "*CC(n)-3 methods*"
+msgstr "*CC(n)-3 方法*"
+
+msgid "``CCSDT-3``"
+msgstr "``CCSDT-3``"
+
+msgid "``CCSDTQ-3``"
+msgstr "``CCSDTQ-3``"
+
+msgid "``CC(N)-3``"
+msgstr "``CC(N)-3``"
+
+msgid "Examples"
+msgstr "示例"
+
+msgid "Closed-shell ground-state calculations for H2O:"
+msgstr "H2O的闭壳层基态计算："
+
+msgid "This yields"
+msgstr "这将得到"
+
+msgid "Excitation energies for H2O:"
+msgstr "H2O的激发能："
+
+msgid "Open-shell ground-state calculations for O2:"
+msgstr "O2的开壳层基态计算："

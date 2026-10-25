@@ -1,0 +1,204 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Molpro Manual 1.0\n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Harmonic vibrational frequencies (FREQUENCIES)"
+msgstr "谐波振动频率 (FREQUENCIES)"
+
+msgid ""
+"The ``FREQUENCIES`` command must be given after the energy calculation to "
+"which it refers or after ``OPTG``. If the command for the energy calculation"
+" (e.g. ``HF``, ``KS``, ``MP2``, etc.) is in a procedure, the ``OPTG`` and "
+"``FREQUENCIES`` commands must also be in the procedure. Furthermore, no "
+"procedures without an energy calculation must directly precede "
+"``FREQUENCIES`` or ``OPTG``."
+msgstr ""
+"``FREQUENCIES`` 命令必须在其引用的能量计算之后或 ``OPTG`` 之后给出。如果能量计算的命令（例如 ``HF``\\ 、\\ "
+"``KS``\\ 、\\ ``MP2`` 等）位于过程中，则 ``OPTG`` 和 ``FREQUENCIES`` "
+"命令也必须位于该过程中。此外，没有能量计算的任何过程不得直接位于 ``FREQUENCIES`` 或 ``OPTG`` 之前。"
+
+msgid "Options"
+msgstr "选项"
+
+msgid "The following *options* are available:"
+msgstr "以下 *选项* 可用："
+
+msgid ""
+"``ANALYTICAL`` Use analytical second derivatives of the energy. At present, "
+"analytical second derivatives are only possible for closed shell Hartree-"
+"Fock (HF) and MCSCF wavefunctions without symmetry. It is not yet possible "
+"to calculate IR-intensities analytically. Note that, due to technical "
+"reasons, the analytical MCSCF second derivatives have to be computed in the "
+"MCSCF-program using e.g. ``multi; cpmcscf,hess`` (see ``MULTI``) before they"
+" can be used in ``FREQUENCIES``. If analytical MCSCF second derivatives have"
+" been computed using ``multi; cpmcscf,hess``, ``FREQUENCIES`` will use them "
+"by default."
+msgstr ""
+"``ANALYTICAL`` 使用能量的解析二阶导数。目前，解析二阶导数仅适用于无对称性的闭壳层 Hartree-Fock (HF) 和 MCSCF "
+"波函数。目前尚无法解析计算红外强度。请注意，由于技术原因，解析 MCSCF 二阶导数必须在 MCSCF 程序中使用例如 ``multi; "
+"cpmcscf,hess``\\ （参见 ``MULTI``\\ ）进行计算，然后才能在 ``FREQUENCIES`` 中使用。如果已使用 "
+"``multi; cpmcscf,hess`` 计算了解析 MCSCF 二阶导数，\\ ``FREQUENCIES`` 将默认使用它们。"
+
+msgid ""
+"``CENTRAL`` Use central differences/high quality force constants (default)."
+msgstr "``CENTRAL`` 使用中心差分/高质量力常数（默认）。"
+
+msgid ""
+"``NUMERICAL`` Differentiate the energy twice, using central differences."
+msgstr "``NUMERICAL`` 使用中心差分对能量进行两次微分。"
+
+msgid ""
+"``FORWARD`` Use forward differences/low quality force constants (only "
+"effective if gradients are available)."
+msgstr "``FORWARD`` 使用前向差分/低质量力常数（仅在梯度可用时有效）。"
+
+msgid "``AUTO`` Same as ``SYMM=AUTO``, see above."
+msgstr "``AUTO`` 与 ``SYMM=AUTO`` 相同，见上文。"
+
+msgid "``NOAUTO|NOSYM`` Same as ``SYMM=NO``, see above."
+msgstr "``NOAUTO|NOSYM`` 与 ``SYMM=NO`` 相同，见上文。"
+
+msgid ""
+"``RESTART`` Attempt to restart a previous numerical frequency/hessian "
+"calculation using default task record."
+msgstr "``RESTART`` 尝试使用默认任务记录重新启动先前的数值频率/Hessian 矩阵计算。"
+
+msgid "``NEW`` Recompute hessian, even if a hessian is already available."
+msgstr "``NEW`` 即使已有 Hessian 矩阵，也重新计算。"
+
+msgid ""
+"``PROJECT`` Project rotations and translations out of the hessian (default)."
+msgstr "``PROJECT`` 将旋转和平移从 Hessian 矩阵中投影出去（默认）。"
+
+msgid ""
+"``NOPROJECT`` Don’t project rotations and translations out of the hessian."
+msgstr "``NOPROJECT`` 不将旋转和平移从 Hessian 矩阵中投影出去。"
+
+msgid "``DEBUG`` Print Debug information, same as ``PRINT=1``."
+msgstr "``DEBUG`` 打印调试信息，等同于 ``PRINT=1``\\ 。"
+
+msgid ""
+"For compatibility with older MOLPRO versions many of the options can also be"
+" set using directives, as described in the following sections."
+msgstr "为了与旧版 MOLPRO 兼容，许多选项也可以通过指令设置，如下文所述。"
+
+msgid "Printing options (PRINT)"
+msgstr "打印选项 (PRINT)"
+
+msgid "This directive can be used to control the output:"
+msgstr "该指令可用于控制输出："
+
+msgid "The following *options* can be given:"
+msgstr "可指定以下 *options*\\ ："
+
+msgid ""
+"``HESSIAN`` Print the force constant matrix (hessian) i.e. the second "
+"derivative matrix of the energy and the mass weighted hessian matrix."
+msgstr "``HESSIAN`` 打印力常数矩阵 (hessian)，即能量的二阶导数矩阵和质量加权的 Hessian 矩阵。"
+
+msgid ""
+"``LOW`` Print low vibrational frequencies (i.e. the 5 or 6 frequencies "
+"belonging to rotations and translations) and their normal modes (default; "
+"``LOW=-1`` suppresses the print)."
+msgstr "``LOW`` 打印低频振动频率（即属于转动和平动的 5 或 6 个频率）及其简正模式（默认；\\ ``LOW=-1`` 将抑制打印）。"
+
+msgid "Saving the hessian and other information (SAVE)"
+msgstr "保存 Hessian 矩阵及其他信息 (SAVE)"
+
+msgid "Restarting a hessian/Frequency calculation (START)"
+msgstr "重新启动 Hessian 矩阵/频率计算 (START)"
+
+msgid "The following options can be given:"
+msgstr "可以给出以下选项："
+
+msgid "Coordinates for numerical hessian calculations (COORD)"
+msgstr "数值 Hessian 矩阵计算的坐标 (COORD)"
+
+msgid "*type* can be one of the following:"
+msgstr "*type* 可以是以下之一："
+
+msgid ""
+"``UNIQUE`` Use symmetry-unique displacements in the numerical calculation of"
+" the hessian (default)."
+msgstr "``UNIQUE`` 在 Hessian 矩阵的数值计算中使用对称性唯一的位移（默认）。"
+
+msgid "``3N`` Don’t use symmetry-unique displacements (not recommended)."
+msgstr "``3N`` 不使用对称性唯一的位移（不推荐）。"
+
+msgid "Stepsizes for numerical hessian calculations (STEP)"
+msgstr "数值 Hessian 矩阵计算的步长 (STEP)"
+
+msgid ""
+"determines the step size of the numerical differentiation of the energy or "
+"the gradient. The default step size is *rstep*\\ =0.01 a.u."
+msgstr "确定能量或梯度的数值微分的步长。默认步长为 *rstep*\\ =0.01 a.u."
+
+msgid "Numerical hessian using energy variables (VARIABLE)"
+msgstr "使用能量变量计算数值 Hessian 矩阵 (VARIABLE)"
+
+msgid ""
+"Defines a variable *name* which holds the energy value to be used for "
+"computing the hessian using finite differences. By default, this is "
+"``ENERGY(1)`` as set by the most recent program. For other variables which "
+"can be used see section `optimizing energy variables (VARIABLE) "
+"<geometry_optimization_optg.html#optimizing-energy-variables-variable>`__. "
+"Note that numerical hessians cannot be computed when dummy atoms holding "
+"basis functions are present."
+msgstr ""
+"定义一个变量 *name*\\ ，该变量保存用于通过有限差分计算 Hessian 矩阵的能量值。默认情况下，这是由最近程序设置的 "
+"``ENERGY(1)``\\ 。有关可使用的其他变量，请参阅章节 `optimizing energy variables (VARIABLE) "
+"<geometry_optimization_optg.html#optimizing-energy-variables-variable>`__\\ "
+"。请注意，当存在带有基函数的哑原子时，无法计算数值 Hessian 矩阵。"
+
+msgid "Thermodynamical properties (THERMO)"
+msgstr "热力学性质 (THERMO)"
+
+msgid ""
+"It is also possible to calculate the thermodynamical properties of the "
+"molecule. Since Molpro can only handle Abelian point groups it is necessary "
+"to give the point group of the molecule in the input file:"
+msgstr "也可以计算分子的热力学性质。由于 Molpro 只能处理阿贝尔点群，因此必须在输入文件中给出分子的点群："
+
+msgid ""
+"*pointgroup* has to be the Schoenflies Symbol (e.g. ``C3v`` for ammonia; "
+"linear molecules have to be ``C*v`` or ``D*h`` respectively). If no point "
+"group is given, the point group is determined automatically, but only "
+"Abelian groups (D2H and subgroups) are recognized. If the molecule has "
+"higher symmetry this may eventually cause deviations in the rotational "
+"entropy."
+msgstr ""
+"*pointgroup* 必须是 Schoenflies 符号（例如，氨为 ``C3v``\\ ；线性分子必须分别为 ``C*v`` 或 "
+"``D*h``\\ ）。如果未给出点群，则会自动确定点群，但仅识别阿贝尔群（D2H 及其子群）。如果分子具有更高的对称性，这最终可能导致转动熵的偏差。"
+
+msgid ""
+"The temperature (in K), pressure (in atm) or a range of temperatures (in K) "
+"can be given as options."
+msgstr "温度（单位：K）、压力（单位：atm）或一个温度范围（单位：K）可以作为选项给出。"
+
+msgid ""
+"If no temperature or pressure is specified the zero-point vibrational energy"
+" and the enthalpy :math:`H(T)-H(0)` [kJ/mol], heat capacity :math:`C_v` "
+"[J/mol K] and entropy :math:`S` [J/mol K] are calculated for standard "
+"temperature and pressure (:math:`T=298.150` [K], :math:`p=1` [atm])."
+msgstr ""
+"如果未指定温度或压力，则计算零点振动能以及标准温度和压力（\\ :math:`T=298.150` [K], :math:`p=1` [atm]）下的焓"
+" :math:`H(T)-H(0)` [kJ/mol]、热容 :math:`C_v` [J/mol K] 和熵 :math:`S` [J/mol K]。"
+
+msgid ""
+"The ``FREQUENCIES`` program sets the variable ``ZPE`` containing the zero-"
+"point-energy of the harmonic vibrations in atomic units. If the ``THERMO`` "
+"option is used, the variables ``HTOTAL`` and ``GTOTAL``, containing the "
+"enthalpy and the free enthalpy of the system in atomic units, are also set."
+msgstr ""
+"``FREQUENCIES`` 程序会设置变量 ``ZPE``\\ ，其中包含谐波振动的零点能（以原子单位计）。如果使用了 ``THERMO`` "
+"选项，还会设置变量 ``HTOTAL`` 和 ``GTOTAL``\\ ，分别包含系统的焓和自由焓（以原子单位计）。"
+
+msgid "Examples"
+msgstr "示例"
