@@ -608,13 +608,9 @@ f) Even tempered basis set with confined progression:
 
 ``type,atom,EVENP,nprim,$\alpha$,$\beta$,$\gamma$``
 
-Generates an even tempered basis set with *nprim* functions and a maximal exponent given by *:math:`\alpha`*. The progression (ratio) between the first and second exponent is adjusted using parameter *:math:`\beta`* and the progression between the last but one and the last exponent is adjusted with parameter *:math:`\gamma`*. In between the progression is linearly interpolated. The explicit values of the progression factors are given by:
+Generates an even tempered basis set with *nprim* functions and a maximal exponent given by :math:`\alpha`. The progression (ratio) between the first and second exponent is adjusted using parameter :math:`\beta` and the progression between the last but one and the last exponent is adjusted with parameter :math:`\gamma`. In between the progression is linearly interpolated. The explicit values of the progression factors are given by:
 
-//$p(\beta)=\frac{\mathrm{exponent^i}}{\mathrm{exponent^{i+1}}}=
-
-.. code-block:: text
-
-         \frac{5}{\pi}(\arctan(\beta-2.5)+\frac{\pi}{2})+\sqrt{2}$//
+:math:`p(\beta)=\frac{\mathrm{exponent^i}}{\mathrm{exponent^{i+1}}}= \frac{5}{\pi}(\arctan(\beta-2.5)+\frac{\pi}{2})+\sqrt{2}`
 
 so that for :math:`\beta \ll 0: p \rightarrow \sqrt{2}` and for :math:`\beta \gg 0: p \rightarrow 5+\sqrt{2}` which limits the progression factors in between these two values and enables unconstrained basis set optimisations. For :math:`\beta \approx 0` the progression has a factor of about 2.
 

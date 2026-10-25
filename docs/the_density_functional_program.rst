@@ -369,7 +369,7 @@ Activates the gradient-regulated asymptotic correction (GRAC) approach for excha
 
    \Delta_{\text{xc}}=\varepsilon_{\text{HOMO}}-(-\text{IP})
 
-This method accounts for the derivative discontinuity of the exact xc-potential and that is missing in approximate ones. The parameters *:math:`\alpha`* and *:math:`\beta`* determine the interpolation function (see Eq. (2.3) in the above reference) and are set to :math:`\alpha=0.5` and :math:`\beta=40` by default, respectively. The parameter *b* is the parameter of the asymptotic xc-potential from van Leeuwen and Baerends (`Phys. Rev. A <https://dx.doi.org/10.1103/PhysRevA.49.2421>`__ **49**, 2421 (1994), Eqns. (54,55)) and is set to *b*\ =0.05 by default.
+This method accounts for the derivative discontinuity of the exact xc-potential and that is missing in approximate ones. The parameters :math:`\alpha` and :math:`\beta` determine the interpolation function (see Eq. (2.3) in the above reference) and are set to :math:`\alpha=0.5` and :math:`\beta=40` by default, respectively. The parameter *b* is the parameter of the asymptotic xc-potential from van Leeuwen and Baerends (`Phys. Rev. A <https://dx.doi.org/10.1103/PhysRevA.49.2421>`__ **49**, 2421 (1994), Eqns. (54,55)) and is set to *b*\ =0.05 by default.
 
 In case of gradient or laplacian functionals the modified GRAC scheme of Bast *et al.* (Chem. Phys. Chem. **9**, 445 (2008)) is used.
 

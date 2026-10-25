@@ -255,7 +255,14 @@ def convert_inline(text: str, current_doc: str = "") -> str:
     def escape_and_emphasize(fragment: str) -> str:
         # Raw asterisks are literal text; //...// is DokuWiki italics.
         fragment = fragment.replace("*", r"\*")
-        return re.sub(r"//([^/\n][^/]*?)//", lambda m: keep(f"*{m.group(1).strip()}*"), fragment)
+
+        def italic_repl(match: re.Match[str]) -> str:
+            body = match.group(1).strip()
+            if re.fullmatch(r"\x00K\d+\x00", body):
+                return body  # italics around one token: role/literal stands alone
+            return keep(f"*{body}*")
+
+        return re.sub(r"//([^/\n][^/]*?)//", italic_repl, fragment)
 
     text = re.sub(r"\*\*(.+?)\*\*", bold_repl, text)
     text = escape_and_emphasize(text)
@@ -288,7 +295,7 @@ def separate_tokens(text: str, edge_before: str = "", edge_after: str = "") -> s
         result.append(match.group(0))
         end = match.end()
         after = text[end] if end < len(text) else edge_after
-        if after and after not in POST_MARKUP_OK and after != "\x00":
+        if after and after not in POST_MARKUP_OK and after != "*" and after != "\x00":
             result.append("\\ ")
         pos = end
     result.append(text[pos:])
@@ -609,13 +616,14 @@ def convert_page(source: Path, docname: str) -> str:
                 if (
                     not nxt.strip()
                     or is_table_line(nxt)
-                    or is_indented_code_line(nxt)
                     or convert_list_line(nxt, docname) is not None
                     or re.match(r"^(={2,6})\s", nxt)
                     or "<code" in nxt
                     or "$$" in nxt
                 ):
                     break
+                # indented continuation lines are still part of the
+                # paragraph when markup is unbalanced (multi-line math)
                 text_line += " " + nxt.strip()
                 i += 1
             out.append(convert_inline(text_line, docname))
