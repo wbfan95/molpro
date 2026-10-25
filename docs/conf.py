@@ -3,7 +3,11 @@ import sys
 
 project = "Molpro Manual"
 author = "Molpro"
+copyright = "2026, Molpro"
+version = "2026.06"
+release = "2026.06"
 language = "en"
+latex_engine = "xelatex"
 
 # The switcher must reflect the language actually being built, but -D
 # overrides are applied after conf.py runs, so read them from the command
