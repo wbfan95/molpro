@@ -1,0 +1,57 @@
+memory,100,m
+
+gdirect
+gthresh,energy=1d-10,orbital=1d-8
+orient,mass
+
+! HF VDZ optimized geometry of glycine (not the betaine!)
+
+roh=0.951117 Ang
+rcoh=1.329162 Ang
+rco=1.186198 Ang
+rcc=1.511992 Ang
+rch=1.091909 Ang
+rcn=1.438365 Ang
+rhnh=1.006138 Ang
+
+occ=125.2100
+hoc=108.1380
+oco=122.8284
+ccx=119.7250
+hch=105.7177
+ccn=115.0690
+cnx=123.6511
+hnh=105.1891
+
+symmetry,nosym;geometry={
+          H0
+          O0,H0,roh
+          C11,O0,rcoh,H0,hoc
+          O1,C11,rco,O0,oco,H0,0
+          C12,C11,rcc,O1,occ,O0,180
+          X1,C12,1,C11,ccx,O1,180
+          H11,C12,rch,X1,0.5*hch,C11,90
+          H12,C12,rch,X1,-0.5*hch,C11,90
+          N1,C12,rcn,C11,ccn,O1,0
+
+          X99,N1,1,C12,cnx,C11,0
+          H991,N1,rhnh,X99,0.5*hnh,C12,90
+          H992,N1,rhnh,X99,-0.5*hnh,C12,90
+}
+
+gdirect
+basis={
+default,cc-pVDZ
+set,mp2fit
+default,vdz/mp2fit
+set,jkfit
+default,vdz/jkfit
+}
+{df-hf,df_basis=jkfit,
+cfit,basis_coul=jkfit,basis_exch=jkfit}
+df-lmp2,df_basis=mp2fit
+e=energy
+prog(1)='DF-LMP2'
+magprop;comp
+magtens=MAGTENSOR
+rotgtens=ROTGTENSOR

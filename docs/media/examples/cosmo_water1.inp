@@ -1,0 +1,13 @@
+***,cosmo_water1
+!
+roh=1.1
+an=105.0
+symmetry,nosym
+geometry={
+  ANGSTROM
+  O;
+  H1, O, roh;
+  H2, O, roh, H1, an;
+         }
+basis=cc-pVDZ
+{hf;cosmo}              ! perform a standard COSMO calculation for the conductor

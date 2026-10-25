@@ -1,0 +1,68 @@
+gdirect
+
+symmetry,nosym;orient,noorient
+geomtyp=xyz
+geometry={
+    9
+ LT-DF-LADC(2)/VDZ  ENERGY=-229.10653979
+ O         -0.0000062486       -0.0000065785        1.2331453991
+ C          0.0000007085        1.1001666455        0.3518531051
+ C          0.0000002920       -1.1001660024        0.3518586696
+ C          0.0000005221        0.6897358937       -1.0455513814
+ C          0.0000004969       -0.6897259164       -1.0455415044
+ H          0.0000031105        2.0807568760        0.8285887994
+ H          0.0000028671       -2.0807617661        0.8285838246
+ H         -0.0000012205        1.3757137803       -1.8930137858
+ H         -0.0000005280       -1.3757129320       -1.8929981261
+}
+
+basis={
+default,vdz
+set,mp2fit
+default,vdz/mp2fit
+set,ccsdfit
+default,vdz/mp2fit
+set,jkfit
+default,vtz/jkfit
+}
+
+df-hf,basis=jkfit;accu,16
+
+{lt-df-ladc(2);dfit,basis_mp2=mp2fit,basis_ccsd=mp2fit,cfit_d3ext=2,cfit_d4ext=1,basis_exch=jkfit,LOCFIT=0,ROBUST_4EXT=0,INVERT_CCSD=0
+grad
+laplace,npoints=3,fulld=2
+save,6000.2
+start,6000.2
+local,ORBREL=1,weakp=0,distp=0,veryd=10,savdom=6350.2,restdom=6350.2
+
+eom,-3.1,singlet=1,triplet=0,graddiis=0,eweakpair=5,precond=0,hdiag=1,hscal=1.d0,exfile=6100.2,follow=0,maxexc=1.99,allstrong=2,doccs=1,domcha=0.5,intfrac=0.8,realfrac=0.98,FULLFRAC=0.95,adjv=1,INTEXC=0.999,THRDDINT=1.d-10,matdom=5,N_EQBUCK=100,save=6150.2,thrlcd=1.d-7,graddiis=0,start=6150.2,gsonly=0,gradstate=2.1,ONLYTOTZLM=1,savdom=6250.2,restdom=6250.2
+eomprint,loceom=-1
+eompar,eoml=1,maxdav=30
+}
+
+{optg,gradient=1.d-3,energy=1.d-6,space=3n;coord,cart}
+
+e_opt=energy
+omega_opt=OMEGAF_S
+
+E_OLD     =      -229.32699483 AU
+OMEGA_OLD  = [       5.99984302     6.26148068] EV
+
+show,e_opt,e_old
+show,omega_opt,omega_old
+
+de=e_old-e_opt
+domeg=max(abs(omega_opt-omega_old))
+
+if((de.gt.1.d-7).or.(domeg.gt.1.d-4)) then
+table,e_old,e_opt,de
+table,omega_old,omega_opt,domeg
+save,test.log
+title,Results for job furan_opt_ltdflucc2lr.test
+title,ERRORS DETECTED. Max error for ground state energy=$de, for excitation energy=$domeg
+else
+table,e_opt,omega_opt
+save,test.log
+title,Results for job furan_opt_ltdflucc2lr.test
+title,No errors detected, Max error for ground state energy=$de, for excitation energy=$domeg
+endif

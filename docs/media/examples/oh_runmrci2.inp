@@ -1,0 +1,7 @@
+***,OH
+include procedures
+geometry={O;H,O,1.83}
+set,symmetry=[2,3,1],spin=1   ! 2Pix, 2Piy, and 2Sigma+ states (specifying spin=1 is optional)
+runcas                    ! SA-CASSCF for all three states
+set,symmetry=[2,1]            ! remove Piy
+runmrci                   ! MRCI for 2Pix and 2Sigma+

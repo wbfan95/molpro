@@ -1,0 +1,10 @@
+.env
+__pycache__/
+**/__pycache__/
+.history/
+pages/
+doku_parser.py
+sphinx-warnings.txt
+_build/
+docs/_build/
+*.pyc

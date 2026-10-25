@@ -1,0 +1,20 @@
+FROM fedora:42
+
+RUN yum in -y cmake dnf-utils eigen3-devel gcc gcc-c++ gcc-fortran git hdf5-mpich-devel libxml2-devel make mpich-devel python vim which
+
+WORKDIR /tmp
+
+RUN yum-config-manager --add-repo https://yum.repos.intel.com/oneapi && \
+    rpm --import https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB && \
+    yum -y install intel-oneapi-mkl-devel
+ENV MKLROOT="/opt/intel/oneapi/mkl/latest"
+ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}${LD_LIBRARY_PATH:+:}${MKLROOT}/lib/intel64"
+
+ENV PATH="${PATH}:/usr/lib64/mpich/bin"
+
+ARG GA_VERSION=5.9.2
+RUN curl -LsO https://github.com/globalarrays/ga/releases/download/v${GA_VERSION}/ga-${GA_VERSION}.tar.gz && \
+    tar -xzf ga-${GA_VERSION}.tar.gz && cd ga-${GA_VERSION} && \
+    ./configure --prefix=/usr --with-mpi-pr MPICC=mpicc MPICXX=mpicxx --disable-f77 --without-blas --without-lapack --without-scalapack && \
+    make && make install && \
+    cd /tmp && rm -rf ga-${GA_VERSION}.tar.gz ga-${GA_VERSION}

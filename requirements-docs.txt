@@ -1,0 +1,2 @@
+sphinx>=8
+pydata-sphinx-theme>=0.18

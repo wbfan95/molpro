@@ -1,0 +1,32 @@
+FROM opensuse/leap:16.0
+
+WORKDIR /tmp
+
+RUN zypper in -y cmake curl diffutils eigen3-devel findutils gcc{,-c++,-fortran} git gzip libxml2-devel make mpich-devel openssh-clients python313-base tar which
+
+RUN zypper ar https://yum.repos.intel.com/oneapi oneAPI && \
+    rpm --import https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB && \
+    zypper ref && \
+    zypper in -y intel-oneapi-mkl-devel
+ENV MKLROOT="/opt/intel/oneapi/mkl/latest"
+ENV LD_LIBRARY_PATH="${MKLROOT}/lib/intel64"
+
+# mpi-selector is useless for docker since profile.d is not sourced
+#RUN mpi-selector --system --set mpich
+ENV PATH="${PATH}:/usr/lib64/mpi/gcc/mpich/bin"
+ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/lib64/mpi/gcc/mpich/lib64"
+
+ARG GA_VERSION=5.9.2
+RUN curl -LsO https://github.com/globalarrays/ga/releases/download/v${GA_VERSION}/ga-${GA_VERSION}.tar.gz && \
+    tar -xzf ga-${GA_VERSION}.tar.gz && cd ga-${GA_VERSION} && \
+    ./configure --prefix=/usr --with-mpi-pr MPICC=mpicc CFLAGS='-Wno-error=return-type' MPICXX=mpicxx --disable-f77 --without-blas --without-lapack --without-scalapack && \
+    make && make install && \
+    cd /tmp && rm -rf ga-${GA_VERSION}.tar.gz ga-${GA_VERSION}
+
+ARG HDF5_VERSION=2.0.0
+RUN curl -LsO https://github.com/HDFGroup/hdf5/releases/download/hdf5_${HDF5_VERSION}/hdf5-${HDF5_VERSION}.tar.gz && \
+    tar -xzf hdf5-${HDF5_VERSION}.tar.gz && cd hdf5-${HDF5_VERSION} && \
+    mkdir build && cd build && \
+    cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DHDF5_INSTALL_LIB_DIR=lib64 -DHDF5_ENABLE_PARALLEL=ON -DCMAKE_C_COMPILER=mpicc -DCMAKE_CXX_COMPILER=mpicxx && \
+    make && make install && \
+    cd /tmp && rm -rf hdf5-${HDF5_VERSION}.tar.gz hdf5-${HDF5_VERSION}

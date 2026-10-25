@@ -1,0 +1,92 @@
+source,rst,title
+ab_initio_multiple_spawning_dynamics.txt,ab_initio_multiple_spawning_dynamics.rst,Ab initio multiple spawning dynamics (AIMS)
+automated_construction_of_atomic_valence_active_spaces.txt,automated_construction_of_atomic_valence_active_spaces.rst,Automated construction of atomic valence active spaces (AVAS)
+basis_input.txt,basis_input.rst,Basis input
+basis_set_extrapolation.txt,basis_set_extrapolation.rst,Basis set extrapolation
+chemical_shieldings_magnetizability_and_rotational_g-tensor.txt,chemical_shieldings_magnetizability_and_rotational_g-tensor.rst,"Chemical shieldings, magnetizability, and rotational g-tensor"
+core_polarization_potentials.txt,core_polarization_potentials.rst,Core polarization potentials
+definition_of_molpro_input_language.txt,definition_of_molpro_input_language.rst,Definition of Molpro input language
+density_fitting.txt,density_fitting.rst,Density fitting
+density_functional_descriptions.txt,density_functional_descriptions.rst,Density functional descriptions
+dump_density_or_orbital_values_cube.txt,dump_density_or_orbital_values_cube.rst,Dump density or orbital values (CUBE)
+effective_core_potentials.txt,effective_core_potentials.rst,Effective core potentials
+energy_gradients.txt,energy_gradients.rst,Energy gradients
+excited_states_with_equation-of-motion_ccsd_eom-ccsd.txt,excited_states_with_equation-of-motion_ccsd_eom-ccsd.rst,Excited states with equation-of-motion CCSD (EOM-CCSD)
+explicitly_correlated_methods.txt,explicitly_correlated_methods.rst,Explicitly correlated methods
+file_handling.txt,file_handling.rst,File handling
+franck-condon_calculations.txt,franck-condon_calculations.rst,Franck-Condon calculations
+ga_installation.txt,ga_installation.rst,GA Installation
+general_hints_-_frequently_asked_questions.txt,general_hints_-_frequently_asked_questions.rst,General hints - frequently asked questions
+general_program_structure.txt,general_program_structure.rst,General program structure
+geometry_optimization_optg.txt,geometry_optimization_optg.rst,Geometry optimization (OPTG)
+gmolpro_graphical_user_interface.txt,gmolpro_graphical_user_interface.rst,gmolpro graphical user interface
+harmonic_vibrational_frequencies_frequencies.txt,harmonic_vibrational_frequencies_frequencies.rst,Harmonic vibrational frequencies (FREQUENCIES)
+how_to_read_this_manual.txt,how_to_read_this_manual.rst,How to read this manual
+index.txt,manual_index.rst,Index
+installation_guide.txt,installation_guide.rst,Installation guide
+instantons.txt,instantons.rst,Instantons
+integration.txt,integration.rst,Integration
+intermolecular_interaction_energies.txt,intermolecular_interaction_energies.rst,Intermolecular interaction energies
+internally_contracted_multireference_coupled-cluster_theory.txt,internally_contracted_multireference_coupled-cluster_theory.rst,Multireference CC computations
+intrinsic_basis_bonding_analysis_iao_ibo.txt,intrinsic_basis_bonding_analysis_iao_ibo.rst,Intrinsic basis bonding analysis (IAO/IBO)
+introduction_to_molpro.txt,introduction_to_molpro.rst,Introduction to Molpro
+introductory_examples.txt,introductory_examples.rst,Introductory examples
+kohn-sham_random-phase_approximation.txt,kohn-sham_random-phase_approximation.rst,Kohn-Sham random-phase approximation
+license_information.txt,license_information.rst,License information
+local_correlation_methods_with_pair_natural_orbitals_pnos.txt,local_correlation_methods_with_pair_natural_orbitals_pnos.rst,Local correlation methods with pair natural orbitals (PNOs)
+local_methods_for_excited_states.txt,local_methods_for_excited_states.rst,Local methods for excited states
+matrix_operations.txt,matrix_operations.rst,Matrix operations
+minimization_of_functions.txt,minimization_of_functions.rst,Minimization of functions
+molecular_geometry.txt,molecular_geometry.rst,Molecular geometry
+moller_plesset_perturbation_theory.txt,moller_plesset_perturbation_theory.rst,Møller Plesset perturbation theory
+molpro_on_the_www.txt,molpro_on_the_www.rst,Molpro on the www
+multireference_local_correlation_methods_pno-caspt2.txt,multireference_local_correlation_methods_pno-caspt2.rst,Multireference local correlation methods (PNO-CASPT2)
+multireference_rayleigh_schroedinger_perturbation_theory.txt,multireference_rayleigh_schroedinger_perturbation_theory.rst,Multireference Rayleigh Schrödinger perturbation theory
+non_adiabatic_coupling_matrix_elements.txt,non_adiabatic_coupling_matrix_elements.rst,Non adiabatic coupling matrix elements
+nuclear-electronic_orbital_method.txt,nuclear-electronic_orbital_method.rst,Nuclear-electronic orbital (NEO) method
+open-shell_coupled_cluster_theories.txt,open-shell_coupled_cluster_theories.rst,Open-shell coupled cluster theories
+orbital_localization.txt,orbital_localization.rst,Orbital localization
+orbital_merging.txt,orbital_merging.rst,Orbital merging
+pao-based_local_correlation_treatments.txt,pao-based_local_correlation_treatments.rst,PAO-based local correlation treatments
+pes_generators.txt,pes_generators.rst,PES generators
+pes_transformations.txt,pes_transformations.rst,PES transformations
+physical_constants.txt,physical_constants.rst,Physical constants
+post-processing_of_output_and_databases.txt,post-processing_of_output_and_databases.rst,Post-processing of output and databases
+processing_and_plotting_for_rovibrational_line_lists_dat2gr.txt,processing_and_plotting_for_rovibrational_line_lists_dat2gr.rst,Processing and plotting for rovibrational line lists (DAT2GR)
+processing_and_plotting_rovibrational_line_lists_dat2gr.txt,processing_and_plotting_rovibrational_line_lists_dat2gr.rst,Processing and plotting for rovibrational line lists (DAT2GR)
+processing_of_rovibrational_line_lists_dat2gr.txt,processing_of_rovibrational_line_lists_dat2gr.rst,Processing of rovibrational line lists (DAT2GR)
+program_control.txt,program_control.rst,Program control
+projection-based_wf-in-dft_embedding.txt,projection-based_wf-in-dft_embedding.rst,Projection-based WF-in-DFT embedding
+properties_and_expectation_values.txt,properties_and_expectation_values.rst,Properties and expectation values
+qm_mm_interfaces.txt,qm_mm_interfaces.rst,QM/MM interfaces
+quasi-diabatization.txt,quasi-diabatization.rst,Quasi-diabatization
+quickstart.txt,quickstart.rst,Quickstart
+recent_changes.txt,recent_changes.rst,Recent changes
+references.txt,references.rst,References
+region.txt,region.rst,Region
+relativistic_corrections.txt,relativistic_corrections.rst,Relativistic corrections
+running_molpro.txt,running_molpro.rst,Running Molpro
+running_molpro_on_parallel_computers.txt,running_molpro_on_parallel_computers.rst,Running Molpro on parallel computers
+smiles.txt,smiles.rst,SMILES (Molecular integrals with Slater functions)
+spin-orbit-coupling.txt,spin-orbit-coupling.rst,Spin-orbit-coupling
+split_coulomb_operator_treatment_attenuate.txt,split_coulomb_operator_treatment_attenuate.rst,Split Coulomb operator treatment (ATTENUATE)
+symmetry-adapted_intermolecular_perturbation_theory.txt,symmetry-adapted_intermolecular_perturbation_theory.rst,Symmetry-adapted intermolecular perturbation theory
+table_of_contents.txt,table_of_contents.rst,Table of Contents
+tables_and_plotting.txt,tables_and_plotting.rst,Tables and plotting
+the_closed-shell_density_fitting_cc2_program_for_ground_and_excited_states.txt,the_closed-shell_density_fitting_cc2_program_for_ground_and_excited_states.rst,The closed-shell density fitting CC2 program for ground and excited states
+the_closed_shell_ccsd_program.txt,the_closed_shell_ccsd_program.rst,The closed shell CCSD program
+the_cosmo_model.txt,the_cosmo_model.rst,The COSMO model
+the_density_functional_program.txt,the_density_functional_program.rst,The density functional program
+the_full_ci_program.txt,the_full_ci_program.rst,The full CI program
+the_mcscf_program_multi.txt,the_mcscf_program_multi.rst,The MCSCF program MULTI
+the_mrcc_program_of_m._kallay_mrcc.txt,the_mrcc_program_of_m._kallay_mrcc.rst,The MRCC program of M. Kallay (MRCC)
+the_mrci_program.txt,the_mrci_program.rst,The MRCI program
+the_nevpt2_program.txt,the_nevpt2_program.rst,The NEVPT2 program
+the_scf_program.txt,the_scf_program.rst,The SCF program
+the_tdhf_and_tdks_programs.txt,the_tdhf_and_tdks_programs.rst,The TDHF and TDKS programs
+the_vb_program_casvb.txt,the_vb_program_casvb.rst,The VB program CASVB
+time-dependent_density_functional_theory.txt,time-dependent_density_functional_theory.rst,Time-dependent density functional theory
+variables.txt,variables.rst,Variables
+vibration_correlation_programs.txt,vibration_correlation_programs.rst,Vibration correlation programs
+vibrational_perturbation_theory_vpt2.txt,vibrational_perturbation_theory_vpt2.rst,Vibrational perturbation theory (VPT2)
+vibrational_scf_programs.txt,vibrational_scf_programs.rst,The VSCF programs (VSCF)

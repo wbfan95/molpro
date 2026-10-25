@@ -1,0 +1,44 @@
+gdirect
+
+symmetry,nosym;orient,noorient
+geomtyp=xyz
+geometry={
+    9
+ LT-DF-LADC(2)/VDZ  ENERGY=-229.10650421
+ O         -0.0000194543       -0.0000233432        1.2328097462
+ C          0.0000005724        1.0998445737        0.3513556922
+ C          0.0000003678       -1.0998377640        0.3513721636
+ C         -0.0000000547        0.6900715788       -1.0467035212
+ C         -0.0000002538       -0.6900464990       -1.0466782264
+ H          0.0000106920        2.0801779951        0.8278400114
+ H          0.0000109143       -2.0801880559        0.8278267484
+ H         -0.0000013449        1.3797772239       -1.8904691644
+ H         -0.0000014387       -1.3797757095       -1.8904284498
+}
+
+basis={
+default,vdz
+set,mp2fit
+default,vdz/mp2fit
+set,ccsdfit
+default,vdz/mp2fit
+set,jkfit
+default,vtz/jkfit
+}
+
+df-hf,basis=jkfit;accu,14
+
+{lt-df-lcc2;dfit,basis_mp2=mp2fit,basis_ccsd=mp2fit,cfit_d3ext=2,cfit_d4ext=1,basis_exch=jkfit,LOCFIT=0,ROBUST_4EXT=0,INVERT_CCSD=0
+grad
+laplace,npoints=3,fulld=2
+save,6000.2
+start,6000.2
+local,ORBREL=1,weakp=0,distp=0,veryd=10,savdom=6350.2,restdom=6350.2
+
+eom,-3.1,singlet=1,triplet=0,eweakpair=5,precond=0,hdiag=1,hscal=1.d0,exfile=6100.2,follow=0,maxexc=1.99,allstrong=2,doccs=1,domcha=0.5,intfrac=0.8,realfrac=0.98,FULLFRAC=0.95,adjv=1,INTEXC=0.999,THRDDINT=1.d-10,matdom=5,N_EQBUCK=100,propes=3.1,save=6150.2,thrlcd=1.d-7,graddiis=0,start=6150.2,gsonly=0,gradstate=2.1,savdom=6250.2,restdom=6250.2
+eomprint,loceom=-1
+eompar,eoml=1,maxdav=30
+}
+
+enable_ltgrad=1
+{optg,gradient=1.d-3,method=qsd,energy=1.d-6,space=3n;coord,cart}

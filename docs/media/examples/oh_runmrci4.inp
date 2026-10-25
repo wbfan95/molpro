@@ -1,0 +1,11 @@
+***,OH
+include procedures
+basis=avqz                ! Use aug-cc-pVQZ basis
+geometry={O;H,O,1.83}     ! Geometry definition
+set,symmetry=[2,3,1],spin=1   ! 2Pix, 2Piy, and 2Sigma+ states
+occ=[5,2,2,1]             ! 4 sigma, 2 pi, 1 delta occupied
+hf                        ! do scf calculation
+sym,1, 1,1,1,1,2          ! 5th orbital in symmetry 1 has extra symmetry 2 (= delta)
+runcas                    ! SA-CASSCF for all three states
+set,symmetry=[2,1]            ! remove Piy
+runmrci                   ! MRCI for 2Pix and 2Sigma+

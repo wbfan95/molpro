@@ -1,0 +1,15 @@
+***,cosmo_water3
+!
+gcosmo, epsilon=5.0 ! use the dielectric constant 5.0
+roh=1.1
+an=105.0
+symmetry,nosym
+geometry={
+  ANGSTROM
+  O;
+  H1, O, roh;
+  H2, O, roh, H1, an;
+         }
+basis=cc-pVDZ
+df=[b88,p86]
+rks

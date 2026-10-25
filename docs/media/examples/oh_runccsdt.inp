@@ -1,0 +1,10 @@
+***,OH
+include procedures
+geometry={O;H,O,1.83}
+set,symmetry=2,spin=1   ! X 2 Pi state
+runccsdt
+epi=energy
+set,symmetry=1,spin=1   ! A 2 Sigma+ state
+runccsdt
+esig=energy
+de=(esig-epi)*toev     !Excitation energy in eV

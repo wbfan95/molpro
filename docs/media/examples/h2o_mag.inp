@@ -1,0 +1,25 @@
+symmetry,nosym
+gthresh,energy=1.d-8
+orient,mass
+gdirect
+bohr
+geometry={
+O 0.000000 0.000000 -0.136392
+H 0.000000 1.423659 0.981343
+H 0.000000 -1.423659 0.981343
+}
+basis={
+default,cc-pVDZ
+set,jkfit
+default,vdz/jkfit
+}
+{df-hf,df_basis=jkfit;accu,16}
+e=energy
+prog(1)='DF-HF'
+magprop;varsave
+magtens_can=MAGTENSOR
+rotgtens_can=ROTGTENSOR
+locali,pipek
+magprop;varsave
+magtens_loc=MAGTENSOR
+rotgtens_loc=ROTGTENSOR

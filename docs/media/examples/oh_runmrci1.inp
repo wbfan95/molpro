@@ -1,0 +1,5 @@
+***,OH
+include procedures
+geometry={O;H,O,1.83}
+set,symmetry=[2,3,1],spin=1   ! 2 Pix, 2Piy, and 2 Sigma+ states
+runmrci                   ! SA-CASSCF and MRCI

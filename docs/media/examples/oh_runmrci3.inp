@@ -1,0 +1,8 @@
+***,OH
+include procedures
+geometry={O;H,O,1.83}     ! Geometry definition
+set,symmetry=[2,3,1],spin=1   ! 2Pix, 2Piy, and 2Sigma+ states
+occ=[4,2,2]               ! 4 sigma and 2 pi occupied
+runcas                    ! SA-CASSCF for all three states
+set,symmetry=[2,1]            ! remove Piy
+runmrci                   ! MRCI for 2Pix and 2Sigma+

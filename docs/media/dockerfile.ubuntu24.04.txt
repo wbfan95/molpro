@@ -1,0 +1,22 @@
+FROM ubuntu:24.04
+
+WORKDIR /tmp
+
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt-get update && \
+    apt-get -y install build-essential cmake curl git libxml2-dev make python3 libeigen3-dev libhdf5-mpich-dev libxml2-utils mpich
+
+RUN curl -Ls https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB | gpg --dearmor > /usr/share/keyrings/oneapi-archive-keyring.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/oneapi-archive-keyring.gpg] https://apt.repos.intel.com/oneapi all main" > /etc/apt/sources.list.d/oneAPI.list && \
+    export DEBIAN_FRONTEND=noninteractive && \
+    apt-get update && \
+    apt-get -y install intel-oneapi-mkl-devel
+ENV MKLROOT="/opt/intel/oneapi/mkl/latest"
+ENV LD_LIBRARY_PATH="${MKLROOT}/lib/intel64"
+
+ARG GA_VERSION=5.9.2
+RUN curl -LsO https://github.com/globalarrays/ga/releases/download/v${GA_VERSION}/ga-${GA_VERSION}.tar.gz && \
+    tar -xzf ga-${GA_VERSION}.tar.gz && cd ga-${GA_VERSION} && \
+    ./configure --prefix=/usr --with-mpi-pr MPICC=mpicc MPICXX=mpicxx --disable-f77 --without-blas --without-lapack --without-scalapack && \
+    make && make install && \
+    cd /tmp && rm -rf ga-${GA_VERSION}.tar.gz ga-${GA_VERSION}
