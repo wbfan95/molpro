@@ -217,6 +217,8 @@ def convert_inline(text: str, current_doc: str = "") -> str:
     combined = re.compile(
         r"(?<!\\)\$(?P<math>[^$\n]+?)(?<!\\)\$"
         r"|''(?P<lit>.*?)''"
+        r"|<sub>(?P<sub>.*?)</sub>"
+        r"|<sup>(?P<sup>.*?)</sup>"
         r"|\[\[\s*(?P<ltarget>[^|\]]+?)\s*\|\s*(?P<llabel>.*?)\s*\]\]"
         r"|\[\[\s*(?P<target2>[^|\]]+?)\s*\]\]"
         r"|\{\{\s*(?P<media>[^}|]+?)\s*(?:\|\s*(?P<mlabel>.*?)\s*)?\}\}"
@@ -227,6 +229,10 @@ def convert_inline(text: str, current_doc: str = "") -> str:
             return literal_repl(match)
         if match.group("math") is not None:
             return math_repl(match)
+        if match.group("sub") is not None:
+            return keep(f":sub:`{match.group('sub').strip()}`")
+        if match.group("sup") is not None:
+            return keep(f":sup:`{match.group('sup').strip()}`")
         if match.group("ltarget") is not None:
             return keep(convert_link(match.group("ltarget"), match.group("llabel"), current_doc))
         if match.group("target2") is not None:

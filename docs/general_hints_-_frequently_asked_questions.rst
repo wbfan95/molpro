@@ -60,7 +60,7 @@ Geometry
 .. code-block:: text
 
 * The units have to be correct (Angstrom versus bohr). By default, xyz input is in Angstrom, while z-matrix coordinates are in atomic units.
-* A geometry which strongly deviates from the experimental geometry may cause convergence problems. This may be due to unrealistic bond lengths or angles. E.g. breaking a bond may require to change the wave function card or method (remember the text book example of H<sub>2</sub> with a large bond length, RHF versus UHF).
+* A geometry which strongly deviates from the experimental geometry may cause convergence problems. This may be due to unrealistic bond lengths or angles. E.g. breaking a bond may require to change the wave function card or method (remember the text book example of H\ :sub:`2` with a large bond length, RHF versus UHF).
 * If any kind of problems in a calculation occurs, it is recommended to visualise the geometry and check it for correctness.
 
 .. code-block:: text

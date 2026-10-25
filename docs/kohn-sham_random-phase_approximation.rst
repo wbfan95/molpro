@@ -424,7 +424,7 @@ Example input file for spin-restricted calculations for the CO molecule:
    
    acfd;rirpa ! RPA/sigma-functional calculation; one can use alternatively: ksrpa;rirpa
 
-As well as an example of spin-unrestricted calculation for the NH<sub>2</sub> molecule:
+As well as an example of spin-unrestricted calculation for the NH\ :sub:`2` molecule:
 
 .. code-block:: text
    :caption: examples/nh2_urirpa.inp
