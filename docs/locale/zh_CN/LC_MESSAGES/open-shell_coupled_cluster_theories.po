@@ -154,3 +154,16 @@ msgstr ""
 
 msgid "Open-Shell Coupled cluster calculation on CN"
 msgstr "CN分子的开壳层耦合簇计算"
+
+msgid ""
+"In the description that follows, the acronyms ``RCCSD`` and ``UCCSD`` are "
+"used, but the theories should normally be referred to as ``RHF-RCCSD``, "
+"``RHF-UCCSD``, in order to distinguish them from alternative ansätze based "
+"on spin-unrestricted orbitals. The program will accept either the full or "
+"abbreviated acronyms as input commands."
+msgstr ""
+"在接下来的描述中，使用了缩写 ``RCCSD`` 和 ``UCCSD``\\ ，但通常应将这些理论称为 ``RHF-RCCSD``\\ 、\\ "
+"``RHF-UCCSD``\\ ，以便将其与基于自旋非限制轨道的其他拟设区分开来。程序将接受完整或缩写的缩写作为输入命令。"
+
+msgid "examples/cn_rccsd-t.inp"
+msgstr "examples/cn_rccsd-t.inp"

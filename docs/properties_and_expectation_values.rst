@@ -515,7 +515,7 @@ General fields (FIELD)
 
 Adds one-electron operators *oper1*, *oper2*, …with the corresponding factors *fac1*, *fac2*, …to the one-electron hamiltonian. The available operators are given in section `One-electron operators and expectation values (GEXPEC) <program_control.html#one-electron-operators-and-expectation-values-gexpec>`__. An error will result if the added perturbation is not totally symmetric (symmetry 1).
 
-``FIELD+ adds to any existing field, otherwise any previous field is removed.``
+``FIELD+`` adds to any existing field, otherwise any previous field is removed.
 
 Note that ``FIELD`` does currently not modify core polarization potentials (CPP). If CPPs are present, only ``DIP`` and ``QUAD`` should be used.
 

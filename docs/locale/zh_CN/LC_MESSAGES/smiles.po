@@ -167,3 +167,87 @@ msgstr "示例"
 
 msgid "Example using internal basis set for H\\ :math:`_2`\\ O."
 msgstr "使用 H\\ :math:`_2`\\ O 的内部基组的示例。"
+
+msgid "[3,1]"
+msgstr "[3,1]"
+
+msgid "[5,1]"
+msgstr "[5,1]"
+
+msgid "[5,3,1]"
+msgstr "[5,3,1]"
+
+msgid "—"
+msgstr "—"
+
+msgid "[6,2]"
+msgstr "[6,2]"
+
+msgid "[6,4,1]"
+msgstr "[6,4,1]"
+
+msgid "[3,2,1]"
+msgstr "[3,2,1]"
+
+msgid "[5,3,1,1]"
+msgstr "[5,3,1,1]"
+
+msgid "[5,4,2,1]"
+msgstr "[5,4,2,1]"
+
+msgid "[4,3,1]"
+msgstr "[4,3,1]"
+
+msgid "[6,5,1]"
+msgstr "[6,5,1]"
+
+msgid "[4,2,1]"
+msgstr "[4,2,1]"
+
+msgid "[6,2,1]"
+msgstr "[6,2,1]"
+
+msgid "[6,4,2,1]"
+msgstr "[6,4,2,1]"
+
+msgid "[7,3,2]"
+msgstr "[7,3,2]"
+
+msgid "[7,5,3,1]"
+msgstr "[7,5,3,1]"
+
+msgid "[7,6,2,1]"
+msgstr "[7,6,2,1]"
+
+msgid "[5,3,2,1]"
+msgstr "[5,3,2,1]"
+
+msgid "[7,3,2,1]"
+msgstr "[7,3,2,1]"
+
+msgid "[7,5,3,2,1]"
+msgstr "[7,5,3,2,1]"
+
+msgid "[8,4,3,2]"
+msgstr "[8,4,3,2]"
+
+msgid "[8,6,4,3,1]"
+msgstr "[8,6,4,3,1]"
+
+msgid "[6,5,3,2,1]"
+msgstr "[6,5,3,2,1]"
+
+msgid "[8,7,3,2,1]"
+msgstr "[8,7,3,2,1]"
+
+msgid ""
+"I: atom type index (integer) N: principal quantum number (integer) L: "
+"angular quantum number (integer) EXP: exponent (double precision) NG: number"
+" of gaussians for the :math:`(AB|AC)` and :math:`(AB|CB)` integrals "
+"(integer)"
+msgstr ""
+"I：原子类型索引（整数） N：主量子数（整数） L：角量子数（整数） EXP：指数（双精度） NG：用于 :math:`(AB|AC)` 和 "
+":math:`(AB|CB)` 积分的 gaussian 数量（整数）"
+
+msgid "examples/slater.inp"
+msgstr "examples/slater.inp"

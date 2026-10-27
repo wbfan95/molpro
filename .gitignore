@@ -8,3 +8,4 @@ sphinx-warnings.txt
 _build/
 docs/_build/
 *.pyc
+translate_work/

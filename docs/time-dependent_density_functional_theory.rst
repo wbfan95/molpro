@@ -280,7 +280,7 @@ Excited state gradient calculations =
 -------------------------------------
 
 For performing TDDFT gradient calculations and geometry optimisations for excited states the value of the
-``grad parameter needs to be set to 1 (>0) in the tddft command:``
+``grad`` parameter needs to be set to 1 (>0) in the tddft command:
 
 .. code-block:: text
 

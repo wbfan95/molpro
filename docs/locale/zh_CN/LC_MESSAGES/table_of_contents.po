@@ -8,3 +8,344 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Table of Contents"
+msgstr "目录"
+
+msgid ":doc:`Introduction to Molpro <introduction_to_molpro>`"
+msgstr ":doc:`Molpro 简介 <introduction_to_molpro>`"
+
+msgid ":doc:`Molpro on the www <molpro_on_the_www>`"
+msgstr ":doc:`Molpro 网站资源 <molpro_on_the_www>`"
+
+msgid ":doc:`References <references>`"
+msgstr ":doc:`参考文献 <references>`"
+
+msgid ":doc:`Installation guide <installation_guide>`"
+msgstr ":doc:`安装指南 <installation_guide>`"
+
+msgid ":doc:`Recent changes <recent_changes>`"
+msgstr ":doc:`最新改动 <recent_changes>`"
+
+msgid ":doc:`Quickstart <quickstart>`"
+msgstr ":doc:`快速入门 <quickstart>`"
+
+msgid ":doc:`How to read this manual <how_to_read_this_manual>`"
+msgstr ":doc:`如何阅读本手册 <how_to_read_this_manual>`"
+
+msgid ":doc:`Running Molpro <running_molpro>`"
+msgstr ":doc:`运行 Molpro <running_molpro>`"
+
+msgid ""
+":doc:`Running Molpro on parallel computers "
+"<running_molpro_on_parallel_computers>`"
+msgstr ":doc:`在并行计算机上运行 Molpro <running_molpro_on_parallel_computers>`"
+
+msgid ""
+":doc:`gmolpro graphical user interface <gmolpro_graphical_user_interface>`"
+msgstr ":doc:`gmolpro 图形用户界面 <gmolpro_graphical_user_interface>`"
+
+msgid ""
+":doc:`Definition of Molpro input language "
+"<definition_of_molpro_input_language>`"
+msgstr ":doc:`Molpro 输入语言的定义 <definition_of_molpro_input_language>`"
+
+msgid ":doc:`General program structure <general_program_structure>`"
+msgstr ":doc:`程序总体结构 <general_program_structure>`"
+
+msgid ":doc:`Introductory examples <introductory_examples>`"
+msgstr ":doc:`入门示例 <introductory_examples>`"
+
+msgid ""
+":doc:`General hints - frequently asked questions <general_hints_-"
+"_frequently_asked_questions>`"
+msgstr ":doc:`通用提示——常见问题 <general_hints_-_frequently_asked_questions>`"
+
+msgid ":doc:`Program control <program_control>`"
+msgstr ":doc:`程序控制 <program_control>`"
+
+msgid ":doc:`File handling <file_handling>`"
+msgstr ":doc:`文件处理 <file_handling>`"
+
+msgid ":doc:`Variables <variables>`"
+msgstr ":doc:`变量 <variables>`"
+
+msgid ":doc:`Tables and plotting <tables_and_plotting>`"
+msgstr ":doc:`表格与绘图 <tables_and_plotting>`"
+
+msgid ":doc:`Molecular geometry <molecular_geometry>`"
+msgstr ":doc:`分子几何结构 <molecular_geometry>`"
+
+msgid ":doc:`Basis input <basis_input>`"
+msgstr ":doc:`基组输入 <basis_input>`"
+
+msgid ":doc:`Effective core potentials <effective_core_potentials>`"
+msgstr ":doc:`有效芯势 <effective_core_potentials>`"
+
+msgid ":doc:`Core polarization potentials <core_polarization_potentials>`"
+msgstr ":doc:`芯极化势 <core_polarization_potentials>`"
+
+msgid ":doc:`Integration <integration>`"
+msgstr ":doc:`积分 <integration>`"
+
+msgid ":doc:`Density fitting <density_fitting>`"
+msgstr ":doc:`密度拟合 <density_fitting>`"
+
+msgid ":doc:`The SCF program <the_scf_program>`"
+msgstr ":doc:`SCF 程序 <the_scf_program>`"
+
+msgid ":doc:`The density functional program <the_density_functional_program>`"
+msgstr ":doc:`密度泛函程序 <the_density_functional_program>`"
+
+msgid ""
+":doc:`Time-dependent density functional theory <time-"
+"dependent_density_functional_theory>`"
+msgstr ":doc:`含时密度泛函理论 <time-dependent_density_functional_theory>`"
+
+msgid ""
+":doc:`Møller Plesset perturbation theory "
+"<moller_plesset_perturbation_theory>`"
+msgstr ":doc:`Møller Plesset 微扰理论 <moller_plesset_perturbation_theory>`"
+
+msgid ":doc:`The closed shell CCSD program <the_closed_shell_ccsd_program>`"
+msgstr ":doc:`闭壳层 CCSD 程序 <the_closed_shell_ccsd_program>`"
+
+msgid ""
+":doc:`Excited states with equation-of-motion CCSD (EOM-CCSD) "
+"<excited_states_with_equation-of-motion_ccsd_eom-ccsd>`"
+msgstr ""
+":doc:`使用运动方程 CCSD（EOM-CCSD）的激发态 <excited_states_with_equation-of-"
+"motion_ccsd_eom-ccsd>`"
+
+msgid ""
+":doc:`The closed-shell density fitting CC2 program for ground and excited "
+"states <the_closed-"
+"shell_density_fitting_cc2_program_for_ground_and_excited_states>`"
+msgstr ""
+":doc:`用于基态和激发态的闭壳层密度拟合 CC2 程序 <the_closed-"
+"shell_density_fitting_cc2_program_for_ground_and_excited_states>`"
+
+msgid ""
+":doc:`Open-shell coupled cluster theories <open-"
+"shell_coupled_cluster_theories>`"
+msgstr ":doc:`开壳层耦合簇理论 <open-shell_coupled_cluster_theories>`"
+
+msgid ":doc:`Explicitly correlated methods <explicitly_correlated_methods>`"
+msgstr ":doc:`显式相关方法 <explicitly_correlated_methods>`"
+
+msgid ":doc:`Orbital localization <orbital_localization>`"
+msgstr ":doc:`轨道定域化 <orbital_localization>`"
+
+msgid ""
+":doc:`Intrinsic basis bonding analysis (IAO/IBO) "
+"<intrinsic_basis_bonding_analysis_iao_ibo>`"
+msgstr ":doc:`内禀基组成键分析（IAO/IBO） <intrinsic_basis_bonding_analysis_iao_ibo>`"
+
+msgid ""
+":doc:`Local correlation methods with pair natural orbitals (PNOs) "
+"<local_correlation_methods_with_pair_natural_orbitals_pnos>`"
+msgstr ""
+":doc:`使用对自然轨道（PNO）的局域相关方法 "
+"<local_correlation_methods_with_pair_natural_orbitals_pnos>`"
+
+msgid ""
+":doc:`Multireference local correlation methods (PNO-CASPT2) "
+"<multireference_local_correlation_methods_pno-caspt2>`"
+msgstr ""
+":doc:`多参考局域相关方法（PNO-CASPT2） <multireference_local_correlation_methods_pno-"
+"caspt2>`"
+
+msgid ""
+":doc:`PAO-based local correlation treatments <pao-"
+"based_local_correlation_treatments>`"
+msgstr ":doc:`基于 PAO 的局域相关处理 <pao-based_local_correlation_treatments>`"
+
+msgid ""
+":doc:`Local methods for excited states <local_methods_for_excited_states>`"
+msgstr ":doc:`激发态的局域方法 <local_methods_for_excited_states>`"
+
+msgid ":doc:`The MCSCF program MULTI <the_mcscf_program_multi>`"
+msgstr ":doc:`MCSCF 程序 MULTI <the_mcscf_program_multi>`"
+
+msgid ":doc:`The VB program CASVB <the_vb_program_casvb>`"
+msgstr ":doc:`VB 程序 CASVB <the_vb_program_casvb>`"
+
+msgid ":doc:`The NEVPT2 program <the_nevpt2_program>`"
+msgstr ":doc:`NEVPT2 程序 <the_nevpt2_program>`"
+
+msgid ""
+":doc:`Automated construction of atomic valence active spaces "
+"<automated_construction_of_atomic_valence_active_spaces>`"
+msgstr ""
+":doc:`原子价活性空间的自动构建 <automated_construction_of_atomic_valence_active_spaces>`"
+
+msgid ":doc:`The MRCI program <the_mrci_program>`"
+msgstr ":doc:`MRCI 程序 <the_mrci_program>`"
+
+msgid ""
+":doc:`Multireference Rayleigh Schrödinger perturbation theory "
+"<multireference_rayleigh_schroedinger_perturbation_theory>`"
+msgstr ""
+":doc:`多参考 Rayleigh Schrödinger 微扰理论 "
+"<multireference_rayleigh_schroedinger_perturbation_theory>`"
+
+msgid ""
+":doc:`Internally contracted multireference coupled-cluster theory "
+"<internally_contracted_multireference_coupled-cluster_theory>`"
+msgstr ""
+":doc:`内收缩多参考耦合簇理论 <internally_contracted_multireference_coupled-"
+"cluster_theory>`"
+
+msgid ""
+":doc:`The MRCC program of M. Kallay (MRCC) "
+"<the_mrcc_program_of_m._kallay_mrcc>`"
+msgstr ":doc:`M. Kallay 的 MRCC 程序（MRCC） <the_mrcc_program_of_m._kallay_mrcc>`"
+
+msgid ":doc:`The full CI program <the_full_ci_program>`"
+msgstr ":doc:`全 CI 程序 <the_full_ci_program>`"
+
+msgid ":doc:`Energy gradients <energy_gradients>`"
+msgstr ":doc:`能量梯度 <energy_gradients>`"
+
+msgid ":doc:`Geometry optimization (OPTG) <geometry_optimization_optg>`"
+msgstr ":doc:`几何优化（OPTG） <geometry_optimization_optg>`"
+
+msgid ""
+":doc:`Harmonic vibrational frequencies (FREQUENCIES) "
+"<harmonic_vibrational_frequencies_frequencies>`"
+msgstr ""
+":doc:`简谐振动频率（FREQUENCIES） <harmonic_vibrational_frequencies_frequencies>`"
+
+msgid ":doc:`PES generators <pes_generators>`"
+msgstr ":doc:`PES 生成器 <pes_generators>`"
+
+msgid ":doc:`PES transformations <pes_transformations>`"
+msgstr ":doc:`PES 变换 <pes_transformations>`"
+
+msgid ":doc:`Vibrational SCF programs <vibrational_scf_programs>`"
+msgstr ":doc:`振动 SCF 程序 <vibrational_scf_programs>`"
+
+msgid ":doc:`Vibration correlation programs <vibration_correlation_programs>`"
+msgstr ":doc:`振动关联程序 <vibration_correlation_programs>`"
+
+msgid ""
+":doc:`Processing of rovibrational line lists (DAT2GR) "
+"<processing_of_rovibrational_line_lists_dat2gr>`"
+msgstr ""
+":doc:`振转谱线列表的处理（DAT2GR） <processing_of_rovibrational_line_lists_dat2gr>`"
+
+msgid ""
+":doc:`Vibrational perturbation theory (VPT2) "
+"<vibrational_perturbation_theory_vpt2>`"
+msgstr ":doc:`振动微扰理论（VPT2） <vibrational_perturbation_theory_vpt2>`"
+
+msgid ":doc:`Franck-Condon calculations <franck-condon_calculations>`"
+msgstr ":doc:`Franck-Condon 计算 <franck-condon_calculations>`"
+
+msgid ""
+":doc:`Intermolecular interaction energies "
+"<intermolecular_interaction_energies>`"
+msgstr ":doc:`分子间相互作用能 <intermolecular_interaction_energies>`"
+
+msgid ""
+":doc:`Properties and expectation values <properties_and_expectation_values>`"
+msgstr ":doc:`属性和期望值 <properties_and_expectation_values>`"
+
+msgid ":doc:`Relativistic corrections <relativistic_corrections>`"
+msgstr ":doc:`相对论校正 <relativistic_corrections>`"
+
+msgid ":doc:`Spin-orbit-coupling <spin-orbit-coupling>`"
+msgstr ":doc:`自旋-轨道耦合 <spin-orbit-coupling>`"
+
+msgid ":doc:`Basis set extrapolation <basis_set_extrapolation>`"
+msgstr ":doc:`基组外推 <basis_set_extrapolation>`"
+
+msgid ":doc:`The COSMO model <the_cosmo_model>`"
+msgstr ":doc:`COSMO 模型 <the_cosmo_model>`"
+
+msgid ""
+":doc:`Dump density or orbital values (CUBE) "
+"<dump_density_or_orbital_values_cube>`"
+msgstr ":doc:`导出密度或轨道值 (CUBE) <dump_density_or_orbital_values_cube>`"
+
+msgid ""
+":doc:`Non adiabatic coupling matrix elements "
+"<non_adiabatic_coupling_matrix_elements>`"
+msgstr ":doc:`非绝热耦合矩阵元 <non_adiabatic_coupling_matrix_elements>`"
+
+msgid ":doc:`Quasi-diabatization <quasi-diabatization>`"
+msgstr ":doc:`准绝热化 <quasi-diabatization>`"
+
+msgid ""
+":doc:`Ab initio multiple spawning dynamics "
+"<ab_initio_multiple_spawning_dynamics>`"
+msgstr ":doc:`从头算多重生成动力学 <ab_initio_multiple_spawning_dynamics>`"
+
+msgid ":doc:`SMILES <smiles>`"
+msgstr ":doc:`SMILES <smiles>`"
+
+msgid ""
+":doc:`Symmetry-adapted intermolecular perturbation theory <symmetry-"
+"adapted_intermolecular_perturbation_theory>`"
+msgstr ""
+":doc:`对称性适配分子间微扰理论 <symmetry-adapted_intermolecular_perturbation_theory>`"
+
+msgid ""
+":doc:`Kohn-Sham random-phase approximation <kohn-sham_random-"
+"phase_approximation>`"
+msgstr ":doc:`Kohn-Sham 随机相位近似 <kohn-sham_random-phase_approximation>`"
+
+msgid ""
+":doc:`Chemical shieldings, magnetizability, and rotational g-tensor "
+"<chemical_shieldings_magnetizability_and_rotational_g-tensor>`"
+msgstr ""
+":doc:`化学屏蔽、磁化率和转动 g 张量 "
+"<chemical_shieldings_magnetizability_and_rotational_g-tensor>`"
+
+msgid ":doc:`Minimization of functions <minimization_of_functions>`"
+msgstr ":doc:`函数极小化 <minimization_of_functions>`"
+
+msgid ""
+":doc:`Nuclear-electronic orbital method <nuclear-electronic_orbital_method>`"
+msgstr ":doc:`核-电子轨道方法 <nuclear-electronic_orbital_method>`"
+
+msgid ":doc:`Instantons <instantons>`"
+msgstr ":doc:`瞬子 <instantons>`"
+
+msgid ":doc:`QM/MM interfaces <qm_mm_interfaces>`"
+msgstr ":doc:`QM/MM 接口 <qm_mm_interfaces>`"
+
+msgid ""
+":doc:`Projection-based WF-in-DFT embedding <projection-based_wf-in-"
+"dft_embedding>`"
+msgstr ":doc:`基于投影的 WF-in-DFT 嵌入 <projection-based_wf-in-dft_embedding>`"
+
+msgid ":doc:`Region <region>`"
+msgstr ":doc:`区域 <region>`"
+
+msgid ":doc:`The TDHF and TDKS programs <the_tdhf_and_tdks_programs>`"
+msgstr ":doc:`TDHF 和 TDKS 程序 <the_tdhf_and_tdks_programs>`"
+
+msgid ":doc:`Orbital merging <orbital_merging>`"
+msgstr ":doc:`轨道合并 <orbital_merging>`"
+
+msgid ":doc:`Matrix operations <matrix_operations>`"
+msgstr ":doc:`矩阵运算 <matrix_operations>`"
+
+msgid ""
+":doc:`Post-processing of output and databases <post-"
+"processing_of_output_and_databases>`"
+msgstr ":doc:`输出和数据库的后处理 <post-processing_of_output_and_databases>`"
+
+msgid ":doc:`Physical constants <physical_constants>`"
+msgstr ":doc:`物理常数 <physical_constants>`"
+
+msgid ""
+":doc:`Density functional descriptions <density_functional_descriptions>`"
+msgstr ":doc:`密度泛函描述 <density_functional_descriptions>`"
+
+msgid ":doc:`License information <license_information>`"
+msgstr ":doc:`许可证信息 <license_information>`"
+
+msgid ":doc:`Index <manual_index>`"
+msgstr ":doc:`索引 <manual_index>`"

@@ -305,11 +305,11 @@ Read orbitals or structure coefficients
 
 The ``READ`` keyword can take one of the following forms:
 
-``READ,ORB,iorb1[,TO,iorb2] [,AS,jorb1[,TO,jorb2]] [,FROM,record];``
+``READ``,\ ``ORB``,\ *iorb1*\ [,\ ``TO``,\ *iorb2*] [,\ ``AS``,\ *jorb1*\ [,\ ``TO``,\ *jorb2*]] [,\ ``FROM``,\ *record*];
 
-``READ,STRUC,istruc1[,TO,istruc2] [,AS,jstruc1[,TO,jstruc2]] [,FROM,record];``
+``READ``,\ ``STRUC``,\ *istruc1*\ [,\ ``TO``,\ *istruc2*] [,\ ``AS``,\ *jstruc1*\ [,\ ``TO``,\ *jstruc2*]] [,\ ``FROM``,\ *record*];
 
-``READ,ALL [,FROM,record];``
+``READ``,\ ``ALL`` [,\ ``FROM``,\ *record*];
 
 In this way a subset of orbitals and/or structure coefficients may be picked out from a previous calculation. Renumbering of orbitals or structures can be done using the “\ ``AS``" construct as outlined above. If the VB wavefunction was previously saved in the AO basis, the orbitals will be projected onto the present active space (note that it is necessary to specify a record name for the molecular orbitals (*orb* in the ``START`` command) for this to be possible).
 
@@ -473,7 +473,7 @@ The effect of this keyword is to set to zero coefficients in unwanted irreducibl
 Freezing orbitals in the optimization
 =====================================
 
-``FIXORB,i$_1$,i$_2$,[TO,i$_3$,]i$_4$,…;``
+``FIXORB``,\ *i:math:`_1`,i:math:`_2`*,[``TO``,\ *i:math:`_3`*,]\ *i:math:`_4`*,…;
 
 Freezes the specified orbitals to be those in the starting guess. Alternatively the special keywords ``ALL`` or ``NONE`` may be used. These orbitals are eliminated from the optimization procedure, but will still be normalized and symmetry-adapted according to any ``ORBREL`` keywords given.
 
@@ -482,7 +482,7 @@ Freezes the specified orbitals to be those in the starting guess. Alternatively 
 Freezing structure coefficients in the optimization
 ===================================================
 
-``FIXSTRUC,i$_1$,i$_2$,[TO,i$_3$,]i$_4$,…;``
+``FIXSTRUC``,\ *i:math:`_1`,i:math:`_2`*,[``TO``,\ *i:math:`_3`*,]\ *i:math:`_4`*,…;
 
 Freezes the coefficients for the specified structures to be those in the starting guess. Alternatively the special keywords ``ALL`` or ``NONE`` may be used. The structures are eliminated from the optimization procedure, but may still be affected by normalization or any symmetry keywords present.
 
@@ -491,7 +491,7 @@ Freezes the coefficients for the specified structures to be those in the startin
 Deleting structures from the optimization
 =========================================
 
-``DELSTRUC,i$_1$,i$_2$,[TO,i$_3$,]i$_4$,…;``
+``DELSTRUC``,\ *i:math:`_1`,i:math:`_2`*,[``TO``,\ *i:math:`_3`*,]\ *i:math:`_4`*,…;
 
 Deletes the specified structures from the wavefunction. The special keywords ``ALL`` or ``NONE`` may be used. A structure coefficient may already be zero by symmetry (as defined by ``SYMELM`` and ``ORBREL``), in which case deleting it has no effect.
 

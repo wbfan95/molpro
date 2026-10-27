@@ -52,3 +52,79 @@ msgstr "基函数优化"
 
 msgid "Intersection points"
 msgstr "交点"
+
+msgid "``MINIMIZE, func, x$_1$[, x$_2$, x$_3$, …]``"
+msgstr "``MINIMIZE, func, x$_1$[, x$_2$, x$_3$, …]``"
+
+msgid ""
+"where *func* represents a function of up to 50 variables *x:math:`_1`, "
+"x:math:`_2`, …*. Two different optimization methods can be selected as "
+"described below which do or do not use numerical derivative information."
+msgstr ""
+"其中 *func* 表示最多含 50 个变量 *x:math:`_1`, x:math:`_2`, …* "
+"的函数。如下所述，可选择两种不同的优化方法，它们使用或不使用数值导数信息。"
+
+msgid "``METHOD, key [, key1=value, key2=value, …] [minimize:method]``"
+msgstr "``METHOD, key [, key1=value, key2=value, …] [minimize:method]``"
+
+msgid "**``VARSCALE``\\ =\\ *vscale*** Optimization in space of scaled variables."
+msgstr "**``VARSCALE``\\ =\\ *\\ vscale*** 在缩放变量空间中进行优化。"
+
+msgid ""
+"*vscale=0* no scaling (not recommended) *vscale=1* optimization in the space"
+" of ln(:math:`x`) *vscale=2* optimization in space of initial value scaling,"
+" e.g., :math:`x_1/x_{1i}` (default)"
+msgstr ""
+"*vscale=0* 不缩放（不推荐） *vscale=1* 在 ln(:math:`x`) 空间中进行优化 *vscale=2* "
+"在初值缩放空间中进行优化，例如 :math:`x_1/x_{1i}`\\ （默认）"
+
+msgid ""
+"**``THRESH``\\ =\\ *thresh*** Required accuracy of either the gradient "
+"(BFGS) or parameters (SIMPLEX). The default is :math:`1 \\cdot 10^{-4}` for "
+"BFGS and :math:`1 \\cdot 10^{-2}` for SIMPLEX. Note that previously this "
+"pertained to the function value in the Simplex case."
+msgstr ""
+"**``THRESH``\\ =\\ *\\ thresh*** 所需的梯度（BFGS）或参数（SIMPLEX）精度。BFGS 默认为 :math:`1"
+" \\cdot 10^{-4}`\\ ，SIMPLEX 默认为 :math:`1 \\cdot 10^{-2}`\\ 。请注意，此前在 Simplex "
+"情形下这是指函数值的精度。"
+
+msgid ""
+"**``VSTEP``\\ =\\ *epsd*** Step size for numerical gradients (BFGS) or "
+"initial SIMPLEX vertices"
+msgstr "**``VSTEP``\\ =\\ *\\ epsd*** 数值梯度（BFGS）或初始 SIMPLEX 顶点的步长"
+
+msgid ""
+"**``PROC``\\ =\\ *procname*** Specifies the procedure to be executed in each"
+" optimization step. This defines a complete function evaluation (if needed, "
+"numerical gradients will be evaluated using this procedure as well)"
+msgstr ""
+"**``PROC``\\ =\\ *\\ procname*** "
+"指定在每个优化步长中要执行的过程。这定义了一次完整的函数求值（如有需要，数值梯度也将使用此过程求值）"
+
+msgid ""
+"**``STARTCMD``\\ =\\ *command*** Specifies a start command. In each "
+"optimization step all input beginning with *command* to the current "
+"``MINIMIZE`` is processed."
+msgstr ""
+"**``STARTCMD``\\ =\\ *\\ command*** 指定起始命令。在每个优化步长中，将处理当前 ``MINIMIZE`` 之前所有以"
+" *\\ command* 开头的输入。"
+
+msgid ""
+"**``MAXIT``,\\ *maxit*** maximum number of optimization cycles. The default "
+"is 30 for BFGS and 100 for SIMPLEX."
+msgstr "**``MAXIT``,\\ *\\ maxit*** 优化循环的最大次数。BFGS 默认为 30，SIMPLEX 默认为 100。"
+
+msgid "examples/min_optgeo.inp"
+msgstr "examples/min_optgeo.inp"
+
+msgid "examples/basisopt_simple.inp"
+msgstr "examples/basisopt_simple.inp"
+
+msgid "examples/basisopt_proc.inp"
+msgstr "examples/basisopt_proc.inp"
+
+msgid "examples/basisopt_cv.inp"
+msgstr "examples/basisopt_cv.inp"
+
+msgid "examples/min_intersect.inp"
+msgstr "examples/min_intersect.inp"

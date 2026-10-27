@@ -153,3 +153,43 @@ msgstr "显式ECP输入示例"
 
 msgid "Example for ECP input from library"
 msgstr "来自库的ECP输入示例"
+
+msgid "``ECP,atom,[ECP specification]``"
+msgstr "``ECP,atom,[ECP specification]``"
+
+msgid "a card of the form"
+msgstr "如下形式的卡片"
+
+msgid ""
+"``ECP,atom,$n_{core},l_{max},l'_{max}$;\\\\`` where :math:`n_{core}` is the "
+"number of core electrons replaced by the pseudopotential :math:`V_{ps}`, "
+":math:`l_{max}` is the number of semi-local terms in the scalar-relativistic"
+" part of :math:`V_{ps}`, while :math:`l'_{max}` is the corresponding number "
+"of terms in the SO part:"
+msgstr ""
+"``ECP,atom,$n_{core},l_{max},l'_{max}$;\\\\`` 其中 :math:`n_{core}` 是被赝势 "
+":math:`V_{ps}` 取代的芯电子数，\\ :math:`l_{max}` 是 :math:`V_{ps}` 标量相对论部分中半局域项的数目，而"
+" :math:`l'_{max}` 是 SO 部分中相应的项数："
+
+msgid ""
+"the semi-local terms (with angular-momentum projectors :math:`{\\cal "
+"P}_{l}`) are supplemented by a local term for :math:`l=l_{max}`. \\* a "
+"number of cards specifying :math:`V_{l_{max}}`, the first giving the "
+"expansion length :math:`n_{l_{max}}` in"
+msgstr ""
+"半局域项（带有角动量投影算符 :math:`{\\cal P}_{l}`\\ ）由 :math:`l=l_{max}` 的局域项补充。 \\* "
+"若干卡片指定 :math:`V_{l_{max}}`\\ ，第一张给出展开长度 :math:`n_{l_{max}}`\\ ，位于"
+
+msgid ""
+"\\* a number of cards specifying the scalar-relativistic semi-local terms in"
+" the order :math:`l=0,1,\\ldots , l_{max}-1.` For each of these terms a card"
+" with the expansion length :math:`n_l` in"
+msgstr ""
+"\\* 若干卡片按 :math:`l=0,1,\\ldots , l_{max}-1.` "
+"的顺序指定标量相对论半局域项。对于每个这样的项，一张带有展开长度 :math:`n_l` 的卡片位于"
+
+msgid "examples/cu_ecp_explicit.inp"
+msgstr "examples/cu_ecp_explicit.inp"
+
+msgid "examples/auh_ecp_lib.inp"
+msgstr "examples/auh_ecp_lib.inp"

@@ -968,7 +968,7 @@ with using standard Gauss-Chebyshev quadrature of the second kind for the :math:
 
 :math:`n_0`, :math:`n_1`, :math:`n_2`, :math:`n_3` are the degrees of quadrature :math:`n_r` (see equation (3) of Murray et al.), for hydrogen/helium, first row, second row, and other elements respectively.
 
-``accr specifies a target accuracy; the number of radial points is chosen according to a model, instead of using an explicit $n_i$. The stricter of $n_i$, accr is used, unless either is zero, in which case it is ignored. Molpro will then set accr=acc/2d0 where acc is the global threshold for the grid accuracy that can be set with the option GRIDTHR.``
+``accr`` specifies a target accuracy; the number of radial points is chosen according to a model, instead of using an explicit :math:`n_i`. The stricter of :math:`n_i`, ``accr`` is used, unless either is zero, in which case it is ignored. Molpro will then set ``accr``\ =\ ``acc``/2d0 where ``acc`` is the global threshold for the grid accuracy that can be set with the option ``GRIDTHR``.
 
 An atom dependent radial scaling factor can be set with the option ``RADIAL_SCALING``, e.g. ``RADIAL_SCALING``\ =[1.0,1.1,1.1] could be a possible modification of the radial grids for H\ :math:`_2`\ O ``xcgrid.png?nolink&50``. Note that factors for all atoms must be given, otherwise the option will be ignored. The option can also be used to modify the scalar *scale* factor for ``dftgrid.png?nolink&50`` in which case only a single value needs to be given that will then be used to scale the radial grids for all atoms.
 
@@ -1051,7 +1051,7 @@ Atom partitioning of integration grid (VORONOI)
 ``PRUNING_VORONOI_PAIRS=all,atom``
 
 Controls Becke-Voronoi partitioning of space. By default, the algorithm of C. W. Murray, N. C. Handy and G. J. Laming, `Mol. Phys. <https://dx.doi.org/10.1080/00268979300100651>`__ **78**, 997 (1993) is used, with :math:`m_\mu` defined by equation (24). The default value is 10.
-``vortyp defines the type of grid weights to be computed: 1: raw  weights,  2: full voronoi,  4: pair voronoi. The default is``
+``vortyp`` defines the type of grid weights to be computed: 1: raw  weights,  2: full voronoi,  4: pair voronoi. The default is
 ``vortyp=2.``
 
 ``xcgrid.png?nolink&50`` It is possible to choose between the three different step functions ``VORONOI_SCHEME``\ =\ *murray*,\ *becke* and *stratmann*.
@@ -1203,7 +1203,7 @@ SG Grids (GRID,name=SG)
 or
 ``GRID,name=SG3\\``
 
-``SG0 is a small fixed-pruned grid by Chien and Gill[1]. It is defined for atoms in the first three rows except He, Ne and Ar. Less than 1500 points is produced per atom. The MultiExp radial grid and Becke’s Voronoi partitioning step function are used. The 18 point Lebedev angular grids are replaced with 14 point ones.``
+``SG0`` is a small fixed-pruned grid by Chien and Gill[1]. It is defined for atoms in the first three rows except He, Ne and Ar. Less than 1500 points is produced per atom. The MultiExp radial grid and Becke’s Voronoi partitioning step function are used. The 18 point Lebedev angular grids are replaced with 14 point ones.
 
 ``SG2`` and ``SG3`` are larger fixed grids by Dasgupta and Herbert [3] that were developed to achieve high accuracies for chemical properties. They are based on the ``DE2`` (DoubleExp) radial quadrature scheme, see section `Radial integration grid <the_density_functional_program.html#radial-integration-grid-radial>`__.
 
@@ -2406,7 +2406,7 @@ look like
    evv10=energy
 
 where variable ``eloc`` stores the total energy for the standard Kohn-Sham calculation with the local part to the functional (``GGA_XC_VV10``) and
-``evv10 stores the sum of eloc plus the energy contribution for the nonlocal correlation part (vv10). Note that the VV10 functional is currently the only available``
+``evv10`` stores the sum of ``eloc`` plus the energy contribution for the nonlocal correlation part (``vv10``). Note that the VV10 functional is currently the only available
 option to vdwDF. It can take the following suboptions:
 
 * ``DEN`` Dump record containing the density matrix (must be supplied)

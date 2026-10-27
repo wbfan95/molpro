@@ -121,6 +121,11 @@ msgstr ""
 msgid "DO loops (DO/ENDDO)"
 msgstr "DO 循环 (DO/ENDDO)"
 
+msgid ""
+"``DO`` loops can be constructed using the ``DO`` and ``ENDDO`` commands. The"
+" general format of the ``DO`` command is similar to Fortran:"
+msgstr "可以使用 ``DO`` 和 ``ENDDO`` 命令构建 ``DO`` 循环。\\ ``DO`` 命令的通用格式类似于 Fortran："
+
 msgid "``DO`` *variable*\\ ``=``\\ *start, end* [[,]\\ *increment*] [[,]\\ *unit*]"
 msgstr "``DO`` *变量*\\ ``=``\\ *起始值, 终止值* [[,]\\ *增量*] [[,]\\ *单位*]"
 
@@ -162,8 +167,15 @@ msgstr "有关使用 DO 循环的两个示例，请参阅 `入门示例 <introdu
 msgid "Branching (IF/ELSEIF/ENDIF)"
 msgstr "分支（IF/ELSEIF/ENDIF）"
 
+msgid ""
+"``IF`` blocks and ``IF/ELSEIF`` blocks can be constructed as in ``FORTRAN``."
+msgstr "``IF`` 块和 ``IF/ELSEIF`` 块可以像在 ``FORTRAN`` 中一样构建。"
+
 msgid "IF statements"
 msgstr "IF 语句"
+
+msgid "``IF`` blocks have the same form as in Fortran:"
+msgstr "``IF`` 块的形式与 Fortran 中相同："
 
 msgid "``IF (logical expression) THEN statements ENDIF``"
 msgstr "``IF (logical expression) THEN statements ENDIF``"
@@ -175,6 +187,15 @@ msgid "can be used, except if *statement* is a procedure name."
 msgstr "可以使用，除非 *statement* 是过程名。"
 
 msgid ""
+"``ELSE`` and ``ELSE IF`` can be used exactly as in Fortran. ``IF`` "
+"statements may be arbitrarily nested. Jumps into ``IF`` or ``ELSE IF`` "
+"blocks are allowed. In this case no testing is performed; when an ``ELSE`` "
+"is reached, control continues after ``ENDIF``."
+msgstr ""
+"``ELSE`` 和 ``ELSE IF`` 可以完全按照 Fortran 中的方式使用。\\ ``IF`` 语句可以任意嵌套。允许跳入 ``IF`` "
+"或 ``ELSE IF`` 块。在这种情况下不执行测试；当遇到 ``ELSE`` 时，控制权在 ``ENDIF`` 之后继续。"
+
+msgid ""
 "The logical expression may involve logical comparisons of algebraic "
 "expressions or of strings. Examples:"
 msgstr "逻辑表达式可以涉及代数表达式或字符串的逻辑比较。例如："
@@ -184,6 +205,11 @@ msgstr "在前面的例子中，美元符号和引号是可选的："
 
 msgid "GOTO commands"
 msgstr "GOTO 命令"
+
+msgid ""
+"``GOTO`` commands can be used to skip over parts of the input. The general "
+"form is"
+msgstr "``GOTO`` 命令可用于跳过输入的部分内容。其一般形式为"
 
 msgid "``GOTO,command,[n],[nrep]``"
 msgstr "``GOTO,command,[n],[nrep]``"
@@ -606,6 +632,20 @@ msgid ""
 "specified on one card."
 msgstr "多个 ``GEXPEC`` 卡片可以连续出现，或者可以在一个卡片上指定多个算符。"
 
+msgid "``GEXPEC,QM`` computes quadrupole moments with origin at (0,0,0),"
+msgstr "``GEXPEC,QM`` 计算原点在 (0,0,0) 处的四极矩，"
+
+msgid "``GEXPEC,QM1`` computes quadrupole moments with origin at centre 1."
+msgstr "``GEXPEC,QM1`` 计算原点在中心 1 处的四极矩。"
+
+msgid ""
+"``GEXPEC,QM,O1`` computes quadrupole moments with origin at atom ``O1``."
+msgstr "``GEXPEC,QM,O1`` 计算原点在原子 ``O1`` 处的四极矩。"
+
+msgid ""
+"``GEXPEC,QM,,1,2,3`` computes quadrupole moments with origin at (1,2,3)."
+msgstr "``GEXPEC,QM,,1,2,3`` 计算原点在 (1,2,3) 处的四极矩。"
+
 msgid "The following table summarizes all available operators:"
 msgstr "下表总结了所有可用的算符："
 
@@ -855,3 +895,156 @@ msgid ""
 "``PRINT`` Print record information to output file, showing from which "
 "records the orbitals etc are read (default 0)."
 msgstr "``PRINT`` 将记录信息打印到输出文件，显示轨道等是从哪些记录读取的（默认为 0）。"
+
+msgid "Starting a job (\\*\\*\\*)"
+msgstr "启动作业（\\*\\*\\*）"
+
+msgid "``*,text``"
+msgstr "``*,text``"
+
+msgid "Ending a job (---)"
+msgstr "结束作业（---）"
+
+msgid "``---``"
+msgstr "``---``"
+
+msgid ""
+"In contrast to Molpro92 and older versions, the current version of Molpro "
+"attempts to recover all information from all permanent files by default. If "
+"a restart is unwanted, the ``NEW`` option can be used on the ``FILE`` "
+"directive. The ``RESTART`` directive as described below can still be used as"
+" in Molpro92, but is usually not needed."
+msgstr ""
+"与 Molpro92 及更早版本不同，当前版本的 Molpro 默认尝试从所有永久文件中恢复所有信息。如果不希望重新启动，可在 ``FILE`` "
+"指令上使用 ``NEW`` 选项。如下所述的 ``RESTART`` 指令仍可像在 Molpro92 中一样使用，但通常不需要。"
+
+msgid "``RESTART,$r_1,r_2,r_3,r_4,\\ldots$;``"
+msgstr "``RESTART,$r_1,r_2,r_3,r_4,\\ldots$;``"
+
+msgid "``INCLUDE,file[,ECHO];``"
+msgstr "``INCLUDE,file[,ECHO];``"
+
+msgid ""
+"Insert the contents of the specified *file* in the input stream. In most "
+"implementations the file name given is used directly in a Fortran open "
+"statement. If *file* begins with the character ``’/’``, then it will be "
+"interpreted as an absolute file name. Otherwise, it will be assumed to be a "
+"path relative to the directory from which the Molpro has been launched. If, "
+"however, the file is not found, an attempt will be made instead to read it "
+"relative to the system ``lib/include`` directory, where any standard "
+"procedures may be found."
+msgstr ""
+"将指定 *file* 的内容插入输入流。在大多数实现中，给定的文件名直接用于 Fortran open 语句。如果 *file* 以字符 ``’/’``"
+" 开头，则将其解释为绝对文件名。否则，将其视为相对于启动 Molpro 所在目录的路径。然而，如果未找到该文件，则会改为尝试相对于系统 "
+"``lib/include`` 目录读取它，任何标准过程都可能在那里找到。"
+
+msgid "``MEMORY,n,scale;``"
+msgstr "``MEMORY,n,scale;``"
+
+msgid "``IF (logical expression) statement``"
+msgstr "``IF (logical expression) statement``"
+
+msgid "examples/h2o_proc_mrci.inp"
+msgstr "examples/h2o_proc_mrci.inp"
+
+msgid "examples/h2o_proc_ccsd.inp"
+msgstr "examples/h2o_proc_ccsd.inp"
+
+msgid ""
+"With Molpro 2025.4 or later most of these procedures are obsolete and can be"
+" replaced by single line input using the ``run`` command, see section "
+":doc:`Simple Input <quickstart>`."
+msgstr ""
+"在 Molpro 2025.4 或更高版本中，这些过程大部分已过时，可以使用 ``run`` 命令通过单行输入替代，参见 :doc:`Simple "
+"Input <quickstart>` 一节。"
+
+msgid "examples/h2o_IP_with_runmrci.inp"
+msgstr "examples/h2o_IP_with_runmrci.inp"
+
+msgid ""
+"For further examples see `oh_runccsdt.inp "
+"<media/examples/oh_runccsdt.inp>`__, `oh_runmrci1.inp "
+"<media/examples/oh_runmrci1.inp>`__, `oh_runmrci2.inp "
+"<media/examples/oh_runmrci2.inp>`__, `oh_runmrci3.inp "
+"<media/examples/oh_runmrci3.inp>`__, `oh_runmrci4.inp "
+"<media/examples/oh_runmrci4.inp>`__."
+msgstr ""
+"更多示例见 `oh_runccsdt.inp <media/examples/oh_runccsdt.inp>`__\\ 、\\ "
+"`oh_runmrci1.inp <media/examples/oh_runmrci1.inp>`__\\ 、\\ `oh_runmrci2.inp "
+"<media/examples/oh_runmrci2.inp>`__\\ 、\\ `oh_runmrci3.inp "
+"<media/examples/oh_runmrci3.inp>`__\\ 、\\ `oh_runmrci4.inp "
+"<media/examples/oh_runmrci4.inp>`__\\ 。"
+
+msgid "``TEXT,xxxxxx``"
+msgstr "``TEXT,xxxxxx``"
+
+msgid "``STATUS,[ALL|LAST|commands],[IGNORE|STOP|CRASH],[CLEAR]``"
+msgstr "``STATUS,[ALL|LAST|commands],[IGNORE|STOP|CRASH],[CLEAR]``"
+
+msgid ""
+"``STATUS,RHF,CLEAR;`` will clear the status flag for last ``RHF``. No action"
+" even if ``RHF`` did not converge."
+msgstr "``STATUS,RHF,CLEAR;`` 将清除最近一次 ``RHF`` 的状态标志。即使 ``RHF`` 未收敛也不采取任何操作。"
+
+msgid "``GTHRESH,key1=value1,key2=value2,…``"
+msgstr "``GTHRESH,key1=value1,key2=value2,…``"
+
+msgid "``GPRINT,key1[=value1],key2[=value2],…\\\\`` ``NOGPRINT,key1,key2,…``"
+msgstr "``GPRINT,key1[=value1],key2[=value2],…\\\\`` ``NOGPRINT,key1,key2,…``"
+
+msgid ""
+"The operators for which expectation values are requested, are specified by "
+"keywords on the global ``GEXPEC`` directive. By default, only dipole moments"
+" are computed. The first letter ``G`` is optional, but should be used to "
+"avoid confusion with program specific ``EXPEC`` cards, which have the same "
+"form as ``GEXPEC``. For all operators specified on the ``GEXPEC`` card, "
+"expectation values are computed in all subsequent programs that generate the"
+" first-order density matrix. This is always the case for variational "
+"wavefunctions, i.e., HF, DFT, MCSCF, MRCI. For non-variational wavefunctions"
+" such as MP2, MP3, QCISD, QCISD(T), CCSD, or CCSD(T) the density matix is "
+"not computed by default, since this requires considerable additional effort "
+"(solving z-vector equations). The GEXPEC directive does not affect such "
+"programs. In some cases [currently for MP2, MP3, QCISD, QCISD(T), and CCSD] "
+"the ``EXPEC`` directive that is specific to those programs can be used to "
+"request the property calculation."
+msgstr ""
+"请求计算期望值的算符由全局 ``GEXPEC`` 指令上的关键字指定。默认情况下，仅计算偶极矩。首字母 ``G`` "
+"是可选的，但应使用它以避免与程序特定的 ``EXPEC`` 卡片混淆，后者的形式与 ``GEXPEC`` 相同。对于在 ``GEXPEC`` "
+"卡片上指定的所有算符，将在所有生成一阶密度矩阵的后续程序中计算期望值。这对于变分波函数（即 "
+"HF、DFT、MCSCF、MRCI）总是成立。对于非变分波函数，如 MP2、MP3、QCISD、QCISD(T)、CCSD 或 "
+"CCSD(T)，默认不计算密度矩阵，因为这需要相当多的额外工作（求解 z-vector 方程）。GEXPEC 指令不影响此类程序。在某些情况下 [目前为"
+" MP2、MP3、QCISD、QCISD(T) 和 CCSD]，可以使用特定于这些程序的 ``EXPEC`` 指令来请求性质计算。"
+
+msgid "``[G]EXPEC,opname[,][icen,[x,y,z]],...``"
+msgstr "``[G]EXPEC,opname[,][icen,[x,y,z]],...``"
+
+msgid "***opname*** operator name (string), either generic or component."
+msgstr "***opname*** 算符名称（字符串），可以是通用的或分量。"
+
+msgid ""
+"***icen*** z-matrix row number or z-matrix symbol used to determine the "
+"origin (x,y,z must not be specified)."
+msgstr "***icen*** z-矩阵行号或用于确定原点的 z-矩阵符号（不得指定 x,y,z）。"
+
+msgid "If *icen*\\ :math:`=0` or blank, the origin must be specified in *x,y,z*"
+msgstr "如果 *icen*\\ :math:`=0` 或为空，则必须在 *x,y,z* 中指定原点"
+
+msgid "1"
+msgstr "1"
+
+msgid "-1"
+msgstr "-1"
+
+msgid "examples/h2o_gexpec2.inp"
+msgstr "examples/h2o_gexpec2.inp"
+
+msgid "examples/ar2_rel.inp"
+msgstr "examples/ar2_rel.inp"
+
+msgid "``XML,key1[=value1],key2[=value2],…\\\\``"
+msgstr "``XML,key1[=value1],key2[=value2],…\\\\``"
+
+msgid ""
+"``DUMPORB`` Dump occupied orbitals to XML file (default 0, unless the "
+"``--xml-orbdump`` command line option is given)."
+msgstr "``DUMPORB`` 将占据轨道转储到 XML 文件（默认为 0，除非给出 ``--xml-orbdump`` 命令行选项）。"

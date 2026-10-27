@@ -38,8 +38,8 @@ Example:
 
 The optional *directives* can be:
 
-``OCC, number of occupied orbitals in each symmetry (see below)\\``
-``CLOSED, number of closed-shell orbitals in each symmetry (see below)\\``
+``OCC``, *number of occupied orbitals in each symmetry (see below)*
+``CLOSED``, *number of closed-shell orbitals in each symmetry (see below)*
 ``WF, …`` (c.f. section `defining the wavefunction <general_program_structure.html#defining-the-wavefunction>`__)
 ``START,startrecord\\``
 ``ORBITAL,dumprecord\\``

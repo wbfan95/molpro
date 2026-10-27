@@ -8,3 +8,689 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Split Coulomb operator treatment (ATTENUATE)"
+msgstr "分裂库仑算符处理（ATTENUATE）"
+
+msgid "This directive activates the method described in"
+msgstr "该指令启用以下文献中描述的方法"
+
+msgid ""
+"Hetzer, M. Schütz, H. Stoll, and H.-J. Werner, *Low-order scaling local "
+"electron correlation methods II: Splitting the Coulomb operator in linear "
+"scaling local MP2*, `J. Chem. Phys. "
+"<https://dx.doi.org/10.1063/1.1321295>`__ **113**, 9443 (2000)."
+msgstr ""
+"Hetzer, M. Schütz, H. Stoll, and H.-J. Werner, *Low-order scaling local "
+"electron correlation methods II: Splitting the Coulomb operator in linear "
+"scaling local MP2*, `J. Chem. Phys. "
+"<https://dx.doi.org/10.1063/1.1321295>`__ **113**, 9443 (2000)."
+
+msgid ""
+"This is currently not recommended for general use and we will give no "
+"support in case of trouble with this method."
+msgstr "目前不推荐将其用于一般用途，若使用此方法遇到问题，我们将不提供支持。"
+
+msgid ""
+"The method relies on the partitioning of the Coulomb operator into a rapidly"
+" decaying short range part containing the singularity and a smooth long "
+"range part. The integrals over both parts of the Coulomb operator are then "
+"treated separately. The short range integrals are obtained by transformation"
+" of the short range integrals in the AO basis, which is faster than the "
+"conventional transformation as more efficient screening is possible. The "
+"long range integrals are treated by a multipole expansion. In contrast to "
+"conventional multipole expansions, this expansion has an infinite radius of "
+"convergence. The method is available by replacing the ``LOCAL`` or ``MULTP``"
+" directive by the ``ATTENUATE`` directive."
+msgstr ""
+"该方法依赖于将库仑算符划分为包含奇点的快速衰减短程部分和平滑的长程部分。然后分别处理库仑算符两部分的积分。短程积分通过在 AO "
+"基组中对短程积分进行变换获得，由于可以实现更高效的筛选，这比常规变换更快。长程积分通过多极展开处理。与常规多极展开不同，该展开具有无限收敛半径。通过将 "
+"``LOCAL`` 或 ``MULTP`` 指令替换为 ``ATTENUATE`` 指令即可使用该方法。"
+
+msgid "``ATTENUATE,[key1=value],[key2=value2], $\\ldots$``"
+msgstr "``ATTENUATE,[key1=value],[key2=value2], $\\ldots$``"
+
+msgid ""
+"It does everything the ``MULTP`` directive does (i. e., distant pairs are "
+"still treated by ordinary multipole expansion), plus it will enable the "
+"split Coulomb operator treatment of weak and strong pairs and select "
+"reasonable defaults. See section `summary of options <pao-"
+"based_local_correlation_treatments.html#summary-of-options>`__ for details. "
+"If you don’t want distant pairs to be treated by ordinary multipole "
+"expansion, simply specify ``DISTPAIR=0`` on the ``ATTENUATE`` directive. "
+"Note that this method will only work in the context of integral-direct "
+"calculations."
+msgstr ""
+"它执行 ``MULTP`` 指令的所有功能（即远对仍通过普通多极展开处理），此外还会启用对弱对和强对的分裂库仑算符处理，并选择合理的默认值。详见 "
+"`选项汇总 <pao-based_local_correlation_treatments.html#summary-of-options>`__ "
+"一节。如果您不希望远对通过普通多极展开处理，只需在 ``ATTENUATE`` 指令上指定 ``DISTPAIR=0``\\ "
+"。请注意，该方法仅在积分直接计算的情形下有效。"
+
+msgid "Additional options available on the ATTENUATE directive"
+msgstr "ATTENUATE 指令上可用的附加选项"
+
+msgid "Summary of ``attenuate`` options and their default values"
+msgstr "``attenuate`` 选项及其默认值汇总"
+
+msgid "Parameter"
+msgstr "参数"
+
+msgid "Default value"
+msgstr "默认值"
+
+msgid "Meaning"
+msgstr "含义"
+
+msgid "Most important options"
+msgstr "最重要的选项"
+
+msgid "``DECAY``"
+msgstr "``DECAY``"
+
+msgid "0.20"
+msgstr "0.20"
+
+msgid "split parameter :math:`\\omega`"
+msgstr "分裂参数 :math:`\\omega`"
+
+msgid "``SHORTMLT``"
+msgstr "``SHORTMLT``"
+
+msgid "15"
+msgstr "15"
+
+msgid "level :math:`p` of monopolar multipole expansion"
+msgstr "单极多极展开的阶数 :math:`p`"
+
+msgid "``LONGMLT``"
+msgstr "``LONGMLT``"
+
+msgid "13"
+msgstr "13"
+
+msgid "level :math:`p` of bipolar multipole expansion"
+msgstr "双极多极展开的阶数 :math:`p`"
+
+msgid "Specifying which integrals to treat by which multipole expansion type"
+msgstr "指定哪些积分用哪种多极展开类型处理"
+
+msgid "``RMAIN``"
+msgstr "``RMAIN``"
+
+msgid "1"
+msgstr "1"
+
+msgid "when to switch from monopolar to four-block treatment"
+msgstr "何时从单极处理切换到四块处理"
+
+msgid "``RIONIC``"
+msgstr "``RIONIC``"
+
+msgid "0"
+msgstr "0"
+
+msgid "when to switch from monopolar to bipolar treatment of ionic blocks"
+msgstr "何时从离子块的单极处理切换到双极处理"
+
+msgid "``SUPPRESS``"
+msgstr "``SUPPRESS``"
+
+msgid "when to suppress cross-excited blocks"
+msgstr "何时抑制交叉激发块"
+
+msgid "Options for least squares fit generation of interaction coefficients"
+msgstr "用于生成相互作用系数的拟合选项"
+
+msgid "``FITMLTP``"
+msgstr "``FITMLTP``"
+
+msgid "use least squares fit instead of Taylor"
+msgstr "使用最小二乘拟合代替 Taylor 展开"
+
+msgid "``F1DGRID``"
+msgstr "``F1DGRID``"
+
+msgid "50"
+msgstr "50"
+
+msgid "no. of quadrature points for 1D fit"
+msgstr "一维拟合的积分点数目"
+
+msgid "``F2DGRIDR``"
+msgstr "``F2DGRIDR``"
+
+msgid "no. of quadrature points for 2D fit :math:`r`"
+msgstr "二维拟合 :math:`r` 的积分点数目"
+
+msgid "``F2DGRIDP``"
+msgstr "``F2DGRIDP``"
+
+msgid "20"
+msgstr "20"
+
+msgid "no. of quadrature points for 2D fit :math:`\\phi`"
+msgstr "二维拟合 :math:`\\phi` 的积分点数目"
+
+msgid "``F1DBORDER``"
+msgstr "``F1DBORDER``"
+
+msgid "end of integration interval for 1D fit"
+msgstr "一维拟合的积分区间终点"
+
+msgid "``F2DBORDER``"
+msgstr "``F2DBORDER``"
+
+msgid "end of integration interval for 2D fit :math:`r`"
+msgstr "二维拟合 :math:`r` 的积分区间终点"
+
+msgid "``F1DGAMMA``"
+msgstr "``F1DGAMMA``"
+
+msgid "1.7"
+msgstr "1.7"
+
+msgid "negative exponent of weight function for 1D fit"
+msgstr "一维拟合权重函数的负指数"
+
+msgid "``F2DGAMMA``"
+msgstr "``F2DGAMMA``"
+
+msgid "negative exponent of weight function for 2D fit"
+msgstr "二维拟合权重函数的负指数"
+
+msgid "``WEIGHT3D``"
+msgstr "``WEIGHT3D``"
+
+msgid "use spacial instead of flat weight function"
+msgstr "使用空间权重函数代替平坦权重函数"
+
+msgid "Options for determination of batches"
+msgstr "批次确定的选项"
+
+msgid "``NUMBATCH``"
+msgstr "``NUMBATCH``"
+
+msgid "manually set number of batches"
+msgstr "手动设置批次数目"
+
+msgid "``BATCHDIAM``"
+msgstr "``BATCHDIAM``"
+
+msgid "35"
+msgstr "35"
+
+msgid "maximal diameter of batches"
+msgstr "批次的最大直径"
+
+msgid "``BATCHALGO``"
+msgstr "``BATCHALGO``"
+
+msgid "2"
+msgstr "2"
+
+msgid "algorithm to determine batches"
+msgstr "确定批次的算法"
+
+msgid "``WEIGHTPREV``"
+msgstr "``WEIGHTPREV``"
+
+msgid "0.5"
+msgstr "0.5"
+
+msgid "parameter for algorithm ``BATCHALGO=1``"
+msgstr "算法 ``BATCHALGO=1`` 的参数"
+
+msgid "``RANSEED``"
+msgstr "``RANSEED``"
+
+msgid "-1"
+msgstr "-1"
+
+msgid "initialize random number generator for simulated annealing"
+msgstr "为模拟退火初始化随机数生成器"
+
+msgid "Further numerical stability options"
+msgstr "进一步的数值稳定性选项"
+
+msgid "``CUTOFF``"
+msgstr "``CUTOFF``"
+
+msgid "orbital cutoff"
+msgstr "轨道截断"
+
+msgid "``MONOPOLE``"
+msgstr "``MONOPOLE``"
+
+msgid "if and how to treat monopole integrals"
+msgstr "是否以及如何处理单极积分"
+
+msgid "Multipole operators"
+msgstr "多极算符"
+
+msgid "``MAXMLTPL``"
+msgstr "``MAXMLTPL``"
+
+msgid "*auto*"
+msgstr "*auto*"
+
+msgid "manually set level of multipole operators to create"
+msgstr "手动设置要创建的多极算符级别"
+
+msgid "``MULTPAGE``"
+msgstr "``MULTPAGE``"
+
+msgid "turn on paging of multipole operators during multipole expansion"
+msgstr "在多极展开期间启用多极算符的分页"
+
+msgid "Essentially obsolete options (for Taylor expansion)"
+msgstr "基本过时的选项（用于 Taylor 展开）"
+
+msgid "``TRUNCATE``"
+msgstr "``TRUNCATE``"
+
+msgid "truncation pattern of multipole expansion"
+msgstr "多极展开的截断模式"
+
+msgid "``DAMP``"
+msgstr "``DAMP``"
+
+msgid "damping function for orbitals"
+msgstr "轨道的阻尼函数"
+
+msgid "``SCALEDAMP``"
+msgstr "``SCALEDAMP``"
+
+msgid "scaling factor for the damping function"
+msgstr "阻尼函数的标度因子"
+
+msgid "Stuff for debugging"
+msgstr "调试相关内容"
+
+msgid "``PAIREN``"
+msgstr "``PAIREN``"
+
+msgid "print a list of uncoupled pair energies"
+msgstr "打印非耦合对能量列表"
+
+msgid ""
+"The defaults reported for the following options are likely to change in the "
+"future."
+msgstr "下面各选项报告的默认值将来可能会改变。"
+
+msgid "**Most important options**"
+msgstr "**最重要的选项**"
+
+msgid ""
+"**``DECAY``\\ =\\ :math:`\\omega`** This is the decay parameter that "
+"determines the splitting of the Coulomb operator in the split approach. "
+"Larger values of :math:`\\omega` put more weight to the long range part of "
+"the operator, which means that the multipole correction will have more "
+"difficulties to converge but the transformation of the short range part will"
+" be faster. Default: 0.20"
+msgstr ""
+"**``DECAY``\\ =\\ :math:`\\omega`** 这是决定分裂方法中 Coulomb 算符分裂的衰减参数。\\ "
+":math:`\\omega` 的值越大，算符长程部分的权重越大，这意味着多极修正更难收敛，但短程部分的变换会更快。默认值：0.20"
+
+msgid ""
+"**``SHORTMLT``\\ =\\ *level*** Determines the expansion level of monopolar "
+"multipole expansions in the context of the split Coulomb operator approach. "
+"Default: 15"
+msgstr "**``SHORTMLT``\\ =\\ *\\ level*** 决定分裂 Coulomb 算符方法中单极多极展开的展开级别。默认值：15"
+
+msgid ""
+"**``LONGMLT``\\ =\\ *level*** Determines the expansion level of bipolar "
+"multipole expansions in the context of the split Coulomb operator approach. "
+"Default: 13"
+msgstr "**``LONGMLT``\\ =\\ *\\ level*** 决定分裂 Coulomb 算符方法中双极多极展开的展开级别。默认值：13"
+
+msgid ""
+"**Specifying which integrals to treat by which multipole expansion type**"
+msgstr "**指定哪些积分由哪种多极展开类型处理**"
+
+msgid ""
+"**``RMAIN``\\ =\\ *distance*** When the distance between two orbitals is "
+"closer than the absolute value of *distance*, multipole corrections (in the "
+"context of the split approximation) will be carried out as monopolar "
+"expansions, otherwise a more sophisticated approach will be used involving "
+"four expansions for each pair, one for the ordinary dispersion block of the "
+"exchange matrix for the given pair, two for the two ionic exchange blocks "
+"and one for the exchange-dispersion block (see the section on energy "
+"partitioning for explanation of these terms). If *distance* is a positive "
+"value, the distance between the orbitals will be taken to be the distance "
+"between the closest atoms of the two orbital domains (as in ``WEAKPAIR``, "
+"``DISTPAIR`` etc.), if it is a negative value, the distance of the centroids"
+" of the two orbitals will be considered. Default: 1"
+msgstr ""
+"**``RMAIN``\\ =\\ *\\ distance*** 当两个轨道之间的距离小于 *\\ distance\\ * "
+"的绝对值时，多极修正（在分裂近似中）将以单极展开进行，否则将使用更复杂的方法，即对每一对涉及四个展开：一个用于给定对的交换矩阵的普通色散块，两个用于两个离子交换块，一个用于交换-"
+"色散块（这些术语的解释见能量划分一节）。如果 *\\ distance* 为正值，则轨道之间的距离取为两个轨道域的最近原子之间的距离（如 "
+"``WEAKPAIR``\\ 、\\ ``DISTPAIR`` 等），如果为负值，则考虑两个轨道质心之间的距离。默认值：1"
+
+msgid ""
+"**``RIONIC``\\ =\\ *distance*** When the distance between two orbitals is "
+"closer than *distance* [a.u.], the multipole correction of ionic blocks of "
+"the exchange operators will be carried out as monopolar expansion, otherwise"
+" a bipolar expansion will be performed. The distance is understood as the "
+"distance of the centroids of the two orbitals. Default: 0"
+msgstr ""
+"**``RIONIC``\\ =\\ *\\ distance*** 当两个轨道之间的距离小于 *\\ distance* [a.u.] "
+"时，交换算符离子块的多极修正将以单极展开进行，否则将执行双极展开。距离理解为两个轨道质心之间的距离。默认值：0"
+
+msgid ""
+"**``SUPPRESS``\\ =\\ *distance*** When the distance between two orbitals "
+"(distance of centroids) is higher than the absolute value of *distance* "
+"[a.u.], the multipole correction of the exchange-dispersion blocks of the "
+"exchange operators is suppressed. If a positive value is given, the "
+"multipole correction of the ionic exchange blocks is also suppressed. A zero"
+" value disables the suppression of multipole corrections. Default: 0"
+msgstr ""
+"**``SUPPRESS``\\ =\\ *\\ distance*** 当两个轨道之间的距离（质心距离）大于 *\\ distance* [a.u.]"
+" 的绝对值时，交换算符交换-色散块的多极修正被抑制。如果给定正值，离子交换块的多极修正也被抑制。零值禁用多极修正的抑制。默认值：0"
+
+msgid ""
+"**Options for least squares fit generation of interaction coefficients**"
+msgstr "**用于生成相互作用系数的的最小二乘拟合的选项**"
+
+msgid ""
+"**``FITMLTP``\\ =\\ *option*** Specifies how the coefficients for the "
+"multipole expansion of long range integrals are calculated."
+msgstr "**``FITMLTP``\\ =\\ *\\ option*** 指定如何计算长程积分多极展开的系数。"
+
+msgid "*option=0*: Taylor expansion"
+msgstr "*option=0*\\ ：Taylor 展开"
+
+msgid "*option=1*: Least squares fit"
+msgstr "*option=1*\\ ：最小二乘拟合"
+
+msgid "Default: 1"
+msgstr "默认值：1"
+
+msgid ""
+"**``F1DGRID``\\ =\\ *value*** Sets the number of quadrature points used to "
+"generate integrals that arise in the one-dimensional fit (i.e. for the "
+"monopolar multipole expansion). Default: 50"
+msgstr "**``F1DGRID``\\ =\\ *\\ value*** 设置用于生成一维拟合（即单极多极展开）中出现的积分所使用的积分点数目。默认值：50"
+
+msgid ""
+"**``F2DGRIDR``\\ =\\ *value*** Sets the number of quadrature points used "
+"along the :math:`r` (radial) coordinate when generating integrals for the "
+"two-dimensional fit (i.e. for the bipolar multipole expansion). Default: 50"
+msgstr ""
+"**``F2DGRIDR``\\ =\\ *\\ value*** 设置沿 :math:`r`\\ "
+"（径向）坐标生成二维拟合（即双极多极展开）积分时所使用的积分点数目。默认值：50"
+
+msgid ""
+"**``F2DGRIDP``\\ =\\ *value*** Sets the number of quadrature points used "
+"along the :math:`\\phi` (angular) coordinate for the two-dimensional "
+"integrals. Default: 20"
+msgstr "**``F2DGRIDP``\\ =\\ *\\ value*** 设置沿 :math:`\\phi`\\ （角向）坐标用于二维积分的积分点数目。默认值：20"
+
+msgid ""
+"**``F1DBORDER``\\ =\\ *value*** If greater than 0, sets the upper bound of "
+"integration (in bohr) and selects the Gauss–Legendre quadrature for the one-"
+"dimensional integrals. If 0, selects Gauss–Laguerre quadrature. Default: 0"
+msgstr ""
+"**``F1DBORDER``\\ =\\ *\\ value*** 若大于 0，则设置积分上限（单位为 bohr）并为一维积分选择 "
+"Gauss–Legendre 求积。若为 0，则选择 Gauss–Laguerre 求积。默认值：0"
+
+msgid ""
+"**``F2DBORDER``\\ =\\ *value*** The same for the two-dimensional integrals."
+msgstr "**``F2DBORDER``\\ =\\ *\\ value*** 对二维积分而言含义相同。"
+
+msgid ""
+"**``F1DGAMMA``\\ =\\ :math:`\\gamma`** Sets the negative exponent of the "
+"weight function for the one-dimensional fit. Smaller values are better for "
+"more diffuse densities. Should be positive (leading to a negative exponent)."
+" Default: 1.7"
+msgstr ""
+"**``F1DGAMMA``\\ =\\ :math:`\\gamma`** "
+"设置一维拟合中权重函数的负指数。较小的值更适合较弥散的密度。应为正值（从而得到负指数）。默认值：1.7"
+
+msgid "**``F2DGAMMA``\\ =\\ :math:`\\gamma`** The same for the two-dimensional fit."
+msgstr "**``F2DGAMMA``\\ =\\ :math:`\\gamma`** 对二维拟合而言含义相同。"
+
+msgid ""
+"**``WEIGHT3D``\\ =\\ *option*** Selects what type of weight function is used"
+" for the fits."
+msgstr "**``WEIGHT3D``\\ =\\ *\\ option*** 选择拟合所使用的权重函数类型。"
+
+msgid "*option=0*: Flat"
+msgstr "*option=0*\\ ：平坦"
+
+msgid "*option=1*: Spatial"
+msgstr "*option=1*\\ ：空间"
+
+msgid ""
+"Remember to change ``F1DGAMMA/F2DGAMMA`` accordingly when using a flat "
+"weight function, :math:`\\gamma=1.0` is then a reasonable value. Default: 1"
+msgstr ""
+"使用平坦权重函数时请记得相应地修改 ``F1DGAMMA/F2DGAMMA``\\ ，此时 :math:`\\gamma=1.0` "
+"是合理的取值。默认值：1"
+
+msgid "**Options for determination of batches**"
+msgstr "**用于确定批次的选项**"
+
+msgid ""
+"**``NUMBATCH``\\ =\\ *value*** If 0, selects automatic determination of the "
+"number of batches. If >0, provides a manual override for this number. "
+"Default: 0"
+msgstr "**``NUMBATCH``\\ =\\ *\\ value*** 若为 0，则自动确定批次数目。若 >0，则手动覆盖该数目。默认值：0"
+
+msgid ""
+"**``BATCHDIAM``\\ =\\ *value*** Maximal acceptable diameter of batches. Used"
+" to automatically determine the number of batches. If zero, disables batches"
+" (i.e., only one batch will be created). Default: 35"
+msgstr ""
+"**``BATCHDIAM``\\ =\\ *\\ value*** "
+"批次可接受的最大直径。用于自动确定批次数目。若为零，则禁用批次（即只创建一个批次）。默认值：35"
+
+msgid ""
+"**``BATCHALGO``\\ =\\ *option*** Selects the algorithm used to determine the"
+" batches."
+msgstr "**``BATCHALGO``\\ =\\ *\\ option*** 选择用于确定批次的算法。"
+
+msgid ""
+"*option=0*: Manually set batch centres. Three arrays with name ``BATCHX``, "
+"``BATCHY``, ``BATCHZ`` have to be set in the input before the ``MP2`` "
+"command that contain the :math:`x`-, :math:`y`- and :math:`z`-coordinates of"
+" the desired batch centres."
+msgstr ""
+"*option=0*\\ ：手动设置批次中心。必须在 ``MP2`` 命令之前的输入中设置三个名为 ``BATCHX``\\ 、\\ "
+"``BATCHY``\\ 、\\ ``BATCHZ`` 的数组，其中分别包含所需批次中心的 :math:`x`\\ 、\\ :math:`y` 和 "
+":math:`z` 坐标。"
+
+msgid ""
+"*option=1*: Simple algorithm: Determines a path through the molecules and "
+"distributes the batch centres along this path."
+msgstr "*option=1*\\ ：简单算法：确定一条贯穿分子的路径，并沿此路径分布批次中心。"
+
+msgid ""
+"*option=2*: A robust simulated annealing algorithm. Will only use atom "
+"positions as batch centres, might therefore fail for strongly separated "
+"dimers and similar systems where there is no atom near the optimal batch "
+"centre position."
+msgstr ""
+"*option=2*\\ "
+"：稳健的模拟退火算法。仅使用原子位置作为批次中心，因此在强分离的二聚体及类似系统中可能失败，因为这类系统在最优批次中心位置附近没有原子。"
+
+msgid ""
+"*option=3,4*: A less robust simulated annealing algorithm that directly "
+"tries to optimize the batches instead of the batch centres."
+msgstr "*option=3,4*\\ ：一种稳健性较差的模拟退火算法，直接尝试优化批次而非批次中心。"
+
+msgid "Default: 2"
+msgstr "默认值：2"
+
+msgid ""
+"**``WEIGHTPREV``\\ =\\ *value*** Affects the one-dimensional path laid "
+"through the molecule for ``BATCHALGO=1``. Smaller values mean a more "
+"systematic, directed order of atoms from one end to the other. Larger values"
+" mean that the distance from one atom in the path to the next will become "
+"smaller. Has to be between 0 and 1. Default: 0.5"
+msgstr ""
+"**``WEIGHTPREV``\\ =\\ *\\ value*** 影响 ``BATCHALGO=1`` "
+"时贯穿分子的一维路径。较小的值意味着原子从一端到另一端具有更系统、更有方向的顺序。较大的值意味着路径中一个原子到下一个原子的距离将变得更小。必须介于 0"
+" 和 1 之间。默认值：0.5"
+
+msgid ""
+"**``RANSEED``\\ =\\ *value*** Negative values initialize the random number "
+"generator for the simulated annealing algorithms. Positive numbers suppress "
+"initialisation of the random number generator. Default: -1"
+msgstr "**``RANSEED``\\ =\\ *\\ value*** 负值为模拟退火算法初始化随机数生成器。正数则抑制随机数生成器的初始化。默认值：-1"
+
+msgid "**Further numerical stability options**"
+msgstr "**其他数值稳定性选项**"
+
+msgid ""
+"**``CUTOFF``\\ =\\ *distance*** Applies a simple cutoff to orbitals before "
+"the transformation of the multipole operators. Orbital coefficients "
+"belonging to AOs that are more than *distance* [a.u.] away from the orbital "
+"centre will be deleted. *distance*\\ =0 means don’t use a cutoff. Default: "
+"15"
+msgstr ""
+"**``CUTOFF``\\ =\\ *\\ distance*** 在多极算符变换之前对轨道施加简单的截断。属于距离轨道中心超过 *\\ "
+"distance\\ * [a.u.] 的 AO 的轨道系数将被删除。*\\ distance*\\ =0 表示不使用截断。默认值：15"
+
+msgid ""
+"**``MONOPOLE``\\ =\\ *option*** Specifies how to treat monopole integrals. "
+"Monopole integrals should be zero due to the orthogonality between occupied "
+"and virtual orbitals. Therefore, they are usually not included in the "
+"calculation. However, this does not hold exactly when an orbital cutoff is "
+"applied. Including monopole integrals in the calculation might therefore "
+"improve the numerical stability."
+msgstr ""
+"**``MONOPOLE``\\ =\\ *\\ option*** "
+"指定如何处理单极积分。由于占据轨道与虚轨道之间的正交性，单极积分应为零。因此，它们通常不包括在计算中。然而，当施加轨道截断时，这并不严格成立。因此，将单极积分包括在计算中可能会改善数值稳定性。"
+
+msgid "*option=0*: Neglect monopole integrals"
+msgstr "*option=0*\\ ：忽略单极积分"
+
+msgid ""
+"*option=1*: Use monopole integrals in the translation, but neglect them "
+"later on"
+msgstr "*option=1*\\ ：在平移中使用单极积分，但稍后忽略它们"
+
+msgid ""
+"*option=2*: Use monopole integrals everywhere (translation and expansion), "
+"only neglect monopole–\\ :math:`2^{p+1}`\\ pole interactions, where "
+":math:`p` is the requested multipole level"
+msgstr ""
+"*option=2*\\ ：在所有地方（平移和展开）使用单极积分，仅忽略单极–\\ :math:`2^{p+1}`\\ 极相互作用，其中 "
+":math:`p` 为所请求的多极级别"
+
+msgid ""
+"*option=3*: Use monopole integrals everywhere (translation and expansion), "
+"but neglect all monopole–\\ :math:`2^{p+1}`\\ pole, dipole–\\ :math:`2^p`\\ "
+"pole, quadrupole–\\ :math:`2^{p-1}`\\ pole interactions and so on. This is "
+"entirely consistent, but reduces the effective multipole level by 1 as "
+"compared to the other options."
+msgstr ""
+"*option=3*\\ ：在所有地方（平移和展开）使用单极积分，但忽略所有单极–\\ :math:`2^{p+1}`\\ 极、偶极–\\ "
+":math:`2^p`\\ 极、四极–\\ :math:`2^{p-1}`\\ 极等相互作用。这完全自洽，但相比其他选项会将有效多极级别降低 1。"
+
+msgid "**Multipole operators**"
+msgstr "**多极算符**"
+
+msgid ""
+"**``MAXMLTPL``\\ =\\ *option*** Defines the highest level of multipole "
+"operators that are created. Has to be greater or equal than each of "
+"``DSTMLT``, ``LONGMLT`` and ``SHORTMLT``, is otherwise overwritten by the "
+"default, which is max(``DSTMLT``, ``LONGMLT``, ``SHORTMLT``). Greater values"
+" are a useless waste of CPU unless you save the operators for later reuse."
+msgstr ""
+"**``MAXMLTPL``\\ =\\ *\\ option*** 定义所创建的多极算符的最高级别。必须大于或等于 ``DSTMLT``\\ 、\\ "
+"``LONGMLT`` 和 ``SHORTMLT`` 中的每一个，否则会被默认值覆盖，默认值为 max(``DSTMLT``, ``LONGMLT``,"
+" ``SHORTMLT``)。更大的值只会白白浪费 CPU，除非您保存算符以便日后重复使用。"
+
+msgid ""
+"**``MULTPAGE``\\ =\\ *option*** *option=0*: Suppress paging of multipole "
+"operators during multipole expansion. After their creation, all operators "
+"are read from disk into memory. Will crash if not enough memory is "
+"available."
+msgstr ""
+"**``MULTPAGE``\\ =\\ *\\ option*** *\\ "
+"option=0*：在多极展开过程中禁止多极算符分页。算符创建后，所有算符都会从磁盘读入内存。若内存不足则会崩溃。"
+
+msgid ""
+"*option=1*: Read operators from disk when needed. Small performance impact."
+msgstr "*option=1*\\ ：在需要时从磁盘读取算符。对性能影响较小。"
+
+msgid "**Essentially obsolete option (for Taylor expansions)**"
+msgstr "**基本已过时的选项（用于 Taylor 展开）**"
+
+msgid ""
+"**``TRUNCATE``\\ =\\ *option*** Determines if the simple or exhaustive "
+"truncation truncation scheme will be used for multipole expansions. "
+"Exhaustive truncation means that, unlike a classical multipole expansion, "
+"all interactions of multipoles up to the highest order are taken into "
+"account, e. g. in an expansion of level two, the exhaustive scheme will "
+"include quadrupole-quadrupole terms while the simple scheme won’t. Valid "
+"options are:"
+msgstr ""
+"**``TRUNCATE``\\ =\\ *\\ option*** "
+"决定多极展开使用简单截断方案还是穷举截断方案。穷举截断意味着，与经典多极展开不同，最高阶以内的所有多极相互作用都会被考虑在内，例如在二级展开中，穷举方案会包括四极-"
+"四极项，而简单方案则不会。有效选项为："
+
+msgid "*option=0*: Always use simple truncation."
+msgstr "*option=0*\\ ：始终使用简单截断。"
+
+msgid ""
+"*option=1*: Use simple truncation for bipolar expansions, but exhaustive "
+"truncation for monopolar expansions. This significantly improves convergence"
+" when a Taylor expansion is used, but also accelerates the onset of "
+"divergent behaviour for large expansion levels and should therefore always "
+"be used in connection with a damping function for multipole operators."
+msgstr ""
+"*option=1*\\ ：对双极展开使用简单截断，但对单极展开使用穷举截断。当使用 Taylor "
+"展开时，这会显著改善收敛性，但也会加速大展开级别下发散行为的出现，因此应始终与多极算符的阻尼函数配合使用。"
+
+msgid ""
+"*option=2*: Use simple truncation for monopolar expansions, but exhaustive "
+"truncation for bipolar expansions including distant pair treatment."
+msgstr "*option=2*\\ ：对单极展开使用简单截断，但对包含远对处理的双极展开使用穷举截断。"
+
+msgid "*option=3*: Always use exhaustive truncation."
+msgstr "*option=3*\\ ：始终使用穷举截断。"
+
+msgid ""
+"The latter two options are not useful and only included for the sake of "
+"completeness. Default: 0"
+msgstr "后两个选项并无实用价值，仅出于完整性考虑而包含。默认值：0"
+
+msgid ""
+"**``DAMP``\\ =\\ *order*** Specifies the form of a damping function that is "
+"applied to orbitals before the transformation of the multipole operators. "
+"*order* is actually the order of a Taylor series that is part of the "
+"function and that mimics the behaviour of the monopolar multipole expansion."
+" Only multiples of 4 are reasonable values. Higher values mean a harder "
+"damping function (i. e. less damping at short distances, but more at long "
+"distances). A value of 0 disables the damping. A value of 8 is recommended "
+"when using a Taylor expansion. Default: 0"
+msgstr ""
+"**``DAMP``\\ =\\ *\\ order*** 指定在多极算符变换之前应用于轨道的阻尼函数的形式。*\\ order* 实际上是该函数中 "
+"Taylor 级数的阶数，用于模拟单极多极展开的行为。只有 4 "
+"的倍数才是合理的取值。较高的值意味着更强的阻尼函数（即在短距离处阻尼较弱，但在长距离处阻尼较强）。值为 0 时禁用阻尼。使用 Taylor "
+"展开时推荐取值为 8。默认值：0"
+
+msgid ""
+"**``SCALEDAMP``\\ =\\ *scalefactor*** The damping function can additionally "
+"be scaled by the value of *scalefactor*. A value lower than 1 means the "
+"damping function will be squeezed, while a value higher than 1 will cause it"
+" to be stretched. A value of 0 disables the scaling (as well as 1). A value "
+"of 0.9 is recommended when using a Taylor expansion. Default: 0"
+msgstr ""
+"**``SCALEDAMP``\\ =\\ *\\ scalefactor*** 阻尼函数还可以通过 *\\ scalefactor* "
+"的值进行缩放。小于 1 的值意味着阻尼函数将被压缩，而大于 1 的值将使其被拉伸。值为 0 时禁用缩放（与 1 相同）。使用 Taylor "
+"展开时推荐取值为 0.9。默认值：0"
+
+msgid "**Stuff for debugging**"
+msgstr "**调试相关**"
+
+msgid ""
+"**``PAIREN``\\ =\\ *option*** Prints a list of uncoupled pair energies "
+"before the MP2 iterations. Can be used as a convenient diagnostic when "
+"getting totally implausible correlation energies or no convergence or "
+"\"UNREASONABLE NORM\" messages."
+msgstr ""
+"**``PAIREN``\\ =\\ *\\ option*** 在 MP2 迭代之前打印未耦合对能列表。当得到完全不合理相关能、出现不收敛或出现 "
+"\"UNREASONABLE NORM\" 消息时，可作为便捷的诊断手段。"

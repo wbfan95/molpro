@@ -355,3 +355,129 @@ msgstr "存在一些用于 Pipek-Mezey 定域化的特殊选项，可以在 ``PI
 
 msgid "Printing options (PRINT)"
 msgstr "打印选项 (PRINT)"
+
+msgid ""
+"Localized orbitals are calculated according to the Boys, Pipek-Mezey or NLMO"
+" criteria. Localization takes place within each symmetry species separately."
+" For intrinsic bond orbital (IBO) localization, see the IBBA program, "
+"section :doc:`intrinsic basis bonding analysis (IAO/IBO) "
+"<intrinsic_basis_bonding_analysis_iao_ibo>`. If complete localization is "
+"desired, no symmetry should be used. All subcommands can be abbreviated by "
+"three characters."
+msgstr ""
+"根据 Boys、Pipek-Mezey 或 NLMO 准则计算定域轨道。定域化在每个对称性种类内分别进行。对于内禀键轨道（IBO）定域化，请参见 "
+"IBBA 程序，章节 :doc:`内禀基成键分析（IAO/IBO） "
+"<intrinsic_basis_bonding_analysis_iao_ibo>`\\ "
+"。如果需要完全定域化，则不应使用对称性。所有子命令均可缩写为三个字符。"
+
+msgid ""
+"``LOCALI [,method],[LOCMETHOD=locmethod],[REFORB=record],[THRPIP|THRBOYS=thresh]``"
+msgstr ""
+"``LOCALI [,method],[LOCMETHOD=locmethod],[REFORB=record],[THRPIP|THRBOYS=thresh]``"
+
+msgid "***locmethod=1:*** Standard iterative localization method"
+msgstr "***locmethod=1:*** 标准迭代定域化方法"
+
+msgid ""
+"***locmethod=2:*** Use second-order localization method. Redundant rotations"
+" will be eliminated."
+msgstr "***locmethod=2:*** 使用二阶定域化方法。冗余旋转将被消除。"
+
+msgid ""
+"***locmethod=3:*** First do a first iterations using the standard method, "
+"then invoke locmethod=2. This option is recommended in cases with redundant "
+"rotations, e.g., benzene."
+msgstr ""
+"***locmethod=3:*** 首先使用标准方法进行第一次迭代，然后调用 "
+"locmethod=2。对于存在冗余旋转的情况（例如苯），推荐使用此选项。"
+
+msgid "``ORBITAL,record.file,specifications``"
+msgstr "``ORBITAL,record.file,specifications``"
+
+msgid "``SAVE,record.file``"
+msgstr "``SAVE,record.file``"
+
+msgid "``METHOD,method``"
+msgstr "``METHOD,method``"
+
+msgid "``OCC, $o_1$, $o_2 \\ldots$``"
+msgstr "``OCC, $o_1$, $o_2 \\ldots$``"
+
+msgid "``CORE, $c_1$, $c_2 \\ldots$``"
+msgstr "``CORE, $c_1$, $c_2 \\ldots$``"
+
+msgid "``GROUP,orb1,orb2,orb3,...``"
+msgstr "``GROUP,orb1,orb2,orb3,...``"
+
+msgid "``ORDER,type``"
+msgstr "``ORDER,type``"
+
+msgid "``SORT,[THRCHCHG=charge][THREIG=eps],GROUP=igrp],[REVERT],centrelist``"
+msgstr ""
+"``SORT,[THRCHCHG=charge][THREIG=eps],GROUP=igrp],[REVERT],centrelist``"
+
+msgid "``REFORB,record.file,specifications``"
+msgstr "``REFORB,record.file,specifications``"
+
+msgid "``FOCK,record.file``"
+msgstr "``FOCK,record.file``"
+
+msgid "``DENSITY,record.file,specifications``"
+msgstr "``DENSITY,record.file,specifications``"
+
+msgid ""
+"``PIPEK,METHOD=method,DELETE=ndel,MAXDL=maxdl,THRESH|ACC=thresh,ORDER=iorder,STEP=step``"
+msgstr ""
+"``PIPEK,METHOD=method,DELETE=ndel,MAXDL=maxdl,THRESH|ACC=thresh,ORDER=iorder,STEP=step``"
+
+msgid "**``METHOD``:** *method=1*: use 2x2 rotation method (default);"
+msgstr "**``METHOD``：** *method=1*\\ ：使用 2x2 旋转方法（默认）；"
+
+msgid ""
+"*method=2*: use Newton-Raphson method; *method=3*: Initial iterations using "
+"2x2 rotation method , final convergence using NR method."
+msgstr ""
+"*method=2*\\ ：使用 Newton-Raphson 方法；\\ *method=3*\\ ：初始迭代使用 2x2 旋转方法，最终收敛使用 "
+"NR 方法。"
+
+msgid ""
+"**``DELETE``:** Delete the last *ndel* basis functions of each angular "
+"momentum type for each atom in PM localization. This can be useful to "
+"achieve proper localization with diffuse (augmented) basis sets."
+msgstr ""
+"**``DELETE``：** 在 PM 定域化中，删除每个原子的每种角动量类型的最后 *ndel* "
+"个基函数。这对于使用弥散（增广）基组实现适当的定域化可能有用。"
+
+msgid ""
+"**``MAXDL``:** If *ndel*\\ :math:`>`\\ 0 delete functions only up to angular"
+" momentum *maxdl*."
+msgstr "**``MAXDL``：** 如果 *ndel*\\ :math:`>`\\ 0，则仅删除角动量最高到 *maxdl* 的函数。"
+
+msgid ""
+"**``ORDER``:** If *iorder=1*, order final orbitals according to increasing "
+"diagonal fock matrix elements;"
+msgstr "**``ORDER``：** 如果 *iorder=1*\\ ，则根据递增的对角 Fock 矩阵元对最终轨道排序；"
+
+msgid ""
+"If *iorder=2*, order final orbitals according charge centres (default)."
+msgstr "如果 *iorder=2*\\ ，则根据电荷中心对最终轨道排序（默认）。"
+
+msgid ""
+"**``THRESH``:** Localization threshold (same as on ``THRESH`` directive)."
+msgstr "**``THRESH``：** 定域化阈值（与 ``THRESH`` 指令相同）。"
+
+msgid "**``STEP``:** Max step size in NR method (default 0.1d0)."
+msgstr "**``STEP``：** NR 方法中的最大步长（默认 0.1d0）。"
+
+msgid "``PRINT,[ORBITAL=]pri [,CHARGE] [,CENTRES] [,TEST] [,TRAN];``"
+msgstr "``PRINT,[ORBITAL=]pri [,CHARGE] [,CENTRES] [,TEST] [,TRAN];``"
+
+msgid ""
+"If ``ORB[ITAL]`` is given, the localized orbitals are printed. If "
+"``CHA[RGE]`` or ``CEN[TRES]`` is given, the charge centres of the localized "
+"orbitals are printed. If ``TRAN`` is given, the transformation matrix is "
+"printed (Boys only). If ``TEST`` is given, intermediate information is "
+"printed."
+msgstr ""
+"如果给出 ``ORB[ITAL]``\\ ，则打印定域轨道。如果给出 ``CHA[RGE]`` 或 ``CEN[TRES]``\\ "
+"，则打印定域轨道的电荷中心。如果给出 ``TRAN``\\ ，则打印变换矩阵（仅限 Boys）。如果给出 ``TEST``\\ ，则打印中间信息。"

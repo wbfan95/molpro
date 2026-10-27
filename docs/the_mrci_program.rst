@@ -317,7 +317,7 @@ This card is used to specify a reference configuration set other than a CAS, whi
 
 The select card must be placed directly after the *WF* or *REF* card(s), or, if present, the ``RESTRICT`` cards. The general order of these cards is
 
-``WF (or REF)\\``
+``WF`` (or ``REF``)
 ``RESTRICT (optional)\\``
 ``SELECT  (optional)\\``
 ``CON  (optional)\\``
@@ -339,7 +339,7 @@ This card can be used to restrict the occupation patterns in the reference confi
 
 The ``RESTRICT`` cards must follow the ``WF`` or ``REF`` cards to which they apply. The general order of these cards is
 
-``WF (or REF)\\``
+``WF`` (or ``REF``)
 ``RESTRICT (optional)\\``
 ``SELECT  (optional)\\``
 ``CON  (optional)``

@@ -456,6 +456,11 @@ msgstr ""
 "operators-and-expectation-values-gexpec>`__ 一节。如果添加的微扰不是完全对称的（对称性 1），将导致错误。"
 
 msgid ""
+"``FIELD+`` adds to any existing field, otherwise any previous field is "
+"removed."
+msgstr "``FIELD+`` 会添加到任何现有场中，否则任何先前的场将被移除。"
+
+msgid ""
 "Note that ``FIELD`` does currently not modify core polarization potentials "
 "(CPP). If CPPs are present, only ``DIP`` and ``QUAD`` should be used."
 msgstr "请注意，\\ ``FIELD`` 目前不修改核极化势 (CPP)。如果存在 CPP，应仅使用 ``DIP`` 和 ``QUAD``\\ 。"
@@ -556,3 +561,157 @@ msgstr ""
 "。质量-速度项、达尔文项及其总和随后可通过 Molpro 变量 ``MASSV``\\ 、\\ ``DARWIN`` 和 ``EREL`` "
 "分别获取。示例可在此处找到 `here "
 "<program_control.html#exampleforcomputingrelativisticcorrections>`__\\ 。"
+
+msgid "``DENSITY [,record.file] [,specifications]``"
+msgstr "``DENSITY [,record.file] [,specifications]``"
+
+msgid "``ORBITAL [,record.file]  [,specifications]``"
+msgstr "``ORBITAL [,record.file]  [,specifications]``"
+
+msgid ""
+"***centre*** row number of Z–matrix or atomic symbol defining the centre at "
+"which property shall be calculated; if  *centre*\\ :math:`\\ne 0` you need "
+"not read in coordinates."
+msgstr ""
+"***centre*** Z–矩阵的行号或原子符号，用于定义计算性质的中心；若 *\\ centre*\\ :math:`\\ne 0`\\ "
+"，则无需读入坐标。"
+
+msgid "***x,y,z*** cartesian coordinates of the point (only if *centre*\\ =0)."
+msgstr "***x,y,z*** 该点的笛卡尔坐标（仅当 *\\ centre*\\ =0 时使用）。"
+
+msgid ""
+"***factor*** the operator is multiplied by this factor. The default is "
+"*factor*\\ =1 except for ``REL``. In this cases proper factors for "
+"relativistic corrections are used unless *factor* is given. The two commas "
+"before factor are needed to preserve compatibility with ``Molpro96``."
+msgstr ""
+"***factor*** 算符将乘以该因子。默认值为 *\\ factor\\ *\\ =1，``REL`` 除外。在后一种情况下，除非给定 *\\ "
+"factor*，否则使用相对论校正的适当因子。factor 前的两个逗号是为了保持与 ``Molpro96`` 的兼容性而必需的。"
+
+msgid "``PRINT,print``"
+msgstr "``PRINT,print``"
+
+msgid "***print*\\ :math:`= 0`** no test output (default)"
+msgstr "***print*\\ :math:`= 0`** 不输出测试信息（默认）"
+
+msgid "***print*\\ :math:`> 0`** operators are printed."
+msgstr "***print*\\ :math:`> 0`** 打印算符。"
+
+msgid "examples/h2o_property.inp"
+msgstr "examples/h2o_property.inp"
+
+msgid "examples/h2o_gexpec1.inp"
+msgstr "examples/h2o_gexpec1.inp"
+
+msgid "examples/h2o_prop.inp"
+msgstr "examples/h2o_prop.inp"
+
+msgid "``DENSITY,record.file [,specifications]``"
+msgstr "``DENSITY,record.file [,specifications]``"
+
+msgid "``GENERAL;``"
+msgstr "``GENERAL;``"
+
+msgid "``LIMIT,name,lmax;``"
+msgstr "``LIMIT,name,lmax;``"
+
+msgid "``ADD,name,x,y,z,lmax,radius;``"
+msgstr "``ADD,name,x,y,z,lmax,radius;``"
+
+msgid "``DELETE,name``"
+msgstr "``DELETE,name``"
+
+msgid "``RADIUS,name,r;``"
+msgstr "``RADIUS,name,r;``"
+
+msgid "examples/h2o_dma.inp"
+msgstr "examples/h2o_dma.inp"
+
+msgid "``POP;``"
+msgstr "``POP;``"
+
+msgid "``INDIVIDUAL;``"
+msgstr "``INDIVIDUAL;``"
+
+msgid "examples/h2o_pop.inp"
+msgstr "examples/h2o_pop.inp"
+
+msgid "examples/ch4_ci_pop.inp"
+msgstr "examples/ch4_ci_pop.inp"
+
+msgid "examples/li_pop.inp"
+msgstr "examples/li_pop.inp"
+
+msgid "``NBO,[WITH_CORE=core_option],[LEVEL=level],[KEEP_WBI=wbi_option];``"
+msgstr "``NBO,[WITH_CORE=core_option],[LEVEL=level],[KEEP_WBI=wbi_option];``"
+
+msgid ""
+"The Natural Bond Orbital Analysis of Weinhold and coworkers (`J. Chem. Phys."
+" <https://dx.doi.org/10.1063/1.449486>`__ **83**, 735 (1985), `J. Chem. "
+"Phys. <https://dx.doi.org/10.1063/1.449360>`__ **83**, 1736 (1985) and J. "
+"Chem. Phys. 78 (1983) 4066) can be called by the use of the ``NBO`` card. It"
+" reads from a density or orbital record, and performs the necessary "
+"transformations to Natural Atomic Orbitals (NAO), Natural Bond Orbitals "
+"(NBO) and Natural Localized Molecular Orbitals (NLMO). The latter can also "
+"be saved to a record and later used in local correlation treatments (cf. "
+"Section :doc:`PAO-based local correlation treatments <pao-"
+"based_local_correlation_treatments>`). By default, the full orbital space is"
+" used. The core orbitals can, however, be left out of the procedure if "
+"*core_option*\\ =0."
+msgstr ""
+"Weinhold 及其合作者的自然键轨道分析（\\ `J. Chem. Phys. "
+"<https://dx.doi.org/10.1063/1.449486>`__ **83**, 735 (1985)，\\ `J. Chem. "
+"Phys. <https://dx.doi.org/10.1063/1.449360>`__ **83**, 1736 (1985) 以及 J. "
+"Chem. Phys. 78 (1983) 4066）可通过 ``NBO`` "
+"卡片调用。它从密度或轨道记录中读取数据，并执行必要的变换以得到自然原子轨道（NAO）、自然键轨道（NBO）和自然局域分子轨道（NLMO）。后者也可保存到记录中，以供后续局域相关处理使用（参见"
+" :doc:`基于 PAO 的局域相关处理 <pao-based_local_correlation_treatments>` "
+"一节）。默认使用完整轨道空间。不过，若 *core_option*\\ =0，则可将芯轨道排除在该过程之外。"
+
+msgid "``SAVE,record.file;``"
+msgstr "``SAVE,record.file;``"
+
+msgid "``DIP,dx,dy,dz;\\\\`` ``DIP+,dx,dy,dz;``"
+msgstr "``DIP,dx,dy,dz;\\\\`` ``DIP+,dx,dy,dz;``"
+
+msgid ""
+"The diagonal polarisability in this direction can similarly be calculated "
+"via .. math::"
+msgstr "该方向上的对角极化率可类似地通过下式计算 .. math::"
+
+msgid "``QUAD,qxx,qyy,qzz,qxy,qxz,qyz;\\\\`` ``QUAD+,qxx,qyy,qzz,qxy,qxz,qyz;``"
+msgstr "``QUAD,qxx,qyy,qzz,qxy,qxz,qyz;\\\\`` ``QUAD+,qxx,qyy,qzz,qxy,qxz,qyz;``"
+
+msgid ""
+"``FIELD,oper1,fac1, oper2,fac2, …;\\\\`` ``FIELD+,oper1,fac1, oper2,fac2, "
+"…;\\\\``"
+msgstr ""
+"``FIELD,oper1,fac1, oper2,fac2, …;\\\\`` ``FIELD+,oper1,fac1, oper2,fac2, "
+"…;\\\\``"
+
+msgid "examples/field.inp"
+msgstr "examples/field.inp"
+
+msgid "examples/h2o_field.inp"
+msgstr "examples/h2o_field.inp"
+
+msgid ""
+"For second derivatives, central (1 central point + 2 more points for the "
+"diagonal part, 2\\*2 points for the off-diagonal part) and four-point "
+"formulas (central point + 4 more points for the diagonal part, 4\\*4 points "
+"for the off-diagonal part) are implemented. If available, analytical first "
+"gradients may be used with the keyword ``use_grad`` so that only the second "
+"derivative is done numerically. This may require the ``expec`` keyword to "
+"compute the analytical first derivative."
+msgstr ""
+"对于二阶导数，实现了中心公式（对角部分使用1个中心点+2个额外点，非对角部分使用2\\*2个点）和四点公式（对角部分使用中心点+4个额外点，非对角部分使用4\\*\\"
+" 4个点）。如果可用，可使用解析一阶梯度配合关键字 ``use_grad``\\ ，从而仅对二阶导数进行数值计算。这可能需要 ``expec`` "
+"关键字来计算解析一阶导数。"
+
+msgid "examples/h2o2_fgrad_fpol.inp"
+msgstr "examples/h2o2_fgrad_fpol.inp"
+
+msgid "``This example shows how use_grad may be used:``"
+msgstr "``本示例展示了如何使用 use_grad：``"
+
+msgid "examples/h2o_fpol_dm_use_grad_ccsd.inp"
+msgstr "examples/h2o_fpol_dm_use_grad_ccsd.inp"

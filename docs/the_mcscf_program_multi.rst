@@ -463,7 +463,7 @@ Occupation restrictions
 
 This card can be used to restrict the occupation patterns. Only configurations containing between *nmin* and *nmax* electrons in the specified orbitals *orb*\ :math:`_1`,  *orb*\ :math:`_2`,\ :math:`\ldots`,\ *orb*\ :math:`_n` are included in the wavefunction. If *nmin* and  *nmax* are negative, configurations with exactly abs(*nmin*) and abs(*nmax*) electrons in the specified orbitals are deleted. This can be used, for instance, to omit singly excited configurations. The orbitals are specified in the form *number.sym*, where *number* is the number of the orbital in irrep *sym*. Several ``RESTRICT`` cards may follow each other. ``RESTRICT`` only works if a CONFIG card is specified before the first ``WF`` card.
 
-``RESTRICT cards given before the first WF cards are global, i.e., are active for all state symmetries. If such a global restrict card is given, variable [MC]RESTRICT is not used.``
+``RESTRICT`` cards given before the first ``WF`` cards are global, i.e., are active for all state symmetries. If such a global restrict card is given, variable ``[MC]RESTRICT`` is *not* used.
 
 Additional state-specific ``RESTRICT`` cards may be given after a ``WF`` card. These are used in addition to the global orbital restrictions.
 
@@ -760,7 +760,7 @@ Aliases for ``CIREC`` are: ``CIVEC`` and ``CIREF``
 Export the CI vectors in determinant form
 =========================================
 
-``SAVE,DETCIREC=record or SAVE,DET=record``
+``SAVE,DETCIREC``\ =\ *record* or ``SAVE,DET``\ =\ *record*
 
 An export of the CI vector in determinant form can be necessary for restarting a determinant based ``MULTI`` with ``CIGUESS`` (see `defining the starting CI coefficients <the_mcscf_program_multi.html#defining-the-starting-ci-coefficients>`__) or if the CI vector is used in the `CASVB program <the_vb_program_casvb.html#the-vb-program-casvb>`__.
 
@@ -1367,7 +1367,7 @@ For computing non-adiabatic coupling matrix elements analytically, use
 
 where *state1* and *state2* specify the two states considered. (e.g., 2.1,3.1 for the second and third states in symmetry 1) Both states must have the same symmetry. *record* specifies a record on which the gradient information is stored (the default is 5101.1). This will be read in the subsequent gradient calculation. *thresh* is a threshold for the accuracy of the CP-MCSCF solution. The default is 1.d-7.
 
-``NADC and NADK are an aliases for NADC, and SAVE is an alias for RECORD.``
+``NADC`` and ``NADK`` are an aliases for ``NADC``, and ``SAVE`` is an alias for ``RECORD``.
 
 The matrix elements for each atom are computed by a subsequent call to ``FORCES`` (see Section `State-averaged MCSCF gradients with Cadpac <energy_gradients.html#state-averaged-mcscf-gradients-with-cadpac>`__).
 

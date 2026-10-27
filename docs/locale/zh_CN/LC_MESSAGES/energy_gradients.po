@@ -166,6 +166,9 @@ msgstr "对于 MCSCF 波函数，不需要\\ ``ORBITAL``\\ 卡片，因为轨道
 msgid "Using grid weight derivatives for DFT gradients (GRIDGRAD)"
 msgstr "在 DFT 梯度计算中使用格点权重导数 (GRIDGRAD)"
 
+msgid "``FORCE,GRIDGRAD``\\ =\\ *0 or 1*"
+msgstr "``FORCE,GRIDGRAD``\\ =\\ *0 或 1*"
+
 msgid ""
 "Defines whether grid weight derivatives are included in analytical gradient "
 "calculations (default: 0). Disabling these can improve convergence in "
@@ -472,3 +475,121 @@ msgstr ""
 "被给出，梯度将被保存在变量 ``GRADX``\\ 、\\ ``GRADY``\\ 、\\ ``GRADZ`` 中。\\ ``GRADX(n)`` 是第"
 " :math:`n` 个原子关于 :math:`x` 的导数。原子的顺序与打印顺序一致。此顺序可能与输入 "
 "Z-矩阵中的顺序不同，因为中心会被重新排序，使得所有相同类型的原子彼此相邻。"
+
+msgid "``GRADTYP=ALASKA\\\\`` ``GRADTYP=CADPAC``"
+msgstr "``GRADTYP=ALASKA\\\\`` ``GRADTYP=CADPAC``"
+
+msgid "``ADD,factor,[NOCHECK];``"
+msgstr "``ADD,factor,[NOCHECK];``"
+
+msgid "``SCALE,factor;``"
+msgstr "``SCALE,factor;``"
+
+msgid "``ORBITAL,record.file;``"
+msgstr "``ORBITAL,record.file;``"
+
+msgid "``MCSCF,record.file;``"
+msgstr "``MCSCF,record.file;``"
+
+msgid "examples/oh_samcforce.inp"
+msgstr "examples/oh_samcforce.inp"
+
+msgid "``SAMC,record.``"
+msgstr "``SAMC,record.``"
+
+msgid "``NACM,record``"
+msgstr "``NACM,record``"
+
+msgid "``DEMC,record``"
+msgstr "``DEMC,record``"
+
+msgid "examples/h2o_forces.inp"
+msgstr "examples/h2o_forces.inp"
+
+msgid "``FORCE,NUMERICAL,options``"
+msgstr "``FORCE,NUMERICAL,options``"
+
+msgid ""
+"**``STARTCMD``\\ =\\ *command*** The input between *command* and the current"
+" ``FORCE`` command defines the energy calculation for which the gradient is "
+"computed. This input section is executed for each displacement."
+msgstr ""
+"**``STARTCMD``\\ =\\ *\\ command*** 在 *\\ command* 与当前 ``FORCE`` "
+"命令之间输入的内容定义了计算其梯度的能量计算。该输入段对每个位移执行一次。"
+
+msgid ""
+"**``PROC``\\ =\\ *procname*** specifies a procedure to be executed for each "
+"displacement. This must define a complete energy calculation and must not "
+"contain gradient or Hessian calculations."
+msgstr ""
+"**``PROC``\\ =\\ *\\ procname*** 指定对每个位移执行的过程。该过程必须定义完整的能量计算，且不得包含梯度或 "
+"Hessian 计算。"
+
+msgid ""
+"**``VARIABLE``\\ =\\ *varname*** Compute the gradient of the value of "
+"variable *varname*. This implies numerical gradients. The variable must be "
+"set in the corresponding energy calculation."
+msgstr ""
+"**``VARIABLE``\\ =\\ *\\ varname*** 计算变量 *\\ varname* "
+"值的梯度。这意味着使用数值梯度。该变量必须在相应的能量计算中设置。"
+
+msgid "``DISPLACE=ZMAT|SYM|UNIQUE|CART``"
+msgstr "``DISPLACE=ZMAT|SYM|UNIQUE|CART``"
+
+msgid ""
+"Displacement coordinates to be used for numerical gradient. The default is "
+"``ZMAT`` if the geometry is given as a zmatrix which depends on variables, "
+"and ``SYM`` (symmetrical displacement coordinates) otherwise. See section "
+"`choice of coordinates (COORD) <energy_gradients.html#choice-of-coordinates-"
+"coord>`__ for more information."
+msgstr ""
+"用于数值梯度的位移坐标。若几何结构以依赖变量的 zmatrix 形式给出，则默认为 ``ZMAT``\\ ，否则默认为 ``SYM``\\ "
+"（对称位移坐标）。更多信息参见 `choice of coordinates (COORD) "
+"<energy_gradients.html#choice-of-coordinates-coord>`__ 一节。"
+
+msgid ""
+"**``RSTEP``\\ =\\ *rstep*** Step length for distances in numerical gradient "
+"calculations (in bohr). The default is 0.01."
+msgstr "**``RSTEP``\\ =\\ *\\ rstep*** 数值梯度计算中距离的步长（单位为 bohr）。默认为 0.01。"
+
+msgid ""
+"**``DSTEP``\\ =\\ *dstep*** Step length for symmetrical displacements (in "
+"bohr). The default is 0.01."
+msgstr "**``DSTEP``\\ =\\ *\\ dstep*** 对称位移的步长（单位为 bohr）。默认为 0.01。"
+
+msgid ""
+"**``ASTEP``\\ =\\ *astep*** Step length for angles in numerical gradient "
+"calculations (in degree). The default is 1."
+msgstr "**``ASTEP``\\ =\\ *\\ astep*** 数值梯度计算中角度的步长（单位为度）。默认为 1。"
+
+msgid "``COORD,coord_type,[displacement_type]``"
+msgstr "``COORD,coord_type,[displacement_type]``"
+
+msgid ""
+"**``3N`` or ``CART``** Compute the gradients for all :math:`3N` nuclear "
+"coordinates. This is the default if the z-matrix does not depend on "
+"variables or if the ``xyz`` input format is used. If this option is used and"
+" the original geometry is given in z-matrix form, the z-matrix is lost."
+msgstr ""
+"**``3N`` 或 ``CART``** 计算所有 :math:`3N` 个原子核坐标的梯度。若 z-matrix 不依赖变量或使用 ``xyz`` "
+"输入格式，则此为默认值。若使用此选项且原始几何结构以 z-matrix 形式给出，则 z-matrix 将丢失。"
+
+msgid "``DISPLACE,displacement_type``"
+msgstr "``DISPLACE,displacement_type``"
+
+msgid "``VARIABLE,name``"
+msgstr "``VARIABLE,name``"
+
+msgid "``RSTEP,dr\\\\`` ``ASTEP,da``"
+msgstr "``RSTEP,dr\\\\`` ``ASTEP,da``"
+
+msgid "``VARSTEP,varname=value,…``"
+msgstr "``VARSTEP,varname=value,…``"
+
+msgid ""
+"``ACTIVE,variables\\\\`` If this card is present, all variables which are "
+"not specified are inactive. Alternatively,"
+msgstr "``ACTIVE,variables\\\\`` 若存在此卡片，则所有未指定的变量均为非活动变量。或者，"
+
+msgid "``INACTIVE,variables``"
+msgstr "``INACTIVE,variables``"

@@ -365,7 +365,7 @@ It is possible to use ``SHIFT`` and ``IPEA`` simultaneously, but it does not mak
 Integral direct calculations
 ----------------------------
 
-``RS2, RS2C, and RS3 calculations with very large basis sets can be performed in integral-direct mode. The calculation will be direct if a global DIRECT or GDIRECT card appears earlier in the input. Alternatively, (mainly for testing) DIRECT can be specified as an option on the RS$n$[C] card:``
+``RS2``, ``RS2C``, and ``RS3`` calculations with very large basis sets can be performed in integral-direct mode. The calculation will be direct if a global ``DIRECT`` or ``GDIRECT`` card appears earlier in the input. Alternatively, (mainly for testing) ``DIRECT`` can be specified as an option on the ``RS``\ :math:`n`\ [``C``] card:
 
 ``RS2 [,G$n$] [,SHIFT=shift] [,DIRECT]\\``
 ``RS2C [,G$n$] [,SHIFT=shift] [,DIRECT]``

@@ -12,6 +12,20 @@ msgstr ""
 msgid "Matrix operations"
 msgstr "矩阵运算"
 
+msgid ""
+"``MATROP`` performs simple matrix manipulations for matrices whose "
+"dimensions are those of the one particle basis set. To do so, first required"
+" matrices are loaded into memory using the ``LOAD`` command. To each matrix "
+"an internal *name* (an arbitrary user defined string) is assigned, by which "
+"it is referenced in further commands. After performing operations, the "
+"resulting matrices can be saved to a dump record using the ``SAVE`` "
+"directive. Numbers, e.g. traces or individual matrix elements, can be saved "
+"in variables."
+msgstr ""
+"``MATROP`` 对维度为单粒子基组的矩阵执行简单的矩阵操作。为此，首先使用 ``LOAD`` "
+"命令将所需矩阵加载到内存中。为每个矩阵分配一个内部\\ *名称*\\ （用户定义的任意字符串），后续命令通过该名称引用它。执行操作后，可以使用 "
+"``SAVE`` 指令将结果矩阵保存到转储记录中。数值，例如迹或单个矩阵元，可以保存在变量中。"
+
 msgid "*code* may be one of the following:"
 msgstr "*code* 可以是以下之一："
 
@@ -472,6 +486,9 @@ msgstr ""
 msgid "Printing diagonal elements of a matrix (PRID)"
 msgstr "打印矩阵的对角元 (PRID)"
 
+msgid "``PRID``,\\ *name* prints the diagonal elements of matrix *name*."
+msgstr "``PRID``,\\ *name* 打印矩阵 *name* 的对角元。"
+
 msgid "Printing orbitals (PRIO)"
 msgstr "打印轨道 (PRIO)"
 
@@ -640,3 +657,181 @@ msgstr "结果可能如下所示："
 
 msgid "It does not converge terribly fast, but it works!"
 msgstr "它的收敛速度不算很快，但确实有效！"
+
+msgid "``MATROP;``"
+msgstr "``MATROP;``"
+
+msgid "``LOAD,name,ORB [,record] [,specifications]``"
+msgstr "``LOAD,name,ORB [,record] [,specifications]``"
+
+msgid "``LOAD,name,DEN [,record] [,specifications]``"
+msgstr "``LOAD,name,DEN [,record] [,specifications]``"
+
+msgid "``LOAD,name,S``"
+msgstr "``LOAD,name,S``"
+
+msgid "``LOAD,name,SMH``"
+msgstr "``LOAD,name,SMH``"
+
+msgid "``LOAD,name,H0``"
+msgstr "``LOAD,name,H0``"
+
+msgid "``LOAD,name,H01``"
+msgstr "``LOAD,name,H01``"
+
+msgid "``LOAD,name,EKIN``"
+msgstr "``LOAD,name,EKIN``"
+
+msgid "``LOAD,name,EPOT``"
+msgstr "``LOAD,name,EPOT``"
+
+msgid "``LOAD,name,OPER,opname,[isym],x,y,z``"
+msgstr "``LOAD,name,OPER,opname,[isym],x,y,z``"
+
+msgid ""
+"loads one-electron operator *opname*, where *opname* is a keyword specifying"
+" the operator (a component must be given). See section `One-electron "
+"operators and expectation values (GEXPEC) <program_control.html#one-"
+"electron-operators-and-expectation-values-gexpec>`__ for valid keys. *isym* "
+"is the total symmetry of the operator (default 1). If just the operator name"
+" is given, it is computed at the origin. If the operator name is appended by"
+" a center number in parenthesis, it is computed at this center [e.g. "
+"``DELTA(1)``]. If it is appended by (0), it is computed at the given "
+"coordinates *x,y,z* (in a.u.), e.g. ``DELTA(0),,0,0,4``"
+msgstr ""
+"载入单电子算符 *opname*\\ ，其中 *opname* 是指定该算符的关键字（必须给定一个分量）。有效关键字参见 `One-electron "
+"operators and expectation values (GEXPEC) <program_control.html#one-"
+"electron-operators-and-expectation-values-gexpec>`__ 一节。\\ *isym* "
+"为该算符的总对称性（默认 1）。若只给出算符名，则在该原点处计算。若算符名后括号中附加了中心编号，则在该中心处计算[例如 "
+"``DELTA(1)``]。若附加了 (0)，则在给定的坐标 *x,y,z*\\ （单位 a.u.）处计算，例如 ``DELTA(0),,0,0,4``"
+
+msgid "``LOAD,name,TRIANG,record,[isym] LOAD,name,SQUARE,record,[isym]``"
+msgstr "``LOAD,name,TRIANG,record,[isym] LOAD,name,SQUARE,record,[isym]``"
+
+msgid "``SAVE,name,record [,type],[subtype]``"
+msgstr "``SAVE,name,record [,type],[subtype]``"
+
+msgid ""
+"``SAVE,name,OPER, [PARITY=np], [NUC=opnuc], CENTRE=icen],[COORD=[x,y,z]]``"
+msgstr ""
+"``SAVE,name,OPER, [PARITY=np], [NUC=opnuc], CENTRE=icen],[COORD=[x,y,z]]``"
+
+msgid "``ADD,result [,fac1],mat1 [,fac2],mat2,…``"
+msgstr "``ADD,result [,fac1],mat1 [,fac2],mat2,…``"
+
+msgid ""
+"calculates *result = fac1 :math:`\\cdot` mat1 + fac2 :math:`\\cdot` mat2* + "
+"…"
+msgstr "计算 *result = fac1 :math:`\\cdot` mat1 + fac2 :math:`\\cdot` mat2* + …"
+
+msgid "``TRACE,variable, mat1,,[factor]``"
+msgstr "``TRACE,variable, mat1,,[factor]``"
+
+msgid "``TRACE,variable, mat1, mat2,[factor],[facnuc]``"
+msgstr "``TRACE,variable, mat1, mat2,[factor],[facnuc]``"
+
+msgid ""
+"Computes *variable* = *factor*\\*trace(*mat1 :math:`\\cdot` mat2*) + "
+"facnuc\\*opnuc."
+msgstr ""
+
+msgid "``SET,variable,value``"
+msgstr "``SET,variable,value``"
+
+msgid "``MULT,result, mat1, mat2,[fac1],[fac2]``"
+msgstr "``MULT,result, mat1, mat2,[fac1],[fac2]``"
+
+msgid "calculates *result = fac2 \\* result + fac1 \\* mat1 :math:`\\cdot` mat2*"
+msgstr "计算 *result = fac2 \\* result + fac1 \\* mat1 :math:`\\cdot` mat2*"
+
+msgid "``TRAN,result, Op, C``"
+msgstr "``TRAN,result, Op, C``"
+
+msgid ""
+"calculates *result* = *C(T)\\*Op\\*C*. The strings *result*, *C*, and *Op* "
+"are the internal names of the matrices. If a backquote (‘) is appended to "
+"*C* or *Op* the corresponding matrix is transposed before the operation. "
+"Thus,"
+msgstr ""
+"计算 *result* = *C(T)\\*\\ Op\\*C*\\ 。字符串 *result*\\ 、\\ *C* 和 *Op* "
+"为矩阵的内部名称。若在 *C* 或 *Op* 后附加反引号（‘），则相应矩阵在运算前先转置。因此，"
+
+msgid "``TRAN,result, Op, C‘``"
+msgstr "``TRAN,result, Op, C‘``"
+
+msgid "computes *result* = *C\\*Op\\*C(T)*."
+msgstr "计算 *result* = *C\\*\\ Op\\*C(T)*\\ 。"
+
+msgid "``DMO,result, D, C``"
+msgstr "``DMO,result, D, C``"
+
+msgid ""
+"calculates *result* = *C(T)\\*S\\*D\\*S\\*C*. The strings *result*, *C*, and"
+" *D* are internal names."
+msgstr "计算 *result* = *C(T)\\*\\ S\\*D\\*\\ S\\*C*\\ 。字符串 *result*\\ 、\\ *C* 和 *D* 为内部名称。"
+
+msgid "``DIAG,eigvec,eigval,matrix [,iprint]``"
+msgstr "``DIAG,eigvec,eigval,matrix [,iprint]``"
+
+msgid "``NATORB,name,dens,thresh``"
+msgstr "``NATORB,name,dens,thresh``"
+
+msgid "``OPRD,result,matrix,orb1,orb2,factor``"
+msgstr "``OPRD,result,matrix,orb1,orb2,factor``"
+
+msgid "``ADDVEC,result,orbr,source,orbs,factor``"
+msgstr "``ADDVEC,result,orbr,source,orbs,factor``"
+
+msgid "``DENS,density,orbitals,iocc$_1$, iocc$_2 \\ldots$``"
+msgstr "``DENS,density,orbitals,iocc$_1$, iocc$_2 \\ldots$``"
+
+msgid ""
+"Forms a closed-shell density matrix *density* from the given *orbitals*. The"
+" number of occupied orbitals in each symmetry :math:`i` must be provided in "
+"*iocc:math:`_i`*."
+msgstr ""
+"由给定的 *orbitals* 构造闭壳层密度矩阵 *density*\\ 。每个对称性 :math:`i` 中的占据轨道数目必须在 "
+"*iocc:math:`_i`* 中提供。"
+
+msgid "``FOCK,f,d``"
+msgstr "``FOCK,f,d``"
+
+msgid "``COUL,J,d``"
+msgstr "``COUL,J,d``"
+
+msgid "``EXCH,K,d``"
+msgstr "``EXCH,K,d``"
+
+msgid "``PRINT,name,[ncol(1), ncol(2),…]``"
+msgstr "``PRINT,name,[ncol(1), ncol(2),…]``"
+
+msgid "``PRIO,name,$n_1,n_2,n_3,\\ldots,n_8$``"
+msgstr "``PRIO,name,$n_1,n_2,n_3,\\ldots,n_8$``"
+
+msgid "``PRIC,name,[ncol(1), ncol(2),…]``"
+msgstr "``PRIC,name,[ncol(1), ncol(2),…]``"
+
+msgid "``ELEM,name,matrix, col,row``"
+msgstr "``ELEM,name,matrix, col,row``"
+
+msgid "``POKE,name,matrix, col,row``"
+msgstr "``POKE,name,matrix, col,row``"
+
+msgid ""
+"``READ``,\\ *name*,[[TYPE=]\\ *type*],[[SUBTYPE=]\\ *subtype*],[[SYM=]\\ "
+"*symmetry*], [FILE=\\ *file*],[TRANS] { *values* }"
+msgstr ""
+"``READ``,\\ *name*,[[TYPE=]\\ *type*],[[SUBTYPE=]\\ *subtype*],[[SYM=]\\ "
+"*symmetry*], [FILE=\\ *file*],[TRANS] { *values* }"
+
+msgid "``WRITE,name[,filename[,status[,format]]]``"
+msgstr "``WRITE,name[,filename[,status[,format]]]``"
+
+msgid "examples/matrop.inp"
+msgstr "examples/matrop.inp"
+
+msgid "examples/matropfield.inp"
+msgstr "examples/matropfield.inp"
+
+msgid "``Write a closed-shell SCF program for H$_2$O using MATROP!``"
+msgstr "``使用 MATROP 为 H$_2$O 编写一个闭壳层 SCF 程序！``"

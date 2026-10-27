@@ -542,16 +542,16 @@ General Options
 * **``LOCAL``\ =\ *local*** Determines which method is used:
 
 ``LOCAL=0: Conventional (non-local) calculation.\\``
-``LOCAL=1: Local method is simulated using canonical MOs. The local basis is used only at an intermediate stage to update the amplitudes in each iteration (only for testing).\\``
-``LOCAL=2: Calculation is done in local basis, but without using local blocking (i.e. full matrices are used). This is the most expensive method and only for testing.\\``
+``LOCAL=1``: Local method is simulated using canonical MOs. The local basis is used only at an intermediate stage to update the amplitudes in each iteration (only for testing).
+``LOCAL=2``: Calculation is done in local basis, but without using local blocking (i.e. full matrices are used). This is the most expensive method and only for testing.
 ``LOCAL=3: Fully local calculation (obsolete).\\``
-``LOCAL=4: Fully local calculation (default). This is the fastest method for large molecules with many weak pairs and requires minimum memory.``
+``LOCAL=4``: Fully local calculation (default). This is the fastest method for large molecules with many weak pairs and requires minimum memory.
 
 * **``LOCORB``\ =\ *option*** If this option is given and *option*\ :math:`\gt 0`, the orbitals are localized using the Pipek-Mezey technique. If this option is not given or *option*\ =0 (default), the orbitals are localized unless localized orbitals are found in the orbital record (cf. ``ORBITAL`` directive and ``LOCALI`` command). In the latter case, the most recent localized orbitals are used. Setting *option*\ =-1 switches the localization off. If *option*\ :math:`\gt 1` the localized orbitals are printed. Note: Boys localization can only be performed using the ``LOCALI`` command. The program will use the Boys orbitals if they are found in the orbital record and the ``LOCORB`` option is absent or *option*\ :math:`\le 0`.
 * **``LOC_METHOD``\ =\ *method*** This option allows to select between Pipek-Mezey (*method*\ =\ ``PM``) or Natural Orbitals (*method*\ =\ ``NBO``) localization. If Pipek-Mezey orbitals are requested, the default Boughton-Pulay domain selection will be used. When *method*\ =\ ``NBO``, the domain selection will be based on the NPA charges, with ``NPASEL``\ =0.03 (by default). In both cases, the domain selection parameter can be explicitly given (cf. ``DOMSEL`` and ``NPASEL`` options) in order to use another domain criterion. If localized orbitals are found in the orbital record, but the type does not coincide, the orbitals are again localized according to *method* and used in the calculation.
 * **``SAVORB``\ =\ *record*** Allows the localized and projected orbitals to be saved in *record=name.ifil* for later use (e.g. plotting). The two orbital sets are stored in the same dump record and can be restored at later stages using
 
-``ORBITAL,record,[TYPE=]LOCAL or\\``
+``ORBITAL``,\ *record*,[``TYPE``\ =]\ ``LOCAL`` or
 ``ORBITAL,record,[TYPE=]PROJECTED, respectively.``
 
 * **``DOMONLY``\ =\ *value*** If *value*\ :math:`\gt 0` only domains are made, but no energy is computed. This can be used to check and save the domains for later use.

@@ -62,19 +62,19 @@ PNO-CASPT2 specific options
 
 ``THRPNOP2_OCC/THRPNOP1_OCC/THRPNOP0_OCC (default: THRPNO_OCC) as THRPNO_OCC, but only for P2/P1/P0 excitation subspace``
 
-``FCLOS (default: false) use closed-shell Fock matrix $f^c$ in the right-hand side of the PNO-CASPT2 amplitude equations. Recommended if an averaged Fock matrix is used in the zero-order Hamiltonian``
+``FCLOS`` (default: *false*) use closed-shell Fock matrix :math:`f^c` in the right-hand side of the PNO-CASPT2 amplitude equations. Recommended if an averaged Fock matrix is used in the zero-order Hamiltonian
 
 ``SHIFT`` (default: *0.0*) level shift to reduce the intruder state problem (see `level shifts in RS2 <multireference_rayleigh_schroedinger_perturbation_theory.html#level-shifts>`__)
 
-``CIREC record for CASSCF CI vectors stored in MULTI. If given, these are used without performing an extra reference CI. The CI vectors have to be saved in multi using the save,cirec directive (see examples below).``
+``CIREC`` record for CASSCF CI vectors stored in ``MULTI``. If given, these are used without performing an extra reference CI. The CI vectors have to be saved in multi using the ``save,cirec`` directive (see examples below).
 
-``USE_SINGLES (default: 0) if set to 1 explicit single excitations are used in the amplitude equations``
+``USE_SINGLES`` (default: *0*) if set to 1 explicit single excitations are used in the amplitude equations
 
-``DIAG_DENF (default: 1) the Gamma matrix is diagonalized in PNO-CASPT2 (makes H0 block-diagonal)``
+``DIAG_DENF`` (default: *1*) the Gamma matrix is diagonalized in PNO-CASPT2 (makes H0 block-diagonal)
 
-``THRDLP threshold for projection of redundant configurations in P1 and P0 subspaces``
+``THRDLP`` threshold for projection of redundant configurations in P1 and P0 subspaces
 
-``THRDLS threshold for projection of redundant configurations in the remaining configuration subspaces``
+``THRDLS`` threshold for projection of redundant configurations in the remaining configuration subspaces
 
 Using the directive ``STATE`` one can specify the state of interest (see `the single-root excited state calculation in RS2 <multireference_rayleigh_schroedinger_perturbation_theory.html#excited-state-calculations>`__).
 
@@ -100,7 +100,7 @@ Additional options
 
 ``H0`` (default: *0*) use CASPT2\ **D** (*=1*) or CASPT2\ **D2** (*=2*) approximations (see `J. Chem. Phys. <https://doi.org/10.1063/1.5097644>`__ **150**, 214107 (2019))
 
-``COUPCOR (default: 0) use coupling corrections for the above approximations (1: simple Lagrangian correction Dc or D2c; 2: additional relaxation correction Dcr or D2cr)``
+``COUPCOR`` (default: *0*) use coupling corrections for the above approximations (*1*: simple Lagrangian correction **Dc** or **D2c**; *2*: additional relaxation correction **Dcr** or **D2cr**)
 
 .. _multireference_local_correlation_methods_pno-caspt2--bibliography:
 

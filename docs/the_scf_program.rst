@@ -201,9 +201,9 @@ SHELL directives are mandatory if more than one active shell is used. For each s
    SHELL,nel,orbital list
 
 where ``nel`` is the number of electrons in the active shell and
-``orbital list is given in the form number1.sym1,number2.sym2,.... Orbital numbers in the same symmetry must be consecutive. A range of orbitals in the same symmetry can be given as number1.sym,-number2.sym, which means from number1 to number2. The lowest orbital in a symmetry isym on any SHELL directive must equal iclos(isym)+1, where iclos(isym) is the number of closed-shell orbitals in the symmetry as given on a CLOSED directive. The highest orbital in symmetry isym on any SHELL directive equals iocc(isym), where iocc(isym) is the total number of occupied orbitals, as defined on an OCC directive, and any orbitals in-between must be defined on the SHELL directives. IF OCC and/or CLOSED directives are not given, the number of occupied and closed-shell orbitals is derived from the SHELL directive(s). But this only works if all symmetries occur on them.``
+``orbital list`` is given in the form ``number1.sym1,number2.sym2,...``. Orbital numbers in the same symmetry must be consecutive. A range of orbitals in the same symmetry can be given as ``number1.sym,-number2.sym``, which means from number1 to number2. The lowest orbital in a symmetry isym on any SHELL directive must equal iclos(isym)+1, where iclos(isym) is the number of closed-shell orbitals in the symmetry as given on a CLOSED directive. The highest orbital in symmetry isym on any SHELL directive equals iocc(isym), where iocc(isym) is the total number of occupied orbitals, as defined on an OCC directive, and any orbitals in-between must be defined on the SHELL directives. IF OCC and/or CLOSED directives are not given, the number of occupied and closed-shell orbitals is derived from the SHELL directive(s). But this only works if all symmetries occur on them.
 
-``OPTIONS can be the same as described for HF or DF-HF. The most useful ones in the context of CAHF are``
+``OPTIONS`` can be the same as described for HF or DF-HF. The most useful ones in the context of CAHF are
 
 * **``SHIFTC=``\ *value***: shift for closed shell orbitals (negative means shifting down), default -0.6 Hartree.
 * **``SHIFTO=``\ *value***: shift for open-shell (active) orbitals, default -0.3  Hartree.
@@ -748,7 +748,7 @@ sets the maximum number of iterations to *maxit*. The default is *maxit*\ :math:
 Convergence threshold
 ---------------------
 
-``ACCU,accu This threshold applies to the square sum of the density matrix element changes (same as option ACCU). If accu$> 1$, a threshold of $10^{-accu}$) is used. The default depends on the global ENERGY threshold, and the threshold is automatically tightened in geometry optimizations or frequency calculations (unless a tight threshold is given).``
+``ACCU``,\ *accu* This threshold applies to the square sum of the density matrix element changes (same as option ``ACCU``). If *accu*\ :math:`> 1`, a threshold of :math:`10^{-accu}`) is used. The default depends on the global ``ENERGY`` threshold, and the threshold is automatically tightened in geometry optimizations or frequency calculations (unless a tight threshold is given).
 
 .. _the_scf_program--sanity-check-on-the-energy:
 

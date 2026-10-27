@@ -428,13 +428,13 @@ For ``CORE`` the following special input possibilities exist (also available as 
 ``CORE,LARGE\\``
 ``CORE,SYM1=spdf,SYM2=spdf,...``
 
-``SMALL means that all atomic orbitals are correlated for which the cc-pwCVXZ basis are optimized (typically one additional shell of each angular momentum below the valence shell). For $n$d transition metals, the $n$s, $(n+1)$s, $n$p, $n$d orbitals are correlated.``
+``SMALL`` means that all atomic orbitals are correlated for which the cc-pwCVXZ basis are optimized (typically one additional shell of each angular momentum below the valence shell). For :math:`n`\ d transition metals, the :math:`n`\ s, :math:`(n+1)`\ s, :math:`n`\ p, :math:`n`\ d orbitals are correlated.
 
-``MIXED corresponds to SMALL but the next lower s and p shells of the p-block elements are not correlated.``
+``MIXED`` corresponds to ``SMALL`` but the next lower s and p shells of the p-block elements are not correlated.
 
 Note that until Molpro 2021.3, the 2s and 2p shells of the second-row elements Al - Ar were correlated with ``MIXED``, but for consistency this has been changed in 2021.4. The old behaviour can be recovered using ``MIXED_OLD``.
 
-``LARGE means that no inner shells are correlated (default). In transition metals the outermost d-shell and in f-elements the outermost f-shell are treated as valence and always correlated.``
+``LARGE`` means that no inner shells are correlated (default). In transition metals the outermost d-shell and in f-elements the outermost f-shell are treated as valence and always correlated.
 
 The most general core definition is possible using the last possibility, where *SYM1, SYM2* etc are atomic symbols and *spdf* are the numbers of core orbitals at the given atom for each angular momentum. For example, for bromine ``CORE,Br=21`` is equivalent to ``CORE,SMALL``, ``CORE,Br=32`` is equivalent to ``CORE,MIXED``, and ``CORE,Br=321`` is equivalent to ``CORE,LARGE``. Trailing zeros are optional, i.e. Br=3200, 320, or 32 are equivalent. Atom-specific core specifications cannot exceed the number of large core orbitals for each angular momentum.
 
@@ -608,7 +608,7 @@ The program automatically checks if the orbitals with the lowest orbital energie
 
 Note that the ``OCC`` and ``CLOSED`` cards have slightly different meanings in the SCF, MCSCF and CI or CCSD programs. In SCF and MCSCF, *occupied* orbitals are those which occur in any of the CSFs. In electron correlation methods (CI, MPn, CCSD etc), however, ``OCC`` denotes the orbitals which are occupied in any of the *reference* CSFs. In the MCSCF, ``FROZEN`` orbitals are doubly occupied in all CSFs and *frozen* (not optimized), while  *closed* denotes all doubly occupied orbitals (frozen plus optimized). In the CI and CCSD programs, *core* orbitals are those which are not correlated and *closed* orbitals are those which are doubly occupied in all reference CSFs.
 
-``OCC, CORE and CLOSED directives are generally required in each program module where they are relevant; however, the program remembers the most recently used values, and so the directives may be omitted if the orbital spaces are not to be changed from their previous values. Note that this information is also preserved across restarts. Note also, as with the WF information, sensible defaults are assumed for these orbital spaces. For full details, see the appropriate program description.``
+``OCC``, ``CORE`` and ``CLOSED`` directives are generally required in each program module where they are relevant; however, the program remembers the most recently used values, and so the directives may be omitted if the orbital spaces are not to be changed from their previous values. Note that this information is also preserved across restarts. Note also, as with the ``WF`` information, sensible defaults are assumed for these orbital spaces. For full details, see the appropriate program description.
 
 The orbital spaces may also be defined outside command blocks, and then the directive is treated as global, i.e., it is used in all subsequent programs. Spaces specific to certain wavefunction types can be defined by specifying the program name with a ``CONTEXT`` option, e.g.,
 
@@ -639,12 +639,12 @@ where the (optional) specifications can be used to select specific orbitals or d
 
 * ***orbtype*** Orbital type. This can be one of
 
-``CANONICAL: canonical or pseudo-canonical orbitals;\\``
+``CANONICAL``: canonical or pseudo-canonical orbitals;
 ``NATURAL: natural orbitals;\\``
 ``LOCAL: localized orbitals;\\``
 ``LOCAL(PM): localized Pipek-Mezey orbitals;\\``
 ``LOCAL(BOYS): localized Boys orbitals;\\``
-``PROJECTED: projected virtual orbitals used in local calculations.\\``
+``PROJECTED``: projected virtual orbitals used in local calculations.
 Without further specification, the most recently computed orbitals of the specified type are used. If the orbital type is not specified, the program will try to find the most suitable orbitals automatically. For instance, in MRCI calculations ``NATURAL`` orbitals will be used preferentially if available; MRPT (CASPT2) calculations will first search for ``CANONICAL`` orbitals, and local calculations will first look for ``LOCAL`` orbitals. Therefore, in most cases the orbital type needs not to be specified.
 
 * ***state*** Specifies a particular state in the form :math:`istate.isym`. For instance, 2.1 refers to the second state in symmetry 1. This can be used if density matrices or natural orbitals have been computed for different states in a state-averaged CASSCF calculation. If not given, the last written orbitals are used. A state-averaged density can be selected using ``STATE=AV[ERAGED]``. The specification of :math:`isym` is optional; it can also be defined using the ``SYMMETRY`` key.
@@ -691,7 +691,7 @@ Molpro can host suitably prepared external programs as “plugins”. They are l
 
 *command* is the name of the executable of the plugin. It can be given as an absolute path name, or a relative path. If it is a simple name (no ``/`` characters), it will be searched for in the same directory as Molpro’s executable, and this will be the normal mode of use. If the plugin is not found, and *command* does not have a filename suffix, then the suffix ``.exe`` will be assumed.
 
-``PROCS=procs specifies the number of processes for the plugin, and can be omitted, in which case the number is the same as in the host Molpro instance.``
+``PROCS=``\ *procs* specifies the number of processes for the plugin, and can be omitted, in which case the number is the same as in the host Molpro instance.
 
 Example:
 
@@ -839,9 +839,9 @@ This is a summary of all keywords presently implemented in the controlling progr
 
 The command names for single reference coupled cluster methods ``QCISD, CCSD, LQCISD, LCCSD, PNO-LCCSD, PNO-RCCSD, PNO-UCCSD`` (including the explicitly correlated variants) can be appended by ``(T)`` and then a perturbative correction for triple excitations will be computed (e.g., ``CCSD(T)``, ``PNO-LCCSD(T)-F12`` etc.)
 
-``HF, KS, UHF, UKS, MP2, CCSD, MCSCF, RS2, and all PAO-based local correlation methods can be prepended by DF- to invoke density fitting (PNO always implies density fitting).``
+``HF``, ``KS``, ``UHF``, ``UKS``, ``MP2``, ``CCSD``, ``MCSCF``, ``RS2``, and all PAO-based local correlation methods can be prepended by ``DF-`` to invoke density fitting (PNO always implies density fitting).
 
-``HF, KS, UHF, UKS can be pretended by LDF- to invoke local density fitting approximations.``
+``HF``, ``KS``, ``UHF``, ``UKS`` can be pretended by ``LDF-`` to invoke local density fitting approximations.
 
 .. _general_program_structure--molpro-help:
 

@@ -55,9 +55,21 @@ msgstr ""
 " ``INT`` 命令来指定，该命令应出现在几何和基组规范之后，以及任何评估能量的命令之前。"
 
 msgid ""
+"``INT,NOSORT;SORT`` can be used to explicitly separate the integral "
+"evaluation and sorting steps, for example to collect separate timing data. "
+"With *value* set to more than 1 in the ``SPRI`` option, all the two-electron"
+" integrals are printed."
+msgstr ""
+"``INT,NOSORT;SORT`` 可用于显式分离积分求值和排序步骤，例如用于收集独立的计时数据。当 ``SPRI`` 选项中的 *值* 设置为大于"
+" 1 时，将打印所有双电子积分。"
+
+msgid ""
 "The detailed options for the integral sort can be specified using the "
 "``AOINT`` parameter set, using the input form"
 msgstr "积分排序的详细选项可以使用 ``AOINT`` 参数集来指定，输入格式为"
+
+msgid "``AOINT`` can be used with or without an explicit ``INT`` command."
+msgstr "``AOINT`` 可以与显式的 ``INT`` 命令一起使用，也可以单独使用。"
 
 msgid ""
 "The following summarizes the possible keys, together with their meaning, and"
@@ -817,3 +829,462 @@ msgstr "积分直接计算的示例"
 
 msgid "This job produces the following table:"
 msgstr "此作业生成以下表格："
+
+msgid ""
+"``SET,FNUC=1\\\\`` before the first energy evaluation (a value of 0 "
+"corresponds to a point charge nucleus). Alternatively, this also can be "
+"given as an option to the ``INT`` command:"
+msgstr ""
+"在首次能量计算之前使用 ``SET,FNUC=1\\\\``\\ （值为 0 对应于点电荷原子核）。或者，也可以将其作为 ``INT`` "
+"命令的选项给出："
+
+msgid "``INT, [[NO]SORT,] [SPRI=value]``"
+msgstr "``INT, [[NO]SORT,] [SPRI=value]``"
+
+msgid "``SORT, [SPRI=value]``"
+msgstr "``SORT, [SPRI=value]``"
+
+msgid "``AOINT, key1=value1, key2=value2, $\\dots$``"
+msgstr "``AOINT, key1=value1, key2=value2, $\\dots$``"
+
+msgid "``HAMILTONIAN,filename``"
+msgstr "``HAMILTONIAN,filename``"
+
+msgid ""
+"Direct methods, general: M. Schütz, R. Lindh, and H.-J. Werner, `Mol. Phys. "
+"<https://dx.doi.org/10.1080/00268979909483008>`__ **96**, 719 (1999). Linear"
+" scaling LMP2: M. Schütz, G. Hetzer, and H.-J. Werner `J. Chem. Phys. "
+"<https://dx.doi.org/10.1063/1.479957>`__ **111**, 5691 (1999)."
+msgstr ""
+"直接方法，综述：M. Schütz, R. Lindh, and H.-J. Werner, `Mol. Phys. "
+"<https://dx.doi.org/10.1080/00268979909483008>`__ **96**, 719 (1999). 线性标度 "
+"LMP2：M. Schütz, G. Hetzer, and H.-J. Werner `J. Chem. Phys. "
+"<https://dx.doi.org/10.1063/1.479957>`__ **111**, 5691 (1999)."
+
+msgid ""
+"Integral-direct calculations are requested by the ``DIRECT`` or ``GDIRECT`` "
+"directives. If one of these cards is given outside the input of specific "
+"programs it acts globally, i.e. all subsequent calculations are performed in"
+" integral-direct mode. On the other hand, if the ``DIRECT`` card is part of "
+"the input of specific programs (e.g. ``HF``, ``CCSD``), it affects only this"
+" program. The ``GDIRECT`` directive is not recognized by individual programs"
+" and always acts globally. Normally, all calculations in one job will be "
+"done integral-direct, and then a ``DIRECT`` ``or GDIRECT`` card is required "
+"before the first energy calculation. However, further ``DIRECT`` or "
+"``GDIRECT`` directives can be given in order to modify specific options or "
+"thresholds for particular programs."
+msgstr ""
+"积分直接计算通过 ``DIRECT`` 或 ``GDIRECT`` "
+"指令请求。如果这些卡片之一出现在特定程序的输入之外，则其作用为全局性的，即所有后续计算都在积分直接模式下执行。另一方面，如果 ``DIRECT`` "
+"卡片是特定程序（例如 ``HF``\\ 、\\ ``CCSD``\\ ）输入的一部分，则仅影响该程序。\\ ``GDIRECT`` "
+"指令不被各个程序识别，始终全局生效。通常，一个作业中的所有计算都将以积分直接方式完成，因此需要在首次能量计算之前给出 ``DIRECT`` 或 "
+"``GDIRECT`` 卡片。然而，可以给出更多的 ``DIRECT`` 或 ``GDIRECT`` 指令，以便为特定程序修改特定选项或阈值。"
+
+msgid "``DIRECT, key1=value1, key2=value2…``"
+msgstr "``DIRECT, key1=value1, key2=value2…``"
+
+msgid "**\\*\\*General Options (apply to all programs):**"
+msgstr "**\\*\\*通用选项（适用于所有程序）：**"
+
+msgid "\\*\\*"
+msgstr "\\*\\*"
+
+msgid ""
+"``THREST`` Integral prescreening threshold. The calculation of an integral "
+"shell block is skipped if the product of the largest estimated integral "
+"value (based on the Cauchy-Schwarz inequality) and the largest density "
+"matrix element contributing to the shell block is smaller than this value. "
+"In ``DTRAF`` and ``DKEXT`` effective density matrices are constructed from "
+"the MO coefficients and amplitudes, respectively."
+msgstr ""
+"``THREST`` 积分预筛选阈值。如果最大估计积分值（基于 Cauchy-Schwarz "
+"不等式）与对该壳层块有贡献的最大密度矩阵元的乘积小于此值，则跳过该积分壳层块的计算。在 ``DTRAF`` 和 ``DKEXT`` "
+"中，有效密度矩阵分别由 MO 系数和振幅构建。"
+
+msgid ""
+"``THRINT`` Integral prescreening threshold. This applies to the product of "
+"the exact (i.e. computed) integral value and a density matrix. This "
+"threshold is only used in ``DTRAF`` and ``DKEXT``. A shell block of "
+"integrals is skipped if the product of the largest integral and the largest "
+"element of the effective density matrix contributing to the shell block is "
+"smaller than this threshold. If it is set negative, no computed integrals "
+"will be neglected."
+msgstr ""
+"``THRINT`` 积分预筛选阈值。这适用于精确（即计算得到的）积分值与密度矩阵的乘积。该阈值仅在 ``DTRAF`` 和 ``DKEXT`` "
+"中使用。如果最大积分与对该壳层块有贡献的有效密度矩阵的最大元素的乘积小于此阈值，则跳过该壳层块积分。如果设为负值，则不会忽略任何已计算的积分。"
+
+msgid ""
+"``THRPROD`` Prescreening threshold for products of integrals and MO-"
+"coefficients (``DTRAF``) or amplitudes (``DKEXT``). Shell blocks of MO "
+"coefficients or amplitudes are neglected if the product of the largest "
+"integral in the shell block and the largest coefficient is smaller than this"
+" value. If this is set negative, no product screening is performed."
+msgstr ""
+"``THRPROD`` 积分与 MO 系数（\\ ``DTRAF``\\ ）或振幅（\\ ``DKEXT``\\ "
+"）乘积的预筛选阈值。如果壳层块中最大积分与最大系数的乘积小于此值，则忽略该 MO 系数或振幅壳层块。如果设为负值，则不执行乘积筛选。"
+
+msgid ""
+"``THRMAX`` Initial value of the prescreening threshold ``THREST`` for "
+"``DFOCK`` and ``DKEXT`` in iterative methods (``SCF``, ``CI``, ``CCSD``). If"
+" nonzero, it will also be used for ``DKEXT`` in ``MP3`` and ``MP4(SDQ)`` "
+"calculations. The threshold will be reduced to ``THREST`` once a certain "
+"accuracy has been reached (see ``VARRED``), or latest after ``MAXRED`` "
+"iterations. In ``CI`` and ``CCSD`` calculations, also the initial thresholds"
+" ``THRINT_DKEXT`` and ``THRPROD_DKEXT`` are influenced by this value. For a "
+"description, see ``THRMAX_DKEXT``. If ``THRMAX``\\ =0, the final thresholds "
+"will be used from the beginning in all methods."
+msgstr ""
+"``THRMAX`` ``DFOCK`` 和 ``DKEXT`` 在迭代方法（\\ ``SCF``\\ 、\\ ``CI``\\ 、\\ "
+"``CCSD``\\ ）中预筛选阈值 ``THREST`` 的初始值。如果非零，它也将用于 ``MP3`` 和 ``MP4(SDQ)`` 计算中的 "
+"``DKEXT``\\ 。一旦达到一定精度（参见 ``VARRED``\\ ），或最迟在 ``MAXRED`` 次迭代之后，阈值将降低到 "
+"``THREST``\\ 。在 ``CI`` 和 ``CCSD`` 计算中，初始阈值 ``THRINT_DKEXT`` 和 "
+"``THRPROD_DKEXT`` 也受此值影响。有关说明，请参见 ``THRMAX_DKEXT``\\ 。如果 ``THRMAX``\\ "
+"=0，则在所有方法中从一开始就使用最终阈值。"
+
+msgid "``SCREEN`` Enables or disables prescreening."
+msgstr "``SCREEN`` 启用或禁用预筛选。"
+
+msgid ""
+"``SCREEN$\\ge 0$: full screening enabled.\\\\`` ``SCREEN``\\ :math:`\\lt 0`:"
+" ``THRPROD`` is unused. No density screening in direct SCF. ``SCREEN``\\ "
+":math:`\\lt -1`: ``THRINT`` is unused. ``SCREEN``\\ :math:`\\lt -2`: "
+"``THREST`` is unused."
+msgstr ""
+"``SCREEN$\\ge 0$: 启用完整筛选。\\\\`` ``SCREEN``\\ :math:`\\lt 0`\\ ：不使用 "
+"``THRPROD``\\ 。直接 SCF 中不做密度筛选。\\ ``SCREEN``\\ :math:`\\lt -1`\\ ：不使用 "
+"``THRINT``\\ 。\\ ``SCREEN``\\ :math:`\\lt -2`\\ ：不使用 ``THREST``\\ 。"
+
+msgid ""
+"``SWAP`` Enables or disables label swapping in ``SEWARD``. Test purpose "
+"only."
+msgstr "``SWAP`` 启用或禁用 ``SEWARD`` 中的标签交换。仅用于测试目的。"
+
+msgid "**\\*\\*Specific options for direct SCF (``DFOCK``):**"
+msgstr "**\\*\\*直接 SCF（``DFOCK``）的特定选项：**"
+
+msgid ""
+"``SWAP_DFOCK`` Enables or disables label swapping in fock matrix calculation"
+" (test purpose only)."
+msgstr "``SWAP_DFOCK`` 启用或禁用 Fock 矩阵计算中的标签交换（仅用于测试目的）。"
+
+msgid "**\\*\\*General options for direct integral transformation (``DTRAF``)**:"
+msgstr "**\\*\\*直接积分变换（``DTRAF``）的通用选项**："
+
+msgid "``PAGE_DTRAF`` Selects the transformation method."
+msgstr "``PAGE_DTRAF`` 选择变换方法。"
+
+msgid ""
+"``PAGE_DTRAF=0: use minimum memory algorithm, requiring four integral "
+"evaluations.\\\\`` ``PAGE_DTRAF=1``: use paging algorithm,leading to the "
+"minimum CPU time (one integral evaluation for DMP2/LMP2 and two otherwise)."
+msgstr ""
+"``PAGE_DTRAF=0：使用最小内存算法，需要四次积分求值。\\\\`` ``PAGE_DTRAF=1``\\ ：使用分页算法，导致最小 CPU "
+"时间（对于 DMP2/LMP2 为一次积分求值，其他情况为两次）。"
+
+msgid "**\\*\\*General thresholds for all direct integral transformations:**\\*\\*"
+msgstr "**\\*\\*所有直接积分变换的通用阈值：**\\*\\*"
+
+msgid "``THREST_DTRAF`` AO prescreening threshold for ``DTRAF``."
+msgstr "``THREST_DTRAF`` ``DTRAF`` 的 AO 预筛选阈值。"
+
+msgid "``Defaults: [THR_DTRAF, THREST, default].``"
+msgstr "``默认值：[THR_DTRAF, THREST, default]。``"
+
+msgid "``THRINT_DTRAF`` Integral threshold for ``DTRAF``."
+msgstr "``THRINT_DTRAF`` ``DTRAF`` 的积分阈值。"
+
+msgid "``Defaults: [THR_DTRAF, THRINT, default].``"
+msgstr "``默认值：[THR_DTRAF, THRINT, default]。``"
+
+msgid "``THRPROD_DTRAF`` Product threshold for ``DTRAF``."
+msgstr "``THRPROD_DTRAF`` ``DTRAF`` 的乘积阈值。"
+
+msgid "``Defaults: [THR_DTRAF, THRPROD, default].\\\\``"
+msgstr "``默认值：[THR_DTRAF, THRPROD, default]。\\\\``"
+
+msgid "**\\*\\*Thresholds specific to direct integral transformations:**\\*\\*"
+msgstr "**\\*\\*直接积分变换特有的阈值：**\\*\\*"
+
+msgid ""
+"``THREST_D2EXT`` Prescreening threshold for generation of 2-external "
+"integrals."
+msgstr "``THREST_D2EXT`` 生成 2-外部积分的预筛选阈值。"
+
+msgid "``Defaults: [THR_D2EXT, THREST_DTRAF, THR_DTRAF, THREST, default].``"
+msgstr "``默认值：[THR_D2EXT, THREST_DTRAF, THR_DTRAF, THREST, default]。``"
+
+msgid ""
+"``THRINT_D2EXT`` Integral threshold for generation of 2-external integrals."
+msgstr "``THRINT_D2EXT`` 生成 2-外部积分 的积分阈值。"
+
+msgid "``Defaults: [THR_D2EXT, THRINT_DTRAF, THR_DTRAF, THRINT, default].``"
+msgstr "``默认值：[THR_D2EXT, THRINT_DTRAF, THR_DTRAF, THRINT, default]。``"
+
+msgid ""
+"``THRPROD_D2EXT`` Product threshold for generation of 2-external integrals."
+msgstr "``THRPROD_D2EXT`` 生成 2-外部积分 的乘积阈值。"
+
+msgid "``Defaults: [THR_D2EXT, THRPROD_DTRAF, THR_DTRAF, THRPROD, default].\\\\``"
+msgstr "``默认值：[THR_D2EXT, THRPROD_DTRAF, THR_DTRAF, THRPROD, default]。\\\\``"
+
+msgid ""
+"``THREST_D3EXT`` Prescreening threshold for generation of 3-external "
+"integrals."
+msgstr "``THREST_D3EXT`` 生成 3-外部积分 的预筛选阈值。"
+
+msgid "``Defaults: [THR_D3EXT, THREST_DTRAF, THR_DTRAF, THREST, default].``"
+msgstr "``默认值：[THR_D3EXT, THREST_DTRAF, THR_DTRAF, THREST, default]。``"
+
+msgid ""
+"``THRINT_D3EXT`` Integral threshold for generation of 3-external integrals."
+msgstr "``THRINT_D3EXT`` 生成 3-外部积分 的积分阈值。"
+
+msgid "``Defaults: [THR_D3EXT, THRINT_DTRAF, THR_DTRAF, THRINT, default].``"
+msgstr "``默认值：[THR_D3EXT, THRINT_DTRAF, THR_DTRAF, THRINT, default]。``"
+
+msgid ""
+"``THRPROD_D3EXT`` Product threshold for generation of 3-external integrals."
+msgstr "``THRPROD_D3EXT`` 生成 3-外部积分 的乘积阈值。"
+
+msgid "``Defaults: [THR_D3EXT, THRPROD_DTRAF, THR_DTRAF, THRPROD, default].\\\\``"
+msgstr "``默认值：[THR_D3EXT, THRPROD_DTRAF, THR_DTRAF, THRPROD, default]。\\\\``"
+
+msgid ""
+"``THREST_D4EXT`` Prescreening threshold for generation of 4-external "
+"integrals."
+msgstr "``THREST_D4EXT`` 生成 4-外部积分 的预筛选阈值。"
+
+msgid "``Defaults: [THR_D4EXT, THREST_DTRAF, THR_DTRAF, THREST, default].``"
+msgstr "``默认值：[THR_D4EXT, THREST_DTRAF, THR_DTRAF, THREST, default]。``"
+
+msgid ""
+"``THRINT_D4EXT`` Integral threshold for generation of 4-external integrals."
+msgstr "``THRINT_D4EXT`` 生成 4-外部积分 的积分阈值。"
+
+msgid "``Defaults: [THR_D4EXT, THRINT_DTRAF, THR_DTRAF, THRINT, default].``"
+msgstr "``默认值：[THR_D4EXT, THRINT_DTRAF, THR_DTRAF, THRINT, default]。``"
+
+msgid ""
+"``THRPROD_D4EXT`` Product threshold for generation of 4-external integrals."
+msgstr "``THRPROD_D4EXT`` 生成 4-外部积分 的乘积阈值。"
+
+msgid "``Defaults: [THR_D4EXT, THRPROD_DTRAF, THR_DTRAF, THRPROD, default].\\\\``"
+msgstr "``默认值：[THR_D4EXT, THRPROD_DTRAF, THR_DTRAF, THRPROD, default]。\\\\``"
+
+msgid "``THREST_DCCSD`` Prescreening threshold for DCCSD transformation."
+msgstr "``THREST_DCCSD`` DCCSD 变换的预筛选阈值。"
+
+msgid "``Defaults: [THR_DCCSD, THREST_DTRAF, THR_DTRAF, THREST, default].``"
+msgstr "``默认值：[THR_DCCSD, THREST_DTRAF, THR_DTRAF, THREST, default]。``"
+
+msgid "``THRINT_DCCSD`` Integral threshold for DCCSD transformation."
+msgstr "``THRINT_DCCSD`` DCCSD 变换的积分阈值。"
+
+msgid "``Defaults: [THR_DCCSD, THRINT_DTRAF, THR_DTRAF, THRINT, default].``"
+msgstr "``默认值：[THR_DCCSD, THRINT_DTRAF, THR_DTRAF, THRINT, default]。``"
+
+msgid "``THRPROD_DCCSD`` Product threshold for DCCSD transformation."
+msgstr "``THRPROD_DCCSD`` DCCSD 变换的乘积阈值。"
+
+msgid "``Defaults: [THR_DCCSD, THRPROD_DTRAF, THR_DTRAF, THRPROD, default].``"
+msgstr "``默认值：[THR_DCCSD, THRPROD_DTRAF, THR_DTRAF, THRPROD, default]。``"
+
+msgid ""
+"``THRMAX_DCCSD`` Initial value for ``THREST_DCCSD`` in ``CCSD`` "
+"calculations. The threshold will be reduced to ``THREST_DCCSD`` once a "
+"certain accuracy has been reached (see ``VARRED``), or latest after "
+"``MAXRED`` iterations. The initial thresholds ``THRINT_DCCSD`` and "
+"``THRPROD_DCCSD`` are obtained by multiplying their input (or default) "
+"values by ``THRMAX_DCCSD``/``THREST_DCCSD``, with the restriction that the "
+"initial values cannot be smaller than the final ones."
+msgstr ""
+"``THRMAX_DCCSD`` 在 ``CCSD`` 计算中 ``THREST_DCCSD`` 的初始值。一旦达到某种精度（参见 "
+"``VARRED``\\ ），或最迟在 ``MAXRED`` 次迭代之后，该阈值将降低到 ``THREST_DCCSD``\\ 。初始阈值 "
+"``THRINT_DCCSD`` 和 ``THRPROD_DCCSD`` 通过将其输入（或默认）值乘以 "
+"``THRMAX_DCCSD``/``THREST_DCCSD`` 得到，但初始值不能小于最终值。"
+
+msgid "**\\*\\*Specific options for direct MP2 (``DMP2``)**:\\*\\*"
+msgstr "**\\*\\*直接 MP2（``DMP2``）的特定选项**：\\*\\*"
+
+msgid "``DMP2`` Selects the transformation method for direct ``MP2``:"
+msgstr "``DMP2`` 选择直接 ``MP2`` 的变换方法："
+
+msgid ""
+"``DMP2``\\ =\\ :math:`-1`: automatic selection, depending on the available "
+"memory. ``DMP2=0: use fully direct method for DMP2 (min. two integral "
+"evaluations, possibly multipassing, no disk space).\\\\`` ``DMP2``\\ =1: use"
+" semi-direct method for ``DMP2`` (one to four integral evaluations, "
+"depending on ``PAGE_DTRAF``). ``DMP2``\\ =2: use ``DKEXT`` to compute "
+"exchange operators in ``DMP2`` (one integral evaluation). This is only "
+"useful in local ``DMP2`` calculations with many distant pairs."
+msgstr ""
+"``DMP2``\\ =\\ :math:`-1`\\ ：自动选择，取决于可用内存。 ``DMP2=0: use fully direct method"
+" for DMP2 (min. two integral evaluations, possibly multipassing, no disk "
+"space).\\\\`` ``DMP2``\\ =1：对 ``DMP2`` 使用半直接方法（一到四次积分求值，取决于 ``PAGE_DTRAF``\\"
+" ）。 ``DMP2``\\ =2：使用 ``DKEXT`` 在 ``DMP2`` 中计算交换算符（一次积分求值）。这仅在具有许多远对的局域 "
+"``DMP2`` 计算中有用。"
+
+msgid ""
+"``THREST_DMP2`` Prescreening threshold for generation of 2-external "
+"integrals."
+msgstr "``THREST_DMP2`` 生成 2-外部积分 的预筛选阈值。"
+
+msgid "``Defaults: [THR_DMP2, THREST_DTRAF, THR_DTRAF, THREST, default].``"
+msgstr "``默认值：[THR_DMP2, THREST_DTRAF, THR_DTRAF, THREST, default]。``"
+
+msgid ""
+"``THRINT_DMP2`` Integral threshold for generation of 2-external integrals."
+msgstr "``THRINT_DMP2`` 生成 2-外部积分 的积分阈值。"
+
+msgid "``Defaults: [THR_DMP2, THRINT_DTRAF, THR_DTRAF, THRINT, default].``"
+msgstr "``Defaults: [THR_DMP2, THRINT_DTRAF, THR_DTRAF, THRINT, default].``"
+
+msgid ""
+"``THRPROD_DMP2`` Product threshold for generation of 2-external integrals"
+msgstr "``THRPROD_DMP2`` 生成2-外部积分的乘积阈值"
+
+msgid "``Defaults: [THR_DMP2, THRPROD_DTRAF, THR_DTRAF, THRPROD, default].\\\\``"
+msgstr "``Defaults: [THR_DMP2, THRPROD_DTRAF, THR_DTRAF, THRPROD, default].\\\\``"
+
+msgid "**\\*\\*Specific options for direct local MP2 (``LMP2``)**:\\*\\*"
+msgstr "**\\*\\*直接局域 MP2（``LMP2``）的特定选项**：\\*\\*"
+
+msgid "``DTRAF`` Selects the transformation method for direct ``LMP2``:"
+msgstr "``DTRAF`` 选择直接 ``LMP2`` 的变换方法："
+
+msgid ""
+"``DTRAF`` :math:`\\geq 0`: generates the 2-external integrals (exchange "
+"operators) first in AO basis and transforms these thereafter in a second "
+"step to the projected, local basis. The disk storage requirements hence "
+"scale cubically with molecular size. ``DTRAF`` :math:`= -1`: generates the "
+"2-external integrals (exchange operators) directly in projected basis. The "
+"disk storage requirements hence scale linearly with molecular size. This "
+"(together with ``PAGE_DTRAF`` = 0) is the recommended algorithm for very "
+"large molecules (cf. linear scaling LMP2, chapter :doc:`PAO-based local "
+"correlation treatments <pao-based_local_correlation_treatments>`). ``DTRAF``"
+" :math:`= -2`: alternative algorithm to generate the exchange operators "
+"directly in projected basis. Usually, this algorithm turns out to be "
+"computationally more expensive than the one selected with ``DTRAF`` :math:`="
+" -1`. Note, that neither ``DTRAF`` :math:`= -1` nor ``DTRAF`` :math:`= -2` "
+"work in the context of LMP2 gradients."
+msgstr ""
+"``DTRAF`` :math:`\\geq 0`\\ ：首先在 AO "
+"基中生成2-外部积分（交换算符），随后在第二步中将其变换到投影局域基。因此磁盘存储需求随分子尺寸呈三次方标度。\\ ``DTRAF`` :math:`="
+" -1`\\ ：直接在投影基中生成2-外部积分（交换算符）。因此磁盘存储需求随分子尺寸呈线性标度。该算法（连同 ``PAGE_DTRAF`` = "
+"0）是用于超大分子的推荐算法（参见线性标度 LMP2，章节 :doc:`基于 PAO 的局域相关处理 <pao-"
+"based_local_correlation_treatments>`\\ ）。\\ ``DTRAF`` :math:`= -2`\\ "
+"：直接在投影基中生成交换算符的替代算法。通常，该算法在计算上比 ``DTRAF`` :math:`= -1` 所选的算法更昂贵。注意，\\ "
+"``DTRAF`` :math:`= -1` 和 ``DTRAF`` :math:`= -2` 均不能在 LMP2 梯度的上下文中工作。"
+
+msgid ""
+"``THREST_LMP2`` Prescreening threshold for generation of 2-external "
+"integrals."
+msgstr "``THREST_LMP2`` 生成2-外部积分的预筛选阈值。"
+
+msgid "``Defaults: [THR_LMP2, THREST_DTRAF, THR_DTRAF, THREST, default].``"
+msgstr "``Defaults: [THR_LMP2, THREST_DTRAF, THR_DTRAF, THREST, default].``"
+
+msgid "``THRQ1_LMP2`` Threshold used in the first quarter transformation."
+msgstr "``THRQ1_LMP2`` 用于第一次四分之一变换的阈值。"
+
+msgid "``Defaults: [THR_LMP2, THRPROD_DTRAF, THR_DTRAF, THRPROD, default].``"
+msgstr "``Defaults: [THR_LMP2, THRPROD_DTRAF, THR_DTRAF, THRPROD, default].``"
+
+msgid ""
+"``THRQ2_LMP2`` Threshold used in the second and subsequent quarter "
+"transformations."
+msgstr "``THRQ2_LMP2`` 用于第二次及后续四分之一变换的阈值。"
+
+msgid "``Defaults: [THR_LMP2, THRINT_DTRAF, THR_DTRAF, THRINT, default].``"
+msgstr "``Defaults: [THR_LMP2, THRINT_DTRAF, THR_DTRAF, THRINT, default].``"
+
+msgid ""
+"``THRAO_ATTEN`` Special threshold for prescreening of attenuated integrals "
+":math:`(\\mu \\mu | \\nu \\nu)`"
+msgstr "``THRAO_ATTEN`` 用于衰减积分 :math:`(\\mu \\mu | \\nu \\nu)` 预筛选的特殊阈值"
+
+msgid "``Default: THREST_LMP2\\\\``"
+msgstr "``Default: THREST_LMP2\\\\``"
+
+msgid ""
+"**\\*\\*Options for integral-direct computation of external exchange "
+"operators (``DKEXT``):**\\*\\*"
+msgstr "**\\*\\*外部交换算符积分直接计算的选项（``DKEXT``）：**\\*\\*"
+
+msgid "``DKEXT`` Selects driver for ``DKEXT``."
+msgstr "``DKEXT`` 选择 ``DKEXT`` 的驱动程序。"
+
+msgid ""
+"``DKEXT=-1``: use paging algorithm (minimum memory). This is automatically "
+"used if in-core algorithm would need more than one integral pass. "
+"``DKEXT``\\ =0: use in-core algorithm, no integral triples. ``DKEXT``\\ =1: "
+"use in-core algorithm and integral triples. ``DKEXT``\\ =2: use in-core "
+"algorithm and integral triples if at least two integrals of a triple differ."
+" ``DKEXT``\\ =3: use in-core algorithm and integral triples if all integrals"
+" of a triple differ."
+msgstr ""
+"``DKEXT=-1``\\ ：使用分页算法（最小内存）。若内存内算法需要多于一次积分通过，则自动使用该算法。\\ ``DKEXT``\\ "
+"=0：使用内存内算法，不使用积分三元组。\\ ``DKEXT``\\ =1：使用内存内算法和积分三元组。\\ ``DKEXT``\\ "
+"=2：若三元组中至少两个积分不同，则使用内存内算法和积分三元组。\\ ``DKEXT``\\ "
+"=3：若三元组中所有积分均不同，则使用内存内算法和积分三元组。"
+
+msgid ""
+"``MAXCEN_DKEXT`` Maximum number of centres in merged shells (0: no limit)."
+msgstr "``MAXCEN_DKEXT`` 合并壳层中的最大中心数（0：无限制）。"
+
+msgid "``SCREEN_DKEXT`` Enables of disables screening in ``DKEXT``."
+msgstr "``SCREEN_DKEXT`` 启用或禁用 ``DKEXT`` 中的筛选。"
+
+msgid "``PRINT_DKEXT`` Print parameter for ``DKEXT``."
+msgstr "``PRINT_DKEXT`` ``DKEXT`` 的打印参数。"
+
+msgid ""
+"``SWAP_DKEXT`` Enables of disables label swapping in ``DKEXT`` (test purpose"
+" only)"
+msgstr "``SWAP_DKEXT`` 启用或禁用 ``DKEXT`` 中的标签交换（仅用于测试目的）"
+
+msgid ""
+"``MXMBLK_DKEXT`` Largest matrix block size in ``DKEXT`` (only used with "
+"``DKEXT``\\ :math:`\\ge 1`)."
+msgstr "``MXMBLK_DKEXT`` ``DKEXT`` 中最大的矩阵块尺寸（仅在 ``DKEXT``\\ :math:`\\ge 1` 时使用）。"
+
+msgid ""
+"**\\*\\*Thresholds for integral-direct computation of external exchange "
+"operators (``DKEXT``):**\\*\\*"
+msgstr "**\\*\\*外部交换算符积分直接计算的阈值（``DKEXT``）：**\\*\\*"
+
+msgid "``THREST_DKEXT`` Prescreening threshold for ``DKEXT``."
+msgstr "``THREST_DKEXT`` ``DKEXT`` 的预筛选阈值。"
+
+msgid "``Defaults: [THR_DKEXT, THREST, default].``"
+msgstr "``Defaults: [THR_DKEXT, THREST, default].``"
+
+msgid "``THRINT_DKEXT`` Integral threshold for ``DKEXT``."
+msgstr "``THRINT_DKEXT`` ``DKEXT`` 的积分阈值。"
+
+msgid "``Defaults: [THR_DKEXT, THRINT, default].``"
+msgstr "``Defaults: [THR_DKEXT, THRINT, default].``"
+
+msgid "``THRPROD_DKEXT`` Product threshold for ``DKEXT``."
+msgstr "``THRPROD_DKEXT`` ``DKEXT`` 的乘积阈值。"
+
+msgid "``Defaults: [THR_DKEXT, THRPROD, default].``"
+msgstr "``Defaults: [THR_DKEXT, THRPROD, default].``"
+
+msgid "0"
+msgstr "0"
+
+msgid ""
+":math:`\\Delta E` is the requested accuracy in the energy (default 1.d-6)."
+msgstr ":math:`\\Delta E` 是能量所要求的精度（默认 1.d-6）。"
+
+msgid ""
+"The thresholds are reduced if the overlap matrix has small eigenvalues."
+msgstr "如果重叠矩阵具有小本征值，则阈值会降低。"
+
+msgid ""
+"The default thresholds for DMP2 and LMP2 are :math:`0.1 \\cdot {\\Delta E}`."
+msgstr "DMP2 和 LMP2 的默认阈值为 :math:`0.1 \\cdot {\\Delta E}`\\ 。"
+
+msgid "examples/h2o_direct.inp"
+msgstr "examples/h2o_direct.inp"

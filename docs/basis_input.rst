@@ -51,7 +51,7 @@ Cartesian and spherical harmonic basis functions
 
 [command:spherical]
 
-``MOLPRO uses spherical harmonics ($5d$, $7f$, etc) by default, even for Pople basis sets like 6-31G. This behaviour may be different to that of other programs; However, cartesian functions can be requested using the CARTESIAN command.``
+``MOLPRO`` uses spherical harmonics (:math:`5d`, :math:`7f`, etc) by default, even for Pople basis sets like ``6-31G**``. This behaviour may be different to that of other programs; However, cartesian functions can be requested using the ``CARTESIAN`` command.
 
 ``CARTESIAN``
 
@@ -465,7 +465,7 @@ Any number of basis sets can be be given in a basis block. The definition of eac
 
 By default, the first set in a basis block is the orbital basis, and in this case the directive ``SET,ORBITAL`` can be omitted.
 
-``DEFAULT specifies the default basis set, exactly as on one line basis input. It can be followed by specifications for individual atoms, e.g. O=AVTZ. The default and atom specifications can also be merged to one line, separated by commas, e.g.``
+``DEFAULT`` specifies the default basis set, exactly as on one line basis input. It can be followed by specifications for individual atoms, e.g. O=AVTZ. The default and atom specifications can also be merged to one line, separated by commas, e.g.
 
 ``DEFAULT=VTZ,O=AVTZ,H=VDZ``
 
@@ -490,7 +490,7 @@ Auxiliary basis sets for density fitting or resolution of the identity
 
 As described in the previous section, several basis sets can be defined in a basis block. The definition of each basis starts with a line
 
-``SET,name,[CONTEXT=context] where name is an arbitrary name that can be used later to choose the basis set using options like df_basis=name, ri_basis=name etc. CONTEXT can optionally be specified to select the basis types JFIT, JKFIT, MP2FIT, CCSDFIT, OPTRI, or CABS. This affects the choice of default basis sets. For example``
+``SET``,\ *name*,[``CONTEXT=``\ *context*] where *name* is an arbitrary name that can be used later to choose the basis set using options like ``df_basis=``\ *name*, ``ri_basis=``\ *name* etc. ``CONTEXT`` can optionally be specified to select the basis types ``JFIT``, ``JKFIT``, ``MP2FIT``, ``CCSDFIT``, ``OPTRI``, or ``CABS``. This affects the choice of default basis sets. For example
 
 .. code-block:: text
 

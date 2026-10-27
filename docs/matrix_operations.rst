@@ -9,7 +9,7 @@ Matrix operations
 
 ``MATROP;``
 
-``MATROP performs simple matrix manipulations for matrices whose dimensions are those of the one particle basis set. To do so, first required matrices are loaded into memory using the LOAD command. To each matrix an internal name (an arbitrary user defined string) is assigned, by which it is referenced in further commands. After performing operations, the resulting matrices can be saved to a dump record using the SAVE directive. Numbers, e.g. traces or individual matrix elements, can be saved in variables.``
+``MATROP`` performs simple matrix manipulations for matrices whose dimensions are those of the one particle basis set. To do so, first required matrices are loaded into memory using the ``LOAD`` command. To each matrix an internal *name* (an arbitrary user defined string) is assigned, by which it is referenced in further commands. After performing operations, the resulting matrices can be saved to a dump record using the ``SAVE`` directive. Numbers, e.g. traces or individual matrix elements, can be saved in variables.
 
 *code* may be one of the following:
 
@@ -330,7 +330,7 @@ prints matrix *name*. *ncol(isym)* is the number of columns to be printed for ro
 Printing diagonal elements of a matrix (PRID)
 ---------------------------------------------
 
-``PRID,name prints the diagonal elements of matrix name.``
+``PRID``,\ *name* prints the diagonal elements of matrix *name*.
 
 .. _matrix_operations--printing-orbitals-prio:
 

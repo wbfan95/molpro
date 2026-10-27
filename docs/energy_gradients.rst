@@ -113,7 +113,7 @@ For MCSCF wavefunctions, the ``ORBITAL`` card is not needed, because the locatio
 Using grid weight derivatives for DFT gradients (GRIDGRAD)
 ==========================================================
 
-``FORCE,GRIDGRAD=0 or 1``
+``FORCE,GRIDGRAD``\ =\ *0 or 1*
 
 Defines whether grid weight derivatives are included in analytical gradient calculations (default: 0). Disabling these can improve convergence in geometry optimizations.
 

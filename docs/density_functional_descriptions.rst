@@ -678,7 +678,7 @@ CS1: Colle-Salvetti correlation functional
 
 R. Colle and O. Salvetti, Theor. Chim. Acta 37, 329 (1974); C. Lee, W. Yang and R. G. Parr, `Phys. Rev. B <https://dx.doi.org/10.1103/PhysRevB.37.785>`__ **37**, 785(1988)
 
-``CS1 is formally identical to CS2, except for a reformulation in which the terms involving $\upsilon$ are eliminated by integration by parts. This makes the functional more economical to evaluate. In the limit of exact quadrature, CS1 and CS2 are identical, but small numerical differences appear with finite integration grids.``
+``CS1`` is formally identical to ``CS2``, except for a reformulation in which the terms involving :math:`\upsilon` are eliminated by integration by parts. This makes the functional more economical to evaluate. In the limit of exact quadrature, ``CS1`` and ``CS2`` are identical, but small numerical differences appear with finite integration grids.
 
 .. _density_functional_descriptions--cs2-colle-salvetti-correlation-functional:
 

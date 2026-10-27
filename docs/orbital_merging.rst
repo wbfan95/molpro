@@ -90,7 +90,7 @@ Adding or replacing orbitals in the output set (ADD,REPLACE)
 
 This adds orbitals *orb1.sym1* to *orb2.sym2* to the output vectors, starting at *orb3.sym3*. The input vectors are scaled by the factor *fac*. If *fac=0*, *fac* is set to 1.0. For other details see ``MOVE`` command. Note, however, that the output vectors which have already been defined are not skipped as for ``MOVE``.
 
-``REPLACE,orb1.sym1,orb2.sym2,orb3.sym3,ioff,,iustart,iend Replaces orbitals in the outputs set. If the output orbitals already exists, they are set to zero and then replaced by the given input orbitals. Otherwise as ADD.``
+``REPLACE``,\ *orb1.sym1,orb2.sym2,orb3.sym3,ioff,,iustart,iend* Replaces orbitals in the outputs set. If the output orbitals already exists, they are set to zero and then replaced by the given input orbitals. Otherwise as ``ADD``.
 
 See also ``MOVE`` and ``EXTRA`` commands.
 

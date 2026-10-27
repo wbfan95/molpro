@@ -110,7 +110,7 @@ For further information on triples corrections see under RCCSD.
 In cases that the Hartree-Fock reference determinant does not sufficiently dominate the wavefunction, the program will stop with a message ``UNREASONABLE NORM. CALCULATION STOPPED``. This can be avoided by setting the option ``CC_NORM_MAX``\ =\ *value* on the CCSD command line. The calculation is stopped if the square norm of the wavefunction (in intermediate normalization) exceeds ``1+nval*CC_NORM_MAX``, where nval is the number of correlated valence orbitals. The default value is ``CC_NORM_MAX=0.2``.
 
 CCSD calculations with KS orbitals are possible. Optionally, the ``H0`` option can be used to specify the zeroth-order Hamiltonian (see options above). If KS or other non-HF reference states (like the Brueckner determinant) are employed in the calculation of the triples (T) additional singles terms are computed, see J. D. Watts, J. Gauss, R. Bartlett `J. Chem. Phys. <https://doi.org/10.1063/1.464480>`__ **98**, 8718 (1993). This can be switched on/off with the option ``TRIP_FIA=1/0``. If ``TRIP_FIA=1`` the second order singles energy is computed in the triples program and if greater in magnitude than ``THR_E2SING`` the additional terms will be computed.
-``THR_E2SING=1d-6 is the default setting for this threshold, which can also be altered via giving this keyword as an option to the CCSD program.``
+``THR_E2SING=1d-6`` is the default setting for this threshold, which can also be altered via giving this keyword as an option to the CCSD program.
 
 .. _the_closed_shell_ccsd_program--quadratic-configuration-interaction-qci:
 
@@ -130,7 +130,7 @@ Brueckner coupled-cluster calculations, BCCD
 
 In addition, the same options as for CCSD can be used.
 
-``BCCD performs a Brueckner coupled-cluster calculation and computes Brueckner orbitals. With these orbitals, the amplitudes of the singles vanish at convergence. Using the BCCD(T) command, the contributions of connected triples are also computed by perturbation theory. Normally, no further input is needed if the BCCD card follows the corresponding HF-SCF. Otherwise, occupancies and orbitals can be specified as in the CI program. BRUECKNER parameters can be modified using the BRUECKNER directive.``
+``BCCD`` performs a Brueckner coupled-cluster calculation and computes Brueckner orbitals. With these orbitals, the amplitudes of the singles vanish at convergence. Using the ``BCCD(T)`` command, the contributions of connected triples are also computed by perturbation theory. Normally, no further input is needed if the ``BCCD`` card follows the corresponding HF-SCF. Otherwise, occupancies and orbitals can be specified as in the CI program. ``BRUECKNER`` parameters can be modified using the ``BRUECKNER`` directive.
 
 The Brueckner orbitals and approximate density matrix can be saved on a ``MOLPRO`` dump record using the ``SAVEORB`` option. The orbitals are printed if the ``PRINT`` option is given. ``TYPE`` can be used to specify the type of the approximate density to be computed:
 

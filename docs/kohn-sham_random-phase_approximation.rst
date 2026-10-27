@@ -309,7 +309,7 @@ Example of a geometry optimization at the LDA+dRPA-I level:
    optg
 
 Calculation of properties, excitation energies and oscillator strengths
-``EXCIT, METHOD=<method> The EXCIT calculations output shows the excitation energies in au, eV and nm, the oscillator strengths in length and velocity gauge, as well as the major excitations involved in each mode. The methods available are:``
+``EXCIT, METHOD=<method>`` The ``EXCIT`` calculations output shows the excitation energies in au, eV and nm, the oscillator strengths in length and velocity gauge, as well as the major excitations involved in each mode. The methods available are:
 
 * ``DRPA`` Direct random-phase approximation (or time-dependent Hartree).
 * ``TDHF`` Time-dependent Hartree-Fock.

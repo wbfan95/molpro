@@ -659,7 +659,7 @@ Version 2.1.0 of the graphical user interface gmolpro is bundled with Molpro2022
 When installing gmolpro, then it is installed together with Molpro version 2022.2.3 , and uses this version on the local machine.
 
 The token may be installed in
-``$HOME/.molpro/token  . Alternatively (useful for group licences), on Linux, it may be installed in  /usr/share/gmolpro/molpro/lib/.token  , and on Mac in  /Applications/gmolpro.app/Contents/Resources/molpro/lib/.token``
+``$HOME/.molpro/token`` . Alternatively (useful for group licences), on Linux, it may be installed in ``/usr/share/gmolpro/molpro/lib/.token`` , and on Mac in ``/Applications/gmolpro.app/Contents/Resources/molpro/lib/.token``
 
 A slider to change the vibrational amplitudes has been added. As before, the animation speed can be changed with Options/Graphics/Animation Speed
 
@@ -678,7 +678,7 @@ Version 2.0.0 of the graphical user interface gmolpro is bundled with Molpro2022
 When installing gmolpro, then it is installed together with Molpro version 2022.2.2 , and uses this version on the local machine.
 
 The token may be installed in
-``$HOME/.molpro/token  . Alternatively (useful for group licences), on Linux, it may be installed in  /usr/share/gmolpro/molpro/lib/.token  , and on Mac in  /Applications/gmolpro.app/Contents/Resources/molpro/lib/.token``
+``$HOME/.molpro/token`` . Alternatively (useful for group licences), on Linux, it may be installed in ``/usr/share/gmolpro/molpro/lib/.token`` , and on Mac in ``/Applications/gmolpro.app/Contents/Resources/molpro/lib/.token``
 
 .. _recent_changes--new-features-of-molpro2022-1:
 
@@ -1722,7 +1722,7 @@ Messages can be sent to the list (<molpro-user@molpro.net>), but this can be don
 Facilities that were new in MOLPRO98
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``Molpro98 has the full functionality of Molpro96, but in order to make the code more modular and easier to use and maintain, a number of structural changes have been made. In particular, the number of different records has been significantly reduced. The information for a given wavefunction type, like orbitals, density matrices, fock matrices, occupation numbers and other information, is now stored in a single dump record. Even different orbital types, e.g., canonical, natural, or localized orbitals, are stored in the same record, and the user can subsequently access individual sets by keywords on the ORBITAL directive. New facilities allow the use of starting orbitals computed with different basis sets and/or different symmetries for SCF or MCSCF calculations. The default starting guess for SCF calculations has been much improved, which is most useful in calculations for large molecules. The use of special procedures for computing non-adiabatic couplings or diabatization of orbitals has been significantly simplified. We hope that these changes make the program easier to use and reduce the probability of input errors. However, in order to use the new facilities efficiently, even experienced Molpro users should read the sections RECORDS and SELECTING ORBITALS AND DENSITY MATRICES in the manual. It is likely that standard Molpro96 inputs still work, but changes may be required in more special cases involving particular records for orbitals, density matrices, or operators.``
+``Molpro98`` has the full functionality of ``Molpro96``, but in order to make the code more modular and easier to use and maintain, a number of structural changes have been made. In particular, the number of different records has been significantly reduced. The information for a given wavefunction type, like orbitals, density matrices, fock matrices, occupation numbers and other information, is now stored in a single dump record. Even different orbital types, e.g., canonical, natural, or localized orbitals, are stored in the same record, and the user can subsequently access individual sets by keywords on the ``ORBITAL`` directive. New facilities allow the use of starting orbitals computed with different basis sets and/or different symmetries for SCF or MCSCF calculations. The default starting guess for SCF calculations has been much improved, which is most useful in calculations for large molecules. The use of special procedures for computing non-adiabatic couplings or diabatization of orbitals has been significantly simplified. We hope that these changes make the program easier to use and reduce the probability of input errors. However, in order to use the new facilities efficiently, even experienced Molpro users should read the sections *RECORDS* and *SELECTING ORBITALS AND DENSITY MATRICES* in the manual. It is likely that standard ``Molpro96`` inputs still work, but changes may be required in more special cases involving particular records for orbitals, density matrices, or operators.
 
 All one-electron operators needed to compute expectation values and transition quantities are now stored in a single record. Operators for which expectation values are requested can be selected globally for all programs of a given run using the global ``GEXPEC`` directive, or for a specific program using the ``EXPEC`` directive. All operators are computed automatically when needed, and the user does not have to give input for this any more. See section *ONE-ELECTRON OPERATORS AND EXPECTATION VALUES* of the manual for details.
 

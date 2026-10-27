@@ -64,7 +64,7 @@ The geometry may be given in standard Z-matrix form, or XYZ form, either in the 
 
 ``GEOMETRY={ atom specifications }``
 
-``GEOMETRY must come after the other commands that modify the way the geometry is constructed. The following are permitted as SYMMETRY options:``
+``GEOMETRY`` must come after the other commands that modify the way the geometry is constructed. The following are permitted as ``SYMMETRY`` options:
 
 Any valid combination of symmetry generators, as described in section `symmetry specification <molecular_geometry.html#symmetry-specification>`__ below.
 
@@ -80,9 +80,9 @@ The following are permitted as ``ORIENT`` options:
 * **``SIGNX=``\ :math:`\pm1`** Force first non-zero :math:`x`-coordinate to be positive or negative, respectively. Similarly, ``SIGNY``, ``SIGNZ`` can be set for the :math:`y`- and :math:`z`-coordinates, respectively. This can be useful to fix the orientation of the molecule across different calculations and geometries. Alternatively, the system variables ``ZSIGNX``, ``ZSIGNY``, ``ZSIGNZ`` can be set to positive or negative values to achieve the same effect.
 * ``PLANEXZ`` For the :math:`C_{2v}` and :math:`D_{2h}` point groups, force the primary plane to be :math:`xz` instead of the default :math:`yz`. The geometry builder attempts by swapping coordinate axes to place as many atoms as possible in the primary plane, so for the particular case of a planar molecule, this means that all the atoms will lie in the primary plane. The default implements recommendation :math:`5a` and the first part of recommendation :math:`5b` specified in `J. Chem. Phys. <https://dx.doi.org/10.1063/1.1740655>`__ **23**, 1997 (1955). ``PLANEYZ`` and ``PLANEXY`` may also be specified, but note that the latter presently generates an error for :math:`C_{2v}`.
 
-``ANGSTROM Forces bond lengths that are specified by numbers, or variables without associated units, to use the values as a number of Ångstrom, rather than Bohr.``
+``ANGSTROM`` Forces bond lengths that are specified by numbers, or variables without associated units, to use the values as a number of Ångstrom, rather than Bohr.
 
-``BOHR Forces bond lengths that are specified by numbers, or variables without associated units, to use the values as a number of Bohr. This is useful in the case of xyz-input with coordinates given in Bohr.``
+``BOHR`` Forces bond lengths that are specified by numbers, or variables without associated units, to use the values as a number of Bohr. This is useful in the case of xyz-input with coordinates given in Bohr.
 
 .. _molecular_geometry--z-matrix-input:
 

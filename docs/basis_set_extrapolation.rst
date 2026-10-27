@@ -55,7 +55,7 @@ In order to extrapolate the HF energy as well (using exponential extrapolation),
 
 ``extrapolate,basis=avtz:avqz:av5z,method_r=ex1,npc=2``
 
-``method_r determines the method for extrapolating the reference energy (in this case a single exponential); npc=2 means that only the last two energies should be used to extrapolate the correlation energy (by default, a least square fit to all given energies is used). This yields``
+``method_r`` determines the method for extrapolating the reference energy (in this case a single exponential); ``npc=2`` means that only the last two energies should be used to extrapolate the correlation energy (by default, a least square fit to all given energies is used). This yields
 
 .. code-block:: text
 

@@ -275,15 +275,15 @@ Constraints can be be defined in an input block (with the OPTG command block) be
 where *I, J, K, L* refer to row numbers in the XYZ input. Alternatively, atom symbols like, e.g. H1, O, H2, can be given, but these must be unique in the input geometry. The coordinate types are:
 
 ``STRE distance constraint between any two (different) atoms.\\``
-``BEND planar bend constraint between any three (different) atoms. J is the middle atom of the bend.\\``
+``BEND`` planar bend constraint between any three (different) atoms. J is the middle atom of the bend.
 ``TORS dihedral angle (proper torsion) constraint between any four (different) atoms.``
 The connectivity is I-J-K-L, with J-K being the central “bond”.
 The angle is between the planes I-J-K and J-K-L.
-``OUTP out-of-plane-bend constraint between any four (different) atoms. The angle is made by bond I-L with the plane J-K-L (L is the central atom) \\``
-``LINC colinear bending constraint between any four (different) atoms. Bending of I-J-K in the plane J-K-L.\\``
-``LINP perpendicular bending constraint between any four (different) atoms. Bending of I-J-K perpendicular to the plane J-K-L.\\``
+``OUTP`` out-of-plane-bend constraint between any four (different) atoms. The angle is made by bond I-L with the plane J-K-L (L is the central atom) 
+``LINC`` colinear bending constraint between any four (different) atoms. Bending of I-J-K in the plane J-K-L.
+``LINP`` perpendicular bending constraint between any four (different) atoms. Bending of I-J-K perpendicular to the plane J-K-L.
 
-``LINC/LINP are special angles used when four atoms are near-linear.``
+``LINC/LINP`` are special angles used when four atoms are near-linear.
 
 The constraint values have not to be satisfied in the initial geometry. If *value* is not given, the initial value will be kept.
 The number of constraints is in principle arbitrary, but currently restricted to 20.
@@ -370,9 +370,9 @@ These options specify the coordinates in which the optimization takes place. The
 * ``NONORMAL`` (logical). Same as ``COORD=NONORMAL``.
 * ``BMAT`` (logical). Same as ``COORD=BMAT``.
 
-``DELO[CALIZED] enforces full 3N optimization in delocalized internal coordinates using the PQSOPT program (available in Molpro 2023.1 or later)``
+``DELO[CALIZED]`` enforces full 3N optimization in delocalized internal coordinates using the PQSOPT program (available in Molpro 2023.1 or later)
 
-``BMAT uses an older version of optimisations using internal coordinates.``
+``BMAT`` uses an older version of optimisations using internal coordinates.
 
 .. _geometry_optimization_optg--options-for-numerical-gradients:
 
@@ -574,7 +574,7 @@ Numerical Hessian (NUMHESS)
 
 or
 
-``NUMHESS,hstep,options If this directive is present a numerical Hessian is computed using finite differences. If analytical gradients are available, one can use forward gradient differences (needs one gradient calculation for each coordinate) or central differences (more accurate, needs two gradient calculations for each coordinate). For transition state optimizations it is usually sufficient to use forward differences. If analytical gradients are not available for the optimized method, the energy is differentiated twice. In this case only central differences are possible.``
+``NUMHESS``,\ *hstep,options* If this directive is present a numerical Hessian is computed using finite differences. If analytical gradients are available, one can use forward gradient differences (needs one gradient calculation for each coordinate) or central differences (more accurate, needs two gradient calculations for each coordinate). For transition state optimizations it is usually sufficient to use forward differences. If analytical gradients are not available for the optimized method, the energy is differentiated twice. In this case only central differences are possible.
 
 The following options can be given:
 
@@ -853,8 +853,8 @@ To optimize a conical intersection between two electronic states having the same
 This requires three different ``CPMCSCF`` directives in the MULTI input:
 
 ``CPMCSCF, NACM, $S_i$, $S_j$, ACCU=1.0d-7, record=record1.file\\``
-``CPMCSCF, GRAD, $S_i$, SPIN=Spin of state $S_i$, ACCU=1.0d-7, record=record2.file\\``
-``CPMCSCF, GRAD, $S_j$, SPIN=Spin of state $S_j$, ACCU=1.0d-7, record=record3.file``
+``CPMCSCF, GRAD``, :math:`S_i`, ``SPIN``\ =\ *Spin of state :math:`S_i`*, ``ACCU``\ =\ *1.0d-7*, ``record``\ =\ *record2.file*
+``CPMCSCF, GRAD``, :math:`S_j`, ``SPIN``\ =\ *Spin of state :math:`S_j`*, ``ACCU``\ =\ *1.0d-7*, ``record``\ =\ *record3.file*
 
 where :math:`S_i`,\ :math:`S_j` are the electronic states in the usual format *istate.istsym*, and *record[n].file* specifies the name and the file number where CPMCSCF solutions should be stored. Parameter ``SPIN`` is half of the value in the ``WF`` card used to define the electronic state.
 

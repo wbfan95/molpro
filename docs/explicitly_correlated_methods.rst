@@ -328,8 +328,8 @@ Options for canonical and local versions:
 * ``DF_BASIS_EXCH=basis`` Select the density fitting basis for computing the exchange and Fock operators. By default, the JKFIT basis sets which correspond to the orbital basis are used.
 * ``RI_BASIS=basis`` Select the basis for the resolution of the identity (RI). This can refer to a default basis set or a set name defined in a basis block. For F12 methods the Hartree-Fock JKFIT basis sets perform well for the RI, despite having been optimized for other purposes. These sets are used by default for the AVnZ orbital basis sets. The basis type can be appended to the basis name after a slash, e.g.
 
-``RI_BASIS=AVQZ/JKFIT would use the specified JKFIT set, or RI_BASIS=AVQZ/OPTRI would use the optimized CABS basis sets of Peterson et al. These are recommended for the AVnZ and VnZ-F12 basis sets and used by default for the latter ones. Note that each OPTRI basis is associated to a specific orbital basis. Therefore, the name of the OPTRI basis must either be the same as that of the orbital basis, or be omitted, e.g., RI_BASIS=OPTRI selects automatically the correct set for the current orbital basis. In case of R12-methods (which are not recommended to be used), the RI basis should be chosen to be a large uncontracted AO basis (at least AVQZ). Contraction/uncontraction can be forced appending (CONTRACT) or (UNCONTRACT) to the basis name, e.g.,\\``
-``RI_BASIS=AVQZ(UNCONTRACT)/ORBITAL. If other options are given in parenthesis, these can be separated by commas, e.g.,\\``
+``RI_BASIS=AVQZ/JKFIT`` would use the specified JKFIT set, or ``RI_BASIS=AVQZ/OPTRI`` would use the optimized CABS basis sets of Peterson et al. These are recommended for the AVnZ and VnZ-F12 basis sets and used by default for the latter ones. Note that each OPTRI basis is associated to a specific orbital basis. Therefore, the name of the OPTRI basis must either be the same as that of the orbital basis, or be omitted, e.g., ``RI_BASIS=OPTRI`` selects automatically the correct set for the current orbital basis. In case of R12-methods (which are not recommended to be used), the RI basis should be chosen to be a large uncontracted AO basis (at least AVQZ). Contraction/uncontraction can be forced appending ``(CONTRACT)`` or ``(UNCONTRACT)`` to the basis name, e.g.,
+``RI_BASIS=AVQZ(UNCONTRACT)/ORBITAL``. If other options are given in parenthesis, these can be separated by commas, e.g.,
 ``RI_BASIS=AVQZ(f/d,UNCONTRACT)/ORBITAL.\\``
 Alternative forms, which should work as well, are
 ``RI_BASIS=AVQZ(f/d)(UNCONTRACT)/ORBITAL\\``
@@ -466,7 +466,7 @@ The singles correction can be turned off by option ``CABS_SINGLES=0``, e.g.
 ``MP2-F12,CABS_SINGLES=0``
 
 One can use the MP2-F12 or RMP2-F12 program to only compute the cabs singles correction using
-``CABS_SINGLES=-1. In this case the program exits after computing the correction. This can be useful for using the singles correction in subsequent local correlation calculations. It is stored in variable EF12_RHFRELAX. This can also be done by the commands CABS or DF-CABS.``
+``CABS_SINGLES=-1``. In this case the program exits after computing the correction. This can be useful for using the singles correction in subsequent local correlation calculations. It is stored in variable ``EF12_RHFRELAX``. This can also be done by the commands ``CABS`` or ``DF-CABS``.
 
 .. code-block:: text
 

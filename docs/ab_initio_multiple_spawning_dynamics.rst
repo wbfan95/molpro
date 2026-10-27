@@ -403,7 +403,7 @@ Geometry.dat
 Geometry.dat contains the molecular geometry that will be used in the generation of initial conditions. Optionally, the momenta can also be specified, which is useful if
 ``InitialCond='NoSample':``
 
-``UNITS=ANG or UNITS=BOHR \\``
+``UNITS=ANG or UNITS=BOHR``
 ``natom\\``
 ``AtomName(1)     x(1)      y(1)      z(1)\\``
 :math:`\vdots`

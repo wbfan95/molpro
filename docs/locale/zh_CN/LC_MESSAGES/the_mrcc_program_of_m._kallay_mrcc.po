@@ -382,3 +382,78 @@ msgstr "H2O的激发能："
 
 msgid "Open-shell ground-state calculations for O2:"
 msgstr "O2的开壳层基态计算："
+
+msgid ""
+"An interface exists to use the MRCC program of M. Kallay and J. Gauss within"
+" Molpro. The license and source code of the MRCC program must be obtained "
+"from Mihaly Kallay ``http://www.mrcc.hu/``. Currently, only single reference"
+" methods with ``RHF`` reference functions are supported. Perturbative "
+"methods and CCn methods are only available for closed-shell. Furthermore, "
+"only serial execution is supported under Molpro, i.e. the mpp version cannot"
+" be used."
+msgstr ""
+"有一个接口可在 Molpro 中使用 M. Kallay 和 J. Gauss 的 MRCC 程序。MRCC 程序的许可证和源代码必须从 Mihaly "
+"Kallay ``http://www.mrcc.hu/`` 获取。目前仅支持使用 ``RHF`` 参考函数的单参考方法。微扰方法和 CCn "
+"方法仅适用于闭壳层。此外，在 Molpro 下仅支持串行执行，即不能使用 mpp 版本。"
+
+msgid "``MRCC,options\\\\`` *directives*"
+msgstr "``MRCC,options\\\\`` *指令*"
+
+msgid "Default value((-1 means default value taken from Molpro))"
+msgstr "默认值（(-1 表示从 Molpro 获取的默认值））"
+
+msgid "-1"
+msgstr "-1"
+
+msgid "0"
+msgstr "0"
+
+msgid "’  ’"
+msgstr "’  ’"
+
+msgid "``NDOUB`` , ``NSTATES``"
+msgstr "``NDOUB``\\ 、\\ ``NSTATES``"
+
+msgid "1"
+msgstr "1"
+
+msgid ""
+"Diagonal BO correction (``DBOC`` :math:`\\ne 0` cannot be used with Molpro, "
+"see MRCC manual)"
+msgstr "对角 BO 校正（\\ ``DBOC`` :math:`\\ne 0` 不能与 Molpro 一起使用，参见 MRCC 手册）"
+
+msgid "-1.0"
+msgstr "-1.0"
+
+msgid "0.0"
+msgstr "0.0"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
+
+msgid "8"
+msgstr "8"
+
+msgid "examples/h2o_mrcc.inp"
+msgstr "examples/h2o_mrcc.inp"
+
+msgid "examples/h2o_mrcc_eom.inp"
+msgstr "examples/h2o_mrcc_eom.inp"
+
+msgid "examples/o2_mrcc.inp"
+msgstr "examples/o2_mrcc.inp"

@@ -144,7 +144,7 @@ Sets the limit on dynamic memory to :math:`n` floating point words. For details,
 DO loops (DO/ENDDO)
 ===================
 
-``DO loops can be constructed using the DO and ENDDO commands. The general format of the DO command is similar to Fortran:``
+``DO`` loops can be constructed using the ``DO`` and ``ENDDO`` commands. The general format of the ``DO`` command is similar to Fortran:
 
 ``DO`` *variable*\ ``=``\ *start, end* [[,]\ *increment*] [[,]\ *unit*]
 
@@ -180,14 +180,14 @@ See `introductory examples <introductory_examples.html#do-loops>`__ for two exam
 Branching (IF/ELSEIF/ENDIF)
 ===========================
 
-``IF blocks and IF/ELSEIF blocks can be constructed as in FORTRAN.``
+``IF`` blocks and ``IF/ELSEIF`` blocks can be constructed as in ``FORTRAN``.
 
 .. _program_control--if-statements:
 
 IF statements
 =============
 
-``IF blocks have the same form as in Fortran:``
+``IF`` blocks have the same form as in Fortran:
 
 ``IF (logical expression) THEN statements ENDIF``
 
@@ -197,7 +197,7 @@ If only one statement is needed, the one-line form
 
 can be used, except if *statement* is a procedure name.
 
-``ELSE and ELSE IF can be used exactly as in Fortran. IF statements may be arbitrarily nested. Jumps into IF or ELSE IF blocks are allowed. In this case no testing is performed; when an ELSE is reached, control continues after ENDIF.``
+``ELSE`` and ``ELSE IF`` can be used exactly as in Fortran. ``IF`` statements may be arbitrarily nested. Jumps into ``IF`` or ``ELSE IF`` blocks are allowed. In this case no testing is performed; when an ``ELSE`` is reached, control continues after ``ENDIF``.
 
 The logical expression may involve logical comparisons of algebraic expressions or of strings. Examples:
 
@@ -227,7 +227,7 @@ In the previous example the dollar and the quotes are optional:
 GOTO commands
 =============
 
-``GOTO commands can be used to skip over parts of the input. The general form is``
+``GOTO`` commands can be used to skip over parts of the input. The general form is
 
 ``GOTO,command,[n],[nrep]``
 
@@ -548,13 +548,13 @@ Several ``GEXPEC`` cards may follow each other, or several operators may be spec
 
 Examples:
 
-``GEXPEC,QM computes quadrupole moments with origin at (0,0,0),``
+``GEXPEC,QM`` computes quadrupole moments with origin at (0,0,0),
 
-``GEXPEC,QM1 computes quadrupole moments with origin at centre 1.``
+``GEXPEC,QM1`` computes quadrupole moments with origin at centre 1.
 
-``GEXPEC,QM,O1 computes quadrupole moments with origin at atom O1.``
+``GEXPEC,QM,O1`` computes quadrupole moments with origin at atom ``O1``.
 
-``GEXPEC,QM,,1,2,3 computes quadrupole moments with origin at (1,2,3).``
+``GEXPEC,QM,,1,2,3`` computes quadrupole moments with origin at (1,2,3).
 
 The following table summarizes all available operators:
 

@@ -20,3 +20,14 @@ msgstr "Molpro 源代码包含一些外部代码，本节列出了这些代码�
 
 msgid "Eigen"
 msgstr "Eigen"
+
+msgid ""
+"The `Eigen <http://eigen.tuxfamily.org>`__ template library is included when"
+" Molpro is compiled. Eigen is licensed under the `Mozilla Public License "
+"Version 2.0. <https://www.mozilla.org/en-US/MPL/2.0/>`__ The source code can"
+" be obtained from `http://eigen.tuxfamily.org "
+"<http://eigen.tuxfamily.org>`__."
+msgstr ""
+"编译 Molpro 时会包含 `Eigen <http://eigen.tuxfamily.org>`__ 模板库。Eigen 依据 `Mozilla "
+"Public License Version 2.0. <https://www.mozilla.org/en-US/MPL/2.0/>`__ "
+"授权。源代码可从 `http://eigen.tuxfamily.org <http://eigen.tuxfamily.org>`__ 获取。"

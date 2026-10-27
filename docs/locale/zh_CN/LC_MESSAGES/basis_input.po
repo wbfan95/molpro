@@ -28,6 +28,15 @@ msgstr "笛卡尔与球谐函数基函数"
 msgid "[command:spherical]"
 msgstr "[command:spherical]"
 
+msgid ""
+"``MOLPRO`` uses spherical harmonics (:math:`5d`, :math:`7f`, etc) by "
+"default, even for Pople basis sets like ``6-31G**``. This behaviour may be "
+"different to that of other programs; However, cartesian functions can be "
+"requested using the ``CARTESIAN`` command."
+msgstr ""
+"``MOLPRO`` 默认使用球谐函数（\\ :math:`5d`\\ 、\\ :math:`7f` 等），即使对于像 ``6-31G**`` 这样的 "
+"Pople 基组也是如此。此行为可能与其他程序不同；但是，可以使用 ``CARTESIAN`` 命令请求笛卡尔函数。"
+
 msgid "``CARTESIAN``"
 msgstr "``CARTESIAN``"
 
@@ -524,6 +533,15 @@ msgid ""
 " case the directive ``SET,ORBITAL`` can be omitted."
 msgstr "默认情况下，基组块中的第一个集合是轨道基组，在这种情况下可以省略指令 ``SET,ORBITAL``\\ 。"
 
+msgid ""
+"``DEFAULT`` specifies the default basis set, exactly as on one line basis "
+"input. It can be followed by specifications for individual atoms, e.g. "
+"O=AVTZ. The default and atom specifications can also be merged to one line, "
+"separated by commas, e.g."
+msgstr ""
+"``DEFAULT`` 指定默认基组，与单行基组输入中的方式完全相同。其后可以跟对单个原子的指定，例如 "
+"O=AVTZ。默认值和原子指定也可以合并到一行，用逗号分隔，例如"
+
 msgid "``DEFAULT=VTZ,O=AVTZ,H=VDZ``"
 msgstr "``DEFAULT=VTZ,O=AVTZ,H=VDZ``"
 
@@ -830,3 +848,336 @@ msgid ""
 msgstr ""
 "有关使用显式相关方法时的示例，请参阅 `显式相关方法的基组 "
 "<explicitly_correlated_methods.html#basissets>`__\\ 。"
+
+msgid ""
+"Basis functions are used in Molpro not just for representing orbitals, but "
+"also for providing auxiliary sets for density fitting (see :doc:`density "
+"fitting <density_fitting>`) and for simplifying integrals through "
+"approximate identity resolution in explicitly-correlated methods (see "
+":doc:`explicitly correlated methods <explicitly_correlated_methods>`). In "
+"order to accommodate this, the program maintains internally a number of "
+"different *sets*. The first of these always has the name ``ORBITAL`` and is "
+"the primary basis set for representing orbitals, and others can be defined "
+"as necessary as described below, or else are constructed automatically by "
+"the program when required. In the latter case, the density-fitting and other"
+" modules attempt to guess a reasonable library fitting basis that should be "
+"appropriate for the orbital basis set; it is advisable to check the choice "
+"when using anything other than a standard orbital basis set."
+msgstr ""
+"在 Molpro 中，基函数不仅用于表示轨道，还用于为密度拟合提供辅助基组（参见 :doc:`密度拟合 <density_fitting>`\\ "
+"），以及在显式相关方法中通过近似恒等分辨来简化积分（参见 :doc:`显式相关方法 <explicitly_correlated_methods>`\\"
+" ）。为了满足这一需求，程序在内部维护了若干不同的\\ *集合*\\ 。其中第一个集合的名称始终为 ``ORBITAL``\\ "
+"，是用于表示轨道的主基组；其他集合可以根据需要按下文所述进行定义，或者在需要时由程序自动构建。在后一种情况下，密度拟合模块及其他模块会尝试猜测一个合理的库拟合基组，该基组应当适用于当前轨道基组；当使用非标准轨道基组时，建议检查这一选择。"
+
+msgid "the basis sets are larger and more linearly dependent;"
+msgstr "基组更大，线性相关性更强；"
+
+msgid ""
+"density fitting routines are much slower with cartesian basis functions than"
+" with spherical harmonics;"
+msgstr "对于笛卡尔基函数，密度拟合例程比使用球谐函数时慢得多；"
+
+msgid ""
+"some programs cannot use cartesian basis functions at all, e.g. the PNO "
+"programs, gradients with density fitting, or F12 calculations."
+msgstr "某些程序完全无法使用笛卡尔基函数，例如 PNO 程序、带密度拟合的梯度计算或 F12 计算。"
+
+msgid "``set, name, context=jkfit, [attributes=]cartesian\\\\`` \\...."
+msgstr "``set, name, context=jkfit, [attributes=]cartesian\\\\`` \\..."
+
+msgid ""
+"Many of the basis sets are taken directly from the Basis Set Exchange  "
+"`database <https://www.basissetexchange.org>`__, but there are others, "
+"notably the Stuttgart `effective core potentials and bases "
+"<http://www.tc.uni-koeln.de/PP/index.en.html>`__ and Grant Hill's database "
+"for correlation consistent basis sets, `ccRepo <http://www.grant-"
+"hill.group.shef.ac.uk/ccrepo>`__."
+msgstr ""
+"许多基组直接取自 Basis Set Exchange  `database "
+"<https://www.basissetexchange.org>`__\\ ，但也有一些来自其他来源，特别是 Stuttgart 的 "
+"`effective core potentials and bases <http://www.tc.uni-"
+"koeln.de/PP/index.en.html>`__ 以及 Grant Hill 的 correlation consistent 基组数据库 "
+"`ccRepo <http://www.grant-hill.group.shef.ac.uk/ccrepo>`__\\ 。"
+
+msgid "``BASIS,basis``"
+msgstr "``BASIS,basis``"
+
+msgid "``BASIS=basis``"
+msgstr "``BASIS=basis``"
+
+msgid ""
+"The Binning/Curtiss sets for Ga–Kr (``BINNING-SV``, ``BINNING-SVP``, "
+"``BINNING-VTZ`` and ``BINNING-VTZP``)"
+msgstr ""
+"用于 Ga–Kr 的 Binning/Curtiss 集合（\\ ``BINNING-SV``\\ 、\\ ``BINNING-SVP``\\ 、\\ "
+"``BINNING-VTZ`` 和 ``BINNING-VTZP``\\ ）"
+
+msgid "1-36"
+msgstr "1-36"
+
+msgid "1-18"
+msgstr "1-18"
+
+msgid "3-36"
+msgstr "3-36"
+
+msgid "3-18"
+msgstr "3-18"
+
+msgid "1-2, 5-10, 13-20, 37-38, 55-71, 87-103"
+msgstr "1-2, 5-10, 13-20, 37-38, 55-71, 87-103"
+
+msgid "5-10, 13-18"
+msgstr "5-10, 13-18"
+
+msgid "1-103"
+msgstr "1-103"
+
+msgid "3-53, 72-86"
+msgstr "3-53, 72-86"
+
+msgid "49-103"
+msgstr "49-103"
+
+msgid "5-10, 13-20, 37-38, 55-71, 87-103"
+msgstr "5-10, 13-20, 37-38, 55-71, 87-103"
+
+msgid "19-20, 29-36"
+msgstr "19-20, 29-36"
+
+msgid "37-54"
+msgstr "37-54"
+
+msgid "55-56"
+msgstr "55-56"
+
+msgid "72-86, 90-92"
+msgstr "72-86, 90-92"
+
+msgid "87-88"
+msgstr "87-88"
+
+msgid "29-36"
+msgstr "29-36"
+
+msgid "47-54"
+msgstr "47-54"
+
+msgid "79-86"
+msgstr "79-86"
+
+msgid "37-48"
+msgstr "37-48"
+
+msgid "49-52"
+msgstr "49-52"
+
+msgid "53"
+msgstr "53"
+
+msgid "54"
+msgstr "54"
+
+msgid "57"
+msgstr "57"
+
+msgid "58-71"
+msgstr "58-71"
+
+msgid "72-79"
+msgstr "72-79"
+
+msgid "80"
+msgstr "80"
+
+msgid "81-86"
+msgstr "81-86"
+
+msgid "1 - 36"
+msgstr "1 - 36"
+
+msgid "37-38"
+msgstr "37-38"
+
+msgid "39-48"
+msgstr "39-48"
+
+msgid "examples/h2o_scf_vtz.inp"
+msgstr "examples/h2o_scf_vtz.inp"
+
+msgid "``basis,default=awcvtz,h=vtz,b-cl=avtz``"
+msgstr "``basis,default=awcvtz,h=vtz,b-cl=avtz``"
+
+msgid ""
+"If the setnames are ``JFIT``, ``JKFIT``, ``MP2FIT``, ``CCSDFIT``, ``OPTRI`` "
+"and/or ``CABS`` , these basis are used automatically all programs where "
+"needed (unless different basis sets are defined in the input for these "
+"programs). Note, however, that this is not the case if  different names "
+"(e.g. JK) are used. In this case one would need to give, for example,"
+msgstr ""
+"如果集合名称为 ``JFIT``\\ 、\\ ``JKFIT``\\ 、\\ ``MP2FIT``\\ 、\\ ``CCSDFIT``\\ 、\\ "
+"``OPTRI`` 和/或 ``CABS``\\ "
+"，则在所有需要这些基组的程序中会自动使用它们（除非在这些程序的输入中定义了不同的基组）。但请注意，如果使用了不同的名称（例如 "
+"JK），则情况并非如此。此时需要给出例如："
+
+msgid ""
+"``SET``,\\ *name*,[``CONTEXT=``\\ *context*] where *name* is an arbitrary "
+"name that can be used later to choose the basis set using options like "
+"``df_basis=``\\ *name*, ``ri_basis=``\\ *name* etc. ``CONTEXT`` can "
+"optionally be specified to select the basis types ``JFIT``, ``JKFIT``, "
+"``MP2FIT``, ``CCSDFIT``, ``OPTRI``, or ``CABS``. This affects the choice of "
+"default basis sets. For example"
+msgstr ""
+"``SET``,\\ *name*,[``CONTEXT=``\\ *context*]，其中 *name* 是任意名称，之后可通过 "
+"``df_basis=``\\ *name*\\ 、\\ ``ri_basis=``\\ *name* 等选项使用该名称来选择基组。可以选择性地指定 "
+"``CONTEXT``\\ ，以选择基组类型 ``JFIT``\\ 、\\ ``JKFIT``\\ 、\\ ``MP2FIT``\\ 、\\ "
+"``CCSDFIT``\\ 、\\ ``OPTRI`` 或 ``CABS``\\ 。这会影响默认基组的选择。例如"
+
+msgid ""
+"If the setname begins with ``JFIT``, ``JKFIT``, ``MP2FIT``, ``CCSDFIT``, "
+"``OPTRI``, or ``CABS``, these strings define the default context. If the "
+"setnames correspond exactly to the context name, the corresponding sets are "
+"used automatically where needed (e.g. ``JKFIT`` in DF-HF and ``MP2FIT`` in "
+"DF-MP2)."
+msgstr ""
+"如果集合名称以 ``JFIT``\\ 、\\ ``JKFIT``\\ 、\\ ``MP2FIT``\\ 、\\ ``CCSDFIT``\\ 、\\ "
+"``OPTRI`` 或 ``CABS`` 开头，则这些字符串定义了默认上下文。如果集合名称与上下文名称完全对应，则在需要时自动使用相应的集合（例如 "
+"DF-HF 中的 ``JKFIT`` 和 DF-MP2 中的 ``MP2FIT``\\ ）。"
+
+msgid ""
+"If individual basis functions are specified, and \"+\" is given before the "
+"type (e.g. ``+S``, ``+P``) these functions are added to an existing default "
+"basis (only with molpro2026.1 or later)."
+msgstr ""
+"如果指定了单个基函数，并且在类型前给出“+”（例如 ``+S``\\ 、\\ ``+P``\\ ），则将这些函数添加到已有的默认基组中（仅限 "
+"molpro2026.1 或更高版本）。"
+
+msgid ""
+"``type,atom,name,[SCALE=scale$|$SCALE2=scale2],[NPRIM=nprim$|$DELETE=ndel];``"
+msgstr ""
+"``type,atom,name,[SCALE=scale$|$SCALE2=scale2],[NPRIM=nprim$|$DELETE=ndel];``"
+
+msgid ""
+"If ``SCALE`` or ``SCALE2`` is present, all exponents are scaled by *scale* "
+"or *scale\\*\\*2*, respectively. If ``NPRIM`` is specified, the first "
+"*nprim* exponents only are taken from the library. If *nprim* is negative or"
+" ``DELETE=``\\ *ndel* is given, the last :math:`|nprim|` (:math:`ndel`) "
+"basis functions from the library set are deleted. In these cases only a "
+"single angular momentum (e.g. *s* or *p*) is allowed in *type*. Associated "
+"with the library basis may be a set of default contraction coefficients "
+"which may be accessed in subsequent contraction cards. *type* can include "
+"several types, e.g., ``SPD`` or ``DF``. This usually makes sense only with "
+"default contractions, i.e., such cards should be followed only by “\\ "
+"``C``\\ ” without any other specifications for contractions."
+msgstr ""
+"如果存在 ``SCALE`` 或 ``SCALE2``\\ ，则所有指数分别乘以 *scale* 或 *scale\\*\\*2*\\ 。如果指定了 "
+"``NPRIM``\\ ，则仅从库中取前 *nprim* 个指数。如果 *nprim* 为负或给定了 ``DELETE=``\\ *ndel*\\ "
+"，则删除库集合中最后 :math:`|nprim|`\\ （\\ :math:`ndel`\\ ）个基函数。在这些情况下，\\ *type* "
+"中只允许单一角动量（例如 *s* 或 *p*\\ ）。与库基组相关联的可以是一组默认收缩系数，这些系数可在后续的收缩卡片中访问。\\ *type* "
+"可以包含多个类型，例如 ``SPD`` 或 ``DF``\\ 。这通常仅在使用默认收缩时才有意义，即此类卡片后面应只跟“\\ ``C``\\ "
+"”，而不要对收缩作任何其他指定。"
+
+msgid ""
+"If \"+\" is given before the type (e.g. +s, +p) these functions are added to"
+" a previously defined default basis."
+msgstr "如果在类型前给出“+”（例如 +s、+p），则将这些函数添加到先前定义的默认基组中。"
+
+msgid "``type,atom,EVEN,nprim,ratio,centre,dratio``"
+msgstr "``type,atom,EVEN,nprim,ratio,centre,dratio``"
+
+msgid ""
+"``type,atom,EVEN,NPRIM=nprim,[RATIO=ratio],[CENTRE=centre],[DRATIO=dratio]``"
+msgstr ""
+"``type,atom,EVEN,NPRIM=nprim,[RATIO=ratio],[CENTRE=centre],[DRATIO=dratio]``"
+
+msgid ""
+"Generates a generalized even tempered set of functions. The number of "
+"functions :math:`n` is specified by *nprim*, their geometric mean :math:`c` "
+"by *centre*, the mean ratio of successive exponents :math:`r` by *ratio*, "
+"and the variation of this ratio, :math:`d`, by *dratio*. If *centre* is not "
+"given, the previous basis of the same type is extended by diffuse functions."
+" This also holds if a default basis has been specified (only with "
+"molpro2026.1 or later). If in this case *ratio* is not given, :math:`r` is "
+"determined from the exponents of the last two function of the previous "
+"basis. If this is not possible, the default :math:`r=2.5` is adopted. "
+":math:`d=1` (the default) specifies a true even-tempered set, but otherwise "
+"the ratio between successive exponents changes linearly; the exponents are "
+"given explicitly by"
+msgstr ""
+"生成一组广义 even tempered 函数。函数个数 :math:`n` 由 *nprim* 指定，其几何平均 :math:`c` 由 "
+"*centre* 指定，相邻指数之比的均值 :math:`r` 由 *ratio* 指定，该比值的变化 :math:`d` 由 *dratio* "
+"指定。如果未给出 *centre*\\ ，则通过添加弥散函数来扩展同类型的先前基组。如果已指定默认基组，这也成立（仅限 molpro2026.1 "
+"或更高版本）。在这种情况下，如果未给出 *ratio*\\ ，则由先前基组最后两个函数的指数确定 :math:`r`\\ 。如果无法确定，则采用默认值 "
+":math:`r=2.5`\\ 。\\ :math:`d=1`\\ （默认值）表示真正的 even-tempered "
+"集合，否则相邻指数之间的比值线性变化；指数由下式显式给出："
+
+msgid "**Example 1** ``SP,1,VTZ;C;SP,1,EVEN,1;``"
+msgstr "**示例 1** ``SP,1,VTZ;C;SP,1,EVEN,1;``"
+
+msgid ""
+"generates the generally contracted :math:`s` and :math:`p` triple-zeta basis"
+" sets for atom 1 and extends these by one diffuse function."
+msgstr "为原子 1 生成广义收缩的 :math:`s` 和 :math:`p` 三ζ基组，并通过一个弥散函数对其进行扩展。"
+
+msgid "**Example 2** ``SPD,1,VTZ,DELETE=1;C; SP,1,EVEN,NPRIM=2,RATIO=2.5;``"
+msgstr "**示例 2** ``SPD,1,VTZ,DELETE=1;C; SP,1,EVEN,NPRIM=2,RATIO=2.5;``"
+
+msgid ""
+"generates the generally contracted :math:`s`, :math:`p` triple-zeta basis "
+"sets for atom 1. Two energy optimized :math:`d`-functions of Dunning are "
+"included. The last :math:`s` and :math:`p` functions are deleted and "
+"replaced by two even tempered functions with ratio 2.5."
+msgstr ""
+"为原子 1 生成广义收缩的 :math:`s`\\ 、\\ :math:`p` 三ζ基组。其中包含两个 Dunning 的能量优化 :math:`d` "
+"函数。最后一个 :math:`s` 和 :math:`p` 函数被删除，并由两个比值为 2.5 的 even tempered 函数取代。"
+
+msgid "``type,atom,EVEN3,nprim,$\\alpha$, $\\beta$, $\\gamma$``"
+msgstr "``type,atom,EVEN3,nprim,$\\alpha$, $\\beta$, $\\gamma$``"
+
+msgid "``type,atom,EVENR,nprim,aa,ap,bb,bp``"
+msgstr "``type,atom,EVENR,nprim,aa,ap,bb,bp``"
+
+msgid "``type,atom,EVENP,nprim,$\\alpha$,$\\beta$,$\\gamma$``"
+msgstr "``type,atom,EVENP,nprim,$\\alpha$,$\\beta$,$\\gamma$``"
+
+msgid ""
+":math:`p(\\beta)=\\frac{\\mathrm{exponent^i}}{\\mathrm{exponent^{i+1}}}= "
+"\\frac{5}{\\pi}(\\arctan(\\beta-2.5)+\\frac{\\pi}{2})+\\sqrt{2}`"
+msgstr ""
+":math:`p(\\beta)=\\frac{\\mathrm{exponent^i}}{\\mathrm{exponent^{i+1}}}= "
+"\\frac{5}{\\pi}(\\arctan(\\beta-2.5)+\\frac{\\pi}{2})+\\sqrt{2}`"
+
+msgid "``type,atom,EVENP2,nprim,$\\alpha$,$\\beta$,$\\gamma$,$\\delta$``"
+msgstr "``type,atom,EVENP2,nprim,$\\alpha$,$\\beta$,$\\gamma$,$\\delta$``"
+
+msgid "``a) C,first.last,c1,c2,$\\ldots$cn;cn+1,$\\ldots$;``"
+msgstr "``a) C,first.last,c1,c2,$\\ldots$cn;cn+1,$\\ldots$;``"
+
+msgid "``b) C;``"
+msgstr "``b) C;``"
+
+msgid "``c) $n$C,first.last;``"
+msgstr "``c) $n$C,first.last;``"
+
+msgid "``d) $n$C,first.last,record.file,orb.sym;``"
+msgstr "``d) $n$C,first.last,record.file,orb.sym;``"
+
+msgid ""
+"``2C,1.12,2100.2,1.1\\\\`` generates two contractions, using the first 12 "
+"coefficients from orbitals 1.1 and 2.1. The orbitals are read from record "
+"2100.2."
+msgstr ""
+"``2C,1.12,2100.2,1.1\\\\`` 生成两个收缩，使用来自轨道 1.1 和 2.1 的前 12 个系数。轨道从记录 2100.2 "
+"读取。"
+
+msgid "examples/h2o_vqz_fp.inp"
+msgstr "examples/h2o_vqz_fp.inp"
+
+msgid "examples/h2o_vqz_fp_explicit.inp"
+msgstr "examples/h2o_vqz_fp_explicit.inp"
+
+msgid "examples/h2o_two_hydrogen_bases.inp"
+msgstr "examples/h2o_two_hydrogen_bases.inp"
+
+msgid "examples/h2o_scf_vtz_explicitbasisinput.inp"
+msgstr "examples/h2o_scf_vtz_explicitbasisinput.inp"

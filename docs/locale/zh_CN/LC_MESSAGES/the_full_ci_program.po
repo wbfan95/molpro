@@ -126,3 +126,76 @@ msgstr "与其他程序的接口"
 
 msgid "Example"
 msgstr "示例"
+
+msgid ""
+"P.J. Knowles and N.C. Handy, `Chem. Phys. Lett. "
+"<https://dx.doi.org/10.1016/0009-2614(84)85513-X>`__ **111**, 315 (1984), "
+"P.J. Knowles and N.C. Handy, Comp. Phys. Commun. 54 (1989) 75."
+msgstr ""
+"P.J. Knowles and N.C. Handy, `Chem. Phys. Lett. "
+"<https://dx.doi.org/10.1016/0009-2614(84)85513-X>`__ **111**, 315 (1984), "
+"P.J. Knowles and N.C. Handy, Comp. Phys. Commun. 54 (1989) 75."
+
+msgid "``ORBIT,name.file;``"
+msgstr "``ORBIT,name.file;``"
+
+msgid "``OCC,$n_1,n_2,\\ldots,n_8$;``"
+msgstr "``OCC,$n_1,n_2,\\ldots,n_8$;``"
+
+msgid "``CORE,$n_1,n_2,\\ldots,n_8$;``"
+msgstr "``CORE,$n_1,n_2,\\ldots,n_8$;``"
+
+msgid ""
+":math:`n_i` is the number of frozen-core orbitals in irrep number :math:`i`."
+" These orbitals are doubly occupied in all configurations, i.e., not "
+"correlated. If no ``CORE`` card is given, the program uses the same core "
+"orbitals as the last CI calculation; if there was none, then the atomic "
+"inner shells are taken as core. To avoid this behaviour and correlate all "
+"electrons, specify"
+msgstr ""
+":math:`n_i` 是不可约表示编号 :math:`i` 中的冻芯轨道数。这些轨道在所有组态中均为双占据，即不参与相关计算。若未给出 "
+"``CORE`` 卡，程序将采用上一次 CI 计算所用的相同芯轨道；若此前没有 CI 计算，则将原子内壳层作为芯。为避免此行为并关联所有电子，请指定"
+
+msgid "``WF,elec,sym,spin``"
+msgstr "``WF,elec,sym,spin``"
+
+msgid "***elec*:** is the number of electrons"
+msgstr "***elec*\\ ：** 为电子数"
+
+msgid "***sym*:** is the number of the irreducible representation"
+msgstr "***sym*\\ ：** 为不可约表示的编号"
+
+msgid ""
+"***spin*:** defines the spin symmetry, *spin*\\ :math:`=2S` (singlet=0, "
+"doublet=1, triplet=2, etc.)"
+msgstr "***spin*\\ ：** 定义自旋对称性，*\\ spin*\\ :math:`=2S`\\ （单重态=0，双重态=1，三重态=2，等等）"
+
+msgid "``DM,record.file``"
+msgstr "``DM,record.file``"
+
+msgid "``STATE,value;``"
+msgstr "``STATE,value;``"
+
+msgid "``THR,value;``"
+msgstr "``THR,value;``"
+
+msgid "``PRINT,code,value;``"
+msgstr "``PRINT,code,value;``"
+
+msgid "``FCI,DUMP=filename;``"
+msgstr "``FCI,DUMP=filename;``"
+
+msgid ""
+"causes the FCI diagonalization to be bypassed, with input information and "
+"transformed integrals being written to a formatted file *filename*. The "
+"format is as described in Comp. Phys. Commun. 54 (1989) 75, and in an "
+"external program should be accessed using the FCIdump class or module "
+"available from `https://github.com/molpro/fcidump. "
+"<https://github.com/molpro/fcidump>`__"
+msgstr ""
+"使 FCI 对角化被跳过，同时输入信息和变换积分被写入格式化文件 *filename*\\ 。格式如 Comp. Phys. Commun. 54 "
+"(1989) 75 所述，在外部程序中应通过 `https://github.com/molpro/fcidump. "
+"<https://github.com/molpro/fcidump>`__ 提供的 FCIdump 类或模块访问"
+
+msgid "examples/h2o_fci.inp"
+msgstr "examples/h2o_fci.inp"

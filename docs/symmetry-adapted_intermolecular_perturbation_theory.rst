@@ -643,7 +643,7 @@ The last threshold values for the 2- and 3-index integrals should not be set hig
 * ``MONOMERB`` See above
 * ``INTERMOL`` Starts the SAPT calculation
 
-``INTERMOL may have the following subkeywords:``
+``INTERMOL`` may have the following subkeywords:
 
 * ``CA`` Record number of wave function for monomer A (always needed)
 * ``CB`` Record number of wave function for monomer B (always needed)

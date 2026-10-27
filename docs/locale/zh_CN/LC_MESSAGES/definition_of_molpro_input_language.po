@@ -233,6 +233,20 @@ msgid "e.g.,"
 msgstr "例如，"
 
 msgid ""
+"``CONTEXT`` can be any valid command name (or any valid alias for this), but"
+" internally these are converted to one of the following: ``HF`` (Hartree-"
+"Fock and DFT), ``MC`` (MCSCF and CASSCF), ``CC`` (single reference "
+"correlation methods, as implemented in the CCSD program), ``CI`` "
+"(multireference correlation methods, as implemented in the MRCI program). "
+"The directive will then be applied to one of the four cases. Several "
+"contexts can be specified separated by colon, e.g.,"
+msgstr ""
+"``CONTEXT`` 可以是任何有效的命令名称（或其任何有效别名），但在内部这些名称会被转换为以下之一：\\ ``HF``\\ （Hartree-"
+"Fock 和 DFT）、\\ ``MC``\\ （MCSCF 和 CASSCF）、\\ ``CC``\\ （单参考相关方法，如 CCSD "
+"程序中所实现的）、\\ ``CI``\\ （多参考相关方法，如 MRCI "
+"程序中所实现的）。然后该指令将应用于这四种情况之一。可以指定多个上下文，用冒号分隔，例如，"
+
+msgid ""
 "If no context is given, the default is ``HF``. The default occupations for "
 "single reference methods (e.g., MP2, CCSD) are the ones used in ``HF``, the "
 "defaults for multireference methods (e.g. RS2, MRCI) correspond to those "
@@ -487,3 +501,216 @@ msgid ""
 "hierarchy in which options are processed is as follows:"
 msgstr ""
 "过程调用不允许使用选项。但是，可以在过程内部使用指令设置特定选项，这些选项随后对指令之后过程内的所有程序有效。当过程执行完毕后，会恢复之前的全局选项。处理选项的层次结构如下："
+
+msgid "**``---`` (three dashes)** end of file (rest of input is ignored)"
+msgstr "**``---``（三个连字符）** 文件结束（其余输入被忽略）"
+
+msgid "``GOTO,START:\\\\`` ``…\\\\`` ``START: CCSD(T)``"
+msgstr "``GOTO,START:\\\\`` ``…\\\\`` ``START: CCSD(T)``"
+
+msgid ""
+"Strings containing blanks can be entered using quotes. For instance, ``’This"
+" is a string’`` is interpreted as one string, but ``This is a string`` is a "
+"sequence of four strings in four subsequent fields. Strings in quotes are "
+"not converted to upper case."
+msgstr ""
+"含有空白的字符串可使用引号输入。例如，\\ ``’This is a string’`` 被解释为一个字符串，而 ``This is a "
+"string`` 是四个字符串组成的序列，分别位于四个后续字段中。引号内的字符串不会转换为大写。"
+
+msgid ""
+"A command invokes a particular program. It may be followed by local input "
+"for this program, enclosed in curly brackets((Depending on the parameter "
+"``STRICTCHECK`` in file ``lib/variable.registry`` the program may tolerate "
+"directives given after commands without curly brackets. The program checks "
+"for ambiguities in the input. A directive is considered ambiguous if a "
+"command or procedure with the same name is known, and the directive is not "
+"in a command block (i.e., no curly brackets are used). ``STRICTCHECK=0``: "
+"The input checker tolerates ambiguous directives if they are followed by a "
+"non ambiguous directive which is valid for the current command. "
+"``STRICTCHECK=1``: The input checker does not tolerate any ambiguous "
+"directives. ``STRICTCHECK=2``: The input checker does not tolerate any "
+"directives outside curly brackets. The default is ``STRICTCHECK=0``, which "
+"gives the maximum possible compatibility to previous Molpro versions. ))"
+msgstr ""
+"命令调用特定的程序。其后可跟该程序的局部输入，用花括号括起（（取决于文件 ``lib/variable.registry`` 中的参数 "
+"``STRICTCHECK``\\ "
+"，程序可能容忍在命令后未加花括号给出的指令。程序会检查输入中的歧义。若已知存在同名命令或过程，且该指令不在命令块内（即未使用花括号），则该指令被视为有歧义。\\"
+" ``STRICTCHECK=0``\\ ：若歧义指令之后跟有对当前命令有效的无歧义指令，则输入检查器容忍这些歧义指令。\\ "
+"``STRICTCHECK=1``\\ ：输入检查器不容忍任何歧义指令。\\ ``STRICTCHECK=2``\\ "
+"：输入检查器不容忍花括号外的任何指令。默认值为 ``STRICTCHECK=0``\\ ，这与先前 Molpro 版本具有最大可能的兼容性。））"
+
+msgid "``{ COMMAND,options\\\\`` *directives* *data* }"
+msgstr "``{ COMMAND,options\\\\`` *directives* *data* }"
+
+msgid ""
+"``DFIT,options\\\\`` ``LOCAL,options\\\\`` ``EXPLICIT,options\\\\`` "
+"``THRESH,options``"
+msgstr ""
+"``DFIT,options\\\\`` ``LOCAL,options\\\\`` ``EXPLICIT,options\\\\`` "
+"``THRESH,options``"
+
+msgid "``DIRECTIVE,data,options``"
+msgstr "``DIRECTIVE,data,options``"
+
+msgid "``OCC,CORE, CLOSED, WF, LOCAL, DFIT, …``"
+msgstr "``OCC,CORE, CLOSED, WF, LOCAL, DFIT, …``"
+
+msgid ""
+"``Wavefunction definition: OCC,CORE, CLOSED, FROZEN, WF\\\\`` Thresholds and"
+" options: ``LOCAL``, ``DFIT``, ``DIRECT``, ``EXPLICIT``, ``THRESH``, "
+"``PRINT``, ``GRID``"
+msgstr ""
+"``波函数定义：OCC,CORE, CLOSED, FROZEN, WF\\\\`` 阈值与选项：\\ ``LOCAL``\\ 、\\ "
+"``DFIT``\\ 、\\ ``DIRECT``\\ 、\\ ``EXPLICIT``\\ 、\\ ``THRESH``\\ 、\\ "
+"``PRINT``\\ 、\\ ``GRID``"
+
+msgid "``DIRECTIVE,data,CONTEXT=context,``"
+msgstr "``DIRECTIVE,data,CONTEXT=context,``"
+
+msgid "``OCC,3,1,1,CONTEXT=HF\\\\`` ``OCC,4,1,2,CONTEXT=MCSCF``"
+msgstr "``OCC,3,1,1,CONTEXT=HF\\\\`` ``OCC,4,1,2,CONTEXT=MCSCF``"
+
+msgid ""
+"``CONTEXT=HF:CCSD\\\\`` If only a single context is given (no colon), "
+"shortcuts for the specifying the ``CONTEXT`` option are obtained by "
+"postfixing *context* to the command name, e.g.,"
+msgstr ""
+"``CONTEXT=HF:CCSD\\\\`` 若仅给出单个上下文（不含冒号），则通过将\\ *context*\\ 作为后缀加到命令名上即可获得指定 "
+"``CONTEXT`` 选项的快捷方式，例如"
+
+msgid "``OCC_HF,3,1,1\\\\`` ``OCC_MCSCF,4,1,2``"
+msgstr "``OCC_HF,3,1,1\\\\`` ``OCC_MCSCF,4,1,2``"
+
+msgid "``3 - 4 4``"
+msgstr "``3 - 4 4``"
+
+msgid "``3-4 4``"
+msgstr "``3-4 4``"
+
+msgid "``3 -4 4``"
+msgstr "``3 -4 4``"
+
+msgid "``3,-4 4``"
+msgstr "``3,-4 4``"
+
+msgid "``3, -4, 4``"
+msgstr "``3, -4, 4``"
+
+msgid "``COMMAND,options \\\\`` :math:`\\left[ data \\right]`"
+msgstr "``COMMAND,options \\\\`` :math:`\\left[ data \\right]`"
+
+msgid ""
+"In any input field, if not stated otherwise, data can be entered in the form"
+" of expressions. Numbers and variables are special cases of expressions. An "
+"expression is typed in Fortran style and may contain any number of nested "
+"parenthesis. The standard intrinsic functions are also available (see next "
+"section). Molpro understands both arithmetic and logical expressions. The "
+"result of an arithmetic expression is a *real* (double precision) number. "
+"Internally, all integers are also converted to *real* numbers. The result of"
+" a logical expression is either ``.TRUE.`` or ``.FALSE.``. Internally, "
+"``.TRUE.`` is stored as a one (1.0), and ``.FALSE.`` as zero (0.0). "
+"Expressions may contain any number of variables."
+msgstr ""
+"在任何输入字段中，除非另有说明，数据均可以表达式的形式输入。数字和变量是表达式的特例。表达式按 Fortran "
+"风格书写，可包含任意数量的嵌套括号。标准内部函数同样可用（见下节）。Molpro 可理解算术表达式和逻辑表达式。算术表达式的结果为\\ *实数*\\ "
+"（双精度）数。在内部，所有整数也转换为\\ *实数*\\ 。逻辑表达式的结果为 ``.TRUE.`` 或 ``.FALSE.``\\ 。在内部，\\ "
+"``.TRUE.`` 存储为一（1.0），\\ ``.FALSE.`` 存储为零（0.0）。表达式可包含任意数量的变量。"
+
+msgid "``expr + expr`` Addition"
+msgstr "``expr + expr`` 加法"
+
+msgid "``expr - expr`` Subtraction"
+msgstr "``expr - expr`` 减法"
+
+msgid "``expr * expr`` Multiplication"
+msgstr "``expr * expr`` 乘法"
+
+msgid "``expr / expr`` Division"
+msgstr "``expr / expr`` 除法"
+
+msgid "``expr .OR. expr`` Logical ``OR``"
+msgstr "``expr .OR. expr`` 逻辑 ``OR``"
+
+msgid "``expr .AND. expr`` Logical ``AND``"
+msgstr "``expr .AND. expr`` 逻辑 ``AND``"
+
+msgid "``expr .XOR. expr`` Exclusive ``OR``"
+msgstr "``expr .XOR. expr`` 异或 ``OR``"
+
+msgid "``.NOT.expr`` Logical ``NOT``"
+msgstr "``.NOT.expr`` 逻辑 ``NOT``"
+
+msgid "``expr .GT. expr`` Greater Than"
+msgstr "``expr .GT. expr`` 大于"
+
+msgid "``expr .EQ. expr`` Equal"
+msgstr "``expr .EQ. expr`` 等于"
+
+msgid "``expr .LT. expr`` Less Than"
+msgstr "``expr .LT. expr`` 小于"
+
+msgid "``expr .GE. expr`` Greater Equal"
+msgstr "``expr .GE. expr`` 大于等于"
+
+msgid "``expr .LE. expr`` Less Equal"
+msgstr "``expr .LE. expr`` 小于等于"
+
+msgid "``expr .NE. expr`` Not Equal"
+msgstr "``expr .NE. expr`` 不等于"
+
+msgid "``expr **expr`` Exponentiation"
+msgstr "``expr **expr`` 幂运算"
+
+msgid "``expr ^ expr`` Exponentiation"
+msgstr "``expr ^ expr`` 乘方"
+
+msgid "``(expr)`` Parenthesis (no effect)"
+msgstr "``(expr)`` 括号（无影响）"
+
+msgid "``-expr`` Change sign"
+msgstr "``-expr`` 改变符号"
+
+msgid "``+expr`` Keep sign (no effect)"
+msgstr "``+expr`` 保持符号（无影响）"
+
+msgid "``VARNAME1=expression [unit],VARNAME2=expression [unit]``"
+msgstr "``VARNAME1=expression [unit],VARNAME2=expression [unit]``"
+
+msgid ""
+"Variables are useful for running the same input with different actual "
+"parameters (e.g. geometries or basis function exponents), and to store and "
+"manipulate the results. *Arrays* are variables with an index in parenthesis,"
+" e.g., ``var(1)``. The number of elements in an array ``var`` is ``#var``. "
+"The array length can be reset to zero by the ``CLEAR`` directive or simply "
+"by modifying ``#var``. Variables and variable arrays may be displayed at any"
+" place in the output by the ``SHOW`` command, and whole tables of variables "
+"can be generated using the ``TABLE`` command. For more details about "
+"variables see section :doc:`variables <variables>`."
+msgstr ""
+"变量可用于以不同的实际参数（例如几何结构或基函数指数）运行相同的输入，并用于存储和操作结果。\\ *数组*\\ 是带括号索引的变量，例如 "
+"``var(1)``\\ 。数组 ``var`` 中的元素个数为 ``#var``\\ 。可以通过 ``CLEAR`` 指令或简单地修改 "
+"``#var`` 将数组长度重置为零。变量和变量数组可通过 ``SHOW`` 命令显示在输出的任意位置，并且可以使用 ``TABLE`` "
+"命令生成整个变量表。有关变量的更多详细信息，请参见 :doc:`variables <variables>` 一节。"
+
+msgid ""
+"``$name=string\\\\`` ``name=’string’\\\\`` ``name=string variable\\\\`` "
+"``$name=string variable\\\\`` Examples:"
+msgstr ""
+"``$name=string\\\\`` ``name=’string’\\\\`` ``name=string variable\\\\`` "
+"``$name=string variable\\\\`` 示例："
+
+msgid "``[PROC ]procname=$\\{$\\\\`` *command blocks* *directives* :math:`\\}`"
+msgstr "``[PROC ]procname=$\\{$\\\\`` *command blocks* *directives* :math:`\\}`"
+
+msgid "``PROC procname\\\\`` *command blocks* *directives* ``ENDPROC``"
+msgstr "``PROC procname\\\\`` *command blocks* *directives* ``ENDPROC``"
+
+msgid ""
+"Global options Options in procedures Command line options Options given on "
+"directives within a command block The last option set is then actually used."
+" Thus, options specified on command lines or within command blocks have "
+"preference over procedure options, and procedure options have preference "
+"over global options."
+msgstr ""
+"全局选项 过程选项 命令行选项 命令块内指令上给出的选项 "
+"最后设置的选项随后被实际使用。因此，在命令行上或命令块内指定的选项优先于过程选项，而过程选项优先于全局选项。"

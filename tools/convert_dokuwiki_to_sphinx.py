@@ -192,8 +192,9 @@ def is_standalone_code_markup(line: str) -> bool:
         return False
     if "[[" in stripped or "{{" in stripped:
         return False
-    prose = re.search(r"\b(the|and|or|with|from|to|in|of|is|are)\b", stripped, flags=re.I)
-    return not prose or stripped.startswith("''")
+    # Only lines with no prose at all are rendered as code blocks; a line
+    # starting with a literal but containing prose is normal text.
+    return not re.search(r"\b(the|and|or|with|from|to|in|of|is|are)\b", stripped, flags=re.I)
 
 
 def convert_inline(text: str, current_doc: str = "") -> str:

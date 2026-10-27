@@ -22,7 +22,7 @@ The VCI program (VCI)
 
 ``VCI,options``
 
-``VCI calculations account for vibration correlation effects and use potential energy surfaces as generated from the XSURF program and a basis of VSCF modals or harmonic oscillator functions. For each vibrational state an individual VCI calculation will be performed. As VCI calculations may require substantial computer resources, these calculations can be rather expensive. Currently, two different VCI programs (configuration selective and conventional) are available (see below).  The details of the VCI program are described in:\\``
+``VCI`` calculations account for vibration correlation effects and use potential energy surfaces as generated from the ``XSURF`` program and a basis of ``VSCF`` modals or harmonic oscillator functions. For each vibrational state an individual ``VCI`` calculation will be performed. As ``VCI`` calculations may require substantial computer resources, these calculations can be rather expensive. Currently, two different ``VCI`` programs (configuration selective and conventional) are available (see below).  The details of the ``VCI`` program are described in:
 
 T. Mathea, G. Rauhut, *Advances in vibrational configuration interaction theory - part 1: Efficient calculation of vibrational angular momentum terms.* `J. Comput. Chem. <https://onlinelibrary.wiley.com/doi/abs/10.1002/jcc.26762>`__ **42**, 2321–2333 (2021).
 T. Mathea, T. Petrenko, G. Rauhut, *Advances in vibrational configuration interaction theory - part 2: Fast screening of the correlation space.*. `J. Comput. Chem. <https://onlinelibrary.wiley.com/doi/abs/10.1002/jcc.26764>`__ **43**, 6–18 (2022).

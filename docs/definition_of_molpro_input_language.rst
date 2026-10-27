@@ -157,7 +157,7 @@ e.g.,
 ``OCC,3,1,1,CONTEXT=HF\\``
 ``OCC,4,1,2,CONTEXT=MCSCF``
 
-``CONTEXT can be any valid command name (or any valid alias for this), but internally these are converted to one of the following: HF (Hartree-Fock and DFT), MC (MCSCF and CASSCF), CC (single reference correlation methods, as implemented in the CCSD program), CI (multireference correlation methods, as implemented in the MRCI program). The directive will then be applied to one of the four cases. Several contexts can be specified separated by colon, e.g.,``
+``CONTEXT`` can be any valid command name (or any valid alias for this), but internally these are converted to one of the following: ``HF`` (Hartree-Fock and DFT), ``MC`` (MCSCF and CASSCF), ``CC`` (single reference correlation methods, as implemented in the CCSD program), ``CI`` (multireference correlation methods, as implemented in the MRCI program). The directive will then be applied to one of the four cases. Several contexts can be specified separated by colon, e.g.,
 
 ``CONTEXT=HF:CCSD\\``
 If only a single context is given (no colon), shortcuts for the specifying the ``CONTEXT`` option are obtained by postfixing *context* to the command name, e.g.,

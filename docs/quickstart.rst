@@ -164,7 +164,7 @@ rs2          !old less contracted version of caspt2
 
 All higher order methods contain the lower-level ones. For example, ccsd(t) contains HF, MP2, and CCSD, and MRCI contains CASPT2.
 
-``For larger molecules, it is advisable to use density fitted methods (activated by the prefix DF-). Note that in some other programs this is denoted RI-approximation, but in Molpro RI refers to resolution of the identity approximations of the many-electron integrals in F12 methods. This is distinct from DF-approximations of standard 2-electron Coulomb integrals.``
+``For larger molecules, it is advisable to use density fitted methods (activated by the prefix DF-).`` Note that in some other programs this is denoted RI-approximation, but in Molpro RI refers to resolution of the identity approximations of the many-electron integrals in F12 methods. This is distinct from DF-approximations of standard 2-electron Coulomb integrals.
 
 The following ones are efficiently implemented:
 
@@ -982,7 +982,7 @@ The number of states to be optimized in a given symmetry is specified on a ``sta
 
 It is also possible to optimize states of different symmetries together. In this case several ``wf`` / ``state`` directives can follow each other, e.g.,
 
-``wf,16,1,0;state,2 !optimize two states of symmetry 1\\``
+``wf,16,1,0;state,2 !optimize two states of symmetry 1``
 ``wf,16,2,0;state,1 !optimize one states of symmetry 2``
 
 etc. Optionally also the weights for each state can be specified, e.g.
@@ -1630,7 +1630,7 @@ Orbital specific virtuals are used if the option ``osvsel`` is given, e.g.
 
 ``df-lccsd(t),throsv=1.d-4``
 
-``throsv is the threshold used to select the OSVs. For a given LMO $i$, as many OSVs are included as needed to reproduce the canonical pair energy $\epsilon_{ii}$ of the diagonal pair within this accuracy. See J. Chem. Phys. http:dx.doi.org/10.1063/1.3696963 for more details and benchmarks. Note that df-lccsd-F12 methods with OSVs are not implemented.``
+``throsv`` is the threshold used to select the OSVs. For a given LMO :math:`i`, as many OSVs are included as needed to reproduce the canonical pair energy :math:`\epsilon_{ii}` of the diagonal pair within this accuracy. See J. Chem. Phys. http://dx.doi.org/10.1063/1.3696963 for more details and benchmarks. Note that df-lccsd-F12 methods with OSVs are not implemented.
 
 .. _quickstart--choice-of-pair-classes:
 
@@ -2171,7 +2171,7 @@ Also the structure of ``DO`` loops is as in Fortran:
     commands
    ENDDO
 
-``ivar is the loop index variable, istart, iend, increment are either numbers or variables. The default for increment is 1.``
+``ivar`` is the loop index variable, ``istart``, ``iend``, ``increment`` are either numbers or variables. The default for ``increment`` is 1.
 
 Examples:
 

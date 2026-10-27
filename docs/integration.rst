@@ -35,13 +35,13 @@ If the integrals are stored on disk, immediately after evaluation they are sorte
 
 ``SORT, [SPRI=value]``
 
-``INT,NOSORT;SORT can be used to explicitly separate the integral evaluation and sorting steps, for example to collect separate timing data. With value set to more than 1 in the SPRI option, all the two-electron integrals are printed.``
+``INT,NOSORT;SORT`` can be used to explicitly separate the integral evaluation and sorting steps, for example to collect separate timing data. With *value* set to more than 1 in the ``SPRI`` option, all the two-electron integrals are printed.
 
 The detailed options for the integral sort can be specified using the ``AOINT`` parameter set, using the input form
 
 ``AOINT, key1=value1, key2=value2, $\dots$``
 
-``AOINT can be used with or without an explicit INT command.``
+``AOINT`` can be used with or without an explicit ``INT`` command.
 
 The following summarizes the possible keys, together with their meaning, and default values.
 
@@ -102,9 +102,9 @@ The following table summarizes the possible keys and their meaning. The default 
 * ``SCREEN`` Enables or disables prescreening.
 
 ``SCREEN$\ge 0$: full screening enabled.\\``
-``SCREEN$\lt 0$: THRPROD is unused. No density screening in direct SCF.\\``
-``SCREEN$\lt -1$: THRINT is unused.\\``
-``SCREEN$\lt -2$: THREST is unused.``
+``SCREEN``\ :math:`\lt 0`: ``THRPROD`` is unused. No density screening in direct SCF.
+``SCREEN``\ :math:`\lt -1`: ``THRINT`` is unused.
+``SCREEN``\ :math:`\lt -2`: ``THREST`` is unused.
 
 * ``MAXRED`` Maximum number of iterations after which thresholds are reduced to their final values in ``CI`` and ``CCSD`` calculations. If ``MAXRED``\ =0, the final thresholds will be used in ``CI`` and ``CCSD`` from the beginning (same as ``THRMAX``\ =0, but ``MAXRED`` has no effect on ``DSCF``. In the latter case a fixed value of 10 is used.
 * ``VARRED`` Thresholds are reduced to their final values if the sum of squared amplitude changes is smaller than this value.
@@ -125,7 +125,7 @@ The following table summarizes the possible keys and their meaning. The default 
 * ``PAGE_DTRAF`` Selects the transformation method.
 
 ``PAGE_DTRAF=0: use minimum memory algorithm, requiring four integral evaluations.\\``
-``PAGE_DTRAF=1: use paging algorithm,leading to the minimum CPU time (one integral evaluation for DMP2/LMP2 and two otherwise).``
+``PAGE_DTRAF=1``: use paging algorithm,leading to the minimum CPU time (one integral evaluation for DMP2/LMP2 and two otherwise).
 
 * ``SCREEN_DTRAF`` If given, replaces value of :math:`{\tt SCREEN}` for ``DTRAF``.
 * ``MAXSHLQ1_DTRAF`` Maximum size of merged shells in the first quarter transformation step (0: not used).
@@ -207,10 +207,10 @@ The following table summarizes the possible keys and their meaning. The default 
 * **\*\*Specific options for direct MP2 (``DMP2``)**:\*\*
 * ``DMP2`` Selects the transformation method for direct ``MP2``:
 
-``DMP2=$-1$: automatic selection, depending on the available memory.\\``
+``DMP2``\ =\ :math:`-1`: automatic selection, depending on the available memory.
 ``DMP2=0: use fully direct method for DMP2 (min. two integral evaluations, possibly multipassing, no disk space).\\``
-``DMP2=1: use semi-direct method for DMP2 (one to four integral evaluations, depending on PAGE_DTRAF).\\``
-``DMP2=2: use DKEXT to compute exchange operators in DMP2 (one integral evaluation). This is only useful in local DMP2 calculations with many distant pairs.\\``
+``DMP2``\ =1: use semi-direct method for ``DMP2`` (one to four integral evaluations, depending on ``PAGE_DTRAF``).
+``DMP2``\ =2: use ``DKEXT`` to compute exchange operators in ``DMP2`` (one integral evaluation). This is only useful in local ``DMP2`` calculations with many distant pairs.
 
 * ``THR_DMP2`` General threshold for generation of 2-external integrals in DMP2. If given, this is used as a default for all ``DMP2`` thresholds described below.
 * ``THREST_DMP2`` Prescreening threshold for generation of 2-external integrals.
@@ -228,9 +228,9 @@ The following table summarizes the possible keys and their meaning. The default 
 * **\*\*Specific options for direct local MP2 (``LMP2``)**:\*\*
 * ``DTRAF`` Selects the transformation method for direct ``LMP2``:
 
-``DTRAF $\geq 0$: generates the 2-external integrals (exchange operators) first in AO basis and transforms these thereafter in a second step to the projected, local basis. The disk storage requirements hence scale cubically with molecular size.\\``
+``DTRAF`` :math:`\geq 0`: generates the 2-external integrals (exchange operators) first in AO basis and transforms these thereafter in a second step to the projected, local basis. The disk storage requirements hence scale cubically with molecular size.
 ``DTRAF`` :math:`= -1`: generates the 2-external integrals (exchange operators) directly in projected basis. The disk storage requirements hence scale linearly with molecular size. This (together with ``PAGE_DTRAF`` = 0) is the recommended algorithm for very large molecules (cf. linear scaling LMP2, chapter :doc:`PAO-based local correlation treatments <pao-based_local_correlation_treatments>`).
-``DTRAF $= -2$: alternative algorithm to generate the exchange operators directly in projected basis. Usually, this algorithm turns out to be computationally more expensive than the one selected with DTRAF $= -1$. Note, that neither DTRAF $= -1$ nor DTRAF $= -2$ work in the context of LMP2 gradients.\\``
+``DTRAF`` :math:`= -2`: alternative algorithm to generate the exchange operators directly in projected basis. Usually, this algorithm turns out to be computationally more expensive than the one selected with ``DTRAF`` :math:`= -1`. Note, that neither ``DTRAF`` :math:`= -1` nor ``DTRAF`` :math:`= -2` work in the context of LMP2 gradients.
 
 * ``THR_LMP2`` General threshold for generation of 2-external integrals in linear scaling LMP2. If given, this is used as a default for all ``LMP2`` thresholds described below.
 * ``THREST_LMP2`` Prescreening threshold for generation of 2-external integrals.
@@ -252,11 +252,11 @@ The following table summarizes the possible keys and their meaning. The default 
 * **\*\*Options for integral-direct computation of external exchange operators (``DKEXT``):**\*\*
 * ``DKEXT`` Selects driver for ``DKEXT``.
 
-``DKEXT=-1: use paging algorithm (minimum memory). This is automatically used if in-core algorithm would need more than one integral pass.\\``
-``DKEXT=0: use in-core algorithm, no integral triples.\\``
-``DKEXT=1: use in-core algorithm and integral triples.\\``
-``DKEXT=2: use in-core algorithm and integral triples if at least two integrals of a triple differ.\\``
-``DKEXT=3: use in-core algorithm and integral triples if all integrals of a triple differ.\\``
+``DKEXT=-1``: use paging algorithm (minimum memory). This is automatically used if in-core algorithm would need more than one integral pass.
+``DKEXT``\ =0: use in-core algorithm, no integral triples.
+``DKEXT``\ =1: use in-core algorithm and integral triples.
+``DKEXT``\ =2: use in-core algorithm and integral triples if at least two integrals of a triple differ.
+``DKEXT``\ =3: use in-core algorithm and integral triples if all integrals of a triple differ.
 
 * ``SCREEN_DKEXT`` if given, replaces value of :math:`{\tt SCREEN}` for ``DKEXT``.
 * ``MAXSIZE_DKEXT`` Largest size of merged shells in ``DKEXT`` (0: not used).

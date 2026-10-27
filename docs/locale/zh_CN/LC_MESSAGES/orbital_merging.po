@@ -70,6 +70,15 @@ msgstr ""
 " *fac=0*\\ ，则 *fac* 设置为 1.0。其他细节请参阅 ``MOVE`` 命令。但请注意，与 ``MOVE`` "
 "不同，已定义的输出向量不会被跳过。"
 
+msgid ""
+"``REPLACE``,\\ *orb1.sym1,orb2.sym2,orb3.sym3,ioff,,iustart,iend* Replaces "
+"orbitals in the outputs set. If the output orbitals already exists, they are"
+" set to zero and then replaced by the given input orbitals. Otherwise as "
+"``ADD``."
+msgstr ""
+"``REPLACE``,\\ *orb1.sym1,orb2.sym2,orb3.sym3,ioff,,iustart,iend* "
+"替换输出集中的轨道。如果输出轨道已存在，则先将其设为零，然后用给定的输入轨道替换。其他方面与 ``ADD`` 相同。"
+
 msgid "See also ``MOVE`` and ``EXTRA`` commands."
 msgstr "另请参阅 ``MOVE`` 和 ``EXTRA`` 命令。"
 
@@ -251,3 +260,123 @@ msgstr "也可以在总基组中进行原子计算，使用虚拟基组卡。在
 
 msgid "SCF for the total molecule, orbitals saved to 2100.2"
 msgstr "总分子的 SCF，轨道保存至 2100.2"
+
+msgid ""
+"Orbitals can be manipulated using the ``MERGE`` facility. For instance, this"
+" allows the construction of molecular orbitals from atomic orbitals, to "
+"merge and orthogonalize different orbital sets, or to perform :math:`2 "
+"\\times 2` rotations between individual orbitals. Other orbital "
+"manipulations can be performed using the ``LOCALI`` program (see section "
+":doc:`orbital localization <orbital_localization>`) or the ``MATROP`` "
+"program (section :doc:`matrix operations <matrix_operations>`)."
+msgstr ""
+"可以使用 ``MERGE`` 功能来操作轨道。例如，这允许从原子轨道构造分子轨道，合并并正交化不同的轨道集，或在单个轨道之间执行 :math:`2 "
+"\\times 2` 旋转。其他轨道操作可以使用 ``LOCALI`` 程序（参见章节 :doc:`轨道定域化 "
+"<orbital_localization>`\\ ）或 ``MATROP`` 程序（章节 :doc:`矩阵操作 "
+"<matrix_operations>`\\ ）来执行。"
+
+msgid "``MERGE [,namout.file]``"
+msgstr "``MERGE [,namout.file]``"
+
+msgid ""
+"All subcommands described in the following sections may be abbreviated by "
+"three characters. *namout.file* specifies the output data set (see also "
+"``SAVE`` command). If *namout.file* is omitted and no ``SAVE`` card is "
+"present, the new orbitals are not saved. All output orbitals must be "
+"supplied via ``ORBITAL`` and ``ADD``, ``MOVE``, ``REPLACE``, ``EXTRA``, or "
+"``PROJECT`` directives before they can be saved."
+msgstr ""
+"以下各节中描述的所有子命令均可缩写为三个字符。\\ *namout.file* 指定输出数据集（另见 ``SAVE`` 命令）。如果省略 "
+"*namout.file* 且不存在 ``SAVE`` 卡片，则新轨道不会被保存。所有输出轨道必须在保存之前通过 ``ORBITAL`` 和 "
+"``ADD``\\ 、\\ ``MOVE``\\ 、\\ ``REPLACE``\\ 、\\ ``EXTRA`` 或 ``PROJECT`` 指令提供。"
+
+msgid "``ORBITAL,namin.file,specifications``"
+msgstr "``ORBITAL,namin.file,specifications``"
+
+msgid "``MOVE,orb1.sym1,orb2.sym2,orb3.sym3,ioff,fac,istart,iend``"
+msgstr "``MOVE,orb1.sym1,orb2.sym2,orb3.sym3,ioff,fac,istart,iend``"
+
+msgid ""
+"Moves orbitals *orb1.sym1* to *orb2.sym2* from the input set to the first "
+"vector of symmetry *sym3* in the output set which is undefined so far. The "
+"first *orb3-1* vectors in the output set are skipped regardless of whether "
+"they have been defined before or not. If *sym2 :math:`>` sym1*, *sym3* will "
+"run from *sym1* to *sym2* and the input for *sym3* has no effect. If "
+"*orb1.sym1* is negative, abs(*orb1*) is the maximum number of orbitals to be"
+" moved, starting with orbital *1.sym1*, up to *orb2.sym2*. If *orb2.sym2* is"
+" negative, abs(*orb2*) is the maximum number of vectors to be moved, "
+"starting at *orb1.isym1* up to the last orbital in symmetry *sym2*."
+msgstr ""
+"将输入集中的轨道 *orb1.sym1* 至 *orb2.sym2* 移动到输出集中对称性 *sym3* 的第一个尚未定义的矢量处。输出集中的前 "
+"*orb3-1* 个矢量将被跳过，无论它们之前是否已被定义。如果 *sym2 :math:`>` sym1*\\ ，则 *sym3* 将从 *sym1*"
+" 运行到 *sym2*\\ ，并且 *sym3* 的输入无效。如果 *orb1.sym1* 为负，则 abs(*orb1*) "
+"是要移动的最大轨道数，从轨道 *1.sym1* 开始，直到 *orb2.sym2*\\ 。如果 *orb2.sym2* 为负，则 abs(*orb2*)"
+" 是要移动的最大矢量数，从 *orb1.isym1* 开始，直到对称性 *sym2* 中的最后一个轨道。"
+
+msgid "``ADD,orb1.sym1,orb2.sym2,orb3.sym3,ioff,fac,istart,iend``"
+msgstr "``ADD,orb1.sym1,orb2.sym2,orb3.sym3,ioff,fac,istart,iend``"
+
+msgid "``EXTRA,exsym,orb1.sym1,orb2.sym2,orb3.sym3,ioff,fac,istart,iend``"
+msgstr "``EXTRA,exsym,orb1.sym1,orb2.sym2,orb3.sym3,ioff,fac,istart,iend``"
+
+msgid "``OFFSET,iof$_1$,iof$_2$,$\\ldots$,iof$_8$;``"
+msgstr "``OFFSET,iof$_1$,iof$_2$,$\\ldots$,iof$_8$;``"
+
+msgid ""
+"Sets offsets in the output vector for symmetries 1 to 8. In subsequent "
+"``MOVE`` or ``ADD`` commands, the input vectors are moved to the locations "
+"*iof:math:`_i`+1* in the output vectors. The offset for individual ``ADD`` "
+"or ``MOVE`` commands can be modified by the parameter *ioff* on these cards."
+" This card should immediately follow the orbital directive to which it "
+"applies. Generally, this card is only needed if the dimensions of input and "
+"output vectors are not identical."
+msgstr ""
+"设置输出矢量中对称性 1 到 8 的偏移量。在随后的 ``MOVE`` 或 ``ADD`` 命令中，输入矢量被移动到输出矢量的位置 "
+"*iof:math:`_i`+1* 处。各个 ``ADD`` 或 ``MOVE`` 命令的偏移量可以通过这些卡片上的参数 *ioff* "
+"修改。此卡片应紧跟在它所适用的轨道指令之后。通常，仅当输入和输出矢量的维度不相同时才需要此卡片。"
+
+msgid "``PROJECT,namin.file``"
+msgstr "``PROJECT,namin.file``"
+
+msgid "``ORTH,$n_1,n_2,\\ldots,n_8$``"
+msgstr "``ORTH,$n_1,n_2,\\ldots,n_8$``"
+
+msgid "``SCHMIDT,$n_1,n_2,\\ldots,n_8$``"
+msgstr "``SCHMIDT,$n_1,n_2,\\ldots,n_8$``"
+
+msgid "``ROTATE,iorb1.sym,iorb2,angle``"
+msgstr "``ROTATE,iorb1.sym,iorb2,angle``"
+
+msgid "``INIT,namout.file``"
+msgstr "``INIT,namout.file``"
+
+msgid "``SAVE,namout.file``"
+msgstr "``SAVE,namout.file``"
+
+msgid "``PRINT,iprint,ideb``"
+msgstr "``PRINT,iprint,ideb``"
+
+msgid ":math:`iprint = 0` no print"
+msgstr ":math:`iprint = 0` 不打印"
+
+msgid "examples/h2f_merge.inp"
+msgstr "examples/h2f_merge.inp"
+
+msgid "examples/no_merge1.inp"
+msgstr "examples/no_merge1.inp"
+
+msgid ""
+"SCF for the N atom with dummy basis on the O atom, orbitals saved on 2110.2"
+msgstr "N 原子的 SCF，O 原子上使用赝基组，轨道保存在 2110.2"
+
+msgid ""
+"SCF for the O atom with dummy basis on the N atom, orbitals saved on 2120.2"
+msgstr "O 原子的 SCF，N 原子上使用赝基组，轨道保存在 2120.2"
+
+msgid ""
+"Merge the atomic SCF orbitals. Finally, obtain the virtual orbitals by "
+"projecting the merge orbitals out of the SCF orbitals for NO."
+msgstr "合并原子 SCF 轨道。最后，通过将合并轨道从 NO 的 SCF 轨道中投影掉来获得虚轨道。"
+
+msgid "examples/no_merge2.inp"
+msgstr "examples/no_merge2.inp"

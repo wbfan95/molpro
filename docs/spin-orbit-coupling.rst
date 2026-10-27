@@ -32,7 +32,7 @@ Calculation of SO integrals
 The one-and two-electron spin-orbit integrals over the BP Hamiltonian can be precomputed and stored on disk using the command
 
 ``LSINT [,X] [,Y] [,Z] [,ONECENTER] [;TWOINT,twoint;] [;PREFAC,prefac;]\\``
-``X, Y, and Z specify the components to be computed. If none of these is given, all three are evaluated. The advantage of precomputing the integrals is that they can then be used in any number of subsequent SO calculations, but this may require a large amount of disk space (note that there are 6 times as many integrals as in an energy calculation). If the LSINT card is not given, the integrals are computed whenever needed. The keyword ONECENTER activates the one-center approximation for one- and two- electron spin-orbit integrals. This can reduce drastically the computing time for large molecules. TWOINT and PREFAC can be used to control the accuracy of spin-orbit integrals. These thresholds are similar to TWOINT and PREFAC for standard integrals. The default value for PREFAC is TWOINT/100, and the default value for TWOINT is $10^{-7}$. In the case when no integrals are precomputed, these thresholds can be specified as options for HLSMAT or TRANLS cards, see below.``
+``X``, ``Y``, and ``Z`` specify the components to be computed. If none of these is given, all three are evaluated. The advantage of precomputing the integrals is that they can then be used in any number of subsequent SO calculations, but this may require a large amount of disk space (note that there are 6 times as many integrals as in an energy calculation). If the ``LSINT`` card is not given, the integrals are computed whenever needed. The keyword ``ONECENTER`` activates the one-center approximation for one- and two- electron spin-orbit integrals. This can reduce drastically the computing time for large molecules. ``TWOINT`` and ``PREFAC`` can be used to control the accuracy of spin-orbit integrals. These thresholds are similar to ``TWOINT`` and ``PREFAC`` for standard integrals. The default value for ``PREFAC`` is ``TWOINT/100``, and the default value for ``TWOINT`` is :math:`10^{-7}`. In the case when no integrals are precomputed, these thresholds can be specified as options for ``HLSMAT`` or ``TRANLS`` cards, see below.
 
 The input for spin-orbit ECPs is described in section :doc:`effective core potentials <effective_core_potentials>`. Of course, in ECP-LS calculations the ``LSINT`` card is not needed.
 
@@ -109,14 +109,14 @@ where option can be
 
 * ``HLS`` ``HLS=-1`` only the SO energies and transition matrix elements between ground and excited states are printed (default).
 
-``HLS$\ge 0$: The SO matrix is printed.\\``
-``HLS$\ge 1$: The property matrices are printed.\\``
-``HLS$\ge 2$: The individual matrix elements are printed (same as OPTION,MATEL).\\``
-``HLS$\ge 3$: Debugging information is printed.``
+``HLS``\ :math:`\ge 0`: The SO matrix is printed.
+``HLS``\ :math:`\ge 1`: The property matrices are printed.
+``HLS``\ :math:`\ge 2`: The individual matrix elements are printed (same as ``OPTION,MATEL``).
+``HLS``\ :math:`\ge 3`: Debugging information is printed.
 
 * ``VLS`` ``VLS=-1``: No print of eigenvectors (default).
 
-``VLS$\ge 0$: The eigenvectors are printed.``
+``VLS``\ :math:`\ge 0`: The eigenvectors are printed.
 
 .. _spin-orbit-coupling--options-for-spin-orbit-calculations:
 

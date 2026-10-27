@@ -36,7 +36,7 @@ NEVPT2 has been implemented in two variants both of which are present in ``MOLPR
 Since Molpro2021.2, density fitting can be used to compute the integrals, and the program is then called with
 ``DF-NEVPT2.``
 
-``If you encounter an error exit due to non-zero Fock-matrix elements, the following can help:``
+``If you encounter an error exit`` due to non-zero Fock-matrix elements, the following can help:
 
 * In state-averaged  CASSCF calculations, save state-specific canonical or natural orbitals in multi, e.g. for the second state in symmetry 1: ``NATORB,2141.2,state=2.1``. Do this for each state you want to treat by NEVPT2 with a different record. If you hit in multi the message "too many NATORB directives", you can use a subsequent CASCI calculation to add more NATORB directives.
 * Use the ``NOEXTRA`` directive in multi.

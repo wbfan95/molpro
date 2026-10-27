@@ -140,3 +140,63 @@ msgid ""
 msgstr ""
 "还可以实现更复杂的操作，例如，使用存储为字符串变量的宏，请参阅 `使用字符串变量的宏定义 "
 "<variables.html#macrodefinitionsusingstringvariables>`__\\ 。"
+
+msgid "examples/h2.inp"
+msgstr "examples/h2.inp"
+
+msgid "examples/h2o_scf.inp"
+msgstr "examples/h2o_scf.inp"
+
+msgid ""
+"In the above example, the default basis set (``VDZ``) is used. We can modify"
+" the default basis using a ``BASIS`` directive as you can see in the "
+"modified example shown in [[ basis_input#default_basis_sets\\|default basis "
+"sets]]."
+msgstr ""
+"在上面的示例中，使用了默认基组（\\ ``VDZ``\\ ）。如你在修改后的示例 [[ "
+"basis_input#default_basis_sets\\|default basis sets]] 中所见，我们可以使用 ``BASIS`` "
+"指令修改默认基组。"
+
+msgid "examples/h2o_scfopt_631g.inp"
+msgstr "examples/h2o_scfopt_631g.inp"
+
+msgid "examples/h2o_ccsdt_vtz.inp"
+msgstr "examples/h2o_ccsdt_vtz.inp"
+
+msgid ""
+"In these cases the Hartree-Fock calculation (hf) is implied by the ``run`` "
+"command. For more details and examples see :doc:`Simple Input <quickstart>`."
+msgstr ""
+"在这些情况下，Hartree-Fock 计算（hf）由 ``run`` 命令隐含。更多细节和示例见 :doc:`Simple Input "
+"<quickstart>`\\ 。"
+
+msgid "examples/h2o_mrci_vtz.inp"
+msgstr "examples/h2o_mrci_vtz.inp"
+
+msgid ""
+"It is possible to use the ``RUN`` command to execute single programs. In "
+"this case the input can be written in a single line. For more details and "
+"examples see :doc:`Simple Input <quickstart>`."
+msgstr ""
+"可以使用 ``RUN`` 命令执行单个程序。在这种情况下，输入可以写在一行中。更多细节和示例见 :doc:`Simple Input "
+"<quickstart>`\\ 。"
+
+msgid "examples/h2o_table.inp"
+msgstr "examples/h2o_table.inp"
+
+msgid "examples/h2o_tab.inp"
+msgstr "examples/h2o_tab.inp"
+
+msgid ""
+"``You could simplify this job by defining a procedure SAVE_E as follows:``"
+msgstr ""
+"``You could simplify this job by defining a procedure SAVE_E as follows:``"
+
+msgid "examples/h2o_proce.inp"
+msgstr "examples/h2o_proce.inp"
+
+msgid "examples/h2o_pes_ccsdt.inp"
+msgstr "examples/h2o_pes_ccsdt.inp"
+
+msgid "examples/h2o_manymethods.inp"
+msgstr "examples/h2o_manymethods.inp"
